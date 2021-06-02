@@ -19,7 +19,7 @@ namespace Nutri_Sys
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int numero;
+            int numero = 0;
             numero++;
 
         }

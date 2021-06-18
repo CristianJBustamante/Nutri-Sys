@@ -1,0 +1,41 @@
+:root{
+
+    --primario: #46B62E;
+    --secundario: #28B6CD;
+    --blanco: #fff;
+    --negro: #000;
+
+    --fuentePrincipal: 'Amatic+SC', cursive;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
+}
+
+h1{
+    text-align: center;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-size: 10rem;
+}
+
+.logo_imagen{
+    width: 20rem;
+    height: 20rem;
+    margin: 0  auto;
+}
+
+.contenedor
+{
+    
+    width: 100rem;
+    border: 5px solid black;
+    margin: 200px auto;
+    
+
+}

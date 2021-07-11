@@ -16,6 +16,11 @@ html{
     font-size: 62.5%;
 }
 
+html, body{
+    height:100%;
+    margin: 0;
+  }
+
 *, *:before, *:after{
     box-sizing: inherit;
 }
@@ -50,7 +55,8 @@ h2{
 {
     background-color: var(--primario);
     width: 20%;
-    max-height: 50%;
+    max-height: 100%;
+    min-width: 15%;
 }
 
 
@@ -124,11 +130,12 @@ h2{
     background-color: var(--grisClaro);
     float: left;
     padding-right: 80%;
-
+    
 }
 
 .core{
     display: flex;
+    height: 100%;
 }
 
 .contenido__section{

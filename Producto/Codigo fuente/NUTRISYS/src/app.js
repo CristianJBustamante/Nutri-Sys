@@ -15,5 +15,6 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(pacienteRoutes)
 app.use(mutualRoutes)
+
 export default app
 

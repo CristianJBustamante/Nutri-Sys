@@ -12,19 +12,18 @@ POST {{api}}/pacientes
 Content-Type: application/json
 
 {
-    "pac_tipodoc": "DNI",
     "pac_nrodoc": 55555555,
     "pac_apellido": "Jones",
     "pac_nombre": "Jessica",
     "pac_fechanacimiento": "01/01/1993",
     "pac_telefono1": "9876543212",
     "pac_correo": "jj.jj@gmail.com",
-    "pac_idmutual": 1
+    "pac_mutual": "medife"
 }
 
 ###
 
-GET {{api}}/pacientes/1004
+GET {{api}}/pacientes/1002
 
 ###
 

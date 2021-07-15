@@ -1,8 +1,0 @@
-get('http://localhost:3000/mutual') --> Devuelve un arreglo con todas las mutuales
-get('http://localhost:3000/pacientes') --> Devuelve un arreglo con todos los pacientes
-get('http://localhost:3000/pacientes/##') --> Devuelve los datos del paciente con nro de hc=##
-
-
-post('http://localhost:3000/pacientes') --> Para insertar en Pacientes
-delete('http://localhost:3000/pacientes/##') --> Para borrar paciente con nro hc = ##
-put('http://localhost:3000/pacientes/##') --> Para actualizar paciente con nro hc = ##

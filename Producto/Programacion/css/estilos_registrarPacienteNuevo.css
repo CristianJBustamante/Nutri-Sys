@@ -16,13 +16,15 @@ html{
     font-size: 62.5%;
 }
 
+
 html, body{
-    height:100%;
-    width: 100%;
+    width:100%;
     margin: 0;
     /*display: flex;*/
 
   }
+
+    /*** Responsivo ***/
 
   @media (min-width: 700px) {
    
@@ -38,6 +40,8 @@ html, body{
     }
 
   }
+
+    /*****************/
 
 *, *:before, *:after{
     box-sizing: inherit;
@@ -196,6 +200,10 @@ h2{
         padding-bottom: 2rem;
         gap: 1rem;
     }
+
+    html, body{
+        height:100%;
+      }
 }
 
 @media (min-width: 810px) {
@@ -203,6 +211,10 @@ h2{
         display: flex;
         flex-direction: row;
         column-gap: 2rem;
+    }
+    body{
+        width: 100%;
+        height: 100%;
     }
 }
 
@@ -300,3 +312,4 @@ input::-webkit-inner-spin-button {
         margin-right: 3rem;
     }
 }
+

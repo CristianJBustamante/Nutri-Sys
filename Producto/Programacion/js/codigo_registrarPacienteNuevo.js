@@ -4,6 +4,7 @@ function calcularEdad(){
     if(userinput==null || userinput=='' || dob.getTime() >= Date.now()) {
       alert("Coloque una fecha de nacimiento correcta");  
       document.getElementById("fechaNac__paciente").value='';
+      document.getElementById("edad__paciente").value='';
       return false; 
     } 
     else {

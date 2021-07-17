@@ -18,7 +18,6 @@ html{
 
 
 html, body{
-    height:100%;
     width:100%;
     margin: 0;
     /*display: flex;*/
@@ -200,6 +199,10 @@ h2{
         padding-bottom: 2rem;
         gap: 1rem;
     }
+
+    html, body{
+        height:100%;
+      }
 }
 
 @media (min-width: 810px) {

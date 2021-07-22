@@ -46,27 +46,35 @@
                     </div>
                     <div class="contenido__datosPersonales">
                         <section class="info__datosPersonales">
-                            <h2 class="input__text">Documento:</h2>
+                            <h2 class="input__text">*Documento:</h2>
                             <input type="number" id="documento__paciente" class="input__padding">
                         </section>
                         <section class="info__datosPersonales">
-                            <h2 class="input__text">Mutual:</h2>
+                            <h2 class="input__text">**Mutual:</h2>
+                            <input type="text" class="input__padding" id="mutual__paciente">
+                        </section>
+                        <section class="info__datosPersonales">
+                            <h2 class="input__text">*Dirección:</h2>
+                            <input type="text" class="input__padding" id="direccion__paciente">
+                        </section>
+                        <section class="info__datosPersonales">
+                            <h2 class="input__text">Mutual2:</h2>
                             <input type="text" class="input__padding">
                         </section>
                         <section class="info__datosPersonales">
-                            <h2 class="input__text">Apellido/s:</h2>
+                            <h2 class="input__text">*Apellido/s:</h2>
                             <input type="text" id="apellido__paciente" class="input__padding">
                         </section>
                         <section class="info__datosPersonales">
-                            <h2 class="input__text">Nombre/s:</h2>
+                            <h2 class="input__text">*Nombre/s:</h2>
                             <input type="text" id="nombre__paciente" class="input__padding">
                         </section>
                         <section class="info__datosPersonales">
-                            <h2 class="input__text">Celular:</h2>
+                            <h2 class="input__text">*Celular:</h2>
                             <input type="number" id="celular__paciente" class="input__padding">
                         </section>
                         <section class="info__datosPersonales">
-                            <h2 class="input__text">Correo:</h2>
+                            <h2 class="input__text">*Correo:</h2>
                             <input type="email" id="correo__paciente" class="input__padding">
                         </section>
                         <section class="info__datosPersonales">
@@ -74,12 +82,15 @@
                             <input type="number" id="telefono__paciente" class="input__padding">
                         </section>
                         <section class="info__datosPersonales">
-                            <h2 class="input__text">Fecha Nacimiento:</h2>
+                            <h2 class="input__text">*Fecha Nacimiento:</h2>
                             <input type="date" id="fechaNac__paciente" class="input__padding" onchange="calcularEdad()">
                         </section>
                         <section class="info__datosPersonales">
-                            <h2 class="input__text" id="edad__paciente">Edad:</h2>
+                            <h2 class="input__text">Edad:</h2>
                             <input type="text" class="input__padding" id="edad__paciente" readonly style="background-color: rgb(194, 194, 194);">
+                        </section>
+                        <section class="info__datosPersonales">
+                            <h2 style="font-weight: normal;">* Campos Obligatorios ** Sin mutual (Particular)</h2>
                         </section>
                     </div>
                 </section>

@@ -23,6 +23,8 @@ function calcularEdad(){
     
     //display the calculated age
     return document.getElementById("edad__paciente").value =  age + " años. ";
+
+    console.log("se ejecuto");
     }
 }
 
@@ -41,6 +43,19 @@ function validarDatos(){
         correccion = correccion + "*Documento" + "\n"
         incompleto = true;
     }
+
+    if(document.getElementById("mutual__paciente").value == "")
+    {
+        correccion = correccion + "*Mutual" + "\n"
+        incompleto = true;
+    }
+
+    if(document.getElementById("direccion__paciente").value == "")
+    {
+        correccion = correccion + "*Dirección" + "\n"
+        incompleto = true;
+    }
+
     if(document.getElementById("apellido__paciente").value == "")
     {
         correccion = correccion + "*Apellido" + "\n"

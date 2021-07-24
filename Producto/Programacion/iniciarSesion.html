@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iniciar Sesion</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
-    <!--<link rel="stylesheet" href="css/normalize.css">-->
-    <!-- <link rel="stylesheet" href="./estilos_iniciarSesion.css">  -->
-     <link rel="stylesheet" href="./css/estilos_iniciarSesion.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="./estilos_iniciarSesion.css"> 
+    <!--<link rel="stylesheet" href="./css/estilos_iniciarSesion.css"> -->
     
 </head>
 <body>
@@ -17,18 +17,21 @@
            <img src="Logo Final Verde sin texto-01.png" alt="Imagen logo">
            <h1 class="nombre-sistema"> Nutry-Sys</h1>   
         </div>
-       <div class="iniciar-sesion">
-           <h2>Iniciar sesión</h2>
-       </div>
-       <form class="formulario-sesion">
-            <input  class="usuario" type="text" placeholder="Usuario">
-           <br>
-            <input class="contraseña" type="password" placeholder="Contraseña">
-           <br> <br>
-            <a href="#">¿No puede acceder a su cuenta?</a>
+            <div class="iniciar-sesion">
+                <h2>Iniciar sesión</h2>
+            </div>
+        <form class="formulario-sesion">
+            <input  class="usuario" type="text" placeholder="Usuario(Legajo o email)"/>
+                <br>
+                <div class="campos-contraseña">
+                    <input class="contraseña" type="password" placeholder="Contraseña">
+                    <!-- <button class="mostrar-contraseña"></button>  -->
+                    <!-- <input class="mostrar-contraseña" type="image"src="./imagenojo.jpg"> -->
+                </div>
+                <br> <br>
+                <a href="#">¿No puede acceder a su cuenta?</a>
             <br> 
-            <input class="boton-iniciarSesion" type="submit" value="Iniciar sesión">
-           
+            <input class="boton-iniciarSesion" type="submit" value="Iniciar sesión"> 
        </form>
     </div>
 

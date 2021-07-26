@@ -92,6 +92,8 @@ h2{
     justify-content: space-around; 
     align-items: center;
 }
+
+/* ---------estilos de usuario y contraseña------- */
 .usuario {
     border-bottom: 1px solid black;
     border-top: none;
@@ -100,9 +102,8 @@ h2{
     margin-right: 25%;
     outline: none;
     width: 60%;
-    
 }
-.contraseña{
+#contraseña{
     border-bottom: 1px solid black;
     border-top: none;
     border-left: none;
@@ -112,20 +113,27 @@ h2{
     margin-top: 2%;
     width: 60%;
 }
-.mostrar-contraseña{ 
-    margin-left: 23rem;
-    margin-top: -5rem;
-    padding-left: 2rem;
-    padding-top: 2rem;
-    height:10%;
+#mostrarcontraseña{ 
+    margin-left: 26rem;
+    margin-top: -2rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+    height: 10%;
     width: 10%;
+    padding-right: 0rem;
+    cursor: pointer; 
 }
-
+#mostrarcontraseña{
+    margin-left: 23rem;
+    height: 6%;
+    width: 5%;
+}
 .campos-contraseña{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+/*---------------------------------------*/
 
 @media(min-width:500px){
     .sombra{
@@ -136,7 +144,6 @@ h2{
         padding: 3rem;
     }
 }
-
 
 /* AJUSTES RESPONSIVE*/
 
@@ -161,20 +168,19 @@ h2{
         margin-top: auto; 
         border:none;
     }
-
     .usuario{
         background: none;
     }
-    .contraseña{
+    #contraseña{
         background: none;
     }
     body{
         background: var(--blanco);
         margin-top: 20%;
     }
-        .mostrar-contraseña{ 
+        #mostrarcontraseña{ 
             margin-left: 20rem;
-            margin-top: -4.8rem;
-            margin-right: -1rem;
+            margin-top: -1.8rem;
+            margin-right: -2rem;
         }
     }

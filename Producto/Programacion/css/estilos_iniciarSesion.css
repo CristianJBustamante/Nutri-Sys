@@ -10,16 +10,18 @@
     --fuentePrincipal: 'Amatic+SC', cursive;
 }
 html{
-    box-sizing: border-box;  
     font-size: 62.5%; 
+    box-sizing: border-box;  
+    
 }
 
 *, *:before, *:after{
     box-sizing: inherit;
 }
 body{
-    background-color:var(--grisMedio);  
-    /* background-image: linear-gradient(to top,var(--grisOscuro) 0%,var(--grisMedio) 40%); */
+    /* background-color:var(--grisMedio);    */
+    background-image: linear-gradient(to left,var(--grisOscuro) 0%,var(--grisMedio) 30%);
+    
 }
  .sesion-principal{
 background-color:var(--blanco);
@@ -41,8 +43,6 @@ h1{
     font-size: 160%;
     margin-bottom: 10%;
     font-family:var(--fuentePrincipal);
-    /* margin-left: 2px; */
-    
 }
 img{
     margin-left:10%;  
@@ -51,39 +51,40 @@ img{
     height: 70px;
 }
 .imagen{
-margin-top: 70px;
-/* margin-right: 35%; */
+margin-top: 5%;
 display: flex;
-/* align-items: left;   */
-/* justify-content: space-evenly;  */
-
 }
 .boton-iniciarSesion{
-    margin-top: 30px;
-    margin-bottom: 100px;
+    margin-top: 4%; 
+    margin-bottom: 5%; 
     color: var(--primario);
-    margin-left: 10%;
+    margin-left: 14%;
     background-color: var(--primario);
     color: var(--blanco);
-    padding-left: 6%;
-    padding-right: 7%;
+    padding-left: 4%;
+    padding-right: 4%;
     padding-top: 2%;
     padding-bottom: 2%;
 }
+.boton-iniciarSesion:hover{
+    background-color:#3abe33;
+}
 .formulario-sesion{
-    margin-right: 10%;
+    margin-right: -25%;
 }
 a{
     font-size: 15px;
-    margin-right: 44%;
-    margin-bottom:4%;
-    margin-top: 5%;
+    margin-right: 32%;
+    margin-left: 6%;
+    margin-bottom: 1%;
+    margin-top: -2%;
     color:blue;
     text-decoration: none;
     width: 60%;
+    display: flex;
 }
 h2{
-    margin-right: 40%;
+    margin-right: 30%;
     font-family: 'Roboto', sans-serif;
     font-size: 250%;
     font-weight: lighter;
@@ -91,6 +92,8 @@ h2{
     justify-content: space-around; 
     align-items: center;
 }
+
+/* ---------estilos de usuario y contraseña------- */
 .usuario {
     border-bottom: 1px solid black;
     border-top: none;
@@ -99,9 +102,8 @@ h2{
     margin-right: 25%;
     outline: none;
     width: 60%;
-    
 }
-.contraseña{
+#contraseña{
     border-bottom: 1px solid black;
     border-top: none;
     border-left: none;
@@ -110,38 +112,75 @@ h2{
     margin-right: 25%;
     margin-top: 2%;
     width: 60%;
-    
 }
-.sombra{
-    -webkit-box-shadow: 10px 10px 28px -8px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 28px -8px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 28px -8px rgba(0,0,0,0.75);
-    background-color: var(--blanco);
-    padding: 2rem;
-    /* border-radius: 1rem; */
+#mostrarcontraseña{ 
+    margin-left: 26rem;
+    margin-top: -2rem;
+    padding-left: 0rem;
+    padding-top: 0rem;
+    height: 10%;
+    width: 10%;
+    padding-right: 0rem;
+    cursor: pointer; 
+}
+#mostrarcontraseña{
+    margin-left: 23rem;
+    height: 6%;
+    width: 5%;
+}
+.campos-contraseña{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/*---------------------------------------*/
+
+@media(min-width:500px){
+    .sombra{
+        /* border-radius: 1rem;  */
+        -webkit-box-shadow: 7px 2px 15px -1px rgba(0,0,0,0.3);
+        -moz-box-shadow: 7px 2px 15px -1px rgba(0,0,0,0.3);
+        box-shadow: 7px 2px 15px -1px rgba(0,0,0,0.3);
+        padding: 3rem;
+    }
 }
 
 /* AJUSTES RESPONSIVE*/
 
- @media(max-width:460px){
+ @media(max-width:500px){   
    .formulario-sesion a{
-       margin-right: 30%;
+       margin-right: 23%;
    }
-      .h2{
-        margin-right: 20%;
-        font-size: 30%;
-        align-items: center;
-      }
+       .iniciar-sesion{
+        margin-right: -9%;
+        font-size: 85%;
+      } 
       .imagen{
         margin-top: 30px;
-        margin-left: -10%;
+        margin-left: -1%;
     } 
     .boton-iniciarSesion{
-        margin-left: -2%;
+        margin-left: 10%;
     }
     .sesion-principal{
-        margin-top:40%;
+        background: none;
+        margin-left: auto;
+        margin-top: auto; 
+        border:none;
     }
-        
-} 
-
+    .usuario{
+        background: none;
+    }
+    #contraseña{
+        background: none;
+    }
+    body{
+        background: var(--blanco);
+        margin-top: 20%;
+    }
+        #mostrarcontraseña{ 
+            margin-left: 20rem;
+            margin-top: -1.8rem;
+            margin-right: -2rem;
+        }
+    }

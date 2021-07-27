@@ -115,13 +115,13 @@ h2{
 }
 #mostrarcontraseña{ 
     margin-left: 26rem;
-    margin-top: -2rem;
+    margin-top: -2rem; /*-8 IMPORTANTE PARA QUE SEA RESPONSIVO*/
     padding-left: 0rem;
     padding-top: 0rem;
     height: 10%;
     width: 10%;
     padding-right: 0rem;
-    cursor: pointer; 
+    /* cursor: pointer;  */
 }
 #mostrarcontraseña{
     margin-left: 23rem;
@@ -179,8 +179,8 @@ h2{
         margin-top: 20%;
     }
         #mostrarcontraseña{ 
-            margin-left: 20rem;
-            margin-top: -1.8rem;
+            margin-left: 20rem;  /*18 IMPORTANTE PARA QUE SEA RESPONSIVO*/
+            margin-top: -1.8rem;  /*-8 IMPORTANTE PARA QUE SEA RESPONSIVO*/
             margin-right: -2rem;
         }
     }

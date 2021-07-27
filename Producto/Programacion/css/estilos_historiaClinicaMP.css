@@ -185,6 +185,7 @@ h2{
 .contenido__parametros{
     max-width: 100%;
     min-width: 500px;
+    align-items: center;
 }
 
 @media (min-width: 1360px) {
@@ -263,6 +264,10 @@ h2{
     }
 }
 
+.parametro{
+    text-align: center;
+
+}
 
 
 

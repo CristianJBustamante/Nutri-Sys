@@ -179,7 +179,6 @@ h3{
     flex-direction: column;
     background-color: var(--grisMedio);
     margin: 2rem;
-    padding-bottom: 2rem;
 }
 
 .encabezado__datosPaciente{
@@ -189,20 +188,20 @@ h3{
     margin: 0 5rem;
 }
 
-.resumen{
+.documentos{
     display: flex;
     flex-direction: column;
     margin: 0 2rem;
 }
 
-.resumen__navegación{
+.navegacion__solapas{
     display: flex;
     flex-direction: row;
     
 }
 
-.resumen__solapa{
-    width: 12%;
+.nav__solapa{
+    width: 10%;
     border: black 0.3rem;
     border-style: solid;
     text-align: center;
@@ -219,8 +218,8 @@ h3{
 
 }
 
-.resumen__solapa--seleccionado{
-    width: 12%;
+.nav__solapa--seleccionado{
+    width: 10%;
     border: var(--negro) 0.3rem;
     border-style: solid solid none solid;
     text-align: center;
@@ -235,77 +234,22 @@ h3{
     font-weight: bold;
 }
 
-.resumen__solapa--resto{
-    width: 16%;
+.nav__solapa--resto{
+    width: 30%;
     border: var(--negro) 0.3rem;
     border-style: none none solid none;
 }
 
-
-.resumen__contenido{
+.contenido__solapa{
     border: var(--negro) 0.3rem;
     border-style: none solid solid solid;
 
-    display: flex;
-    flex-direction: column;
-    padding: 1rem;
-    width: 100%;
-}
-
-@media (min-width: 840px) {
-    .resumen__contenido{
-        border: var(--negro) 0.3rem;
-        border-style: none solid solid solid;
-    
-        display: flex;
-        flex-direction: row;
-        padding: 1rem;
-        width: 100%;
-    }
-}
-
-.resumen__contenidoDerIzq{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin: 0 1rem;
-}
-
-@media (min-width: 840px) {
-    .resumen__contenidoDerIzq{
-        width: 50%;
-        margin-right: 2rem;
-    }
-    .resumen__contenido{
-        margin-right: 2rem;
-    }
- 
-}
-
-.resumen__datos{
-    display: flex;
-    flex-direction: column;
-    margin: 0.5 0;
-}
-
-.resumen__contenedorTitulo{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: var(--primario);
-    padding: 0 1rem;
-    
-
-}
-
-.datos__personales{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    padding-left: 1rem;
-}
+    grid-template-rows: 1fr 1fr;
 
-.datos__nutricionales{
-    padding-left: 1rem;
+    padding: 1rem;
+    height: 500px;
 }
 
 
@@ -359,18 +303,4 @@ input::-webkit-inner-spin-button {
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
-}
-
-.btnEditar{
-    margin: 0.5rem;
-    height: 3rem;
-    align-self: center;
-}
-
-.texto__libre{
-    width: 100%;
-    height: 20rem;
-    margin: 1rem 0;
-    font-size: 2rem;
-    font-family: var(--fuentePrincipal);
 }

@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="/css/estilos_historiaClinicaMP.css"> 
     <script src="/js/pacientes/codigo_busquedaHistoriaClinica.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -51,20 +52,20 @@
                 <section class="section__parametros">
                     <div class="contenido__parametros">
                         <h2 class="parametro paramHC1">Historia Clínica:</h2>
-                        <input type="number" id="pac_nrohc" class="parametro__input padding__inputText paramHC2">
+                        <input type="number" class="parametro__input padding__inputText paramHC2" id="pac_nrohc">
                         <h2 class="parametro paramDoc1">Documento:</h2>
-                        <input type="number" class="parametro__input padding__inputText paramDoc2">
+                        <input type="number" class="parametro__input padding__inputText paramDoc2" id="pac_nrodoc">
                         <input type="button" value="Buscar Paciente" class="normal parametro__input btnBuscar" onclick="buscarPaciente()">
                         <h2 class="parametro paramAN1">Apellido, Nombre:</h2>
-                        <input type="text" class="parametro__input padding__inputText paramAN2">
+                        <input type="text" class="parametro__input padding__inputText paramAN2" id="pac_apellido">
                         <h2 class="parametro paramFN1">FN:</h2>
-                        <input type="text" class="parametro__input padding__inputText paramFN2" readonly style="background-color: rgb(194, 194, 194);">
+                        <input type="text" class="parametro__input padding__inputText paramFN2" readonly style="background-color: rgb(194, 194, 194);" id="pac_fechanacimiento">
                         <input type="button" value="Nuevo Paciente" class="normal parametro__input btnNuevo" onclick="crearPacienteNuevo()">
                     </div> 
                 </section>
                 <section class="contenido__resultados"> 
                     <div class="tabla__resultados">
-                        <table class="table table-hover table-fixed" id="tablaPaciente">
+                        <table class="table table-hover table-fixed">
                             <thead>
                               <tr class="tr__width">
                                 <th class="td__width--HC" scope="col">HC</th>
@@ -73,14 +74,7 @@
                                 <th class="td__width--Doc"  scope="col">Documento</th>
                               </tr>
                             </thead>
-                            <tbody>
-                              <script>
-                                let url = 'http://192.168.0.188:3000/pacientes/100'
-                                fetch(url)
-                                  .then(response => response.json())
-                                  .then(data => console.log(data))
-                                  .catch(error => console.log(error))
-                              </script>
+                            <tbody id="data">
                             </tbody>
                           </table>
 

@@ -3,7 +3,7 @@ const express = require('express');
 const http=require('http');
 const router = express.Router();
 const app = express();
-import {actualizarPaciente, eliminarPaciente, getPacienteLikeHC, getPacientes, getPacienteXap, getPacienteXHC, nuevoPaciente} from "../controllers/paciente.controller";
+import {actualizarPaciente, eliminarPaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, nuevoPaciente} from "../controllers/paciente.controller";
 
 
 //router.get('/nuevopaciente',(req,res) => {
@@ -20,7 +20,7 @@ import {actualizarPaciente, eliminarPaciente, getPacienteLikeHC, getPacientes, g
     res.render('pacientes/historiaClinicaMP.html');
 });
   //consulta hc paciente
-  router.get('/pacientes/consultapaciente/:pac_nrohc', (req,res) => {
+  router.get('/pacientes/consultapaciente/hc=:pac_nrohc', (req,res) => {
     res.render('pacientes/historiaClinicaPaciente.html');
 });
   //consulta hc paciente - Documentos
@@ -51,12 +51,21 @@ import {actualizarPaciente, eliminarPaciente, getPacienteLikeHC, getPacientes, g
 
 
 //ACCESO A DATOS
-router.get('/pacientes', getPacientes)
+  //Alta, Baja, Modif
 router.post('/pacientes', nuevoPaciente)
 router.delete('/paciente/:pac_nrohc', eliminarPaciente)
 router.put('/pacientes/:pac_nrohc', actualizarPaciente)
+
+  //Consultas
+router.get('/pacientes', getPacientes)
 router.get('/paciente/:pac_nrohc', getPacienteXHC)
-router.get('/pacientes/:pac_nrohc', getPacienteLikeHC)
-router.get('/pacienteap/:pac_apellido', getPacienteXap)
+router.get('/pacientes/hc=:pac_nrohc',getPacienteLikeHC)
+router.get('/pacientes/doc=:pac_nrodoc',getPacienteLikeDoc)
+router.get('/pacientes/ap=:pac_apellido', getPacienteXap)
+router.get('/pacientes/hc=:pac_nrohc/ap=:pac_apellido/doc=:pac_nrodoc', getPacienteMixto)
+router.get('/pacientes/hc=:pac_nrohc/ap=:pac_apellido', getPacienteHCAP)
+router.get('/pacientes/hc=:pac_nrohc/doc=:pac_nrodoc', getPacienteHCDoc)
+router.get('/pacientes/ap=:pac_apellido/doc=:pac_nrodoc', getPacienteAPDoc)
+
 
 module.exports = router;

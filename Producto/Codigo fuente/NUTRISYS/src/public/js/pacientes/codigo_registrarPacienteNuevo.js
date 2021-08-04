@@ -66,10 +66,11 @@ function crearPaciente(){
         }
         }).then(res=>res.json())
         .then(data=>console.log(data))
-        alert("Paciente registrado con éxito")
+        swal("Paciente registrado con Éxito",{
+            icon: "success"})
         location.href ="./buscarpaciente"
     } catch (error) {
-        alert("Hubo un Error al Registrar. Intente nuevamente. Error:" & error )
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
     }
     }
     

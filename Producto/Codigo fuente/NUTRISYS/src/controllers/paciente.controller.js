@@ -1,7 +1,7 @@
 import {getConnection,sql,queries} from "../database";
 
-export const getPacientes = async (req,res) => {
-    
+//CONSULTAR TODOS LOS PACIENTES
+export const getPacientes = async (req,res) => {  
     try {
         const pool = await getConnection();
         const result = await pool.request().query(queries.getPaciente);
@@ -13,11 +13,12 @@ export const getPacientes = async (req,res) => {
     }
 };
 
+//INSERTAR NUEVO PACIENTE
 export const nuevoPaciente = async (req,res) => {
     const { pac_nrodoc,pac_apellido,pac_nombre,
             pac_telefono1,pac_correo,pac_fechanacimiento,pac_mutual } = req.body;
-    let {pac_direccion,pac_telefono2} = req.body;
-
+    let {pac_direccion,pac_telefono2,pac_mutual2} = req.body;
+    
     if (pac_nrodoc==null || pac_apellido==null || pac_nombre==null || pac_mutual==null ||
         pac_telefono1==null || pac_correo==null || pac_fechanacimiento==null ) {
             return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})
@@ -25,6 +26,7 @@ export const nuevoPaciente = async (req,res) => {
     
     if (pac_telefono2==null){pac_telefono2=''}
     if (pac_direccion==null){pac_direccion=''}
+    if (pac_mutual2==null){pac_mutual2=''}
 
     try {
         const pool = await getConnection();
@@ -38,15 +40,17 @@ export const nuevoPaciente = async (req,res) => {
             .input('pac_telefono2',sql.NVarChar,pac_telefono2)
             .input('pac_correo',sql.NVarChar,pac_correo)
             .input('pac_mutual',sql.NVarChar,pac_mutual)
+            .input('pac_mutual2',sql.NVarChar,pac_mutual2)
             .query(queries.nuevoPaciente)
         res.json({  pac_nrodoc,pac_apellido,pac_nombre,pac_fechanacimiento,
-                pac_direccion,pac_telefono1,pac_telefono2,pac_correo,pac_mutual})
+                pac_direccion,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2})
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }         
 }
 
+//CONSULTAR PACIENTE POR HC
 export const getPacienteXHC = async(req,res) => {
     try {
         const {pac_nrohc} = req.params
@@ -60,6 +64,35 @@ export const getPacienteXHC = async(req,res) => {
     }
 } 
 
+//CONSULTAR PACIENTE POR HC SIMILAR
+export const getPacienteLikeHC = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc).query(queries.getPacientelikeHC)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//CONSULTAR PACIENTE POR APELLIDO
+export const getPacienteXap = async(req,res) => {
+    try {
+        const {pac_apellido} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_apellido', pac_apellido).query(queries.getPacienteXApellido)
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//ELIMINAR PACIENTE POR HC
 export const eliminarPaciente = async(req,res) => {
     try {
         const {pac_nrohc} = req.params
@@ -73,6 +106,7 @@ export const eliminarPaciente = async(req,res) => {
     }
 }
 
+//ACTUALIZAR PACIENTE POR HC
 export const actualizarPaciente = async(req,res) => {
     const { pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_fechanacimiento,
             pac_telefono1,pac_correo,pac_mutual} = req.body;

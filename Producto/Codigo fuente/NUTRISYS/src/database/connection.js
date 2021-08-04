@@ -9,7 +9,6 @@ const dbsettings = {
     options: {
         encrypt: true, //for azure
         trustServerCertificate: true //true para local serv
-
     }
 }
 

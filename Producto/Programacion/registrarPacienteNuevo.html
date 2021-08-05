@@ -4,12 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nutri-Sys - Registrar Paciente</title>
+    <title id="tituloModo">Nutri-Sys - Registrar Paciente</title>
     <link rel="stylesheet" href="css/normalize.css"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="css/estilos_registrarPacienteNuevo.css"> 
     <script src="js/codigo_registrarPacienteNuevo.js"></script>
+    <!--
+    <script>
+        function modoVisual() {
+            var modo = getModo();
+            console.log(modo);
+            if(modo == true){
+                var titulo;
+                var subtitulo;
+                var boton;
+                titulo = document.getElementById("tituloModo");
+                subtitulo = document.getElementById("subTituloModo");
+                boton = document.getElementById("botonModo");
+                titulo.innerHTML = "Nutri-Sys - Modificar Paciente";
+                subtitulo.innerHTML = "Editar Paciente";
+                boton.value = "Modificar Paciente"; 
+            }
+        }
+        window.onload = modoVisual;
+    </script>
+    -->
+
+<script type="text/javascript">
+    var varGlobal = "variable";
+</script>
+<script type="text/javascript">
+    console.log(window.varGlobal);
+    console.log(window.modoEdicionGlobal);
+</script>
+
 </head>
 <body>
     <div class="aside">
@@ -37,8 +66,8 @@
         <div class="contenidoPagina">
             <article class="contenido__article">
                 <section class="contenido__section"> 
-                    <h2 class="titulo ">Nuevo Paciente</h2>
-                    <input type="button" value="Crear Paciente" class="normal btn__crear" onclick="crearPaciente()">
+                    <h2 class="titulo " id="subTituloModo">Nuevo Paciente</h2>
+                    <input type="button" value="Crear Paciente" class="normal btn__crear" onclick="crearPaciente()" id="botonModo">
                 </section>
                 <section class="contenido__section--datosPersonales"> 
                     <div class="titulo__datosPersonales">

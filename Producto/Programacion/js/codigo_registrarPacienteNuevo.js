@@ -1,3 +1,7 @@
+
+var modoEdicion=true;
+
+
 function calcularEdad(){
     var userinput = document.getElementById("fechaNac__paciente").value;
     var dob = new Date(userinput);
@@ -31,6 +35,17 @@ function calcularEdad(){
 
 function crearPaciente(){
     validarDatos();
+}
+
+
+function activarEdicion(){
+    modoEdicion = true;
+    modoEdicionGlobal = true;
+    location.href ="file:///C:/Users/Equipo/Desktop/Facultad/Proyecto%20Tesis/Nutri-Sys/Producto/Programacion/registrarPacienteNuevo.html"
+}
+
+function getModo(){
+    return modoEdicion;
 }
 
 function validarDatos(){

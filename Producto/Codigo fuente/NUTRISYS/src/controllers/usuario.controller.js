@@ -10,7 +10,7 @@ export const getUsuario = async(req,res) => {
             .input('usu_usuario', usu_usuario)
             .input('usu_clave', usu_clave)
             .query(queries.getUsuario)
-        res.send(result.recordset[0])
+        res.send(result.recordset)
     } catch (error) {
         res.status(500);
         res.send(error.message);

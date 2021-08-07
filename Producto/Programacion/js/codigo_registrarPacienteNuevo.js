@@ -40,7 +40,11 @@ function crearPaciente(){
 
 function activarEdicion(){
     modoEdicion = true;
-    modoEdicionGlobal = true;
+    location.href ="file:///C:/Users/Equipo/Desktop/Facultad/Proyecto%20Tesis/Nutri-Sys/Producto/Programacion/registrarPacienteNuevo.html"
+}
+
+function crearPacienteNuevo(){
+    modoEdicion = false;
     location.href ="file:///C:/Users/Equipo/Desktop/Facultad/Proyecto%20Tesis/Nutri-Sys/Producto/Programacion/registrarPacienteNuevo.html"
 }
 
@@ -105,3 +109,5 @@ function validarDatos(){
     }
     
 }
+
+

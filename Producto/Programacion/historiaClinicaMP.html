@@ -12,7 +12,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="css/estilos_historiaClinicaMP.css"> 
+    <!--
     <script src="js/codigo_busquedaHistoriaClinica.js"></script>
+    -->
+    <script src="js/codigo_registrarPacienteNuevo.js"></script>
+    
 </head>
 <body>
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -59,7 +63,8 @@
                         <input type="text" class="parametro__input padding__inputText paramAN2">
                         <h2 class="parametro paramFN1">FN:</h2>
                         <input type="text" class="parametro__input padding__inputText paramFN2" readonly style="background-color: rgb(194, 194, 194);">
-                        <input type="button" value="Nuevo Paciente" class="normal parametro__input btnNuevo" onclick="crearPacienteNuevo()">
+                        <!-- Modo Edicion Off-->
+                        <input type="button" value="Nuevo Paciente" class="normal parametro__input btnNuevo" onclick="crearPacienteNuevo()"> 
                     </div> 
                 </section>
                 <section class="contenido__resultados"> 

@@ -9,16 +9,8 @@
     <link rel="stylesheet" href="/css/normalize.css">
     <!-- <link rel="stylesheet" href="./estilos_iniciarSesion.css"> link a los estilos de mi pc -->
     <link rel="stylesheet" href="/css/estilos_iniciarSesion.css">
-        <script>
-                function mostrarClave(){
-                    var tipo = document.getElementById("clave");
-                    if(tipo.type == "password"){
-                        tipo.type = "text";
-                    }else{
-                        tipo.type = "password";
-                    }
-                }
-              </script>
+    <script src="/js/usuarios/codigo_iniciarSesion.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
     
@@ -31,7 +23,7 @@
                 <h2>Iniciar sesión</h2>
             </div>
         <form class="formulario-sesion">
-            <input  class="usuario" required type="text" placeholder="Usuario(Legajo o email)"/>
+            <input  class="usuario" required type="text" placeholder="Usuario(Legajo o email)" id="usuario"/>
                 <br>
                 <div class="campos-clave">
                     <input id="clave" required type="password" placeholder="Clave">
@@ -42,7 +34,7 @@
                 <br> <br>
                 <a href="#">¿No puede acceder a su cuenta?</a>
             <br> 
-            <input class="boton-iniciarSesion" type="submit" value="Iniciar sesión"> 
+            <input class="boton-iniciarSesion" type="button" value="Iniciar sesión" onclick="validarUsuario()"> 
        </form>
     </div>
 

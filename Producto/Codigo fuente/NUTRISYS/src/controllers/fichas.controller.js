@@ -1,7 +1,7 @@
 import {getConnection,sql,queries} from "../database";
 
 
-//INSERTAR NUEVO PACIENTE
+//INSERTAR NUEVO ANAMNESIS
 export const registrarAnamnesis = async (req,res) => {
     const { anms_id, anms_nrohc, anms_fechaRegistro,
         danms_id,danms_idItem,danms_consumido,item_id } = req.body;

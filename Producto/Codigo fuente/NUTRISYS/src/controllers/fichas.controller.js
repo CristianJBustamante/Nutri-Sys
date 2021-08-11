@@ -5,7 +5,7 @@ import {getConnection,sql,queries} from "../database";
 export const registrarAnamnesis = async (req,res) => {
     const { anms_id, anms_nrohc, anms_fechaRegistro,
         danms_id,danms_idItem,danms_consumido,item_id } = req.body;
-    let {anms_observaciones,danms_cantidad,danms_observaciones,item_descripcion} = req.body;
+    let {anms_observaciones,danms_cantidad,danms_observaciones} = req.body;
     
     if (anms_id==null || anms_nrohc==null || anms_fechaRegistro==null || pac_mutual==null ||
         danms_id==null || danms_idItem==null || danms_consumido==null || item_id==null ) {
@@ -15,7 +15,6 @@ export const registrarAnamnesis = async (req,res) => {
     if (anms_observaciones==null){anms_observaciones=''}
     if (danms_cantidad==null){danms_cantidad=''}
     if (danms_observaciones==null){danms_observaciones=''}
-    if (item_descripcion==null){item_descripcion=''}
 
     try {
         const pool = await getConnection();
@@ -30,10 +29,9 @@ export const registrarAnamnesis = async (req,res) => {
             .input('anms_observaciones',sql.NVarChar,anms_observaciones)
             .input('danms_cantidad',sql.Numeric,danms_cantidad)
             .input('danms_observaciones',sql.NVarChar,danms_observaciones)
-            .input('item_descripcion',sql.NVarChar,item_descripcion)
             .query(queries.registrarAnamnesis)
         res.json({  anms_id,anms_nrohc,anms_fechaRegistro,danms_id,danms_idItem,
-            danms_consumido,item_id,anms_observaciones,danms_cantidad,danms_observaciones,item_descripcion})
+            danms_consumido,item_id,anms_observaciones,danms_cantidad,danms_observaciones})
     } catch (error) {
         res.status(500);
         res.send(error.message);

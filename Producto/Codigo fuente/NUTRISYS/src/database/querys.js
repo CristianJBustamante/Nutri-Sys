@@ -16,5 +16,8 @@ export const queries = {
     actualizarPaciente: 'UPDATE paciente SET pac_tipodoc=@pac_tipodoc,pac_nrodoc=@pac_nrodoc,pac_apellido=@pac_apellido,pac_nombre=@pac_nombre,pac_fechanacimiento=@pac_fechanacimiento,pac_direccion=@pac_direccion,pac_telefono1=@pac_telefono1,pac_telefono2=@pac_telefono2,pac_correo=@pac_correo,pac_mutual=@pac_mutual WHERE pac_nrohc = @pac_nrohc',
 
 //USUARIOS
-    getUsuario: "select case when emp_apellido is null then pac_apellido else emp_apellido end as apellido,case when emp_nombre is null then pac_nombre else emp_nombre end as nombre,* from usuario left join empleado on emp_idusuario=usu_id left join paciente on pac_idusuario=usu_id where usu_usuario=@usu_usuario and usu_clave=@usu_clave"
+    getUsuario: "select case when emp_apellido is null then pac_apellido else emp_apellido end as apellido,case when emp_nombre is null then pac_nombre else emp_nombre end as nombre,* from usuario left join empleado on emp_idusuario=usu_id left join paciente on pac_idusuario=usu_id where usu_usuario=@usu_usuario and usu_clave=@usu_clave",
+
+//FICHAS--- completar
+    registrarAnamnesis: "Begin Insert Into anamnesis_paciente(anms_id, anms_nrohc, anms_fecharegistro, anms_observaciones) values (@anms_id,@anms_nrohc,@anms_fecharegistro, @anms_observaciones); insert into detalle_anamnesis(danms_id, danms_linea, danms_iditem, danms_consumido, danms_cantidad, danms_observaciones) values (@danms_id,@danms_linea,@danms_iditem,@danms_consumido,@danms_cantidad,danms_observaciones); End"
 }

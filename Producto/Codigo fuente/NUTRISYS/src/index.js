@@ -30,6 +30,7 @@ app.use(session({
 //Global Variables
 
 //Routes
+app.use(require('./routes/fichas.routes'));
 app.use(require('./routes/paciente.routes'));
 app.use(require('./routes/usuario.routes'));
 

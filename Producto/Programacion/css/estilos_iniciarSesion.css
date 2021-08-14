@@ -12,7 +12,6 @@
 html{
     font-size: 62.5%; 
     box-sizing: border-box;  
-    
 }
 
 *, *:before, *:after{
@@ -21,26 +20,26 @@ html{
 body{
     /* background-color:var(--grisMedio);    */
     background-image: linear-gradient(to left,var(--grisOscuro) 0%,var(--grisMedio) 30%);
-    
 }
  .sesion-principal{
 background-color:var(--blanco);
 font-size: 150%;
 text-align: center;
-margin-top: 20rem; 
+margin-top: 7%; 
 margin-left: auto;
 margin-right: auto;
 display: flex;
 flex-direction: column;
 min-width: 250px; 
 max-width: 500px; 
+border-radius: 10%;
 
 } 
 h1{
     text-align: left;
      /* margin-right: 25%;  */
     /* margin-left: 1px; */
-    font-size: 160%;
+    font-size: 200%;
     margin-bottom: 10%;
     font-family:var(--fuentePrincipal);
 }
@@ -65,6 +64,7 @@ display: flex;
     padding-right: 4%;
     padding-top: 2%;
     padding-bottom: 2%;
+    border-radius: 10%;
 }
 .boton-iniciarSesion:hover{
     background-color:#3abe33;
@@ -113,26 +113,13 @@ h2{
     margin-top: 2%;
     width: 60%;
 }
-#mostrarcontraseña{ 
-    margin-left: 26rem;
-    margin-top: -2rem; /*-8 IMPORTANTE PARA QUE SEA RESPONSIVO*/
-    padding-left: 0rem;
-    padding-top: 0rem;
-    height: 10%;
-    width: 10%;
-    padding-right: 0rem;
-    /* cursor: pointer;  */
-}
-#mostrarcontraseña{
+
+#mostrarcontra{
     margin-left: 23rem;
     height: 6%;
     width: 5%;
 }
-.campos-contraseña{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
+
 /*---------------------------------------*/
 
 @media(min-width:500px){
@@ -184,3 +171,7 @@ h2{
             margin-right: -2rem;
         }
     }
+
+footer{
+    margin-top: 10px;
+}

@@ -37,3 +37,17 @@ export const registrarAnamnesis = async (req,res) => {
         res.send(error.message);
     }         
 }
+
+//CONSULTAR ANAMNESIS POR HC
+export const getAnamnesisXHC = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc).query(queries.getAnamnesisXHC)
+        res.send(result.recordset[0])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 

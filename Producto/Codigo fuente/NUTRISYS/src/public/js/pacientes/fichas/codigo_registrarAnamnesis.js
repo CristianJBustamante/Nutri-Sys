@@ -54,50 +54,46 @@ function validarDatos(){
     var incompleto = false;
     var correccion = "Datos incompletos o inválidos: " + "\n";
 
-    if(document.getElementById("anms_nrohc").value == "")
+    if(document.getElementById("anms_nrohc").value == "") //viene ya cargado
     {
         correccion = correccion + "*NroHistoriaClinica" + "\n"
         incompleto = true;
     }
-
-    if(document.getElementById("anms_fechaRegistro").value == "")
+    if(document.getElementById("anms_fechaRegistro").value == "") //fecha actual
     {
         correccion = correccion + "*Fecha" + "\n"
         incompleto = true;
     }
-
     if(document.getElementById("anms_observaciones").value == "")
     {
         correccion = correccion + "*Observaciones" + "\n"
         incompleto = true;
     }
-
     if(document.getElementById("danms_idItem").value == "")
     {
         correccion = correccion + "*idItem" + "\n"
         incompleto = true;
-        if(document.getElementById("danms_consumido").value == "")
-        {
-            correccion = correccion + "*Consumido" + "\n"
-            incompleto = true;
-        }
-        if(document.getElementById("danms_cantidad").value == "")
-        {
-            correccion = correccion + "*Cantidad" + "\n"
-            incompleto = true;
-        }
-        if(document.getElementById("danms_observaciones").value == "")
-        {
-            correccion = correccion + "*Observaciones" + "\n"
-            incompleto = true;
-        }
-        if(document.getElementById("item_descripcion").value == "")
-        {
-            correccion = correccion + "*Descripcion" + "\n"
-            incompleto = true;
-        }
     }
-
+    if(document.getElementById("danms_consumido").value == "")
+    {
+        correccion = correccion + "*Consumido" + "\n"
+        incompleto = true;
+    }
+    if(document.getElementById("danms_cantidad").value == "")
+    {
+        correccion = correccion + "*Cantidad" + "\n"
+        incompleto = true;
+    }
+    if(document.getElementById("danms_observaciones").value == "")
+    {
+        correccion = correccion + "*Observaciones" + "\n"
+        incompleto = true;
+    }
+    if(document.getElementById("item_descripcion").value == "")
+    {
+        correccion = correccion + "*Descripcion" + "\n"
+        incompleto = true;
+    }
     if(incompleto == true){
         alert(correccion);
         return false;

@@ -32,7 +32,7 @@ display: flex;
 flex-direction: column;
 min-width: 250px; 
 max-width: 500px; 
-border-radius: 10%;
+border-radius:5%;
 
 } 
 h1{
@@ -64,7 +64,6 @@ display: flex;
     padding-right: 4%;
     padding-top: 2%;
     padding-bottom: 2%;
-    border-radius: 10%;
 }
 .boton-iniciarSesion:hover{
     background-color:#3abe33;
@@ -113,13 +112,27 @@ h2{
     margin-top: 2%;
     width: 60%;
 }
+#mostrarClave{ 
+    margin-left: 26rem;
+    margin-top: -2rem; /*-8 IMPORTANTE PARA QUE SEA RESPONSIVO*/
+    padding-left: 0rem;
+    padding-top: 0rem;
+    height: 10%;
+    width: 10%;
+    padding-right: 0rem;
+    /* cursor: pointer;  */
+}
 
-#mostrarcontra{
+#mostrarClave{
     margin-left: 23rem;
     height: 6%;
     width: 5%;
 }
-
+.campos-contraseña{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 /*---------------------------------------*/
 
 @media(min-width:500px){
@@ -165,13 +178,9 @@ h2{
         background: var(--blanco);
         margin-top: 20%;
     }
-        #mostrarcontraseña{ 
+        #mostrarClave{ 
             margin-left: 20rem;  /*18 IMPORTANTE PARA QUE SEA RESPONSIVO*/
             margin-top: -1.8rem;  /*-8 IMPORTANTE PARA QUE SEA RESPONSIVO*/
             margin-right: -2rem;
         }
     }
-
-footer{
-    margin-top: 10px;
-}

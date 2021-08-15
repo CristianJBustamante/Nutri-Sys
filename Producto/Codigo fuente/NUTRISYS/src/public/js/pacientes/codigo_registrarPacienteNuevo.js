@@ -58,7 +58,7 @@ function crearPaciente(){
     }
     try {
         console.log(JSON.stringify(post));
-        fetch("http://192.168.0.188:3000/pacientes",{
+        fetch("http://localhost:3000/pacientes",{
         method:'POST',
         body: JSON.stringify(post),
         headers: {

@@ -33,6 +33,7 @@ app.use(session({
 app.use(require('./routes/fichas.routes'));
 app.use(require('./routes/paciente.routes'));
 app.use(require('./routes/usuario.routes'));
+app.use(require('./routes/anamnesis.routes'));
 
 //Static Files
 app.use(express.static(path.join(__dirname,'public')));

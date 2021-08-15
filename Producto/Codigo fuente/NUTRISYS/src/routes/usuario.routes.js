@@ -13,7 +13,10 @@ const KEY = process.env.KEYSECRET ;
   router.get('/usuarios/login', (req,res) => {
     res.render('usuarios/iniciarSesion.html');
   });
-
+  //pantalla inicial
+  router.get('/welcome', (req,res) => {
+    res.render('pantallaInicial.html');
+  });
 
 //login
 router.post('/usuarios/login', (req,res) => {

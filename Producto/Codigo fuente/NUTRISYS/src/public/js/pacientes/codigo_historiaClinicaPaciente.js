@@ -1,6 +1,9 @@
+//import config from "../../../config";
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
-let query = 'http://192.168.0.188:3000/paciente/'+pac_nrohc
+//let ip = config.ip
+//alert(ip)
+let query = 'http://localhost:3000/paciente/'+pac_nrohc
 fetch(query)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -18,3 +21,6 @@ const mostrarData = (data) => {
     }
 
 //Cargar resumen
+
+
+

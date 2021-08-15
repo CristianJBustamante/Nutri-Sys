@@ -6,7 +6,7 @@ function buscarPaciente(){
     let nrohc = document.getElementById("pac_nrohc").value;
     let nrodoc = document.getElementById("pac_nrodoc").value;
     let apellido = document.getElementById("pac_apellido").value;
-    let url = 'http://192.168.0.188:3000/pacientes/'
+    let url = 'http://localhost:3000/pacientes/'
     if (nrohc=='' & nrodoc=='' & apellido=='')  {
       url=url;
     }

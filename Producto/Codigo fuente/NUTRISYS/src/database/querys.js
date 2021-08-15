@@ -18,7 +18,11 @@ export const queries = {
 //USUARIOS
     getUsuario: "select case when emp_apellido is null then pac_apellido else emp_apellido end as apellido,case when emp_nombre is null then pac_nombre else emp_nombre end as nombre,* from usuario left join empleado on emp_idusuario=usu_id left join paciente on pac_idusuario=usu_id where usu_usuario=@usu_usuario and usu_clave=@usu_clave",
 
-//FICHAS--- completar
+    
+//FICHA INICIAL--- completar
+  //ANAMNESIS
+    getItemsAnamnesis: "select item_id,tipoitem_descripcion,item_descripcion from item_anamnesis inner join tipoitem_anamnesis on item_tipo=tipoitem_id order by item_tipo",
     registrarAnamnesis: "Execute RegistrarAnamnesis @anms_id, @anms_nrohc, @anms_fecharegistro, @anms_observaciones, @danms_linea, @danms_iditem, @danms_consumido, @danms_cantidad, @danms_observaciones)",
     getAnamnesisXHC: "select * from anamnesis_paciente join detalle_anamnesis on(anms_id= danms_id) join item_anamnesis on (danms_iditem = item_id)"
+
 }

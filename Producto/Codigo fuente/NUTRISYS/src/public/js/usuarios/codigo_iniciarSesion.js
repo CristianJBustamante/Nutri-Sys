@@ -2,7 +2,7 @@
 function validarUsuario() {
     var usu_usuario = document.getElementById("usuario").value;
     var usu_clave = document.getElementById("clave").value;
-    var url = "http://192.168.0.188:3000/usuario/"+usu_usuario+'/'+usu_clave
+    var url = "http://localhost:3000/usuario/"+usu_usuario+'/'+usu_clave
     fetch(url)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -16,7 +16,7 @@ function validarUsuario() {
         else {
                 swal("Bienvenido/a",data[0].apellido + ", " + data[0].nombre,"success")
                 .then((value) => {
-                        location.href ="../pacientes/buscarpaciente"})
+                        location.href ="../welcome"})
                 
                 
         }

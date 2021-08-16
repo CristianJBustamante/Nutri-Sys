@@ -7,6 +7,7 @@
     --grisClaro: #f0f3f4;
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
+    --verdeBtonHover: #3abe33;
 
     --fuentePrincipal: 'Amatic+SC', cursive;
 }
@@ -354,6 +355,7 @@ margin-left: 2rem;
 .formulario__laboratorios{
 border-color: var(--grisOscuro);
 border-style: solid;
+border-radius: 1rem;
 padding-bottom: 2rem;
 font-family: var(--fuentePrincipal);
 }
@@ -369,6 +371,7 @@ font-family: var(--fuentePrincipal);
     margin: 1rem 0;
     width: 50%;
     font-size: 2rem;    
+    font-family: var(--fuentePrincipal);
 }
 .contenido__fecha{
     width: 15%;
@@ -390,6 +393,7 @@ font-family: var(--fuentePrincipal);
 }
 .input__valor{
     margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 .label__ficha{
@@ -405,19 +409,20 @@ font-family: var(--fuentePrincipal);
 }
 
 .boton{
-    margin-top: 4%; 
-    margin-bottom: 5%; 
+    margin-top: 6%;
+    margin-bottom: 5%;
     color: var(--primario);
-    margin-left: 130%;
+    margin-left: 118%;
     background-color: var(--primario);
     color: var(--blanco);
-    padding-left: 4%;
-    padding-right: 4%;
+    padding-left: 8%;
+    padding-right: 8%;
     padding-top: 2%;
     padding-bottom: 2%;
+    font-size: 2rem;
 }
 .boton:hover{
-    background-color:#3abe33;
+    background-color:var(--verdeBtonHover);
 }
 
 

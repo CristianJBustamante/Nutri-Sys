@@ -8,6 +8,7 @@
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
     --fuentePrincipal: 'Amatic+SC', cursive;
+    --verdeBotonHover: #3abe33;
 }
 html{
     font-size: 62.5%; 
@@ -66,7 +67,7 @@ display: flex;
     padding-bottom: 2%;
 }
 .boton-iniciarSesion:hover{
-    background-color:#3abe33;
+    background-color:var(--verdeBotonHover);
 }
 .formulario-sesion{
     margin-right: -25%;

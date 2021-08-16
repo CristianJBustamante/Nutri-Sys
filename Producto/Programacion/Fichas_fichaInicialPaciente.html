@@ -58,29 +58,31 @@
                     <div class="evoluciones"> <!-- Cambiar En cada Solapa -->
                         <div class="navegacion__solapas">
                             <a class="nav__solapa--seleccionado" href="../html/fichaInicialPaciente.html">Ficha inicial</a>
-                            <a class="nav__solapa"  href="../html/anamnesisAlimentaria.html">Anamnesis alimentaria</a>
-                            <a class="nav__solapa" href="../html/habitosNoSaludables.html">Habitos no saludables</a>
-                            <a class="nav__solapa" href="../html/medidasAntropometricas.html">Medidas antropométricas</a>
+                            <a class="nav__solapa"  href="./Fichas_anamnesisAlimentaria.html">Anamnesis alimentaria</a>
+                            <a class="nav__solapa" href="./Fichas_habitosNoSaludables.html">Habitos no saludables</a>
+                            <a class="nav__solapa" href="./Fichas_medidasAntropometricas.html">Medidas antropométricas</a>
                             <a class="nav__solapa--resto"></a>
                         </div>
-                        <div class="contenido__solapa">
+                        <form action="./Fichas_anamnesisAlimentaria.html">
+                            <div class="contenido__solapa">
                             <div class="seccion__carne"> <!-- contiene el cuestionario-->
                                 <div class="carne__titulo">
+
                                     <h2 class="titulo__seccion">Ficha inicial</h2>
                                     </div>
                                     <div class="seccion__class">
                                     <h2 class="label__ficha"> Fecha actual:</h2>
-                                        <input class="contenido__input contenido__fecha" type="date">
+                                        <input required class="contenido__input contenido__fecha" type="date">
                                     </div>
 
                                     <div class="seccion__class">
                                     <h2 class="label__ficha">Diag. médico:</h2>
-                                    <input class="contenido__input" type="text" placeholder="Ingrese el diagnóstico médico">
+                                    <input class="contenido__input" type="text" placeholder="Ingrese el diagnóstico médico si corresponde">
                                     </div>
 
                                     <div class="seccion__class">
                                     <h2 class="label__ficha">Antecedentes:</h2>
-                                    <input class="contenido__input" type="text" placeholder="Ingrese los antecedentes médicos">
+                                    <input class="contenido__input" type="text" placeholder="Ingrese los antecedentes médicos si corresponde">
                                     </div>
 
                                     <div class="formulario__laboratorios"> <!-- laboratorios-->
@@ -103,27 +105,27 @@
                                     </div>
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Medicación:</h2>
-                                        <input class="contenido__input" type="text" placeholder="Ingrese las medicaciones">
+                                        <input required class="contenido__input" type="text" placeholder="Ingrese las medicaciones si corresponde">
                                     </div>
 
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Actividad física:</h2>
-                                        <input class="contenido__input" type="text" placeholder="correr,ir al gimnasio,andar en bici,etc">
+                                        <input required class="contenido__input" type="text" placeholder="correr,ir al gimnasio,andar en bici,etc">
                                     </div>
 
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Tarea o ocupación:</h2>
-                                        <input class="contenido__input" type="text">
+                                        <input required class="contenido__input" type="text" placeholder="A que se dedica">
                                     </div>
 
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Antecedentes nutricionales anteriores:</h2>
-                                        <input class="contenido__input" type="text" >
+                                        <input required class="contenido__input" type="text" >
                                     </div>
 
                                     <div class="seccion__class ">
                                         <h2 class="label__ficha">¿A que edad empezó su primera dieta?</h2>
-                                        <input class="contenido__input contenido__edad" type="number" min="1">
+                                        <input required class="contenido__input contenido__edad" type="number" min="1">
                                     </div>
 
                                 </div>
@@ -132,13 +134,13 @@
                                 <div class="seccion__carne"> <!-- contiene la seccion de antropometía-->
                                     <div class="carne__titulo">
                                         <h2 class="titulo__seccion">Antropometría</h2>
-                                        <div class="tabla__antro">
+                                            <div class="tabla__antro" >
                                             
                                                     <div class="tabla__antro--class" >
-                                                    <h2 class="tabla__antro--contenido" >Peso máximo </h2>
-                                                    <input class="input__valor" type="number" placeholder="kg">
-                                                    </div>
-                                                    <div class="tabla__antro--class">
+                                                        <h2 class="tabla__antro--contenido" >Peso máximo </h2>
+                                                        <input class="input__valor" type="number" placeholder="kg">
+                                                        </div>
+                                                        <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >Peso mínimo </h2>
                                                         <input class="input__valor" type="number" placeholder="kg">
                                                     </div>
@@ -165,7 +167,7 @@
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >B.M.I </h2>
-                                                    <input class="input__valor" type="number" placeholder="kg/mts2">
+                                                    <input class="input__valor" type="number" placeholder="kg/ms^2">
                                                     </div>
 
                                                     <div class="tabla__antro--class">
@@ -194,13 +196,13 @@
                                                     </div>
 
                                                     <div class="tabla__antro--class">
-                                                    <h2 class="tabla__antro--contenido">Diam. de la cintura</h2>
-                                                    <input class="input__valor" type="number" placeholder="cm(M)">
-                                                    <input class="input__valor" type="number" placeholder="cm(U)">
+                                                        <h2 class="tabla__antro--contenido">Diam. de la cintura</h2>
+                                                        <input class="input__valor" type="number" placeholder="cm(M)">
+                                                        <input class="input__valor" type="number" placeholder="cm(U)">
                                                     </div>
                                                     <input class="boton" type="submit" name="Guardar" value="Guardar">
                                                 </div> <!-- fin div que contiene toda la tabla de antro-->
-                                            
+                                            </form>
                                         </div> 
                                         </div>
 

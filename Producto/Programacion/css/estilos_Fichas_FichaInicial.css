@@ -347,18 +347,19 @@ margin-left: 2rem;
     }
 .area__observaciones{
     font-family: var(--fuentePrincipal);
-    margin-top: 1rem;
+    margin-top: -2rem;
     font-size: 2rem;
     width: 624px;
     height: 191px;
     resize: none;
-    
+    margin-left: 25rem;
 }
 .formulario__laboratorios{
 border-color: var(--grisOscuro);
 border-style: solid;
 border-radius: 1rem;
 padding-bottom: 2rem;
+padding-top: 1rem;
 font-family: var(--fuentePrincipal);
 }
 .formulario__laboratorios legend{
@@ -367,7 +368,7 @@ font-family: var(--fuentePrincipal);
     font-size: 2.3rem;
     font-weight: 700;
     margin-bottom: 1rem;     
-    margin-left: 2rem;  
+    margin-left: 50rem;  
 }
 .contenido__input{
     margin: 1rem 0;

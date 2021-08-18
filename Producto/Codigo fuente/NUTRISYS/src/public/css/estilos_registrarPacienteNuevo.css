@@ -200,10 +200,6 @@ h2{
         padding-bottom: 2rem;
         gap: 1rem;
     }
-
-    html, body{
-        height:100%;
-      }
 }
 
 @media (min-width: 810px) {

@@ -103,7 +103,7 @@ h2{
     outline: none;
     width: 60%;
 }
-#contraseña{
+#clave{
     border-bottom: 1px solid black;
     border-top: none;
     border-left: none;
@@ -113,7 +113,7 @@ h2{
     margin-top: 2%;
     width: 60%;
 }
-#mostrarClave{ 
+#mostrarclave{ 
     margin-left: 26rem;
     margin-top: -2rem; /*-8 IMPORTANTE PARA QUE SEA RESPONSIVO*/
     padding-left: 0rem;
@@ -124,12 +124,12 @@ h2{
     /* cursor: pointer;  */
 }
 
-#mostrarClave{
+#mostrarclave{
     margin-left: 23rem;
     height: 6%;
     width: 5%;
 }
-.campos-contraseña{
+.campos-clave{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -172,7 +172,7 @@ h2{
     .usuario{
         background: none;
     }
-    #contraseña{
+    #clave{
         background: none;
     }
     body{

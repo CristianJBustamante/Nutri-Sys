@@ -6,9 +6,10 @@ const app = express();
 
 import { getAnamnesisXHC, registrarAnamnesis } from "../controllers/fichas.controller";
 
+//ACCESO A PÁGINAS
 //Registrar Anamnesis
     router.get('/fichas/registrarAnamnesis', (req,res) => {
-    res.render('fichas/registrarAnamnesis.html');
+    res.render('pacientes/fichainicial/Fichas_anamnesisAlimentaria.html');
 });
 
   //Consultar Anamnesis x HC
@@ -18,7 +19,7 @@ import { getAnamnesisXHC, registrarAnamnesis } from "../controllers/fichas.contr
 
 //ACCESO A DATOS
   //Alta, Baja, Modif
-  router.post('/fichas', registrarAnamnesis)
+  router.post('/registraranamnesis', registrarAnamnesis)
 
  //Consultas
  router.get('/fichas', getAnamnesisXHC)

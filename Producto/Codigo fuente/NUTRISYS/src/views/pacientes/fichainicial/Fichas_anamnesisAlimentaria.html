@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Clínica</title>
+    <link rel="stylesheet" href="/css/normalize.css"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="/css/estilos_Fichas_AnamnesisAlimentaria.css"> <!-- Cambiar en cada Solapa -->
+
+</head>
+<body>
+
+    <div class="aside">
+        <div class="logo">
+            <img class="logo__manzana " src="/img/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
+            <h1 class="name_app flex__textItem" >Nutry-Sys</h1>
+        </div>
+        <div class="menuPrincipal">
+            <div class="contenedorOpciones">
+                <a class="contenedorOpciones__opcion" href="">Organizador</a>
+                <a class="contenedorOpciones__opcion" href="">Historia Clínica</a>
+                <a class="contenedorOpciones__opcion" href="">Reportes</a>
+                <a class="contenedorOpciones__opcion" href="">Administración de Usuarios</a>
+            </div>
+        </div>
+    </div>
+    <div class="contenidoPrincipal">
+        <div class="accesoRapido">
+            <div class="menuIcon">
+                <img class="flex__imageItem--small" src="/img/MenuLogo.png" alt="Imagen Logo">
+            </div>
+            <h2 class="flex__textItem titulo">Historia Clínica</h2>
+            <div class="notifYUsuario">
+                <img class="flex__imageItem--small" src="/img/NotifyLogo.png" alt="Imagen Logo">
+                <img class="flex__imageItem--small" src="/img/UserLogo.png" alt="Imagen Logo">
+                <h2 class="flex__textItem">Apellido, Nombre</h2>
+            </div>
+        </div>
+
+        <!-- Pagina variable -->
+
+        <div class="contenidoPagina">
+
+            <article class="contenido__article">
+                <section class="section__fichas">
+                    <div class="encabezado__datosPaciente">
+                        <h2>Paciente: Gonzalez, Eugenio</h2>
+                        <h2>HC: 709543</h2>
+                        <h2>DOC.: 23465973</h2>
+                        <h2>FN: 05/06/1975</h2>
+                    </div>
+                    <div class="ficha"> <!-- Cambiar En cada Solapa -->
+                        <div class="navegacion__solapas">
+                            <a class="nav__solapa" href="../html/fichaInicialPaciente.html">Ficha inicial</a>
+                            <a class="nav__solapa--seleccionado"  href="../html/anamnesisAlimentaria.html">Anamnesis alimentaria</a>
+                            <a class="nav__solapa" href="../html/habitosNoSaludables.html">Habitos no saludables</a>
+                            <a class="nav__solapa" href="../html/medidasAntropometricas.html" style="word-wrap: break-word;">Medidas antropométricas</a>
+                            <a class="nav__solapa--resto"></a>
+                        </div>
+                        <div class="contenido__solapa">
+                            <h2>Anámnesis Alimentaria</h2>
+
+                            <!-- Seccion Carne -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="carne__titulo">
+                                    <h2 class="titulo__seccion">Carne</h2>
+                                </div>
+                                <div class="carne__cuestionario">
+                                    <div id="div-1" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Vacuna:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-2" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Con grasa:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-3" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Sin grasa:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-4" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Pollo:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-5" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Con piel:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-6" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Sin piel:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-7" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Pescado:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-8" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Rio:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-9" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Mar:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-10" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Cerdo:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+
+                                    <div id="div-11" class="pregunta__cuestionario decoracion__pregunta"></div>
+                                    <div id="div-12" class="pregunta__cuestionario decoracion__pregunta"></div>
+                                    
+                                    <div id="div-13" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Visceras:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-14" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Hígado:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-15" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Riñon:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-16" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-4">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+
+                                    <div id="div-17" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Fiambres:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-18" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Embutidos:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-19" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Salchicas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-20" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Chorizo:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-21" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                        <h2 class="label__pregunta">Morcilla:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Seccion Lácteos -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Lácteos</h2>
+                                </div>
+                                <div class="lacteos__cuestionario">
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Leche:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Entera:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div></div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Descremada:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Yogurt:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Entero:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div></div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Descremado:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Quesos:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Duros:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div></div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Semiblandos:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div></div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Untables:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+
+                                    <div class="otros__allcolumns1-3 subtitulo__sub">
+                                        <h2>Preparaciones a base de leche</h2>
+                                    </div>
+
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Flan:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Licuados:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta crn__salsa">
+                                        <h2 class="label__pregunta">Salsa blanca:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+
+                                    <div class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-3">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Seccion Huevos -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Huevos</h2>
+                                </div>
+                                <div class="huevos__cuestionario">
+                                    
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Hervido:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Frito:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Preparaciones:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-3">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Cuales:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Sección Vegetales -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Vegetales</h2>
+                                </div>
+                                <div class="vegetales__cuestionario">
+                                    
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Frescos:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Enlatados:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Frutas:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Cereales:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Pastas:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Veg. feculentos:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Legumbres:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Sección Panificación -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Panificación</h2>
+                                </div>
+                                <div class="panificacion__cuestionario">
+
+                                    <div id="div-47" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Pan:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-48" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Blanco:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-49" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Negro:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-50" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Galletitas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-51" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Saladas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-52" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">De agua:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-53" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Dulces:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-54" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Integrales:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-55"> </div>
+                                    <div id="div-56" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Masas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-57" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Facturas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-58" class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Tortas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div id="div-59" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-4">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sección Azúcares -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Azúcares</h2>
+                                </div>
+                                <div class="azucar__cuestionario">
+                                    
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Azúcar:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Mermeladas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Gelatina:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Miel:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Dulces:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Jugos:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Golosínas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Gaseosas:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Edulcorante:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-3">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Sección Aceites -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Aceites</h2>
+                                </div>
+                                <div class="aceite__cuestionario">
+
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">De girasol:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">De maíz:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">De oliva:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-4">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">En crudo:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Para fritura:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Sección Grasas -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Grasas</h2>
+                                </div>
+                                <div class="grasas__cuestionario">
+                                    
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Manteca:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Margarina:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Mayonesa:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-4">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Sección Sal -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Sal</h2>
+                                </div>
+                                <div class="sal__cuestionario">
+                                    
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Común:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Dietética:</h2>
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo otros__allcolumns1-3">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Cuales:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Sección Bebidas -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Bebidas-Infusiones</h2>
+                                </div>
+                                <div class="bebidas__cuestionario">
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Cuales:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sección Alcohol -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Alcohol</h2>
+                                </div>
+                                <div class="alcohol__cuestionario">
+    
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Vino:</h2>
+                                        <input type="checkbox" class="">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta--desarrolo">Cant.:</h2>
+                                        <input type="text" class="bebidas__cantidades respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Cerveza:</h2>
+                                        <input type="checkbox" class="">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta--desarrolo">Cant.:</h2>
+                                        <input type="text" class="bebidas__cantidades respuesta__pregunta--checkbox">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta">Bebidas blancas:</h2>
+                                        <input type="checkbox" class="">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                        <h2 class="label__pregunta--desarrolo">Cant.:</h2>
+                                        <input type="text" class="bebidas__cantidades respuesta__pregunta--checkbox">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <!-- Sección Comidas del Día -->
+
+                            <div class="seccion__anamnesis">
+                                <div class="seccion__titulo">
+                                    <h2 class="titulo__seccion">Comidas del día</h2>
+                                </div>
+                                <div class="comidas__cuestionario">
+
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Desayuno:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Media mñn:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Almuerzo:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Merienda:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                        <h2 class="label__pregunta--desarrolo">Cena:</h2>
+                                        <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario boton__siguiente">
+                                        <button class="normal boton">Siguiente</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>

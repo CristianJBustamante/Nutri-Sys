@@ -20,6 +20,9 @@ export const queries = {
 
     
 //FICHA INICIAL--- completar
+  //DATOS GENERALES
+    getFichaInicial: "SELECT * from historia_clinica where hc_nrohc=@hc_nrohc",
+    registrarFichaInicial: "INSERT INTO historia_clinica(hc_nrohc,hc_derivacionmedica,hc_diagnostico,hc_antecedentes,hc_medicacion,hc_ocupacion,hc_actividadfisica,hc_tratamientos,hc_laboratiorios) VALUES(@hc_nrohc,@hc_derivacionmedica,@hc_diagnostico,@hc_antecedentes,@hc_medicacion,@hc_ocupacion,@hc_actividadfisica,@hc_tratamientos,@hc_laboratiorios)",
   //ANAMNESIS
     getItemsAnamnesis: "select item_id,tipoitem_descripcion,item_descripcion from item_anamnesis inner join tipoitem_anamnesis on item_tipo=tipoitem_id order by item_tipo",
     registrarAnamnesis: "Execute RegistrarAnamnesis @anms_id, @anms_nrohc, @anms_fecharegistro, @anms_observaciones, @danms_linea, @danms_iditem, @danms_consumido, @danms_cantidad, @danms_observaciones)",

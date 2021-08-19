@@ -520,7 +520,6 @@ input::-webkit-inner-spin-button {
     font-family: var(--fuentePrincipal);
     margin-top: 6%;
     margin-bottom: 5%;
-    color: var(--primario);
     margin-left: 118%;
     background-color: var(--primario);
     color: var(--blanco);
@@ -556,7 +555,7 @@ input::-webkit-inner-spin-button {
 
 .titulo__seccion{
     background-color: var(--primario);
-    color: var(--blanco);
+    color: var(--negro);
     font-weight: normal;
     padding: 0.5rem 0rem 0.5rem 4rem;
 }

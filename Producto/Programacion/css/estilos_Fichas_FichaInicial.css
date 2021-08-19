@@ -395,7 +395,7 @@ font-family: var(--fuentePrincipal);
     font-family: var(--fuentePrincipal);
     margin-bottom: 1rem;
     font-size: 2rem;
-    margin-right: 5rem;
+    margin-right: 3rem;
     padding: 1rem;
 }
 
@@ -426,7 +426,10 @@ font-family: var(--fuentePrincipal);
     margin-right: -2.5rem;
 }
 .tabla__antro--contenido{
-    width: 29%;
+    width: 25%;
+}
+.tabla__antro--contenidoMedida{
+    color:grey;
 }
 
 .tabla__antro--class{

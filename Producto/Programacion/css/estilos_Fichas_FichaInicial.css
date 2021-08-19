@@ -441,8 +441,6 @@ font-family: var(--fuentePrincipal);
     font-family: var(--fuentePrincipal);
     margin-top: 6%;
     margin-bottom: 5%;
-    color: var(--primario);
-    margin-left: 118%;
     background-color: var(--primario);
     color: var(--blanco);
     padding-left: 2%;

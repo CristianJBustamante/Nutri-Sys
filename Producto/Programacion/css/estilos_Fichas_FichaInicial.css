@@ -352,12 +352,12 @@ margin-left: 2rem;
     width: 624px;
     height: 191px;
     resize: none;
-    margin-left: 25rem;
+    margin-left: 28.6rem;
 }
 .formulario__laboratorios{
 border-color: var(--grisOscuro);
 border-style: solid;
-border-radius: 1rem;
+
 padding-bottom: 2rem;
 padding-top: 1rem;
 font-family: var(--fuentePrincipal);
@@ -385,26 +385,44 @@ font-family: var(--fuentePrincipal);
 
 /**datos antropometria**/
 
+
+.input__valor{
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    
+}
+.input__valor--diametro{
+    font-family: var(--fuentePrincipal);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-right: 5rem;
+    padding: 1rem;
+}
+
+.label__ficha{
+    width: 20%;
+}
 .tabla__antro{
+
     font-family: var(--fuentePrincipal);
     border-left: -10rem;
     border-color: var(--grisOscuro);
     padding-left: 3rem;
     margin-left: 11rem;
     margin-right: 45rem;
-}
-.input__valor{
     margin-bottom: 1rem;
-    font-size: 2rem;
+    display: grid;
+    grid-template-columns: 60% 60%;
+    margin-top: 4rem;
+    column-gap: 4rem;
 }
-.input__valor--diametro{
-    font-family: var(--fuentePrincipal);
-    margin-bottom: 1rem;
-    font-size: 1rem;
-}
-
-.label__ficha{
-    width: 20%;
+.input__valoresDiametro{
+    /* display: flex;
+    justify-content: space-between;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 1rem;
 }
 .tabla__antro--contenido{
     width: 29%;
@@ -416,17 +434,19 @@ font-family: var(--fuentePrincipal);
 }
 
 .boton{
+    font-family: var(--fuentePrincipal);
     margin-top: 6%;
     margin-bottom: 5%;
     color: var(--primario);
     margin-left: 118%;
     background-color: var(--primario);
     color: var(--blanco);
-    padding-left: 8%;
-    padding-right: 8%;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     font-size: 2rem;
+    margin-left: 119rem;
 }
 .boton:hover{
     background-color:var(--verdeBtonHover);

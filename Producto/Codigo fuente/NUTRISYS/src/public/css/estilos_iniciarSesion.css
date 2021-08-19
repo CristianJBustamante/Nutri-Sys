@@ -8,11 +8,11 @@
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
     --fuentePrincipal: 'Amatic+SC', cursive;
+    --verdeBotonHover: #3abe33;
 }
 html{
     font-size: 62.5%; 
     box-sizing: border-box;  
-    
 }
 
 *, *:before, *:after{
@@ -21,26 +21,26 @@ html{
 body{
     /* background-color:var(--grisMedio);    */
     background-image: linear-gradient(to left,var(--grisOscuro) 0%,var(--grisMedio) 30%);
-    
 }
  .sesion-principal{
 background-color:var(--blanco);
 font-size: 150%;
 text-align: center;
-margin-top: 20rem; 
+margin-top: 7%; 
 margin-left: auto;
 margin-right: auto;
 display: flex;
 flex-direction: column;
 min-width: 250px; 
 max-width: 500px; 
+border-radius:5%;
 
 } 
 h1{
     text-align: left;
      /* margin-right: 25%;  */
     /* margin-left: 1px; */
-    font-size: 160%;
+    font-size: 200%;
     margin-bottom: 10%;
     font-family:var(--fuentePrincipal);
 }
@@ -67,7 +67,7 @@ display: flex;
     padding-bottom: 2%;
 }
 .boton-iniciarSesion:hover{
-    background-color:#3abe33;
+    background-color:var(--verdeBotonHover);
 }
 .formulario-sesion{
     margin-right: -25%;
@@ -123,6 +123,7 @@ h2{
     padding-right: 0rem;
     /* cursor: pointer;  */
 }
+
 #mostrarclave{
     margin-left: 23rem;
     height: 6%;
@@ -178,7 +179,7 @@ h2{
         background: var(--blanco);
         margin-top: 20%;
     }
-        #mostrarclave{ 
+        #mostrarClave{ 
             margin-left: 20rem;  /*18 IMPORTANTE PARA QUE SEA RESPONSIVO*/
             margin-top: -1.8rem;  /*-8 IMPORTANTE PARA QUE SEA RESPONSIVO*/
             margin-right: -2rem;

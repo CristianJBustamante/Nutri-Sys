@@ -188,123 +188,57 @@ h3{
     margin: 0 5rem;
 }
 
-.fichaInicial{
+.evoluciones{
     display: flex;
     flex-direction: column;
     margin: 0 2rem;
 }
 
-
-/** Solapas Responsivas **/
-/** Solapas dos filas **/
-
-@media (max-width: 1179px) {
- 
-    .navegacion__solapas{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        
-    }
-
-    .nav__solapa{
-        width: 100%;
-        border: black 0.3rem;
-        border-style: solid;
-        text-align: center;
-        border-radius: 10px 10px 0px 0px;
+.navegacion__solapas{
+    display: flex;
+    flex-direction: row;
     
-        padding: 1rem;
-        text-decoration: none;
-        font-size: 1.5rem;
-        color: var(--negro);
-        font-family: var(--fuentePrincipal);
-        font-weight: bold;
-    
-        background-color: var(--grisOscuro);
-    
-    }
-    
-    .nav__solapa--seleccionado{
-        width: 100%;
-        border: var(--negro) 0.3rem;
-        border-style: solid solid none solid;
-        text-align: center;
-        border-radius: 10px 10px 0px 0px;
-    
-    
-        padding: 1rem;
-        text-decoration: none;
-        font-size: 1.5rem;
-        color: var(--negro);
-        font-family: var(--fuentePrincipal);
-        font-weight: bold;
-
-        grid-row: 2/3;
-    }
-    
-    .nav__solapa--resto{
-        width: 100%;
-        border: var(--negro) 0.3rem;
-        border-style: none none none none;
-        grid-row: 1/2;
-        grid-column: 4/5;
-    }
-
-    body, html{
-        height: auto;
-    }
 }
 
-/** Solapas a una fila **/
+.nav__solapa{
+    width: 10%;
+    border: black 0.3rem;
+    border-style: solid;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
 
-@media (min-width: 1180px) {
-    .navegacion__solapas{
-        display: flex;
-        flex-direction: row;
-        
-    }
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
 
-    .nav__solapa{
-        width: 12%;
-        border: black 0.3rem;
-        border-style: solid;
-        text-align: center;
-        border-radius: 10px 10px 0px 0px;
-    
-        padding: 1rem;
-        text-decoration: none;
-        font-size: 1.5rem;
-        color: var(--negro);
-        font-family: var(--fuentePrincipal);
-        font-weight: bold;
-    
-        background-color: var(--grisOscuro);
-    
-    }
-    
-    .nav__solapa--seleccionado{
-        width: 12%;
-        border: var(--negro) 0.3rem;
-        border-style: solid solid none solid;
-        text-align: center;
-        border-radius: 10px 10px 0px 0px;
-    
-    
-        padding: 1rem;
-        text-decoration: none;
-        font-size: 1.5rem;
-        color: var(--negro);
-        font-family: var(--fuentePrincipal);
-        font-weight: bold;
-    }
-    
-    .nav__solapa--resto{
-        width: 16%;
-        border: var(--negro) 0.3rem;
-        border-style: none none solid none;
-    }
+    background-color: var(--grisOscuro);
+
 }
 
+.nav__solapa--seleccionado{
+    width: 10%;
+    border: var(--negro) 0.3rem;
+    border-style: solid solid none solid;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+
+
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+
+.nav__solapa--resto{
+    width: 61%;
+    border: var(--negro) 0.3rem;
+    border-style: none none solid none;
+}
 
 .contenido__solapa{
     border: var(--negro) 0.3rem;

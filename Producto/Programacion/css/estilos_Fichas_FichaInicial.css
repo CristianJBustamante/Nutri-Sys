@@ -21,7 +21,7 @@ html{
 
 
 html, body{
-    width:100%;
+    width:92%;
     margin: 0;
     height: 100%;
     /*display: flex;*/
@@ -423,6 +423,7 @@ font-family: var(--fuentePrincipal);
     display: grid;
     grid-template-columns: 50% 50%;
     column-gap: 1rem;
+    margin-right: -2.5rem;
 }
 .tabla__antro--contenido{
     width: 29%;

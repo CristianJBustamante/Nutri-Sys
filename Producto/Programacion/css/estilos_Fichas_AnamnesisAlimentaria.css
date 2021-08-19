@@ -550,3 +550,6 @@ html, body{
     height: 100%;
 }
 
+.democlass{
+    background-color: var(--grisOscuro);
+}

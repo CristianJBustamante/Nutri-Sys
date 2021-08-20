@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="css/estilos_Fichas_AnamnesisAlimentaria.css"> <!-- Cambiar en cada Solapa -->
-
+    <script src="js/codigo_fichaAnamnesis.js"></script>
 </head>
 <body>
 
@@ -72,9 +72,9 @@
                                 <div class="carne__cuestionario">
                                     <div id="div-1" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
                                         <h2 class="label__pregunta">Vacuna:</h2>
-                                        <input type="checkbox" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="comprobarCampos()">
                                     </div>
-                                    <div id="div-2" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
+                                    <div id="div-2" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Con grasa:</h2>
                                         <input type="checkbox" class="respuesta__pregunta--checkbox">
                                     </div>
@@ -579,7 +579,7 @@
                                         <textarea class="textarea" name="otros1" id="otros1" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="pregunta__cuestionario boton__siguiente">
-                                        <button class="normal boton">Siguiente</button>
+                                        <button class="boton">Siguiente</button>
                                     </div>
 
                                 </div>

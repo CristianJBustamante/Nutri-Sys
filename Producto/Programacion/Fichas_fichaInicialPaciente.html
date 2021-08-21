@@ -85,18 +85,13 @@
 
                                     <div class="formulario__laboratorios"> <!-- laboratorios-->
                                         <h2 class="titulo__seccion--lab">Laboratorios</h2>
-                                         <div class="seccion__class">
-                                            <h2 class="label__ficha">Últimos:</h2>
-                                            <input class="contenido__input" type="number">
-                                        </div>
-
                                         <div class="seccion__class">
                                             <h2 class="label__ficha" >Fecha:</h2>
                                             <input class="contenido__input contenido__fecha" type="date">
                                         </div>
 
                                         <div class="seccion__observaciones">
-                                            <h2 class="label__ficha">Observaciones:</h2>
+                                            <h2 class="label__ficha">Datos de laboratorio:</h2>
                                             <textarea class="area__observaciones"></textarea>
                                         </div>
 
@@ -123,7 +118,8 @@
 
                                     <div class="seccion__class ">
                                         <h2 class="label__ficha">¿A que edad empezó su primera dieta?</h2>
-                                        <input required class="contenido__input contenido__edad" type="number" min="1">
+                                        <input required class="contenido__input contenido__edad" type="number" min="1" placeholder="edad">
+                                        <input type="text" class="contenido__input contenido__input--edad" placeholder="algún dato adicional">
                                     </div>
 
                                 </div>
@@ -137,46 +133,46 @@
                                                     <div class="tabla__antro--class" >
                                                         <h2 class="tabla__antro--contenido" >P.A: </h2>
                                                         <input class="input__valor" type="number"  min="1">
-                                                        <label class="tabla__antro--contenidoMedida"> kg</label>
+                                                        <!-- <label class="tabla__antro--contenidoMedida"> kg</label> -->
                                                     </div>
-                                                    <div class="tabla__antro--class">
+                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >Talla: </h2>
                                                         <input class="input__valor" type="number" min="1">
-                                                        <h2 class="tabla__antro--contenidoMedida"> mts</h2>
+                                                        <!-- <label class="tabla__antro--contenidoMedida"> mts</label> -->
                                                     </div>
                                                     
                                                     <div class="tabla__antro--class">
                                                     <h2 class="tabla__antro--contenido" >B.M.I: </h2>
                                                     <input class="input__valor" type="number" min="1">
-                                                    <h2 class="tabla__antro--contenidoMedida"> kg/ms^2</h2>
-                                                    </div>
+                                                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg/ms^2</h2>  -->
+                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P.H: </h2>
                                                         <input class="input__valor" type="number" min="1">
-                                                        <h2 class="tabla__antro--contenidoMedida"> kg</h2>
+                                                         <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2>  -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P.D: </h2>
                                                     <input class="input__valor" type="number" min="1">
-                                                    <h2 class="tabla__antro--contenidoMedida"> kg</h2>
+                                                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
                                                     </div>
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P/B.M.I: </h2>
                                                     <input class="input__valor" type="number" min="1">
-                                                    <h2 class="tabla__antro--contenidoMedida"> kg</h2>
+                                                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
                                                     </div>
 
 
                                                     <div class="tabla__antro--class">
                                                     <h2 class="tabla__antro--contenido" >P.min: </h2>
-                                                        
                                                     <div class="input__valoresPeso">
                                                         <input class=" input__valor--peso" type="number" min="0">
-                                                        <h2 class="tabla__antro--contenidoMedida"> Kg</h2>
-                                                        <input class="input__valor--peso" type="text" placeholder="¿cuando?">
-                                                        </div> <!-- contiene los input-->
+                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                                                        <br>
+                                                        <input class="input__valor--peso2" type="text" placeholder="¿cuando?">
+                                                        </div> <!-- contiene los inputs-->
                                                         
                                                     </div>
 
@@ -184,53 +180,56 @@
                                                     <h2 class="tabla__antro--contenido" >P.máx: </h2>
                                                     <div class="input__valoresPeso">
                                                         <input class=" input__valor--peso" type="number" min="0">
-                                                        <h2 class="tabla__antro--contenidoMedida"> Kg</h2>
-                                                        <input class="input__valor--peso" type="text" placeholder="¿cuando?">
-                                                        </div> <!-- contiene los input-->
-                                                    </div>
+                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                                                        <br>
+                                                        <input class="input__valor--peso2" type="text" placeholder="¿cuando?">
+                                                        </div> 
+                                                    </div> 
 
-                                                    <div class="tabla__antro--class">
+                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >G.C: </h2>
                                                     <input type="number" class="input__valor"  min="1">
-                                                    <h2 class="tabla__antro--contenidoMedida"> %</h2>
+                                                    <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >G.V: </h2>
                                                     <input type="number" class="input__valor" >
-                                                    <h2 class="tabla__antro--contenidoMedida"> %</h2>
+                                                    <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido"> M.M: </h2>
                                                     <input class="input__valor" type="number">
-                                                    <h2 class="tabla__antro--contenidoMedida"> %</h2>
+                                                    <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P.B.I: </h2>
                                                     <input class="input__valor" type="number"min="0">
-                                                    <h2 class="tabla__antro--contenidoMedida"> Kg</h2>
+                                                    <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class tabla__diametro" >
                                                         <h2 class="tabla__antro--contenido--cc">C.C:</h2>
                                                         <div class="input__valoresDiametro">
                                                         <input class=" input__valor--diametro" type="number" min="0">
-                                                        <h2 class="tabla__antro--contenidoMedida"> cm(M)</h2>
+                                                        <br>
+                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> cm(M)</h2> -->
                                                         <input class=" input__valor--diametro" type="number" min="0">
-                                                        <h2 class="tabla__antro--contenidoMedida"> cm(U)</h2>
+                                                        <br>
+                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> cm(U)</h2> -->
                                                         <input class=" input__valor--diametro" type="number" min="0">
-                                                        <h2 class="tabla__antro--contenidoMedida"> cm(P)</h2>
-                                                        </div> <!-- contiene los input-->
-                                                    </div>
+                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> cm(P)</h2> -->
+                                                        </div> 
+                                                    </div>  
                                                     <br> 
                                                     <div class="formula__metBasal">
                                                         <div class="formula__metBasal--valor">
                                                             <h2 class=>Formula met.Basal:</h2>
                                                             <input type="number" class="input__metBasal">
                                                             <label>Kcal/día</label>
-                                                        </div>
+                                                        </div> 
                                                         <div class="ajuste__actividad">
                                                             <h2>Ajuste por actividad:</h2>
                                                             <select class="selector">

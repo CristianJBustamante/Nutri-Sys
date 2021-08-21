@@ -329,6 +329,15 @@ input::-webkit-inner-spin-button {
     color: var(--negro);
     font-weight: normal;
     padding: 0.5rem 0rem 0.5rem 4rem;
+    
+}
+.titulo__seccion--lab{
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background-color: var(--primario);
+    color: var(--negro);
+    font-weight: normal;
+    padding: 0.5rem 0rem 0.5rem 4rem;
 }
 .titulo__completar{
     background-color: rgb(170, 167, 167);
@@ -384,7 +393,9 @@ font-family: var(--fuentePrincipal);
 .contenido__edad{
     width: 15%;
 }
-
+span{
+    color: brown;
+}
 /** CSS ANTROPOMETRIA**/
 
 
@@ -395,7 +406,7 @@ font-family: var(--fuentePrincipal);
     position: absolute;
     margin-top: 1rem;
     width: 40%;
-    margin-left: 15rem;
+    margin-left: 10rem;
     
 }
 /*sacar las flechas del input numerico*/
@@ -409,8 +420,9 @@ input[type=number] {
     margin-right: 3rem;
     margin-block: auto;
     margin-inline: initial;
-    margin-left: 4.4rem;
-    padding-right: 3rem;
+    margin-left: 4.7rem;
+    padding-left: 4rem;
+   
 }
 
 .label__ficha{
@@ -430,6 +442,7 @@ input[type=number] {
     grid-template-columns: 60% 60%;
     column-gap: 4rem;
 }
+
 .input__valoresDiametro{
     /* display: flex;
     justify-content: space-between;
@@ -439,6 +452,23 @@ input[type=number] {
     column-gap: 1rem;
     margin-right: -2.5rem;
 }
+.input__valoresPeso{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 1rem;
+    margin-right: -2.5rem;
+    
+}
+.input__valor--peso{
+    font-family: var(--fuentePrincipal);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-block: auto;
+    margin-inline: initial;
+    margin-left: -11.9rem;
+    margin-right: 7.1rem;
+}
+
 .tabla__diametro{
     margin-left: 2rem;
 }
@@ -447,13 +477,17 @@ input[type=number] {
     position: relative;
     margin-left: 4rem;
 }
-
+.tabla__antro--contenido--cc{
+    margin-left: -2rem;
+}
 .tabla__antro--class{
     display: inline-flex;
     column-gap: 1rem;
     justify-content: space-between;
     position: relative;
+    
 }
+
 
 .boton{
     font-family: var(--fuentePrincipal);
@@ -472,8 +506,41 @@ input[type=number] {
 .boton:hover{
     background-color:var(--verdeBtonHover);
 }
-
-
+/*metabolismo basal*/
+.formula__metBasal--valor{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:1rem;
+}
+.input__metBasal{
+    font-family: var(--fuentePrincipal);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-right: 1rem;
+    margin-block: auto;
+    margin-inline: initial;
+    margin-left: 2.7rem;
+}
+.ajuste__actividad{
+    display:flex;
+    justify-content: space-between;
+    text-align: center;
+}
+.selector{
+    font-family: var(--fuentePrincipal);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-right: 1rem;
+    margin-block: auto;
+    margin-inline: initial;
+    margin-left: 2.7rem;
+}
+label{
+        font-size: 2rem;
+        /* margin-left: 2rem;
+        margin-top: -4rem; */
+}
 /** RESPONSIVIDAD :O**/
 
 

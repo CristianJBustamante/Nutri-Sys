@@ -17,6 +17,7 @@ html{
     font-size: 62.5%;
     /*Solucion Corte*/
     height: 100%;
+    scroll-snap-type: y mandatory;
 }
 
 
@@ -272,11 +273,6 @@ h3{
 }
 
 
-
-
-
-
-
 /****************/
 /** UTILIDADES **/
 /****************/
@@ -334,6 +330,12 @@ input::-webkit-inner-spin-button {
     font-weight: normal;
     padding: 0.5rem 0rem 0.5rem 4rem;
 }
+.titulo__completar{
+    background-color: rgb(170, 167, 167);
+    color: var(--negro);
+    font-weight: normal;
+    padding: 0.5rem 0rem 0.5rem 4rem;
+}
 
 /*** CSS FICHA INICIAL ***/
 
@@ -383,20 +385,32 @@ font-family: var(--fuentePrincipal);
     width: 15%;
 }
 
-/**datos antropometria**/
+/** CSS ANTROPOMETRIA**/
 
 
 .input__valor{
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
     font-size: 2rem;
+    display: inline-flex;
+    position: absolute;
+    margin-top: 1rem;
+    width: 40%;
+    margin-left: 15rem;
     
+}
+/*sacar las flechas del input numerico*/
+input[type=number] {
+    -moz-appearance:textfield;
 }
 .input__valor--diametro{
     font-family: var(--fuentePrincipal);
     margin-bottom: 1rem;
     font-size: 2rem;
     margin-right: 3rem;
-    padding: 1rem;
+    margin-block: auto;
+    margin-inline: initial;
+    margin-left: 4.4rem;
+    padding-right: 3rem;
 }
 
 .label__ficha{
@@ -411,9 +425,9 @@ font-family: var(--fuentePrincipal);
     margin-left: 11rem;
     margin-right: 45rem;
     margin-bottom: 1rem;
+    margin-top: 4rem;
     display: grid;
     grid-template-columns: 60% 60%;
-    margin-top: 4rem;
     column-gap: 4rem;
 }
 .input__valoresDiametro{
@@ -425,22 +439,27 @@ font-family: var(--fuentePrincipal);
     column-gap: 1rem;
     margin-right: -2.5rem;
 }
-.tabla__antro--contenido{
-    width: 25%;
+.tabla__diametro{
+    margin-left: 2rem;
 }
 .tabla__antro--contenidoMedida{
     color:grey;
+    position: relative;
+    margin-left: 4rem;
 }
 
 .tabla__antro--class{
-    display: flex;
+    display: inline-flex;
     column-gap: 1rem;
+    justify-content: space-between;
+    position: relative;
 }
 
 .boton{
     font-family: var(--fuentePrincipal);
     margin-top: 6%;
     margin-bottom: 5%;
+    margin-left: 106rem;
     background-color: var(--primario);
     color: var(--blanco);
     padding-left: 2%;
@@ -448,10 +467,13 @@ font-family: var(--fuentePrincipal);
     padding-top: 1%;
     padding-bottom: 1%;
     font-size: 2rem;
-    margin-left: 119rem;
+    
 }
 .boton:hover{
     background-color:var(--verdeBtonHover);
 }
+
+
+/** RESPONSIVIDAD :O**/
 
 

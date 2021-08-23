@@ -16,6 +16,131 @@ const mostrarData = (data) => {
     }
 
 
+    function validarDatos(){
+        var incompleto = false;
+        var correccion = "Datos incompletos: " + "\n";
+    
+        if(document.getElementById("check-1").checked == true)
+        {
+            if((document.getElementById("anms_vacunacongrasa").checked == false) && (document.getElementById("anms_vacunasingrasa").checked == false)
+            ){
+                correccion = correccion + "*Vacuna" + "\n"
+                incompleto = true;
+            }
+        }
+    
+        if(document.getElementById("check-2").checked == true)
+        {
+            if((document.getElementById("anms_polloconpiel").checked == false) && (document.getElementById("anms_pollosinpiel").checked == false)
+            ){
+                correccion = correccion + "*Pollo" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-3").checked == true)
+        {
+            if((document.getElementById("anms_pescadorio").checked == false) && (document.getElementById("anms_pescadomar").checked == false)
+             ) {
+                correccion = correccion + "*Pescado" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-4").checked == true)
+        {
+            if((document.getElementById("anms_higado").checked == false) && (document.getElementById("anms_rinon").checked == false) && (document.getElementById("anms_otrasviceras").value == "")
+            ){
+                correccion = correccion + "*Visceras" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-5").checked == true)
+        {
+            if((document.getElementById("anms_lecheentera").checked == false) && (document.getElementById("anms_lechedescremada").checked == false)
+            ){
+                correccion = correccion + "*Leche" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-6").checked == true)
+        {
+            if((document.getElementById("anms_yogurtentero").checked == false) && (document.getElementById("anms_yogurtdescremada").checked == false)
+            ){
+                correccion = correccion + "*Yogurt" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-7").checked == true)
+        {
+            if((document.getElementById("anms_quesoduro").checked == false) && (document.getElementById("anms_quesosemiblando").checked == false) && (document.getElementById("anms_quesountable").checked == false))
+            {
+                correccion = correccion + "*Queso" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-8").checked == true )
+        {
+            if((document.getElementById("anms_panblanco").checked == false) && (document.getElementById("anms_pannegro").checked == false)
+            ){
+                correccion = correccion + "*Pan" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-9").checked == true )
+        {
+            if((document.getElementById("anms_galletassaladas").checked == false) && (document.getElementById("anms_galletasagua").checked == false) && (document.getElementById("anms_galletasdulces").checked == false) && (document.getElementById("anms_galletasintegrales").checked == false)
+            ){
+                correccion = correccion + "*Galletas" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-10").checked == true)
+        {
+            if((document.getElementById("anms_facturas").checked == false) && (document.getElementById("anms_tortas").checked == false) && (document.getElementById("anms_otrasmasas").value == ""))
+            {
+                correccion = correccion + "*Masas" + "\n"
+                incompleto = true;
+            }
+        }
+
+        if(document.getElementById("check-11").checked == true)
+        {
+            if((document.getElementById("anms_edulcorante").value == ""))
+            {
+                correccion = correccion + "*Edulcorante" + "\n"
+                incompleto = true;
+            }
+        }
+
+        if(document.getElementById("check-12").checked == true)
+        {
+            if(document.getElementById("anms_cantvino").value == "")
+            {
+                correccion = correccion + "*Vino" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-13").checked == true)
+        {
+            if(document.getElementById("anms_cantcerveza").value == "")
+            {
+                correccion = correccion + "*Cerveza" + "\n"
+                incompleto = true;
+            }
+        }
+        if(document.getElementById("check-14").checked == true)
+        {
+            if(document.getElementById("anms_cantbebblancas").value == "")
+            {
+                correccion = correccion + "*Bebida Blanca" + "\n"
+                incompleto = true;
+            }
+        }
+        if(incompleto == true){
+            alert(correccion);
+            return false;
+        }
+    }
+
 function crearAnamnesis(){
     if (validarDatos() == false) {
         return false;
@@ -44,6 +169,7 @@ function crearAnamnesis(){
     var anms_quesoduro =        document.getElementById("anms_quesoduro").checked;
     var anms_quesosemiblando =  document.getElementById("anms_quesosemiblando").checked;
     var anms_quesountable =     document.getElementById("anms_quesountable").checked;
+    var anms_otrosquesos =     document.getElementById("anms_otrosquesos").value;
     var anms_flan =             document.getElementById("anms_flan").checked;
     var anms_licuados =         document.getElementById("anms_licuados").checked;
     var anms_salsablanca =      document.getElementById("anms_salsablanca").checked;
@@ -98,6 +224,7 @@ function crearAnamnesis(){
     var anms_mediamanana =      document.getElementById("anms_mediamanana").value;
     var anms_almuerzo =         document.getElementById("anms_almuerzo").value;
     var anms_merienda =         document.getElementById("anms_merienda").value;
+    var anms_mediatarde =         document.getElementById("anms_mediatarde").value;
     var anms_cena =             document.getElementById("anms_cena").value;
 
     const post = {
@@ -124,6 +251,7 @@ function crearAnamnesis(){
         anms_quesoduro: anms_quesoduro,
         anms_quesosemiblando: anms_quesosemiblando,
         anms_quesountable: anms_quesountable,
+        anms_otrosquesos: anms_otrosquesos,
         anms_flan: anms_flan,
         anms_licuados: anms_licuados,
         anms_salsablanca: anms_salsablanca,
@@ -178,6 +306,7 @@ function crearAnamnesis(){
         anms_mediamanana: anms_mediamanana,
         anms_almuerzo: anms_almuerzo,
         anms_merienda: anms_merienda,
+        anms_mediatarde: anms_mediatarde,
         anms_cena: anms_cena
     }
     console.log(post)
@@ -196,120 +325,100 @@ function crearAnamnesis(){
     } catch (error) {
         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
     }
-    }
+  }
 }
 
-function validarDatos(){
-    var incompleto = false;
-    var correccion = "Datos incompletos o inválidos: " + "\n";
+function comprobarCampos(id)
+{
+    var divs = document.getElementsByClassName("camposAVerificar");
+    var checkboxs = document.getElementsByClassName("checkAVerificar")
+    var elementos;
 
-    if(document.getElementById("vacuna").checked == true)
-    {
-        if((document.getElementById("anms_vacunacongrasa").checked == false) && (document.getElementById("anms_vacunasingrasa").checked == false)
-        ){
-            correccion = correccion + "*Vacuna" + "\n"
-            incompleto = true;
-        }
+    switch (id){
+        case "check-1":
+            elementos = [1,2];
+            break;
+        case "check-2":
+            elementos = [3,4];
+            break;
+        case "check-3":
+            elementos = [5,6];
+            break;
+        case "check-4":
+            elementos = [7,8];
+            break;
+        case "check-5":
+            elementos = [9,10];
+            break;
+        case "check-6":
+            elementos = [11,12];
+            break;
+        case "check-7":
+            elementos = [13, 14, 15];
+            break;
+        case "check-8":
+            elementos = [16, 17];
+            break;
+        case "check-9":
+            elementos = [18,19,20,21];
+            break;
+        case "check-10":
+            elementos = [22,23];
+            break;
+        case "check-11":
+            elementos = [24];
+            break;
+        case "check-12":
+            elementos = [25];
+            break;
+        case "check-13":
+            elementos = [26];
+            break;
+        case "check-14":
+            elementos = [27];
+            break;
     }
 
-    if(document.getElementById("pollo").checked == true)
-    {
-        if((document.getElementById("anms_polloconpiel").checked == false) && (document.getElementById("anms_pollosinpiel").checked == false)
-        ){
-            correccion = correccion + "*Pollo" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("pescado").checked == true)
-    {
-        if((document.getElementById("anms_pescadorio").checked == false) && (document.getElementById("anms_pescadomar").checked == false)
-         ) {
-            correccion = correccion + "*Pescado" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("visceras").checked == true)
-    {
-        if((document.getElementById("anms_higado").checked == false) && (document.getElementById("anms_rinon").checked == false) && (document.getElementById("anms_otrasviceras").value == "")
-        ){
-            correccion = correccion + "*Visceras" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("leche").checked == true)
-    {
-        if((document.getElementById("anms_lecheentera").checked == false) && (document.getElementById("anms_lechedescremada").checked == false)
-        ){
-            correccion = correccion + "*Leche" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("yogurt").checked == true)
-    {
-        if((document.getElementById("anms_yogurtentero").checked == false) && (document.getElementById("anms_yogurtdescremada").checked == false)
-        ){
-            correccion = correccion + "*Yogurt" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("queso").checked == true)
-    {
-        if((document.getElementById("anms_quesoduro").checked == false) && (document.getElementById("anms_quesosemiblando").checked == false) && (document.getElementById("anms_quesountable").checked == false))
+    for (var i = 0; i < divs.length; i++) {
+        if(elementos.includes(i+1))
         {
-            correccion = correccion + "*Queso" + "\n"
-            incompleto = true;
+
+            var atributes = divs.item(i).getAttribute("class");
+            if(atributes.substr(0,9) == "democlass"){
+             divs.item(i).setAttribute("class", atributes.substr(10,atributes.length));
+             checkboxs.item(i).disabled=true;
+            }
+            else
+            {
+             divs.item(i).setAttribute("class","democlass" + " " + atributes);
+             checkboxs.item(i).disabled=false;
+            }
+
         }
-    }
-    if(document.getElementById("pan").checked == true )
-    {
-        if((document.getElementById("anms_panblanco").checked == false) && (document.getElementById("anms_pannegro").checked == false)
-        ){
-            correccion = correccion + "*Pan" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("galletitas").checked == true )
-    {
-        if((document.getElementById("anms_galletassaladas").checked == false) && (document.getElementById("anms_galletasagua").checked == false) && (document.getElementById("anms_galletasdulces").checked == false) && (document.getElementById("anms_galletasintegrales").checked == false)
-        ){
-            correccion = correccion + "*Galletas" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("masas").checked == true)
-    {
-        if((document.getElementById("anms_facturas").checked == false) && (document.getElementById("anms_tortas").checked == false) && (document.getElementById("anms_otrasmasas").value == ""))
-        {
-            correccion = correccion + "*Masas" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("vino").checked == true)
-    {
-        if(document.getElementById("anms_cantvino").value == "")
-        {
-            correccion = correccion + "*Vino" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("cerveza").checked == true)
-    {
-        if(document.getElementById("anms_cantcerveza").value == "")
-        {
-            correccion = correccion + "*Cerveza" + "\n"
-            incompleto = true;
-        }
-    }
-    if(document.getElementById("bebidablanca").checked == true)
-    {
-        if(document.getElementById("anms_cantbebblancas").value == "")
-        {
-            correccion = correccion + "*Bebida Blanca" + "\n"
-            incompleto = true;
-        }
-    }
-    if(incompleto == true){
-        alert(correccion);
-        return false;
-    }
+        
+     }
 }
+
+function hideSeccion(id){
+    var carne = document.getElementById(id);
+    if (carne.style.display === "none") {
+        carne.style.display = "grid";
+      } else {
+        carne.style.display = "none";
+      }
+}
+    
+hideSeccion("carne__cuestionario");
+hideSeccion("lacteos__cuestionario");
+hideSeccion("huevos__cuestionario");
+hideSeccion("vegetales__cuestionario");
+hideSeccion("panificacion__cuestionario");
+hideSeccion("azucar__cuestionario");
+hideSeccion("aceite__cuestionario");
+hideSeccion("grasas__cuestionario");
+hideSeccion("sal__cuestionario");
+hideSeccion("bebidas__cuestionario");
+hideSeccion("alcohol__cuestionario");
+hideSeccion("comidas__cuestionario");
+
+window.addEventListener('load',onload);

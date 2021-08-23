@@ -7,7 +7,7 @@ export const registrarAnamnesis = async (req,res) => {
     let {anms_vacunacongrasa,anms_vacunasingrasa,anms_polloconpiel,anms_pollosinpiel,anms_pescadorio,anms_pescadomar,
             anms_cerdo,anms_higado,anms_rinon,anms_otrasviceras,anms_fiambres,anms_embutidos,anms_salchichas,
             anms_chorizo,anms_morcilla,anms_lecheentera,anms_lechedescremada,anms_yogurtentero,anms_yogurtdescremada,
-            anms_quesoduro,anms_quesosemiblando,anms_quesountable,anms_flan,anms_licuados,anms_salsablanca,
+            anms_quesoduro,anms_quesosemiblando,anms_quesountable,anms_otrosquesos,anms_flan,anms_licuados,anms_salsablanca,
             anms_prepconleche,anms_huevohervido,anms_huevofrito,anms_prephuevo,anms_vegetalesfrescos,
             anms_vegetalesenlatados,anms_frutas,anms_cereales,anms_pastas,anms_vegfeculentos,anms_legumbres,
             anms_panblanco,anms_pannegro,anms_galletassaladas,anms_galletasagua,anms_galletasdulces,
@@ -16,7 +16,7 @@ export const registrarAnamnesis = async (req,res) => {
             anms_aceitegirasol,anms_aceitemaiz,anms_aceiteoliva,anms_otrosaceites,anms_aceitecrudo,anms_aceitefritura,
             anms_manteca,anms_margarina,anms_mayonesa,anms_otrasgrasas,anms_salcomun,anms_saldieta,anms_sales,
             anms_bebidas,anms_cantvino,anms_cantcerveza,anms_cantbebblancas,anms_desayuno,anms_mediamanana,anms_almuerzo,
-            anms_merienda,anms_cena } = req.body;
+            anms_merienda,anms_mediatarde,anms_cena } = req.body;
 
     try {
         const pool = await getConnection();
@@ -44,6 +44,7 @@ export const registrarAnamnesis = async (req,res) => {
             .input('anms_quesoduro', sql.Bit,anms_quesoduro)
             .input('anms_quesosemiblando', sql.Bit,anms_quesosemiblando)
             .input('anms_quesountable', sql.Bit,anms_quesountable)
+            .input('anms_otrosquesos', sql.NVarChar,anms_otrosquesos)
             .input('anms_flan', sql.Bit,anms_flan)
             .input('anms_licuados', sql.Bit,anms_licuados)
             .input('anms_salsablanca', sql.Bit,anms_salsablanca)
@@ -98,6 +99,7 @@ export const registrarAnamnesis = async (req,res) => {
             .input('anms_mediamanana', sql.NVarChar,anms_mediamanana)
             .input('anms_almuerzo', sql.NVarChar,anms_almuerzo)
             .input('anms_merienda', sql.NVarChar,anms_merienda)
+            .input('anms_mediatarde', sql.NVarChar,anms_mediatarde)
             .input('anms_cena', sql.NVarChar,anms_cena)
             
             .query(queries.registrarAnamnesis)
@@ -106,7 +108,7 @@ export const registrarAnamnesis = async (req,res) => {
             anms_pescadorio,anms_pescadomar,anms_cerdo,anms_higado,anms_rinon,anms_otrasviceras,
             anms_fiambres,anms_embutidos,anms_salchichas,anms_chorizo,anms_morcilla,
             anms_lecheentera,anms_lechedescremada,anms_yogurtentero,anms_yogurtdescremada,
-            anms_quesoduro,anms_quesosemiblando,anms_quesountable,anms_flan,anms_licuados,anms_salsablanca,anms_prepconleche,
+            anms_quesoduro,anms_quesosemiblando,anms_quesountable,anms_otrosquesos,anms_flan,anms_licuados,anms_salsablanca,anms_prepconleche,
             anms_huevohervido,anms_huevofrito,anms_prephuevo,
             anms_vegetalesfrescos,anms_vegetalesenlatados,anms_frutas,anms_cereales,anms_pastas,anms_vegfeculentos,anms_legumbres,
             anms_panblanco,anms_pannegro,anms_galletassaladas,anms_galletasagua,anms_galletasdulces,
@@ -117,7 +119,7 @@ export const registrarAnamnesis = async (req,res) => {
             anms_manteca,anms_margarina,anms_mayonesa,anms_otrasgrasas,
             anms_salcomun,anms_saldieta,anms_sales,
             anms_bebidas,anms_cantvino,anms_cantcerveza,anms_cantbebblancas,
-            anms_desayuno,anms_mediamanana,anms_almuerzo,anms_merienda,anms_cena})
+            anms_desayuno,anms_mediamanana,anms_almuerzo,anms_merienda,anms_mediatarde,anms_cena})
     } catch (error) {
         res.status(500);
         res.send(error.message);

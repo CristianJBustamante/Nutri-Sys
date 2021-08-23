@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="/css/estilos_Fichas_AnamnesisAlimentaria.css"> <!-- Cambiar en cada Solapa -->
-    <script src="/js/pacientes/fichas/codigo_registrarAnamnesis.js"></script>
+    
 
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
@@ -48,8 +48,11 @@
 
             <article class="contenido__article">
                 <section class="section__fichas">
-                    <div class="encabezado__datosPaciente" id="pac_datos">
-                        
+                    <div class="encabezado__datosPaciente">
+                        <h2>Paciente: Gonzalez, Eugenio</h2>
+                        <h2>HC: 709543</h2>
+                        <h2>DOC.: 23465973</h2>
+                        <h2>FN: 05/06/1975</h2>
                     </div>
                     <div class="ficha"> <!-- Cambiar En cada Solapa -->
                         <div class="navegacion__solapas">
@@ -65,45 +68,46 @@
                             <!-- Seccion Carne -->
 
                             <div class="seccion__anamnesis">
-                                <div class="carne__titulo">
+                                <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('carne__cuestionario')">
                                     <h2 class="titulo__seccion">Carne</h2>
                                 </div>
-                                <div class="carne__cuestionario">
+                                <div class="carne__cuestionario" id="carne__cuestionario">
                                     <div id="div-1" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
                                         <h2 class="label__pregunta">Vacuna:</h2>
-                                        <input type="checkbox" id="vacuna" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-1" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div id="div-2" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Con grasa:</h2>
-                                        <input type="checkbox" id="anms_vacunacongrasa" class="respuesta__pregunta--checkbox">
+                                    <div id="div-2" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Con grasa:</h2>
+                                        <input type="checkbox" id="anms_vacunacongrasa" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-3" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Sin grasa:</h2>
-                                        <input type="checkbox" id="anms_vacunasingrasa" class="respuesta__pregunta--checkbox">
+                                    <div id="div-3" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Sin grasa:</h2>
+                                        <input type="checkbox" id="anms_vacunasingrasa" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div id="div-4" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
                                         <h2 class="label__pregunta">Pollo:</h2>
-                                        <input type="checkbox" id="pollo" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-2" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div id="div-5" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Con piel:</h2>
-                                        <input type="checkbox" id="anms_polloconpiel" class="respuesta__pregunta--checkbox">
+                                    <div id="div-5" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Con piel:</h2>
+                                        <input type="checkbox" id="anms_polloconpiel" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-6" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Sin piel:</h2>
-                                        <input type="checkbox" id="anms_pollosinpiel" class="respuesta__pregunta--checkbox">
+                                    <div id="div-6" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Sin piel:</h2>
+                                        <input type="checkbox" id="anms_pollosinpiel" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div id="div-7" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
                                         <h2 class="label__pregunta">Pescado:</h2>
-                                        <input type="checkbox" id="pescado" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-3" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div id="div-8" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Rio:</h2>
-                                        <input type="checkbox" id="anms_pescadorio" class="respuesta__pregunta--checkbox">
+                                    <div id="div-8" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Rio:</h2>
+                                        <input type="checkbox" id="anms_pescadorio"  class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-9" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Mar:</h2>
-                                        <input type="checkbox" id="anms_pescadomar" class="respuesta__pregunta--checkbox">
+                                    <div id="div-9" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Mar:</h2>
+                                        <input type="checkbox" id="anms_pescadomar" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div id="div-10" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
                                         <h2 class="label__pregunta">Cerdo:</h2>
@@ -115,31 +119,31 @@
                                     
                                     <div id="div-13" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
                                         <h2 class="label__pregunta">Visceras:</h2>
-                                        <input type="checkbox" id="visceras" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-4" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div id="div-14" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Hígado:</h2>
-                                        <input type="checkbox" id="anms_higado" class="respuesta__pregunta--checkbox">
+                                    <div id="div-14" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Hígado:</h2>
+                                        <input type="checkbox" id="anms_higado" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-15" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Riñon:</h2>
-                                        <input type="checkbox" id="anms_rinon" class="respuesta__pregunta--checkbox">
+                                    <div id="div-15" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Riñon:</h2>
+                                        <input type="checkbox"  id="anms_rinon" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div id="div-16" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-4">
-                                        <h2  class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
                                         <textarea class="textarea" id="anms_otrasviceras" name="otros1" cols="30" rows="10"></textarea>
                                     </div>
 
                                     <div id="div-17" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Fiambres:</h2>
+                                        <h2 class="label__pregunta">Fiambres:</h2>
                                         <input type="checkbox" id="anms_fiambres" class="respuesta__pregunta--checkbox">
                                     </div>
                                     <div id="div-18" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Embutidos:</h2>
+                                        <h2 class="label__pregunta">Embutidos:</h2>
                                         <input type="checkbox" id="anms_embutidos" class="respuesta__pregunta--checkbox">
                                     </div>
                                     <div id="div-19" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
-                                        <h2  class="label__pregunta">Salchicas:</h2>
+                                        <h2 class="label__pregunta">Salchicas:</h2>
                                         <input type="checkbox" id="anms_salchichas" class="respuesta__pregunta--checkbox">
                                     </div>
                                     <div id="div-20" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta">
@@ -157,54 +161,60 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('lacteos__cuestionario')">
                                     <h2 class="titulo__seccion">Lácteos</h2>
                                 </div>
-                                <div class="lacteos__cuestionario">
+                                <div class="lacteos__cuestionario" id="lacteos__cuestionario">
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Leche:</h2>
-                                        <input type="checkbox" id="leche" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-5" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
-                                        <h2  class="label__pregunta">Entera:</h2>
-                                        <input type="checkbox" id="anms_lecheentera" class="respuesta__pregunta--checkbox">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Entera:</h2>
+                                        <input type="checkbox" id="anms_lecheentera" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div></div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
-                                        <h2  class="label__pregunta">Descremada:</h2>
-                                        <input type="checkbox" id="anms_lechedescremada" class="respuesta__pregunta--checkbox">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta">Descremada:</h2>
+                                        <input type="checkbox" id="anms_lechedescremada" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
 
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Yogurt:</h2>
-                                        <input type="checkbox" id="yogurt" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-6" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Entero:</h2>
-                                        <input type="checkbox" id="anms_yogurtentero" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_yogurtentero" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
+
                                     </div>
                                     <div></div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Descremado:</h2>
-                                        <input type="checkbox" id="anms_yogurtdescremada" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_yogurtdescremada" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
 
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Quesos:</h2>
-                                        <input type="checkbox" id="queso" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-7" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Duros:</h2>
-                                        <input type="checkbox" id="anms_quesoduro" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_quesoduro" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div></div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Semiblandos:</h2>
-                                        <input type="checkbox" id="anms_quesosemiblando" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_quesosemiblando" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div></div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Untables:</h2>
-                                        <input type="checkbox" id="anms_quesountable" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_quesountable" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-3">
+                                        <h2 class="label__pregunta label__pregunta--desarrolo">Consideraciones:</h2>
+                                        <textarea class="textarea" name="otros1" id="anms_otrosquesos" cols="30" rows="10"></textarea>
                                     </div>
 
                                     <div class="otros__allcolumns1-3 subtitulo__sub">
@@ -235,9 +245,10 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('huevos__cuestionario')">
                                     <h2 class="titulo__seccion">Huevos</h2>
                                 </div>
-                                <div class="huevos__cuestionario">
+                                <div class="huevos__cuestionario" id="huevos__cuestionario">
                                     
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Hervido:</h2>
@@ -262,9 +273,10 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('vegetales__cuestionario')">
                                     <h2 class="titulo__seccion">Vegetales</h2>
                                 </div>
-                                <div class="vegetales__cuestionario">
+                                <div class="vegetales__cuestionario" id="vegetales__cuestionario">
                                     
                                     <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
                                         <h2 class="label__pregunta--desarrolo">Frescos:</h2>
@@ -302,54 +314,55 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('panificacion__cuestionario')">
                                     <h2 class="titulo__seccion">Panificación</h2>
                                 </div>
-                                <div class="panificacion__cuestionario">
+                                <div class="panificacion__cuestionario" id="panificacion__cuestionario">
 
                                     <div id="div-47" class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Pan:</h2>
-                                        <input type="checkbox" id="pan" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-8" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div id="div-48" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-48" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Blanco:</h2>
-                                        <input type="checkbox" id="anms_panblanco" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_panblanco" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-49" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-49" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Negro:</h2>
-                                        <input type="checkbox" id="anms_pannegro" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_pannegro"class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div id="div-50" class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Galletitas:</h2>
-                                        <input type="checkbox" id="galletitas" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-9" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div id="div-51" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-51" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Saladas:</h2>
-                                        <input type="checkbox" id="anms_galletassaladas" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_galletassaladas" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-52" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-52" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">De agua:</h2>
-                                        <input type="checkbox" id="anms_galletasagua" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_galletasagua" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-53" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-53" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Dulces:</h2>
-                                        <input type="checkbox" id="anms_galletasdulces" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_galletasdulces" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-54" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-54" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Integrales:</h2>
-                                        <input type="checkbox" id="anms_galletasintegrales" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_galletasintegrales" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div id="div-55"> </div>
                                     <div id="div-56" class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Masas:</h2>
-                                        <input type="checkbox" id="masas" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-10" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div id="div-57" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-57" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Facturas:</h2>
-                                        <input type="checkbox" id="anms_facturas" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_facturas" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
-                                    <div id="div-58" class="pregunta__cuestionario decoracion__pregunta">
+                                    <div id="div-58" class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta">Tortas:</h2>
-                                        <input type="checkbox" id="anms_tortas" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_tortas" class="respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div id="div-59" class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-4">
                                         <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
@@ -362,9 +375,10 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('azucar__cuestionario')">
                                     <h2 class="titulo__seccion">Azúcares</h2>
                                 </div>
-                                <div class="azucar__cuestionario">
+                                <div class="azucar__cuestionario" id="azucar__cuestionario">
                                     
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Azúcar:</h2>
@@ -400,7 +414,11 @@
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Edulcorante:</h2>
-                                        <input type="checkbox" id="anms_edulcorante" class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-11" onchange="comprobarCampos(this.id)">
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
+                                        <h2 class="label__pregunta--desarrolo">Cuales:</h2>
+                                        <input type="text" id="anms_edulcorante" class="bebidas__cantidades respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta decoracion__pregunta otros__allcolumns1-3">
                                         <h2 class="label__pregunta label__pregunta--desarrolo">Otros:</h2>
@@ -413,9 +431,10 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('aceite__cuestionario')">
                                     <h2 class="titulo__seccion">Aceites</h2>
                                 </div>
-                                <div class="aceite__cuestionario">
+                                <div class="aceite__cuestionario" id="aceite__cuestionario">
 
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">De girasol:</h2>
@@ -449,9 +468,10 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('grasas__cuestionario')">
                                     <h2 class="titulo__seccion">Grasas</h2>
                                 </div>
-                                <div class="grasas__cuestionario">
+                                <div class="grasas__cuestionario" id="grasas__cuestionario">
                                     
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Manteca:</h2>
@@ -477,9 +497,10 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('sal__cuestionario')">
                                     <h2 class="titulo__seccion">Sal</h2>
                                 </div>
-                                <div class="sal__cuestionario">
+                                <div class="sal__cuestionario" id="sal__cuestionario">
                                     
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Común:</h2>
@@ -501,9 +522,10 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('bebidas__cuestionario')">
                                     <h2 class="titulo__seccion">Bebidas-Infusiones</h2>
                                 </div>
-                                <div class="bebidas__cuestionario">
+                                <div class="bebidas__cuestionario" id="bebidas__cuestionario">
                                     <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
                                         <h2 class="label__pregunta--desarrolo">Cuales:</h2>
                                         <textarea class="textarea" name="otros1" id="anms_bebidas" cols="30" rows="10"></textarea>
@@ -515,33 +537,34 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('alcohol__cuestionario')">
                                     <h2 class="titulo__seccion">Alcohol</h2>
                                 </div>
-                                <div class="alcohol__cuestionario">
+                                <div class="alcohol__cuestionario" id="alcohol__cuestionario">
     
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Vino:</h2>
-                                        <input type="checkbox" id="vino">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-12" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta--desarrolo">Cant.:</h2>
-                                        <input type="text" id="anms_cantvino" class="bebidas__cantidades respuesta__pregunta--checkbox">
+                                        <input type="text"  id="anms_cantvino" class="bebidas__cantidades respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Cerveza:</h2>
-                                        <input type="checkbox" id="cerveza">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-13" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta--desarrolo">Cant.:</h2>
-                                        <input type="text" id="anms_cantcerveza" class="bebidas__cantidades respuesta__pregunta--checkbox">
+                                        <input type="text" id="anms_cantcerveza" class="bebidas__cantidades respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Bebidas blancas:</h2>
-                                        <input type="checkbox" id="bebidablanca">
+                                        <input type="checkbox" class="respuesta__pregunta--checkbox" id="check-14" onchange="comprobarCampos(this.id)">
                                     </div>
-                                    <div class="pregunta__cuestionario decoracion__pregunta">
+                                    <div class="pregunta__cuestionario decoracion__pregunta camposAVerificar">
                                         <h2 class="label__pregunta--desarrolo">Cant.:</h2>
-                                        <input type="text" id="anms_cantbebblancas" class="bebidas__cantidades respuesta__pregunta--checkbox">
+                                        <input type="text" id="anms_cantbebblancas" class="bebidas__cantidades respuesta__pregunta--checkbox checkAVerificar" disabled=true>
                                     </div>
 
                                 </div>
@@ -551,16 +574,17 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('comidas__cuestionario')">
                                     <h2 class="titulo__seccion">Comidas del día</h2>
                                 </div>
-                                <div class="comidas__cuestionario">
+                                <div class="comidas__cuestionario" id="comidas__cuestionario">
 
                                     <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
                                         <h2 class="label__pregunta--desarrolo">Desayuno:</h2>
                                         <textarea class="textarea" name="otros1" id="anms_desayuno" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
-                                        <h2 class="label__pregunta--desarrolo">Media mñn:</h2>
+                                        <h2 class="label__pregunta--desarrolo">Colación:</h2>
                                         <textarea class="textarea" name="otros1" id="anms_mediamanana" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
@@ -572,11 +596,15 @@
                                         <textarea class="textarea" name="otros1" id="anms_merienda" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
+                                            <h2 class="label__pregunta--desarrolo">Colación:</h2>
+                                            <textarea class="textarea" name="otros1" id="anms_mediatarde" cols="30" rows="10"></textarea>
+                                    </div>
+                                    <div class="pregunta__cuestionario decoracion__pregunta pregunta__desarrollo">
                                         <h2 class="label__pregunta--desarrolo">Cena:</h2>
                                         <textarea class="textarea" name="otros1" id="anms_cena" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="pregunta__cuestionario boton__siguiente">
-                                        <button class="normal boton" onclick="crearAnamnesis()">Siguiente</button>
+                                        <button class="normal boton" onclick="crearAnamnesis(id)">Siguiente</button>
                                     </div>
 
                                 </div>
@@ -589,6 +617,6 @@
         </div>
 
     </div>
-    
+    <script src="/js/pacientes/fichas/codigo_registrarAnamnesis.js"></script>
 </body>
 </html>

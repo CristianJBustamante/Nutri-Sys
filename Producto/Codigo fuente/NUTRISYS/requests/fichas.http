@@ -6,9 +6,7 @@ POST {{api}}/registraranamnesis
 Content-Type: application/json
 
 {
-    "anms_id": 1,
-    "anms_nrohc": 1000,
-    "anms_fecharegistro": "01/01/2021",
+    "anms_nrohc": 1001,
     "anms_vacunacongrasa": 1,
     "anms_vacunasingrasa": 0,
     "anms_polloconpiel": 0,

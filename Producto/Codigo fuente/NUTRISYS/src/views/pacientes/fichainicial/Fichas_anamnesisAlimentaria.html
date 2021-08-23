@@ -9,7 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="/css/estilos_Fichas_AnamnesisAlimentaria.css"> <!-- Cambiar en cada Solapa -->
+    <script src="/js/pacientes/fichas/codigo_registrarAnamnesis.js"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
@@ -46,11 +48,8 @@
 
             <article class="contenido__article">
                 <section class="section__fichas">
-                    <div class="encabezado__datosPaciente">
-                        <h2>Paciente: Gonzalez, Eugenio</h2>
-                        <h2>HC: 709543</h2>
-                        <h2>DOC.: 23465973</h2>
-                        <h2>FN: 05/06/1975</h2>
+                    <div class="encabezado__datosPaciente" id="pac_datos">
+                        
                     </div>
                     <div class="ficha"> <!-- Cambiar En cada Solapa -->
                         <div class="navegacion__solapas">
@@ -440,7 +439,7 @@
                                     </div>
                                     <div class="pregunta__cuestionario decoracion__pregunta">
                                         <h2 class="label__pregunta">Para fritura:</h2>
-                                        <input type="checkbox" id="anms_aceitefritura " class="respuesta__pregunta--checkbox">
+                                        <input type="checkbox" id="anms_aceitefritura" class="respuesta__pregunta--checkbox">
                                     </div>
 
                                 </div>
@@ -577,7 +576,7 @@
                                         <textarea class="textarea" name="otros1" id="anms_cena" cols="30" rows="10"></textarea>
                                     </div>
                                     <div class="pregunta__cuestionario boton__siguiente">
-                                        <button class="normal boton">Siguiente</button>
+                                        <button class="normal boton" onclick="crearAnamnesis()">Siguiente</button>
                                     </div>
 
                                 </div>

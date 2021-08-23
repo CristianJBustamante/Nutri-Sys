@@ -8,7 +8,7 @@ import { getAnamnesisXHC, registrarAnamnesis } from "../controllers/fichas.contr
 
 //ACCESO A PÁGINAS
 //Registrar Anamnesis
-    router.get('/fichas/registrarAnamnesis', (req,res) => {
+    router.get('/consulta/registrarAnamnesis/hc=:anms_nrohc', (req,res) => {
     res.render('pacientes/fichainicial/Fichas_anamnesisAlimentaria.html');
 });
 

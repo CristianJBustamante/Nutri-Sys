@@ -102,7 +102,7 @@ h2{
 .logo__manzana{
     width: 8rem;
     height: 8rem;
-    margin: 1rem  0rem 1rem 4rem;
+    margin: 1rem  5rem 1rem 4rem;
 }
 
 
@@ -121,14 +121,12 @@ h2{
     justify-content: space-between;
     max-height: 100% ;
     padding-top: 4rem;
-
 }
 
 .contenedorOpciones__opcion{
-
-    padding: 1rem;
+    padding: 3rem;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
@@ -137,6 +135,8 @@ h2{
 .contenedorOpciones__opcion:hover{
     background-color: var(--secundario);
     color: var(--blanco);
+    border-style: groove;
+    border-color: var(--primario);
 }
 
 /*************************/
@@ -151,7 +151,6 @@ h2{
 }
 
 .accesoRapido{
-    
     display: flex;
     background-color: white;
     align-items: center;
@@ -217,11 +216,15 @@ h2{
 .contenido__datosPersonales{
     margin-left: 4rem;
     padding-bottom: 2rem;
+    border-radius: 10px;
 }
 
 
 .btn__crear{
+    background-color: var(--primario);
+    color: var(--negro);
     margin: 2rem;
+    padding: 1rem;
 }
 
 
@@ -247,15 +250,17 @@ h2{
 }
 
 .input__padding{
-    margin: 1rem 0;
+    margin: 1rem;
     width: 50%;
     font-size: 2rem;
     font-family: var(--fuentePrincipal);
+    height: 5rem;
 }
 
 .input__text{
-    width: 20%;
-    margin-right: 3rem;
+    width: 35%;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
 }
 
 input::-webkit-inner-spin-button {

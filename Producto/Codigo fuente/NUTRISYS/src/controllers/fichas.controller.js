@@ -3,7 +3,7 @@ import {getConnection,sql,queries} from "../database";
 
 //INSERTAR NUEVO ANAMNESIS
 export const registrarAnamnesis = async (req,res) => {
-    const { anms_id,anms_nrohc,anms_fecharegistro } = req.body;
+    const { anms_nrohc } = req.body;
     let {anms_vacunacongrasa,anms_vacunasingrasa,anms_polloconpiel,anms_pollosinpiel,anms_pescadorio,anms_pescadomar,
             anms_cerdo,anms_higado,anms_rinon,anms_otrasviceras,anms_fiambres,anms_embutidos,anms_salchichas,
             anms_chorizo,anms_morcilla,anms_lecheentera,anms_lechedescremada,anms_yogurtentero,anms_yogurtdescremada,
@@ -18,22 +18,10 @@ export const registrarAnamnesis = async (req,res) => {
             anms_bebidas,anms_cantvino,anms_cantcerveza,anms_cantbebblancas,anms_desayuno,anms_mediamanana,anms_almuerzo,
             anms_merienda,anms_cena } = req.body;
 
-    
-    //if (anms_id==null || anms_nrohc==null || anms_fechaRegistro==null || pac_mutual==null ||
-      //  danms_id==null || danms_idItem==null || danms_consumido==null || item_id==null ) {
-        //    return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})
-     //   }
-    
-    //if (anms_observaciones==null){anms_observaciones=''}
-   // if (danms_cantidad==null){danms_cantidad=''}
-    //if (danms_observaciones==null){danms_observaciones=''}
-
     try {
         const pool = await getConnection();
         await pool.request()
-            .input('anms_id',sql.Numeric,anms_id)
             .input('anms_nrohc',sql.Numeric,anms_nrohc)
-            .input('anms_fecharegistro',sql.DateTime,anms_fecharegistro)
             .input('anms_vacunacongrasa', sql.Bit,anms_vacunacongrasa)
             .input('anms_vacunasingrasa', sql.Bit,anms_vacunasingrasa)
             .input('anms_polloconpiel', sql.Bit,anms_polloconpiel)
@@ -113,7 +101,7 @@ export const registrarAnamnesis = async (req,res) => {
             .input('anms_cena', sql.NVarChar,anms_cena)
             
             .query(queries.registrarAnamnesis)
-        res.json({  anms_id,anms_nrohc,anms_fecharegistro,
+        res.json({  anms_nrohc,
             anms_vacunacongrasa,anms_vacunasingrasa,anms_polloconpiel,anms_pollosinpiel,
             anms_pescadorio,anms_pescadomar,anms_cerdo,anms_higado,anms_rinon,anms_otrasviceras,
             anms_fiambres,anms_embutidos,anms_salchichas,anms_chorizo,anms_morcilla,

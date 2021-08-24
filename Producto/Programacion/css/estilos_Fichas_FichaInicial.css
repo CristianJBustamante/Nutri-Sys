@@ -358,7 +358,7 @@ margin-left: 2rem;
     }
 .area__observaciones{
     font-family: var(--fuentePrincipal);
-    margin-top: -2rem;
+    margin-top: -1rem;
     font-size: 2rem;
     width: 50%;
     height: 191px;
@@ -462,14 +462,13 @@ input[type=number] {
     margin-left: 3.1rem;
     margin-right: 7.1rem;
 }
-    
-
+    /*para peso minimo*/
 .input__valor--peso{
     font-family: var(--fuentePrincipal);
     margin-top: 1rem;
     font-size: 2rem;
     margin-inline: initial;
-    padding-right: 11.7rem;
+    padding-right: 6.7rem;
 }
 .input__valor--peso2{
     font-family: var(--fuentePrincipal);
@@ -481,6 +480,24 @@ input[type=number] {
     margin-right: 6.1rem;
     margin-top: 1rem;
     width: 60%;
+}
+.input__valor--pesoMax{
+    font-family: var(--fuentePrincipal);
+    margin-top: 1rem;
+    font-size: 2rem;
+    padding-right: 6.3rem;
+    margin-left: -0.8rem;
+}
+.input__valor--pesoMax2{
+    font-family: var(--fuentePrincipal);
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    margin-inline: initial;
+    margin-left: -0.7rem;
+    margin-right: 6.1rem;
+    margin-top: 1rem;
+    width: 60%;
+    
 }
 .tabla__diametro{
     margin-left: 2rem;
@@ -521,11 +538,12 @@ input[type=number] {
 }
 /*metabolismo basal*/
 .formula__metBasal{
-    margin-top: 2rem;
+    margin-top: -1rem;
     display: flex;
     justify-content: space-between;
     text-align: center;
     gap:2rem;
+   
 }
 .formula__metBasal--valor{
     display: flex;
@@ -533,14 +551,28 @@ input[type=number] {
     align-items: center;
     gap:1rem;
 }
+.formula__metBasal--nombre{
+    margin-left: -4.1rem;
+}
 .input__metBasal{
     font-family: var(--fuentePrincipal);
-    margin-bottom: 1rem;
     font-size: 2rem;
-    margin-right: 1rem;
+    /* margin-right: 33rem; */
     margin-block: auto;
-    margin-inline: initial;
+    /* margin-inline: unset; */
     margin-left: 2.7rem;
+    width: 104%;
+    padding-right: 18rem;
+}
+.input__ajuste{
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    /* margin-right: 33rem; */
+    margin-block: auto;
+
+    margin-left: 2.7rem;
+    width: 104%;
+    padding-right: 18rem;
 }
 .ajuste__actividad{
     display:flex;
@@ -562,5 +594,28 @@ label{
         margin-top: -4rem; */
 }
 /** RESPONSIVIDAD :O**/
+@media(max-width:1700px){
+    .area__observaciones{
+        margin: 1rem auto;
+    }
 
+    .contenido__fecha{ 
+            width: 20%;  }
+}
 
+@media(max-width:768px){
+    .contenido__input{
+        margin: 1rem 2rem;
+        width: 47%;
+        font-size: 2rem;
+        
+    }
+}
+    @media(max-width:820px){
+        .contenido__input{
+            margin: 2rem 2rem;
+        width: 45%;
+            font-size: 2rem;
+        }
+
+    }

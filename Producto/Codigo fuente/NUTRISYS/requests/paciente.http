@@ -33,12 +33,14 @@ PUT {{api}}/pacientes/1002
 Content-Type: application/json
 
 {
-    "pac_tipodoc": "DNI",
-    "pac_nrodoc": 1111111,
-    "pac_apellido": "Jones",
-    "pac_nombre": "Jessica",
-    "pac_telefono1": "9876543212",
-    "pac_correo": "jj.jj@gmail.com",
-    "pac_fechanacimiento": "10/10/1991",
-    "pac_idmutual":1
+    "pac_nrodoc":"40245878",
+    "pac_apellido":"Ramirez",
+    "pac_nombre":"Juan",
+    "pac_mutual":"Medifé",
+    "pac_mutual2":"",
+    "pac_telefono1":"3513456654",
+    "pac_telefono2":"",
+    "pac_fechanacimiento":"1991-03-14",
+    "pac_correo":"jramirez@gmail.com",
+    "pac_direccion":"Dean Funes 444"
 }

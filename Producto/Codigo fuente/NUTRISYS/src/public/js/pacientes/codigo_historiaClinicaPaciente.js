@@ -20,7 +20,8 @@ const mostrarData = (data) => {
     document.getElementById('pac_datospersonales').innerHTML = resumen
     }
 
-//Cargar resumen
-
+function editarpaciente() {
+    location.href ="../modificarpaciente/hc="+pac_nrohc
+}
 
 

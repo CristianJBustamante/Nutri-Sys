@@ -12,8 +12,12 @@ import {actualizarPaciente, eliminarPaciente, getPacienteAPDoc, getPacienteHCAP,
 
 //ACCESO A PÁGINAS
   //Registrar paciente
-  router.get('/pacientes/nuevopaciente', (req,res) => {
+  router.get('/pacientes/nuevopaciente/', (req,res) => {
     res.render('pacientes/registrarPacienteNuevo.html');
+});
+//Editar paciente
+router.get('/pacientes/modificarpaciente/hc=:pac_nrohc', (req,res) => {
+  res.render('pacientes/registrarPacienteNuevo.html');
 });
   //Buscar pacientes
   router.get('/pacientes/buscarpaciente', (req,res) => {

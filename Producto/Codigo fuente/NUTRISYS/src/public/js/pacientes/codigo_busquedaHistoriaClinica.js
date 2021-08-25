@@ -59,7 +59,7 @@ function buscarPaciente(){
 
 
 function crearPacienteNuevo(){
-    location.href ="./nuevopaciente"
+    location.href ="./nuevopaciente/"
 }
 
 function seleccionarPaciente(nrohc) {

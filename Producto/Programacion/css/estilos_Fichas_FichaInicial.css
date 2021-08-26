@@ -659,23 +659,25 @@ label{
     }
     .input__valor--peso{
         width: 275%;
-        margin-left: 1.7rem;
+        margin-left: 0.7rem;
+        padding-right: 7.8rem;
     }
     .input__valor--peso2{
-        margin-left: 1.7rem;
+        margin-left: 0.7rem;
         width: 213%;
     }
     .input__valor--pesoMax{
-        width: 297%;
-        margin-left: 1.2rem;
+        width: 270%;
+        margin-left: 0.2rem;
+        padding-right: 2rem;
     }
     .input__valor--pesoMax2{
         margin-left: 1.2rem;
         width: 235%;
     }
     .input__valor--diametro{
-        margin-left: 6.4rem;
-        margin-right: -3.5rem;
+        margin-left: 5.4rem;
+        margin-right: -2.5rem;
         padding: 0;
     }
     .formula__metBasal{
@@ -683,7 +685,7 @@ label{
         
     }
     .input__metBasal{
-        margin-left: 5.4rem;
+        margin-left: 3.4rem;
         padding-right: 13rem;
     }
     .ajuste__actividad{
@@ -735,13 +737,13 @@ label{
         } */
         .contenido__edad{ 
             margin-left: 5rem;
-            margin-right: -4rem;
+            margin-right: 4rem;
         }
         .contenido__input--edad{
             padding-top: 8rem;
             margin-top: 6rem;
-            margin-left: -25.4rem;
-            margin-right: 7rem;
+            margin-left: -23.4rem;
+            margin-right: 5rem;
         }
         .area__observaciones{
             width: 84%;
@@ -753,8 +755,8 @@ label{
         width: 300%;
         }
         .nav__solapa {
-            width: 330%;
-            font-size: 1.5rem;
+            width: 380%;
+            font-size: 1.2rem;
 
         }
         /*antro*/
@@ -768,14 +770,17 @@ label{
         .input__valor--peso{
             width: 275%;
             margin-left: 1.7rem;
+            padding-right: 6.8rem;
         }
         .input__valor--peso2{
             margin-left: 1.7rem;
             width: 213%;
         }
         .input__valor--pesoMax{
-            width: 297%;
+            width: 270%;
             margin-left: 1.2rem;
+            padding-left: 1rem;
+            padding-right: 0rem;
         }
         .input__valor--pesoMax2{
             margin-left: 1.2rem;
@@ -806,7 +811,8 @@ label{
             padding-right: 9.8rem;
         }
         .boton{
-                margin-left: 40rem;
+                margin-left: 1rem;
+                width: 93%;
             }
     }
     /*---------------------------*/

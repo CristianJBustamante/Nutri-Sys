@@ -365,7 +365,7 @@ margin-left: 2rem;
     width: 50%;
     height: 191px;
     resize: none;
-    margin-left: 36.6rem;
+    margin-left: 36.3rem;
 }
 .formulario__laboratorios{
 border-color: var(--grisOscuro);
@@ -737,7 +737,7 @@ label{
         } */
         .contenido__edad{ 
             margin-left: 5rem;
-            margin-right: 4rem;
+            margin-right: -4.5rem;
         }
         .contenido__input--edad{
             padding-top: 8rem;

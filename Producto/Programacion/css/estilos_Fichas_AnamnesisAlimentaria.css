@@ -558,7 +558,7 @@ input::-webkit-inner-spin-button {
 }
 
 .titulo__seccion{
-    background-color: var(--primario);
+    /* background-color: var(--primario); */
     color: var(--negro);
     font-weight: normal;
     margin-block-start: 0.3rem;
@@ -571,5 +571,9 @@ input::-webkit-inner-spin-button {
 
 .democlass{
     background-color: var(--grisClaro);
+}
+
+.selected{
+    background-color: red;
 }
 

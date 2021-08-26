@@ -73,7 +73,9 @@ function comprobarCampos(id)
             var atributes = divs.item(i).getAttribute("class");
             if(atributes.substr(0,9) == "democlass"){
              divs.item(i).setAttribute("class", atributes.substr(10,atributes.length));
+             checkboxs.item(i).checked=false;
              checkboxs.item(i).disabled=true;
+             
             }
             else
             {
@@ -87,10 +89,24 @@ function comprobarCampos(id)
 }
 
 function hideSeccion(id){
-    var carne = document.getElementById(id);
+    let carne = document.getElementById(id);
     if (carne.style.display === "none") {
         carne.style.display = "grid";
-      } else {
-        carne.style.display = "none";
-      }
+    } 
+    else {
+    carne.style.display = "none";
+    }
+
+    try{
+        let titulo = document.getElementsByName(id);
+        if (carne.style.display === "none") {
+            titulo[0].style.backgroundColor = "var(--grisOscuro)";
+        } 
+        else {
+        titulo[0].style.backgroundColor = "var(--primario)";
+        }
+    }
+    catch{
+
+    }
 }

@@ -16,19 +16,17 @@ html{
     box-sizing: border-box;
     font-size: 62.5%;
     /*Solucion Corte*/
-    height: 100%;
     scroll-snap-type: y mandatory;
+    height:max-content;
 }
-
 
 html, body{
     width:100%;
     margin: 0;
-    height: 100%;
+    height: max-content;
     /*display: flex;*/
 
   }
-
 
 
     /*** Responsivo ***/
@@ -121,7 +119,7 @@ h3{
 
 .menuPrincipal{
     background-color: var(--primario);
-    height:200%;
+    height:100%;
     margin-bottom:auto;
 }
 
@@ -132,12 +130,14 @@ h3{
     justify-content: space-between;
     max-height: 100% ;
     padding-top: 4rem;
-
+    position: fixed;
+    width: 27.5rem;
 }
 
 .contenedorOpciones__opcion{
 
     padding: 1rem;
+    margin: 1rem;
     text-decoration: none;
     font-size: 2rem;
     color: var(--negro);
@@ -357,16 +357,15 @@ margin-left: 2rem;
     margin-left: 2rem;
     }
 .area__observaciones{
+    display: grid;
     font-family: var(--fuentePrincipal);
-    margin-top: 1rem;
     font-size: 2rem;
-    width: 70%;
-    height: 190px;
-    resize: none;
-<<<<<<< Updated upstream
-    margin-left: 36.3rem;
-=======
->>>>>>> Stashed changes
+    width: 80%;
+    height: 15rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: center;
+    align-content: center;
 }
 .formulario__laboratorios{
 border-color: var(--grisOscuro);
@@ -385,45 +384,48 @@ font-family: var(--fuentePrincipal);
     margin-left: 50rem;  
 }
 .contenido__input{
-    margin: 1rem 0;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
     width: 50%;
     font-size: 2rem;    
     font-family: var(--fuentePrincipal);
+    resize: none;
 }
+
 .contenido__fecha{
-    width: 15%;
+    width: 30%;
 }
 .contenido__edad{
-    width: 10%;
-}
+    font-family: var(--fuentePrincipal);
+    margin-top: 2rem;
+    width: 5rem;
+    height: 5rem;
+    font-size: 2rem;
+    }
 .contenido__input--edad{
-    width: 39.3%;
+    font-family: var(--fuentePrincipal);    
+    margin-top: 2rem;
+    margin-left: 1.5rem;
+    width: 40rem;
+    height: 5rem;
+    font-size: 2rem;
+    resize: none;
 }
 /** CSS ANTROPOMETRIA**/
 
 
 .input__valor{
-    margin-bottom: 2rem;
+    display: flex;
     font-size: 2rem;
-    display: inline-flex;
-    position: absolute;
-    margin-top: 1rem;
-    width: 20rem;
-    margin-left: 10rem;
+    width: 15rem;
+    margin-top: -4rem;
+    margin-left: 10rem; 
 }
-/*sacar las flechas del input numerico*/
-input[type=number] {
-    -moz-appearance:textfield;
-}
-.input__valor--diametro{
-    font-family: var(--fuentePrincipal);
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    margin-left: 4.7rem;
-    margin-right: 6rem;
-    margin-top: 1rem;
-    padding-left: 14rem;
-    padding-right: 14.3rem;
+
+.tabla__antro--contenido{
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
 }
 
 .label__ficha{
@@ -434,99 +436,106 @@ input[type=number] {
     font-family: var(--fuentePrincipal);
     border-color: var(--grisOscuro);
     display: grid;
-    grid-template-columns: 10rem 10rem;
-    column-gap: 40rem;
-    justify-items: center;
-}
-
-.input__valoresDiametro{
-    /* display: flex;
-    justify-content: space-between;
-    flex-direction: column; */
-    display: grid;
-    grid-template-columns: 50% 50%;
-    column-gap: 1rem;
-    margin-right: -2.5rem;
-}
-/*clase que contiene al input*/
-.input__valoresPeso{
-    display: grid;
-    column-gap: 1rem;
-    margin-left: 10rem;
-}
-    /*para peso minimo*/
-.input__valor--peso{
-    font-family: var(--fuentePrincipal);
-    margin-top: 1rem;
-    font-size: 2rem;
-    width: 20rem;
-    margin-right: 75rem;
+    margin-right: 5%;
+    margin-left: 2rem;
+    grid-template-columns: 40% 40%;
+    justify-content: space-around;
+    column-gap: 20%;
 }
 
 .tabla__antro--contenido-peso{
-    margin-left: 1rem;
+    margin-left: 2%;
 }
+.input__valor--peso{
+    display: flex;
+    font-size: 2rem;
+    width: 15rem;
+    margin-top: -4rem;
+    margin-left: 10rem;
+ }
 
 .input__valor--peso2{
-    font-family: var(--fuentePrincipal);
-    margin-bottom: 1rem;
+    display: flex;
     font-size: 2rem;
-    /* margin-block: auto; */
-    margin-inline: initial;
-    margin-left: 0.1rem;
-    margin-right: 6.1rem;
-    margin-top: 1rem;
-    width: 20rem;
-}
-.input__valor--pesoMax{
-    font-family: var(--fuentePrincipal);
-    margin-top: 1rem;
-    font-size: 2rem;
-    width: 20rem;
-    margin-right: 75rem;
-}
-.input__valor--pesoMax2{
-    font-family: var(--fuentePrincipal);
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    margin-inline: initial;
-    margin-top: 1rem;
-    width: 20rem;
-    
-}
-.tabla__diametro{
-    margin-left: 2rem;
+    width: 15rem;
+    margin-top: 0rem;
+    margin-left: 10rem; 
+    text-align: center;
 }
 
-.tabla__antro--contenidoMedida{
-    color:grey;
-    margin-left: 4rem;
-    margin-right: 15rem;
-    margin-top: 1rem;
-}
-.tabla__antro--contenido--cc{
-    margin-left: 65rem;
-}
-.tabla__antro--class{
+.input__valor--diametro{
     display: flex;
-    justify-content: space-between;
-    position: relative;
-    
+    font-size: 2rem;
+    width: 15rem;
+    margin-top: -4rem;
+    margin-bottom: 4rem;
+    margin-left: 10rem; 
+    text-align: center;
+}
+
+.tabla__antro--contenido-2{
+    margin-top: -3rem;
+    width: 5rem;
+    margin-left: 2%;
+    margin-right: 5%;
+    display: flex;
+}
+
+.input__valor-2{
+    height: 3rem;
+    display: flex;
+    font-size: 2rem;
+    width: 13rem;
+    margin-top: -5rem;
+    margin-bottom: 4rem;
+    margin-left: 12rem; 
+    text-align: center;
+}
+
+.tabla__antro--ajuste{
+    height: 3rem;
+    display: flex;
+    font-size: 2rem;
+    width: 13rem;
+    margin-top: -3rem;
+    margin-bottom: 4rem;
+    margin-left: -1rem; 
+    text-align: center;
+}
+
+.input__valor-3{
+    height: 3rem;
+    display: flex;
+    font-size: 2rem;
+    width: 5rem;
+    margin-top: -8rem;
+    margin-bottom: 5rem;
+    margin-left: 12rem; 
+    text-align: center;
+}
+
+.input__valor-4{
+    height: 3rem;
+    display: flex;
+    font-size: 2rem;
+    width: 10rem;
+    margin-top: -5rem;
+    margin-left: 12rem; 
+    text-align: center;
 }
 
 .boton{
     font-family: var(--fuentePrincipal);
-    margin-top: 6%;
-    margin-bottom: 5%;
-    margin-left: 70rem;
     background-color: var(--primario);
-    color: var(--blanco);
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-top: 1%;
-    padding-bottom: 1%;
+    color: black;
     font-size: 2rem;
-    
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    margin-right: 5%;
 }
 .boton:hover{
     background-color:var(--verdeBtonHover);
@@ -547,7 +556,7 @@ input[type=number] {
     gap:1rem;
 }
 .formula__metBasal--nombre{
-    margin-left: 65rem;
+    margin-left: 1rem;
 }
 
 .input__metBasal{
@@ -572,15 +581,7 @@ input[type=number] {
     justify-content: space-between;
     text-align: center;
 }
-.selector{
-    font-family: var(--fuentePrincipal);
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    margin-right: 1rem;
-    margin-block: auto;
-    margin-inline: initial;
-    margin-left: 2.7rem;
-}
+
 label{
         font-size: 2rem;
         /* margin-left: 2rem;
@@ -589,60 +590,72 @@ label{
 /** RESPONSIVIDAD :O**/
 /*********************/
 
-@media(max-width:1700px){
-    span{
-        margin-left: 1rem;
-    }
-    .area__observaciones{
-        align-items: center;   
-        margin-left: 10%;
-        margin-top: 1rem;
-    }
-
-    .contenido__fecha{ 
-            width: 18rem;  }
-    .h2{
-        font-size: 1.8rem;
-    }
-}
 /*------------------------------------*/
     @media(max-width:1000px){
-        span{
-            
-            margin-left: 5rem;
-        }
-        .contenido__input{
-            margin: 1rem 2rem;
-            width: 45%;    
-            height: 5rem;        
-        }
+    
+    .contenedorOpciones{
+        width: 25%;
+    }
+    .contenedorOpciones__opcion{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        width: 25rem;
+    }
+    span{
+        margin-left: 5rem;
+    }
+
+    .accesoRapido{
+        width: 100%;
+    }
+    .contenidoPrincipal{
+        width: 100%;
+    }
+    .contenido__article{
+        width: 100%;
+    }
+    .contenido__input{
+        margin: 1rem 2rem;
+        width: 45%;    
+        height: 5rem;        
+    }
+    .contenidoPagina{
+        width: 100%;
+    }
+
+    .contenido__input.contenido__fecha{
+        width: 20rem;
+        text-align: center;
+    }
+    .label__ficha{
+        margin-left: 0rem;
+        width: 15rem;
+    }
     .contenido__edad{
-        width: 17%;
-        padding-bottom: 1rem;
-        margin-top: 5rem;
-        height: 3%;
+        display: flex;
+        margin-top: 2rem;
+        margin-left: 2rem;
+        width: 5rem;    
+        height: 5rem;        
     }
     .contenido__input--edad{
+        margin-top: 2rem;
+        height: 10rem;
         width: 20rem;
-        margin-top: 2rem;
-        height: 5rem;
-        margin-left: -2rem;
-    }
-    .contenido__input.contenido__edad{
-        width: 10rem;
-        margin-top: 2rem;
-        height: 5rem;
-        margin-left: 2rem;
+        margin-left: 0rem;
     }
     .tabla__antro{
-        display: flex;
-        text-align: center;
-        justify-content: space-between;
-        flex-direction: column;
-        column-gap: 3rem;
+        display: grid;
+        grid-template-columns: 100%;
     }
     .area__observaciones{
-        width: 70.1%;
+        display: grid;
+        align-content: center;
+        align-items: center;
+        margin-left: 6rem;
+        width: 70%;
     }
     .nav__solapa{
         font-size: 1.3rem;
@@ -651,61 +664,69 @@ label{
     .tabla__antro{
         margin-left: 3rem;
     }
+
+    .tabla__antro--contenido{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-right: 15rem;
+    }
+
     .input__valor{
-        padding-left: 13rem;
-        margin-left: 11rem;
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 25rem;
     }
     .input__valor--peso{
-        margin-top: -5rem;
-        width: 20rem;
-        height: 3rem;
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 25rem;
     }
     .input__valor--peso2{
-        width: 20rem;
-        margin-top: -2rem;
-    }
-    .input__valor--pesoMax{
-        width: 20rem;
-        margin-top: -5rem;
-        height: 3rem;
-    }
-    .input__valor--pesoMax2{
-        width: 20rem;
-        margin-top: -2rem;
-    }
-
-
-    .tabla__antro--contenido--cc{
-        margin-left: -2rem;
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 25rem; 
     }
 
     .input__valor--diametro{
-        margin-left: 7rem;
-    }
-    .formula__metBasal{
-        flex-direction: column;
-    margin-left: -65rem;
-    }
-    .input__metBasal{
-        margin-right: 25rem;
-        width: 20rem;
-    }
-    .ajuste__actividad{
-        margin-left: 65rem;
-        margin-top: -5rem;
-    }
-    .selector{
-        margin-left: -20rem;
-    }
-    .input__ajuste{
-        margin-left: -20rem;
-        width: 20rem;
-    }
-    .boton{
-            margin-left: 50rem;
-        }
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 25rem;
     }
 
+    .tabla__antro--contenido-2{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 13rem;
+    }
+
+    .input__valor-2{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 25rem;
+    }
+    .input__valor-3{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 25rem;
+    }
+    .input__valor-4{
+        display: grid;
+        text-align: center;
+        align-items: center;
+        margin-left: 25rem;
+    }
+    .boton{
+            float: right;
+        }
+    }
     /*---------celular----------------*/
     @media(max-width:700px){
         
@@ -724,22 +745,16 @@ label{
             width: 44%;
         }
         .contenido__edad{ 
-            margin-left: 5rem;
-            margin-right: -4.5rem;
+            margin-left: 2rem;
         }
         
         .contenido__input--edad{
-            width: 10rem;
+            width: 14rem;
             margin-top: 2rem;
             height: 5rem;
             margin-left: 0rem;
         }
-        .contenido__input.contenido__edad{
-            width: 5rem;
-            margin-top: 2rem;
-            height: 5rem;
-            margin-left: 7rem;
-        }
+   
         .area__observaciones{
             width: 84%;
             margin-left: 1.6rem;
@@ -754,55 +769,36 @@ label{
             font-size: 1.2rem;
         }
         /*antro*/
-        .tabla__antro{
-            margin-left: 3rem;
+        .tabla__antro--contenido{
+            margin-left: -15rem;
         }
         .input__valor{
-            padding-left: 13rem;
-            margin-left: 11rem;
+            margin-left: 15rem;
         }
         .input__valor--peso{
-            width: 20rem;
-            margin-left: 1.7rem;
-            padding-right: 6.8rem;
+            width: 15rem;
+            margin-left: 15rem;
         }
         .input__valor--peso2{
-            margin-left: 1.7rem;
-            width: 20rem;
-        }
-        .input__valor--pesoMax{
-            width: 20rem;
-            margin-left: 1.2rem;
-            padding-left: 1rem;
-            padding-right: 0rem;
-        }
-        .input__valor--pesoMax2{
-            margin-left: 1.2rem;
-            width: 20rem;
+            width: 15rem;
+            margin-left: 15rem;
         }
         .input__valor--diametro{
-            margin-left: 6.4rem;
-            margin-right: -3.5rem;
-            padding: 0;
+            width: 15rem;
+            margin-left: 15rem;
         }
-        .formula__metBasal{
-            flex-direction: column;
-            
+
+        .tabla__antro--contenido-2{
+            margin-left: 0rem;
         }
-        .input__metBasal{
-            margin-left: 5.4rem;
-            padding-right: 13rem;
+        .input__valor-2{
+            margin-left: 15rem;
         }
-        .ajuste__actividad{
-            margin-right: -40rem;
-            margin-top: -3rem;
+        .input__valor-3{
+            margin-left: 15rem;
         }
-        .selector{
-            margin-right: 0rem;
-        }
-        .input__ajuste{
-            margin-right: 40rem;
-            width: 10rem;
+        .input__valor-4{
+            margin-left: 15rem;
         }
         .boton{
                 margin-left: 1rem;
@@ -811,88 +807,25 @@ label{
     }
     /*---------------------------*/
     @media(max-width:468px){
-        
-        .contenido__input{
-            margin: 1rem 7rem;
-            /* width: 83%; */
-            padding-right: 11rem;
+        .menuPrincipal{
+            display: flex;
+            justify-content: space-around;
         }
-        .contenido__fecha{ 
-            width: 40%;  }
-
-            .nav__solapa--seleccionado {
-                font-size: 1.3rem;
-                width: 280%;
-                }
-                .nav__solapa {
-                    width: 31%;
-                    font-size: 1.2rem;
-                }
-                span{  
-                    margin-left: 1rem;
-                    font-size: 1.4rem; 
-                    margin-right: 2rem;
-                }
-                .section__historiaClinica {margin: 1rem;}
-                .contenido__edad{ 
-                    margin-left: 7rem;
-                    height: -22%;
-                }
-                .contenido__input--edad{
-                    padding-top: 8rem;
-                    margin-top: 6rem;
-                    margin-left: -20.6rem;
-                    margin-right: 7rem;}
-                /*antro*/
-                .tabla__antro{
-                    margin-left: 2rem;
-                }
-                .input__valor{
-                    padding-left: 13.6rem;
-                }
-                .input__valor--peso{
-                    width: 140%;
-                    margin-left: 1.7rem;
-                }
-                .input__valor--peso2{
-                    margin-left: 1.7rem;
-                    width: 134%;
-                }
-                .input__valor--pesoMax{
-                    width: 140%;
-                    margin-left: 1.2rem;
-                }
-                .input__valor--pesoMax2{
-                    margin-left: 1.2rem;
-                    width: 134%;
-                }
-                .input__valor--diametro{
-                    margin-left: 6.4rem;
-                    margin-right: -4.5rem;
-                    padding: 0;
-                }
-                .formula__metBasal{
-                    flex-direction: column;
-                    
-                }
-                .input__metBasal{
-                    margin-left: 5.4rem;
-                    padding-right: 13.6rem;
-                }
-                .ajuste__actividad{
-                    margin-left: -2.6rem;
-                }
-                .selector{
-                    margin-left: 1rem;
-                }
-                .input__ajuste{
-                    margin-left: 1.3rem;
-                    padding-right: 12.6rem;
-                }
-                .boton{
-                        margin-left: 2rem;
-                        width: 92%;
-                    }
-                
-                
+        .contenedorOpciones{
+            display: flex;
+            justify-content: space-around;
+        }
+        .contenedorOpciones__opcion{
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-around;
+            position: absolute;
+            border-style: solid;
+            border-color: red;
+            width: 40rem;
+            align-content: center;
+            text-align: center;
+            align-items: center;
+            margin-left: -13rem;
+        }
     }

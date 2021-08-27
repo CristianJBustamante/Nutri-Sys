@@ -1,3 +1,5 @@
+
+
 //Get nrohc
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
@@ -320,8 +322,9 @@ function crearAnamnesis(){
         }
         }).then(res=>res.json())
         .then(data=>console.log(data))
-        swal("Anamnesis Registrada con Éxito",{
-            icon: "success"})
+        swal("Ficha Registrada con Éxito",{
+            icon: "success"}).then((value) => {
+                location.href ="../../pacientes/buscarpaciente"})
     } catch (error) {
         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
     }
@@ -386,6 +389,7 @@ function comprobarCampos(id)
             var atributes = divs.item(i).getAttribute("class");
             if(atributes.substr(0,9) == "democlass"){
              divs.item(i).setAttribute("class", atributes.substr(10,atributes.length));
+             checkboxs.item(i).checked=false;
              checkboxs.item(i).disabled=true;
             }
             else
@@ -400,12 +404,25 @@ function comprobarCampos(id)
 }
 
 function hideSeccion(id){
-    var carne = document.getElementById(id);
+    let carne = document.getElementById(id);
     if (carne.style.display === "none") {
         carne.style.display = "grid";
       } else {
         carne.style.display = "none";
-      }
+        }
+    
+        try{
+            let titulo = document.getElementsByName(id);
+            if (carne.style.display === "none") {
+                titulo[0].style.backgroundColor = "var(--grisOscuro)";
+            } 
+            else {
+            titulo[0].style.backgroundColor = "var(--primario)";
+            }
+        }
+        catch{
+    
+        }
 }
     
 hideSeccion("carne__cuestionario");

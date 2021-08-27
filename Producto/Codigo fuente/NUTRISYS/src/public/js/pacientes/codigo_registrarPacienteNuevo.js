@@ -118,12 +118,12 @@ function registrarPaciente(){
         .then(data=>console.log(data))
         console.log(nuevo)
         if (nuevo==1) {
-            swal("Bienvenido/a","Paciente Registrado con Éxito!","success")
+            swal("Paciente Registrado","Paciente "+pac_nrohc+" Registrado con Éxito!","success")
                 .then((value) => {
                         location.href ="../buscarpaciente"})
         }
         else {
-            swal("Bienvenido/a","Paciente Actualizado con Éxito!","success")
+            swal("Paciente Actualizado","Paciente "+pac_nrohc+" Actualizado con Éxito!","success")
                 .then((value) => {
                         location.href ="../buscarpaciente"})
         }    

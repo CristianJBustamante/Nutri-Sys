@@ -23,7 +23,7 @@
         <div class="menuPrincipal">
             <div class="contenedorOpciones">
                 <a class="contenedorOpciones__opcion" href="">Organizador</a>
-                <a class="contenedorOpciones__opcion" href="">Historia Clínica</a>
+                <a class="contenedorOpciones__opcion" href="../../pacientes/buscarpaciente">Historia Clínica</a>
                 <a class="contenedorOpciones__opcion" href="">Reportes</a>
                 <a class="contenedorOpciones__opcion" href="">Administración de Usuarios</a>
             </div>
@@ -48,11 +48,8 @@
 
             <article class="contenido__article">
                 <section class="section__fichas">
-                    <div class="encabezado__datosPaciente">
-                        <h2>Paciente: Gonzalez, Eugenio</h2>
-                        <h2>HC: 709543</h2>
-                        <h2>DOC.: 23465973</h2>
-                        <h2>FN: 05/06/1975</h2>
+                    <div class="encabezado__datosPaciente" id="pac_datos">
+                        
                     </div>
                     <div class="ficha"> <!-- Cambiar En cada Solapa -->
                         <div class="navegacion__solapas">
@@ -68,7 +65,7 @@
                             <!-- Seccion Carne -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="carne__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('carne__cuestionario')">
                                     <h2 class="titulo__seccion">Carne</h2>
                                 </div>
@@ -160,7 +157,7 @@
                             <!-- Seccion Lácteos -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="lacteos__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('lacteos__cuestionario')">
                                     <h2 class="titulo__seccion">Lácteos</h2>
                                 </div>
@@ -244,7 +241,7 @@
                             <!-- Seccion Huevos -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="huevos__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('huevos__cuestionario')">
                                     <h2 class="titulo__seccion">Huevos</h2>
                                 </div>
@@ -272,7 +269,7 @@
                             <!-- Sección Vegetales -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="vegetales__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('vegetales__cuestionario')">
                                     <h2 class="titulo__seccion">Vegetales</h2>
                                 </div>
@@ -313,7 +310,7 @@
                             <!-- Sección Panificación -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="panificacion__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('panificacion__cuestionario')">
                                     <h2 class="titulo__seccion">Panificación</h2>
                                 </div>
@@ -374,7 +371,7 @@
                             <!-- Sección Azúcares -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="azucar__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('azucar__cuestionario')">
                                     <h2 class="titulo__seccion">Azúcares</h2>
                                 </div>
@@ -430,7 +427,7 @@
                             <!-- Sección Aceites -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="aceite__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('aceite__cuestionario')">
                                     <h2 class="titulo__seccion">Aceites</h2>
                                 </div>
@@ -467,7 +464,7 @@
                             <!-- Sección Grasas -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="grasas__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('grasas__cuestionario')">
                                     <h2 class="titulo__seccion">Grasas</h2>
                                 </div>
@@ -496,7 +493,7 @@
                             <!-- Sección Sal -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="sal__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('sal__cuestionario')">
                                     <h2 class="titulo__seccion">Sal</h2>
                                 </div>
@@ -521,7 +518,7 @@
                             <!-- Sección Bebidas -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="bebidas__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('bebidas__cuestionario')">
                                     <h2 class="titulo__seccion">Bebidas-Infusiones</h2>
                                 </div>
@@ -536,7 +533,7 @@
                             <!-- Sección Alcohol -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="alcohol__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('alcohol__cuestionario')">
                                     <h2 class="titulo__seccion">Alcohol</h2>
                                 </div>
@@ -573,7 +570,7 @@
                             <!-- Sección Comidas del Día -->
 
                             <div class="seccion__anamnesis">
-                                <div class="seccion__titulo">
+                                <div class="seccion__titulo" name="comidas__cuestionario">
                                     <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('comidas__cuestionario')">
                                     <h2 class="titulo__seccion">Comidas del día</h2>
                                 </div>
@@ -603,12 +600,11 @@
                                         <h2 class="label__pregunta--desarrolo">Cena:</h2>
                                         <textarea class="textarea" name="otros1" id="anms_cena" cols="30" rows="10"></textarea>
                                     </div>
-                                    <div class="pregunta__cuestionario boton__siguiente">
-                                        <button class="normal boton" onclick="crearAnamnesis(id)">Siguiente</button>
-                                    </div>
+                                    
 
                                 </div>
                             </div>
+                            <button class="normal boton" onclick="crearAnamnesis(id)">Siguiente</button>
                         </div>
                     </div>
                 </section>

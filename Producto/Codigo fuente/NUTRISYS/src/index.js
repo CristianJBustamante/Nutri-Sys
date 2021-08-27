@@ -30,11 +30,9 @@ app.use(session({
 //Global Variables
 
 //Routes
-app.use(require('./routes/fichas.routes'));
+app.use(require('./routes/fichainicial.routes'));
 app.use(require('./routes/paciente.routes'));
 app.use(require('./routes/usuario.routes'));
-app.use(require('./routes/anamnesis.routes'));
-
 //Static Files
 app.use(express.static(path.join(__dirname,'public')));
 

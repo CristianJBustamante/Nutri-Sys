@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Primera consulta</title>
-    <link rel="stylesheet" href="css/normalize.css"> 
+    <link rel="stylesheet" href="/css/normalize.css"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-    <link rel="stylesheet" href="./css/estilos_Fichas_FichaInicial.css"> <!-- Cambiar en cada Solapa -->
-
+    <link rel="stylesheet" href="/css/estilos_Fichas_FichaInicial.css"> <!-- Cambiar en cada Solapa -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
 
     <div class="aside">
         <div class="logo">
-            <img class="logo__manzana " src="img/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
+            <img class="logo__manzana " src="/img/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
             <h1 class="name_app flex__textItem" >Nutry-Sys</h1>
         </div>
         <div class="menuPrincipal">
             <div class="contenedorOpciones">
                 <a class="contenedorOpciones__opcion" href="">Organizador</a>
-                <a class="contenedorOpciones__opcion" href="">Historia Clínica</a>
+                <a class="contenedorOpciones__opcion" href="../../pacientes/buscarpaciente">Historia Clínica</a>
                 <a class="contenedorOpciones__opcion" href="">Reportes</a>
                 <a class="contenedorOpciones__opcion" href="">Administración de Usuarios</a>
             </div>
@@ -30,13 +30,13 @@
     <div class="contenidoPrincipal">
         <div class="accesoRapido">
             <div class="menuIcon">
-                <img class="flex__imageItem--small" src="./img/MenuLogo.png" alt="Imagen Logo"> 
+                <img class="flex__imageItem--small" src="/img/MenuLogo.png" alt="Imagen Logo"> 
                 
             </div>
             <h2 class="flex__textItem titulo">Ficha inicial</h2>
             <div class="notifYUsuario">
-                <img class="flex__imageItem--small" src="./img/NotifyLogo.png" alt="Imagen Logo">
-                <img class="flex__imageItem--small" src="./img/UserLogo.png" alt="Imagen Logo">
+                <img class="flex__imageItem--small" src="/img/NotifyLogo.png" alt="Imagen Logo">
+                <img class="flex__imageItem--small" src="/img/UserLogo.png" alt="Imagen Logo">
 
                 
                 <h2 class="flex__textItem">Apellido, Nombre</h2>
@@ -49,11 +49,8 @@
 
             <article class="contenido__article">
                 <section class="section__historiaClinica">
-                    <div class="encabezado__datosPaciente">
-                        <h2>Paciente: Gonzalez, Eugenio</h2>
-                        <h2>HC: 709543</h2>
-                        <h2>DOC.: 23465973</h2>
-                        <h2>FN: 05/06/1975</h2>
+                    <div class="encabezado__datosPaciente" id="pac_datos">
+                        
                     </div>
                     <div class="evoluciones"> <!-- Cambiar En cada Solapa -->
                         <div class="navegacion__solapas">
@@ -63,63 +60,63 @@
                             <a class="nav__solapa" href="./Fichas_medidasAntropometricas.html">Medidas antropométricas</a>
                             <a class="nav__solapa--resto"></a>
                         </div>
-                        <form action="./Fichas_anamnesisAlimentaria.html">
+                        <form onsubmit="registrarficha()">
                             <div class="contenido__solapa">
                             <div class="seccion__carne"> <!-- contiene el cuestionario-->
                                 <div class="carne__titulo">
                                     </div>
                                     <div class="seccion__class">
                                     <h2 class="label__ficha"> Fecha actual: </h2>
-                                        <input required class="contenido__input contenido__fecha" type="date">
+                                        <input required class="contenido__input contenido__fecha" type="date" id="fechaactual">
                                     </div>
 
                                     <div class="seccion__class">
                                     <h2 class="label__ficha">Diag. médico:</h2>
-                                    <input class="contenido__input" type="text" placeholder="Ingrese el diagnóstico médico si corresponde">
+                                    <input class="contenido__input" type="text"  title="Ingrese el diagnóstico médico si corresponde" id="hc_diagnostico">
                                     </div>
 
                                     <div class="seccion__class">
                                     <h2 class="label__ficha">Antecedentes:</h2>
-                                    <input class="contenido__input" type="text" placeholder="Ingrese los antecedentes médicos si corresponde">
+                                    <input class="contenido__input" type="text" title="Ingrese los antecedentes médicos si corresponde" id="hc_antecedentes">
                                     </div>
 
                                     <div class="formulario__laboratorios"> <!-- laboratorios-->
                                         <h2 class="titulo__seccion--lab">Laboratorios</h2>
                                         <div class="seccion__class">
                                             <h2 class="label__ficha" >Fecha:</h2>
-                                            <input class="contenido__input contenido__fecha" type="date">
+                                            <input class="contenido__input contenido__fecha" type="date" id="hc_fechalaboratorios">
                                         </div>
 
                                         <div class="seccion__observaciones">
                                             <h2 class="label__ficha">Datos de laboratorio:</h2>
-                                            <textarea class="area__observaciones"></textarea>
+                                            <input type="text" class="area__observaciones" id="hc_laboratorios">
                                         </div>
 
                                     </div>
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Medicación:</h2>
-                                        <input required class="contenido__input" type="text" placeholder="Ingrese las medicaciones si corresponde">
+                                        <textarea required class="contenido__input" id="hc_medicacion"></textarea>
                                     </div>
 
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Actividad física:</h2>
-                                        <input required class="contenido__input" type="text" placeholder="correr,ir al gimnasio,andar en bici,etc">
+                                        <textarea required class="contenido__input" id="hc_actividadfisica"></textarea>
                                     </div>
 
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Tarea o ocupación:</h2>
-                                        <input required class="contenido__input" type="text" placeholder="A que se dedica">
+                                        <input required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion">
                                     </div>
 
                                     <div class="seccion__class">
                                         <h2 class="label__ficha">Antecedentes nutricionales anteriores:</h2>
-                                        <input required class="contenido__input" type="text" >
+                                        <textarea class="contenido__input" id="hc_antecedentesnutricion"></textarea>
                                     </div>
 
                                     <div class="seccion__class ">
                                         <h2 class="label__ficha">¿A que edad empezó su primera dieta?</h2>
-                                        <input required class="contenido__input contenido__edad" type="number" min="1" placeholder="edad">
-                                        <input type="text" class="contenido__input contenido__input--edad" placeholder="algún dato adicional">
+                                        <input required class="contenido__input contenido__edad" type="number" min="1" title="edad" id="hc_edaddieta">
+                                        <textarea class="contenido__input--edad" title="Algun dato adicional" id="hc_dieta"></textarea>
                                     </div>
 
                                 </div>
@@ -132,46 +129,46 @@
                                             
                                                     <div class="tabla__antro--class" >
                                                         <h2 class="tabla__antro--contenido" >P.A: </h2>
-                                                        <input class="input__valor" type="number"  min="1">
+                                                        <input class="input__valor" type="number"  min="1" id="hc_pesoactual" step="0.01">
                                                         <!-- <label class="tabla__antro--contenidoMedida"> kg</label> -->
                                                     </div>
                                                      <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >Talla: </h2>
-                                                        <input class="input__valor" type="number" min="1">
+                                                        <input class="input__valor" type="number" min="1" id="hc_talla" step="0.01">
                                                         <!-- <label class="tabla__antro--contenidoMedida"> mts</label> -->
                                                     </div>
                                                     
                                                     <div class="tabla__antro--class">
                                                     <h2 class="tabla__antro--contenido" >B.M.I: </h2>
-                                                    <input class="input__valor" type="number" min="1">
+                                                    <input class="input__valor" type="number" min="1" id="hc_BMI" step="0.01">
                                                     <!-- <h2 class="tabla__antro--contenidoMedida"> kg/ms^2</h2>  -->
                                                      </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P.H: </h2>
-                                                        <input class="input__valor" type="number" min="1">
+                                                        <input class="input__valor" type="number" min="1" id="hc_PH" step="0.01">
                                                          <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2>  -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P.D: </h2>
-                                                    <input class="input__valor" type="number" min="1">
+                                                    <input class="input__valor" type="number" min="1" id="hc_PD" step="0.01">
                                                     <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
                                                     </div>
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P/B.M.I: </h2>
-                                                    <input class="input__valor" type="number" min="1">
+                                                    <input class="input__valor" type="number" min="1" id="hc_PBMI" step="0.01">
                                                     <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
                                                     </div>
 
 
                                                     <div class="tabla__antro--class">
-                                                    <h2 class="tabla__antro--contenido" >P.min: </h2>
+                                                    <h2 class="tabla__antro--contenido">P.min: </h2>
                                                     <div class="input__valoresPeso">
-                                                        <input class=" input__valor--peso" type="number" min="0">
+                                                        <input class="input__valor--peso" type="number" min="0" id="hc_Pmin" step="0.01">
                                                         <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
                                                         <br>
-                                                        <input class="input__valor--peso2" type="text" placeholder="¿cuando?">
+                                                        <input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmincuando">
                                                         </div> <!-- contiene los inputs-->
                                                         
                                                     </div>
@@ -179,89 +176,89 @@
                                                     <div class="tabla__antro--class">
                                                     <h2 class="tabla__antro--contenido" >P.máx: </h2>
                                                     <div class="input__valoresPeso">
-                                                        <input class=" input__valor--peso" type="number" min="0">
+                                                        <input class=" input__valor--peso" type="number" min="0" id="hc_Pmax" step="0.01">
                                                         <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
                                                         <br>
-                                                        <input class="input__valor--peso2" type="text" placeholder="¿cuando?">
+                                                        <input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmaxcuando">
                                                         </div> 
                                                     </div> 
 
                                                      <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >G.C: </h2>
-                                                    <input type="number" class="input__valor"  min="1">
+                                                    <input type="number" class="input__valor"  min="1" id="hc_GC" step="0.01">
                                                     <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >G.V: </h2>
-                                                    <input type="number" class="input__valor" >
+                                                    <input type="number" class="input__valor" id="hc_GV" step="0.01">
                                                     <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido"> M.M: </h2>
-                                                    <input class="input__valor" type="number">
+                                                    <input class="input__valor" type="number" id="hc_MM" step="0.01">
                                                     <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class">
                                                         <h2 class="tabla__antro--contenido" >P.B.I: </h2>
-                                                    <input class="input__valor" type="number"min="0">
+                                                    <input class="input__valor" type="number"min="0" id="hc_PBI" step="0.01">
                                                     <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
                                                     </div>
 
                                                     <div class="tabla__antro--class tabla__diametro" >
                                                         <h2 class="tabla__antro--contenido--cc">C.C:</h2>
-                                                        <div class="input__valoresDiametro">
-                                                        <input class=" input__valor--diametro" type="number" min="0">
+                                                        <div class="input__valoresDiametro" id="hc_CC1" step="0.01">
+                                                        <input class="input__valor--diametro" type="number" min="0">
                                                         <br>
                                                         <!-- <h2 class="tabla__antro--contenidoMedida"> cm(M)</h2> -->
-                                                        <input class=" input__valor--diametro" type="number" min="0">
+                                                        <input class="input__valor--diametro" type="number" min="0" id="hc_CC2" step="0.01">
                                                         <br>
                                                         <!-- <h2 class="tabla__antro--contenidoMedida"> cm(U)</h2> -->
-                                                        <input class=" input__valor--diametro" type="number" min="0">
+                                                        <input class="input__valor--diametro" type="number" min="0" id="hc_CC3" step="0.01">
                                                         <!-- <h2 class="tabla__antro--contenidoMedida"> cm(P)</h2> -->
                                                         </div> 
                                                     </div>  
                                                     <br> 
-                                                    <div class="formula__metBasal">
-                                                        <div class="formula__metBasal--valor">
-                                                            <h2 class=>Formula met.Basal:</h2>
-                                                            <input type="number" class="input__metBasal">
-                                                            <label>Kcal/día</label>
-                                                        </div> 
-                                                        <div class="ajuste__actividad">
-                                                            <h2>Ajuste por actividad:</h2>
-                                                            <select class="selector">
-                                                            <option value=1-2>1.2</option>
-                                                            <option value=1-3>1.3</option>
-                                                            <option value=1-5>1.5</option>
-                                                            </select>
-                                                            <input type="number" class="input__metBasal">
-                                                            
-                                                        </div>
-                                                    </div>
-                                                </div> <!-- fin div que contiene toda la tabla de antro-->
+                                                    <div class="tabla__antro--class">
+                                                        <h2 class="tabla__antro--contenido-2">Formula met.Basal:</h2>
+                                                        <input type="number" class="input__valor-2" title="peso/talla/edad/sexo" id="hc_formula" step="0.01">
+                                                        <!-- <label>Kcal/día</label> -->
+                                                </div>
+                                                <div class="tabla__antro--class">
+                                                    <h2 class="tabla__antro--contenido-2">Ajuste por actividad:</h2>
+                                                    <select class="input__valor-3" id="hc_ajuste">
+                                                    <option value=1-2>1.2</option>
+                                                    <option value=1-3>1.3</option>
+                                                    <option value=1-5>1.5</option>
+                                                    </select>
+                                                <br>
+                                                    <input type="number" class="input__valor-4" id="hc_medajuste" step="0.01"> 
+                                                </div>
                                                 
-                                                <input class="boton" type="submit" name="Guardar" value="Siguiente">
-                                            </form>
-                                        </div> 
                                         </div>
+                                        <div>
+                                            <input class="boton" type="button" name="Guardar" value="Siguiente" onclick="registrarficha()">
+                                        </div>
+                                    </div> 
+                                    </div>
 
 
-                            </div>
-                            
-                            
-                               
-                            
                         </div>
+                        
+                        
+                           
+                        
                     </div>
-                </section>
-            </article>
-
-        </div>
+                </div>
+            </section>
+        </article>
 
     </div>
-    
+
+</div>
+<script src="/js/pacientes/fichas/codigo_registrarFichaInicial.js"></script>
+
 </body>
 </html>

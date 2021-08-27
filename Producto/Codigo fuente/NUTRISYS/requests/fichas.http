@@ -87,3 +87,42 @@ Content-Type: application/json
 }
 
 ###
+
+POST {{api}}/registrarfichainicial
+Content-Type: application/json
+
+{
+    "hc_nrohc": 1001,
+    "hc_fechaprimerconsulta": "01/01/1993",
+    "hc_diagnostico": "Sobrepeso",
+    "hc_antecedentes": "",
+    "hc_medicacion": "",
+    "hc_ocupacion": "Abogado",
+    "hc_actividadfisica": "No",
+    "hc_fechalaboratorios": "01/08/2021",
+    "hc_laboratorios": "0+",
+    "hc_antecedentesnutricion": "",
+    "hc_edaddieta": null,
+    "hc_dieta": "",
+    "hc_pesoactual": 1.5,
+    "hc_BMI": null,
+    "hc_PD": null,
+    "hc_Pmin": null,
+    "hc_Pmincuando": "",
+    "hc_GC": null,
+    "hc_MM": null,
+    "hc_CC1": 1,
+    "hc_CC2": null,
+    "hc_CC3": null,
+    "hc_formula": 1,
+    "hc_talla": 1,
+    "hc_PH": 1,
+    "hc_PBMI": 1,
+    "hc_Pmax": 1,
+    "hc_Pmaxcuando": "",
+    "hc_GV": 1,
+    "hc_PBI": 1,
+    "hc_ajuste": 1,
+    "hc_medajuste": 1
+
+}

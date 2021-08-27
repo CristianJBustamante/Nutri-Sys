@@ -1,6 +1,72 @@
 import {getConnection,sql,queries} from "../database";
 
+//----------------------------------------------DATOS INICIALES-------------------------------------------------------
+export const registrarfichainicial = async (req,res) => {
+    const { hc_nrohc,hc_fechaprimerconsulta,hc_ocupacion,hc_actividadfisica } = req.body;
+    let {hc_diagnostico,hc_antecedentes,hc_medicacion,hc_fechalaboratorios,
+        hc_laboratorios,hc_antecedentesnutricion,hc_edaddieta,hc_dieta,
+        hc_pesoactual,hc_BMI,hc_PD,hc_Pmin,hc_Pmincuando,hc_GC,hc_MM,hc_CC1,hc_CC2,hc_CC3,
+        hc_formula,hc_talla,hc_PH,hc_PBMI,hc_Pmax,hc_Pmaxcuando,hc_GV,hc_PBI,hc_ajuste,hc_medajuste
+    } = req.body;
+    
+    if (hc_nrohc==null || hc_fechaprimerconsulta==null || hc_ocupacion==null || hc_actividadfisica==null ) {
+            return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})
+        }
+    
+    
+    
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('hc_nrohc',sql.Int,hc_nrohc)
+            .input('hc_fechaprimerconsulta',sql.DateTime,hc_fechaprimerconsulta)
+            .input('hc_ocupacion',sql.NVarChar,hc_ocupacion)
+            .input('hc_actividadfisica',sql.NVarChar,hc_actividadfisica)
+            .input('hc_diagnostico',sql.NVarChar,hc_diagnostico)
+            .input('hc_antecedentes',sql.NVarChar,hc_antecedentes)
+            .input('hc_medicacion',sql.NVarChar,hc_medicacion)
+            .input('hc_fechalaboratorios',sql.DateTime,hc_fechalaboratorios)
+            .input('hc_laboratorios',sql.NVarChar,hc_laboratorios)
+            .input('hc_antecedentesnutricion',sql.NVarChar,hc_antecedentesnutricion)
+            .input('hc_edaddieta',sql.Int,hc_edaddieta)
+            .input('hc_dieta',sql.NVarChar,hc_dieta)
+            .input('hc_pesoactual',sql.Float,hc_pesoactual)
+            .input('hc_BMI',sql.Float,hc_BMI)
+            .input('hc_PD',sql.Float,hc_PD)
+            .input('hc_Pmin',sql.Float,hc_Pmin)
+            .input('hc_Pmincuando',sql.NVarChar,hc_Pmincuando)
+            .input('hc_GC',sql.Float,hc_GC)
+            .input('hc_MM',sql.Float,hc_MM)
+            .input('hc_CC1',sql.Float,hc_CC1)
+            .input('hc_CC2',sql.Float,hc_CC2)
+            .input('hc_CC3',sql.Float,hc_CC3)
+            .input('hc_formula',sql.Float,hc_formula)
+            .input('hc_talla',sql.Float,hc_talla)
+            .input('hc_PH',sql.Float,hc_PH)
+            .input('hc_PBMI',sql.Float,hc_PBMI)
+            .input('hc_Pmax',sql.Float,hc_Pmax)
+            .input('hc_Pmaxcuando',sql.NVarChar,hc_Pmaxcuando)
+            .input('hc_GV',sql.Float,hc_GV)
+            .input('hc_PBI',sql.Float,hc_PBI)
+            .input('hc_ajuste',sql.Float,hc_ajuste)
+            .input('hc_medajuste',sql.Float,hc_medajuste)
+            .query(queries.registrarFichaInicial)
+        res.json({  hc_nrohc,hc_fechaprimerconsulta,hc_ocupacion,hc_actividadfisica,
+            hc_diagnostico,hc_antecedentes,hc_medicacion,hc_fechalaboratorios,hc_laboratorios
+            ,hc_antecedentesnutricion,hc_edaddieta,hc_dieta,
+            hc_pesoactual,hc_BMI,hc_PD,hc_Pmin,hc_Pmincuando,hc_GC,hc_MM,hc_CC1,hc_CC2,hc_CC3
+        ,hc_formula,hc_talla,hc_PH,hc_PBMI,hc_Pmax,hc_Pmaxcuando,hc_GV,hc_PBI,hc_ajuste,hc_medajuste})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
 
+
+
+
+
+//----------------------------------------------ANAMNESIS-------------------------------------------------------------
 //INSERTAR NUEVO ANAMNESIS
 export const registrarAnamnesis = async (req,res) => {
     const { anms_nrohc } = req.body;
@@ -139,3 +205,15 @@ export const getAnamnesisXHC = async(req,res) => {
         res.send(error.message);
     }
 } 
+
+//CONSULTAR ITEMS ANAMNESIS
+export const getItemsAnamnesis = async (req,res) => {  
+    try {
+        const pool = await getConnection();
+        const result = await pool.request().query(queries.getItemsAnamnesis);
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+};

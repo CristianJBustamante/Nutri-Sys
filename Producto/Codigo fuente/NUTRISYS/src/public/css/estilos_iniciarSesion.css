@@ -7,8 +7,9 @@
     --grisClaro: #f0f3f4;
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
-    --fuentePrincipal: 'Amatic+SC', cursive;
+    --fuentePrincipal: 'Amatic SC', cursive;
     --verdeBotonHover: #3abe33;
+    --fuenteSecundario: 'Roboto', sans-serif;
 }
 html{
     font-size: 62.5%; 
@@ -40,20 +41,12 @@ h1{
     text-align: left;
      /* margin-right: 25%;  */
     /* margin-left: 1px; */
-    font-size: 200%;
-    margin-bottom: 10%;
+    font-size: 4rem;
+    /* margin-bottom: 10%; */
     font-family:var(--fuentePrincipal);
 }
-img{
-    margin-left:10%;  
-    margin-right: 10%;
-    width: 70px;
-    height: 70px;
-}
-.imagen{
-margin-top: 5%;
-display: flex;
-}
+
+
 .boton-iniciarSesion{
     margin-top: 4%; 
     margin-bottom: 5%; 
@@ -85,13 +78,36 @@ a{
 }
 h2{
     margin-right: 30%;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--fuenteSecundario);
     font-size: 250%;
     font-weight: lighter;
     display: flex;
     justify-content: space-around; 
     align-items: center;
 }
+
+.imagen{
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    }
+    
+img{
+    margin-left:10%;  
+    margin-right: 10%;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.nombre__sistema{
+    text-align: left;
+    font-size: 5rem;
+    font-family:var(--fuentePrincipal);
+    font-weight: 700;
+}
+
+
 
 /* ---------estilos de usuario y contraseña------- */
 .usuario {
@@ -102,6 +118,8 @@ h2{
     margin-right: 25%;
     outline: none;
     width: 60%;
+    font-size: 2rem;
+    font-family: var(--fuenteSecundario);
 }
 #clave{
     border-bottom: 1px solid black;
@@ -112,6 +130,8 @@ h2{
     margin-right: 25%;
     margin-top: 2%;
     width: 60%;
+    font-size: 2rem;
+    font-family: var(--fuenteSecundario);
 }
 #mostrarclave{ 
     margin-left: 26rem;
@@ -134,6 +154,11 @@ h2{
     flex-direction: column;
     align-items: center;
 }
+
+.second__font{
+    font-family: var(--fuenteSecundario);
+}
+
 /*---------------------------------------*/
 
 @media(min-width:500px){

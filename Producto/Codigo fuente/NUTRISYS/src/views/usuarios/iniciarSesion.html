@@ -11,13 +11,16 @@
     <link rel="stylesheet" href="/css/estilos_iniciarSesion.css">
     <script src="/js/usuarios/codigo_iniciarSesion.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <div class="sesion-principal sombra">
        <div class="imagen">
            <img src="/img/Logo Final Verde sin texto-01.png" alt="Imagen logo">
-           <h1 class="nombre-sistema"> Nutry-Sys</h1>   
+           <h1 class="nombre__sistema"> Nutry-Sys</h1>   
         </div>
             <div class="iniciar-sesion">
                 <h2>Iniciar sesión</h2>
@@ -32,9 +35,9 @@
                     </svg>
                 </div>
                 <br> <br>
-                <a href="#">¿No puede acceder a su cuenta?</a>
+                <a href="#" class="second__font">¿No puede acceder a su cuenta?</a>
             <br> 
-            <input class="boton-iniciarSesion" type="button" value="Iniciar sesión" onclick="validarUsuario()"> 
+            <input class="boton-iniciarSesion second__font" type="button" value="Iniciar sesión" onclick="validarUsuario()"> 
        </form>
     </div>
 

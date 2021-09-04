@@ -9,6 +9,7 @@
     --grisOscuro: #acadac;
 
     --fuentePrincipal: 'Amatic+SC', cursive;
+    --fuenteLogo: 'Amatic SC', cursive;
 }
 
 html{
@@ -94,17 +95,18 @@ h2{
 }
 
 .name_app{
-    margin: 0 auto;
-    font-size: 3rem;
+    margin: 0;
+    font-size: 4.5rem;
     color: var(--blanco);
-    font-family: var(--fuentePrincipal);
-    padding: 1rem;
+    font-family: var(--fuenteLogo);
+    padding-right: 1rem;
+    font-weight: bold;
 }
 
 .logo__manzana{
     width: 8rem;
     height: 8rem;
-    margin: 1rem  0rem 1rem 4rem;
+    margin: 1rem  0rem 1rem 1rem;
 }
 
 
@@ -333,7 +335,8 @@ input::-webkit-inner-spin-button {
 
 
 .table-fixed tbody{
-    height: 25rem;
+    height: 100%;
+    max-height: 55rem;
     overflow-y: auto;
     width: 100%;
 }
@@ -446,3 +449,25 @@ input::-webkit-inner-spin-button {
     }
 }
 
+/** Ajuestes - Acceso rápido **/
+
+.menuIcon{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 2rem ;
+}
+
+.nombreModulo{
+    display: flex;
+    align-items: center;
+    padding-left: 2rem ;
+}
+
+.notifYUsuario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 2rem;
+    margin-right: 2rem;
+}

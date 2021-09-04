@@ -218,6 +218,7 @@ h3{
 .reciente__imagen:hover{
     width: 84px;
     height: 84px;
+    /* background-image: url(../img/Mensaje-Notificacion-Movil.jpg); */
 
     
 }

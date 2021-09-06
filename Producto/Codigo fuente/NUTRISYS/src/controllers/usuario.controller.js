@@ -1,4 +1,4 @@
-import {getConnection,sql,queries} from "../database";
+import {getConnection,sql,usuquerys} from "../database";
 
 //CONSULTAR PACIENTE POR HC
 export const getUsuario = async(req,res) => {
@@ -9,7 +9,7 @@ export const getUsuario = async(req,res) => {
         const result = await pool.request()
             .input('usu_usuario', usu_usuario)
             .input('usu_clave', usu_clave)
-            .query(queries.getUsuario)
+            .query(usuquerys.getUsuario)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);

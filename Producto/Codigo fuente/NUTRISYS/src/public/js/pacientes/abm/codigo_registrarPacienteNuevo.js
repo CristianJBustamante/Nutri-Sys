@@ -118,7 +118,7 @@ function registrarPaciente(){
         .then(data=>console.log(data))
         console.log(nuevo)
         if (nuevo==1) {
-            swal("Paciente Registrado","Paciente "+pac_nrohc+" Registrado con Éxito!","success")
+            swal("Paciente Registrado","Paciente Registrado con Éxito!","success")
                 .then((value) => {
                         location.href ="../buscarpaciente"})
         }

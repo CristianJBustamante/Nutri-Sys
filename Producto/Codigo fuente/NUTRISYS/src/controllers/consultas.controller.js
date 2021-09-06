@@ -1,4 +1,4 @@
-import {getConnection,sql,queries} from "../database";
+import {getConnection,sql,consultasquerys} from "../database";
 
 //----------------------------------------------DATOS INICIALES-------------------------------------------------------
 export const registrarfichainicial = async (req,res) => {
@@ -50,7 +50,7 @@ export const registrarfichainicial = async (req,res) => {
             .input('hc_PBI',sql.Float,hc_PBI)
             .input('hc_ajuste',sql.Float,hc_ajuste)
             .input('hc_medajuste',sql.Float,hc_medajuste)
-            .query(queries.registrarFichaInicial)
+            .query(consultasquerys.registrarFichaInicial)
         res.json({  hc_nrohc,hc_fechaprimerconsulta,hc_ocupacion,hc_actividadfisica,
             hc_diagnostico,hc_antecedentes,hc_medicacion,hc_fechalaboratorios,hc_laboratorios
             ,hc_antecedentesnutricion,hc_edaddieta,hc_dieta,
@@ -168,7 +168,7 @@ export const registrarAnamnesis = async (req,res) => {
             .input('anms_mediatarde', sql.NVarChar,anms_mediatarde)
             .input('anms_cena', sql.NVarChar,anms_cena)
             
-            .query(queries.registrarAnamnesis)
+            .query(consultasquerys.registrarAnamnesis)
         res.json({  anms_nrohc,
             anms_vacunacongrasa,anms_vacunasingrasa,anms_polloconpiel,anms_pollosinpiel,
             anms_pescadorio,anms_pescadomar,anms_cerdo,anms_higado,anms_rinon,anms_otrasviceras,
@@ -198,7 +198,7 @@ export const getAnamnesisXHC = async(req,res) => {
         const {pac_nrohc} = req.params
         const pool = await getConnection()
         const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc).query(queries.getAnamnesisXHC)
+            .input('pac_nrohc', pac_nrohc).query(consultasquerys.getAnamnesisXHC)
         res.send(result.recordset[0])
     } catch (error) {
         res.status(500);
@@ -210,7 +210,7 @@ export const getAnamnesisXHC = async(req,res) => {
 export const getItemsAnamnesis = async (req,res) => {  
     try {
         const pool = await getConnection();
-        const result = await pool.request().query(queries.getItemsAnamnesis);
+        const result = await pool.request().query(consultasquerys.getItemsAnamnesis);
         res.json(result.recordset);
     } catch (error) {
         res.status(500);

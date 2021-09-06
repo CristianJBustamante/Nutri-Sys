@@ -13,43 +13,43 @@ import {actualizarPaciente, eliminarPaciente, getPacienteAPDoc, getPacienteHCAP,
 //ACCESO A PÁGINAS
   //Registrar paciente
   router.get('/pacientes/nuevopaciente/', (req,res) => {
-    res.render('pacientes/registrarPacienteNuevo.html');
+    res.render('pacientes/abm/registrarPacienteNuevo.html');
 });
 //Editar paciente
 router.get('/pacientes/modificarpaciente/hc=:pac_nrohc', (req,res) => {
-  res.render('pacientes/registrarPacienteNuevo.html');
+  res.render('pacientes/abm/registrarPacienteNuevo.html');
 });
   //Buscar pacientes
   router.get('/pacientes/buscarpaciente', (req,res) => {
-    res.render('pacientes/historiaClinicaMP.html');
+    res.render('pacientes/consultadatos/historiaClinicaMP.html');
 });
   //consulta hc paciente
   router.get('/pacientes/consultapaciente/hc=:pac_nrohc', (req,res) => {
-    res.render('pacientes/historiaClinicaPaciente.html');
+    res.render('pacientes/consultadatos/historiaClinicaPaciente.html');
 });
   //consulta hc paciente - Documentos
   router.get('/pacientes/consultapacientedocumentos/:pac_nrohc', (req,res) => {
-    res.render('pacientes/documentosPaciente.html');
+    res.render('pacientes/consultadatos/documentosPaciente.html');
   });
   //consulta hc paciente - Estudios
   router.get('/pacientes/consultapacienteestudios/:pac_nrohc', (req,res) => {
-    res.render('pacientes/estudiosPaciente.html');
+    res.render('pacientes/consultadatos/estudiosPaciente.html');
   });
   //consulta hc paciente - Evoluciones
   router.get('/pacientes/consultapacienteevolucion/:pac_nrohc', (req,res) => {
-    res.render('pacientes/evolucionesPaciente.html');
+    res.render('pacientes/consultadatos/evolucionesPaciente.html');
   });
   //consulta hc paciente - Ficha Inicial
   router.get('/pacientes/consultapacientefichainicial/:pac_nrohc', (req,res) => {
-    res.render('pacientes/fichainicialPaciente.html');
+    res.render('pacientes/consultadatos/fichainicialPaciente.html');
    });
  //consulta hc paciente - Fichas
   router.get('/pacientes/consultapacientefichas/:pac_nrohc', (req,res) => {
-    res.render('pacientes/fichasPaciente.html');
+    res.render('pacientes/consultadatos/fichasPaciente.html');
   });
  //consulta hc paciente - Planes
  router.get('/pacientes/consultapacienteplan/:pac_nrohc', (req,res) => {
-  res.render('pacientes/planesPaciente.html');
+  res.render('pacientes/consultadatos/planesPaciente.html');
 });
 
 

@@ -341,6 +341,13 @@ input::-webkit-inner-spin-button {
     width: 100%;
 }
 
+@media (max-height: 850px) {
+ 
+    .table-fixed tbody{
+        max-height: 40rem;
+    }
+}
+
 .table-fixed thead,
 .table-fixed tbody,
 .table-fixed td,
@@ -470,4 +477,8 @@ input::-webkit-inner-spin-button {
     justify-content:space-around;
     gap: 2rem;
     margin-right: 2rem;
+}
+
+html, body{
+    height: 100%;
 }

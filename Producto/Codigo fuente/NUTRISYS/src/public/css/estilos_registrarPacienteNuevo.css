@@ -9,6 +9,7 @@
     --grisOscuro: #acadac;
 
     --fuentePrincipal: 'Amatic+SC', cursive;
+    --fuenteLogo: 'Amatic SC', cursive;
 }
 
 html{
@@ -79,6 +80,15 @@ h2{
 .aside{
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+
+.aside__background{
+    display: flex;
+    flex-direction: column;
+    min-width: 22rem;
+    height: 100%;
+    width: 22rem;
 }
 
 /** LOGO **/
@@ -92,17 +102,18 @@ h2{
 }
 
 .name_app{
-    margin: 0 auto;
-    font-size: 3rem;
+    margin: 0;
+    font-size: 4.5rem;
     color: var(--blanco);
-    font-family: var(--fuentePrincipal);
-    padding: 1rem;
+    font-family: var(--fuenteLogo);
+    padding-right: 1rem;
+    font-weight: bold;
 }
 
 .logo__manzana{
     width: 8rem;
     height: 8rem;
-    margin: 1rem  5rem 1rem 4rem;
+    margin: 1rem  0rem 1rem 1rem;
 }
 
 
@@ -124,9 +135,9 @@ h2{
 }
 
 .contenedorOpciones__opcion{
-    padding: 3rem;
+    padding: 1rem;
     text-decoration: none;
-    font-size: 2.5rem;
+    font-size: 2rem;
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
@@ -135,8 +146,6 @@ h2{
 .contenedorOpciones__opcion:hover{
     background-color: var(--secundario);
     color: var(--blanco);
-    border-style: groove;
-    border-color: var(--primario);
 }
 
 /*************************/
@@ -261,6 +270,7 @@ h2{
     width: 35%;
     margin-right: 1rem;
     padding-top: 0.5rem;
+    
 }
 
 input::-webkit-inner-spin-button {
@@ -313,3 +323,29 @@ input::-webkit-inner-spin-button {
     }
 }
 
+/** Ajuestes - Acceso rápido **/
+
+.menuIcon{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 2rem ;
+}
+
+.nombreModulo{
+    display: flex;
+    align-items: center;
+    padding-left: 2rem ;
+}
+
+.notifYUsuario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 2rem;
+    margin-right: 2rem;
+}
+
+html, body{
+    height: 100%;
+}

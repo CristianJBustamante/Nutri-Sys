@@ -1,10 +1,10 @@
-import {getConnection,sql,queries} from "../database";
+import {getConnection,sql,pacquerys} from "../database";
 
 //CONSULTAR TODOS LOS PACIENTES
 export const getPacientes = async (req,res) => {  
     try {
         const pool = await getConnection();
-        const result = await pool.request().query(queries.getPaciente);
+        const result = await pool.request().query(pacquerys.getPaciente);
         res.json(result.recordset);
     } catch (error) {
         res.status(500);
@@ -18,7 +18,7 @@ export const getPacienteXHC = async(req,res) => {
         const {pac_nrohc} = req.params
         const pool = await getConnection()
         const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc).query(queries.getPacienteXHC)
+            .input('pac_nrohc', pac_nrohc).query(pacquerys.getPacienteXHC)
         res.send(result.recordset[0])
     } catch (error) {
         res.status(500);
@@ -32,7 +32,7 @@ export const getPacienteXap = async(req,res) => {
         const {pac_apellido} = req.params
         const pool = await getConnection()
         const result = await pool.request()
-            .input('pac_apellido', pac_apellido).query(queries.getPacienteXApellido)
+            .input('pac_apellido', pac_apellido).query(pacquerys.getPacienteXApellido)
         res.json(result.recordset);
     } catch (error) {
         res.status(500);
@@ -46,7 +46,7 @@ export const getPacienteLikeHC = async(req,res) => {
         const {pac_nrohc} = req.params
         const pool = await getConnection()
         const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc).query(queries.getPacientelikeHC)
+            .input('pac_nrohc', pac_nrohc).query(pacquerys.getPacientelikeHC)
         res.json(result.recordset);
     } catch (error) {
         res.status(500);
@@ -60,7 +60,7 @@ export const getPacienteLikeDoc = async(req,res) => {
         const {pac_nrodoc} = req.params
         const pool = await getConnection()
         const result = await pool.request()
-            .input('pac_nrodoc', pac_nrodoc).query(queries.getPacienteXDoc)
+            .input('pac_nrodoc', pac_nrodoc).query(pacquerys.getPacienteXDoc)
         res.json(result.recordset);
     } catch (error) {
         res.status(500);
@@ -79,7 +79,7 @@ export const getPacienteMixto = async(req,res) => {
             .input('pac_nrohc', pac_nrohc)
             .input('pac_apellido', pac_apellido)
             .input('pac_nrodoc', pac_nrodoc)
-            .query(queries.getPacienteHCAPDoc)
+            .query(pacquerys.getPacienteHCAPDoc)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);
@@ -96,7 +96,7 @@ export const getPacienteHCAP = async(req,res) => {
         const result = await pool.request()
             .input('pac_nrohc', pac_nrohc)
             .input('pac_apellido', pac_apellido)
-            .query(queries.getPacienteHCAP)
+            .query(pacquerys.getPacienteHCAP)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);
@@ -114,7 +114,7 @@ export const getPacienteHCDoc = async(req,res) => {
         const result = await pool.request()
             .input('pac_nrohc', pac_nrohc)
             .input('pac_nrodoc', pac_nrodoc)
-            .query(queries.getPacienteHCDoc)
+            .query(pacquerys.getPacienteHCDoc)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);
@@ -131,7 +131,7 @@ export const getPacienteAPDoc = async(req,res) => {
         const result = await pool.request()
             .input('pac_apellido', pac_apellido)
             .input('pac_nrodoc', pac_nrodoc)
-            .query(queries.getPacienteAPDoc)
+            .query(pacquerys.getPacienteAPDoc)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);
@@ -168,7 +168,7 @@ export const nuevoPaciente = async (req,res) => {
             .input('pac_correo',sql.NVarChar,pac_correo)
             .input('pac_mutual',sql.NVarChar,pac_mutual)
             .input('pac_mutual2',sql.NVarChar,pac_mutual2)
-            .query(queries.nuevoPaciente)
+            .query(pacquerys.nuevoPaciente)
         res.json({  pac_nrodoc,pac_apellido,pac_nombre,pac_fechanacimiento,
                 pac_direccion,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2})
     } catch (error) {
@@ -182,7 +182,7 @@ export const eliminarPaciente = async(req,res) => {
         const {pac_nrohc} = req.params
         const pool = await getConnection()
         const result = await pool.request()
-            .input('pac_nrohc',pac_nrohc).query(queries.borrarPaciente)
+            .input('pac_nrohc',pac_nrohc).query(pacquerys.borrarPaciente)
     res.sendStatus(204);
     } catch (error) {
         res.status(500);
@@ -220,7 +220,7 @@ export const actualizarPaciente = async(req,res) => {
         .input('pac_correo',sql.NVarChar,pac_correo)
         .input('pac_mutual',sql.NVarChar,pac_mutual)
         .input('pac_mutual2',sql.NVarChar,pac_mutual2)
-        .query(queries.actualizarPaciente)
+        .query(pacquerys.actualizarPaciente)
         res.json({  pac_nrodoc,pac_apellido,pac_nombre,pac_fechanacimiento,
                 pac_direccion,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2})
     } catch (error) {

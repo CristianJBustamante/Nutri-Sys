@@ -6,7 +6,7 @@ POST {{api}}/registraranamnesis
 Content-Type: application/json
 
 {
-    "anms_nrohc": 1001,
+    "anms_nrohc": 1003,
     "anms_vacunacongrasa": 1,
     "anms_vacunasingrasa": 0,
     "anms_polloconpiel": 0,
@@ -83,10 +83,11 @@ Content-Type: application/json
     "anms_mediamanana": "",
     "anms_almuerzo": "milanesa de pollo",
     "anms_merienda": "criollos",
+    "anms_mediatarde": "",
     "anms_cena": "milanesa de pollo"
 }
 
-###
+ ###
 
 POST {{api}}/registrarfichainicial
 Content-Type: application/json
@@ -125,4 +126,91 @@ Content-Type: application/json
     "hc_ajuste": 1,
     "hc_medajuste": 1
 
+}
+
+
+###
+
+PUT {{api}}/registraranamnesis/1000
+Content-Type: application/json
+
+{
+    "anms_vacunacongrasa": 1,
+    "anms_vacunasingrasa": 1,
+    "anms_polloconpiel": 1,
+    "anms_pollosinpiel": 1,
+    "anms_pescadorio": 1,
+    "anms_pescadomar": 1,
+    "anms_cerdo": 1,
+    "anms_higado": 1,
+    "anms_rinon": 1,
+    "anms_otrasviceras": "lin",
+    "anms_fiambres": 1,
+    "anms_embutidos": 1,
+    "anms_salchichas": 1,
+    "anms_chorizo": 1,
+    "anms_morcilla": 1,
+    "anms_lecheentera": 1,
+    "anms_lechedescremada": 1,
+    "anms_yogurtentero": 1,
+    "anms_yogurtdescremada": 1,
+    "anms_quesoduro": 1,
+    "anms_quesosemiblando": 1,
+    "anms_quesountable": 1,
+    "anms_flan": 1,
+    "anms_licuados": 1,
+    "anms_salsablanca": 1,
+    "anms_prepconleche": 1,
+    "anms_huevohervido": 1,
+    "anms_huevofrito": 1,
+    "anms_prephuevo": "",
+    "anms_vegetalesfrescos": "",
+    "anms_vegetalesenlatados": "",
+    "anms_frutas": "",
+    "anms_cereales": "",
+    "anms_pastas": "",
+    "anms_vegfeculentos": "",
+    "anms_legumbres": "",
+    "anms_panblanco": 1,
+    "anms_pannegro": 1,
+    "anms_galletassaladas": 1,
+    "anms_galletasagua": 1,
+    "anms_galletasdulces": 1,
+    "anms_galletasintegrales": 1,
+    "anms_facturas": 1,
+    "anms_tortas": 1,
+    "anms_otrasmasas": "",
+    "anms_azucar": 1,
+    "anms_mermelada": 1,
+    "anms_gelatina": 1,
+    "anms_miel": 1,
+    "anms_dulces": 1,
+    "anms_jugos": 1,
+    "anms_golosinas": 1,
+    "anms_gaseosas": 1,
+    "anms_edulcorante": 1,
+    "anms_otrasazucares": "",
+    "anms_aceitegirasol": 1,
+    "anms_aceitemaiz": 1,
+    "anms_aceiteoliva": 1,
+    "anms_otrosaceites": "",
+    "anms_aceitecrudo": 1,
+    "anms_aceitefritura": 1,
+    "anms_manteca": 1,
+    "anms_margarina": 1,
+    "anms_mayonesa": 1,
+    "anms_otrasgrasas": "",
+    "anms_salcomun": 1,
+    "anms_saldieta": 1,
+    "anms_sales": 1,
+    "anms_bebidas": "",
+    "anms_cantvino": 1,
+    "anms_cantcerveza": 1,
+    "anms_cantbebblancas": 1,
+    "anms_desayuno": "",
+    "anms_mediamanana": "",
+    "anms_almuerzo": "",
+    "anms_merienda": "",
+    "anms_mediatarde": "",
+    "anms_cena": ""
 }

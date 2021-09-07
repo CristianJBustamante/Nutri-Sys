@@ -43,6 +43,10 @@ router.get('/pacientes/modificarpaciente/hc=:pac_nrohc', (req,res) => {
   router.get('/pacientes/consultapacientefichainicial/:pac_nrohc', (req,res) => {
     res.render('pacientes/consultadatos/fichainicialPaciente.html');
    });
+  //Editar Ficha Inicial
+  router.get('/pacientes/modificarFichaInicial/:pac_nrohc', (req,res) => {
+    res.render('pacientes/fichainicialPaciente.html');
+  });
  //consulta hc paciente - Fichas
   router.get('/pacientes/consultapacientefichas/:pac_nrohc', (req,res) => {
     res.render('pacientes/consultadatos/fichasPaciente.html');

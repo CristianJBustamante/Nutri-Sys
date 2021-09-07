@@ -1,8 +1,20 @@
-
-
 //Get nrohc
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
+let modo = url.substr(url.indexOf("consulta/"),url.length)
+var nuevo=0
+var metodo=''
+var ruta=''
+if (modo=="consulta/registrarAnamnesis/hc="+pac_nrohc) {
+    nuevo=1;
+    metodo='POST'
+    ruta="http://localhost:3000/registraranamnesis"
+}
+else{
+    nuevo=0;
+    metodo='PUT'
+    ruta="http://localhost:3000/actualizarAnamnesis/"+pac_nrohc
+    }
 
 //Buscar datos personales del nrohc
 let query = 'http://localhost:3000/paciente/'+pac_nrohc
@@ -16,7 +28,103 @@ const mostrarData = (data) => {
     cabecera += `<h2>Paciente: ${data.pac_apellido}, ${data.pac_nombre}</h2><h2>HC: ${data.pac_nrohc}</h2><h2>DOC.: ${data.pac_nrodoc}</h2><h2>FN: ${data.pac_fechanac}</h2>`        
     document.getElementById('pac_datos').innerHTML = cabecera
     }
-
+//Cargar pagina según modo
+if (nuevo==1) {
+    let cabecera =''
+    cabecera += `Anámnesis Alimentaria`        
+    document.getElementById('subTituloModo').innerHTML = cabecera
+} else {
+    let cabecera =''
+    cabecera += `Modificar Anámnesis Alimentaria`        
+    document.getElementById('subTituloModo').innerHTML = cabecera
+    let query = 'http://localhost:3000/consulta/registrarAnamnesis/'+pac_nrohc
+    fetch(query)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error))
+    const mostrarData = (data) => {
+        console.log(data)
+        document.getElementById("anms_vacunacongrasa").checked = data.anms_vacunacongrasa;
+        document.getElementById("anms_vacunasingrasa").checked = data.anms_vacunasingrasa;
+        document.getElementById("anms_polloconpiel").checked = data.anms_polloconpiel;
+        document.getElementById("anms_pollosinpiel").checked = data.anms_pollosinpiel;
+        document.getElementById("anms_pescadorio").checked = data.anms_pescadorio;
+        document.getElementById("anms_pescadomar").checked = data.anms_pescadomar;
+        document.getElementById("anms_cerdo").checked = data.anms_cerdo;
+        document.getElementById("anms_higado").checked = data.anms_higado;
+        document.getElementById("anms_rinon").checked = data.anms_rinon;
+        document.getElementById("anms_otrasviceras").value = data.anms_otrasviceras;
+        document.getElementById("anms_fiambres").checked = data.anms_fiambres;
+        document.getElementById("anms_embutidos").checked= data.anms_embutidos;
+        document.getElementById("anms_salchichas").checked=data.anms_salchichas;
+        document.getElementById("anms_chorizo").checked=data.anms_chorizo;
+        document.getElementById("anms_morcilla").checked= data.anms_morcilla;
+        document.getElementById("anms_lecheentera").checked= data.anms_lecheentera;
+        document.getElementById("anms_lechedescremada").checked=data.anms_lechedescremada;
+        document.getElementById("anms_yogurtentero").checked= data.anms_yogurtentero;
+        document.getElementById("anms_yogurtdescremada").checked= data.anms_yogurtdescremada;
+        document.getElementById("anms_quesoduro").checked = data.anms_quesoduro;
+        document.getElementById("anms_quesosemiblando").checked = data.anms_quesosemiblando;
+        document.getElementById("anms_quesountable").checked = data.anms_quesountable;
+        document.getElementById("anms_otrosquesos").value = data.anms_otrosquesos;
+        document.getElementById("anms_flan").checked= data.anms_flan;
+        document.getElementById("anms_licuados").checked=data.anms_licuados;
+        document.getElementById("anms_salsablanca").checked= data.anms_salsablanca;
+        document.getElementById("anms_prepconleche").value=data.anms_prepconleche;
+        document.getElementById("anms_huevohervido").checked= data.anms_huevohervido;
+        document.getElementById("anms_huevofrito").checked=data.anms_huevofrito;
+        document.getElementById("anms_prephuevo").value=data.anms_prephuevo;
+        document.getElementById("anms_vegetalesfrescos").value=data.anms_vegetalesfrescos;
+        document.getElementById("anms_vegetalesenlatados").value=data.anms_vegetalesenlatados;
+        document.getElementById("anms_frutas").value=data.anms_frutas;
+        document.getElementById("anms_cereales").value=data.anms_cereales;
+        document.getElementById("anms_pastas").value=data.anms_pastas;
+        document.getElementById("anms_vegfeculentos").value=data.anms_vegfeculentos;
+        document.getElementById("anms_legumbres").value=data.anms_legumbres;
+        document.getElementById("anms_panblanco").checked=data.anms_panblanco;
+        document.getElementById("anms_pannegro").checked=data.anms_pannegro;
+        document.getElementById("anms_galletassaladas").checked=data.anms_galletassaladas;
+        document.getElementById("anms_galletasagua").checked=data.anms_galletasagua;
+        document.getElementById("anms_galletasdulces").checked=data.anms_galletasdulces;
+        document.getElementById("anms_galletasintegrales").checked=data.anms_galletasintegrales;
+        document.getElementById("anms_facturas").checked=data.anms_facturas;
+        document.getElementById("anms_tortas").checked=data.anms_tortas;
+        document.getElementById("anms_otrasmasas").value=data.anms_otrasmasas;
+        document.getElementById("anms_azucar").checked=data.anms_azucar;
+        document.getElementById("anms_mermelada").checked=data.anms_mermelada;
+        document.getElementById("anms_gelatina").checked=data.anms_gelatina;
+        document.getElementById("anms_miel").checked=data.anms_miel;
+        document.getElementById("anms_dulces").checked=data.anms_dulces;
+        document.getElementById("anms_jugos").checked= data.anms_jugos;
+        document.getElementById("anms_golosinas").checked=data.anms_golosinas;
+        document.getElementById("anms_gaseosas").checked=data.anms_gaseosas;
+        document.getElementById("anms_edulcorante").checked=data.anms_edulcorante;
+        document.getElementById("anms_otrasazucares").value=data.anms_otrasazucares;
+        document.getElementById("anms_aceitegirasol").checked=data.anms_aceitegirasol;
+        document.getElementById("anms_aceitemaiz").checked=data.anms_aceitemaiz;
+        document.getElementById("anms_aceiteoliva").checked=data.anms_aceiteoliva;
+        document.getElementById("anms_otrosaceites").value=data.anms_otrosaceites;
+        document.getElementById("anms_aceitecrudo").checked=data.anms_aceitecrudo;
+        document.getElementById("anms_aceitefritura").checked=data.anms_aceitefritura;
+        document.getElementById("anms_manteca").checked=data.anms_manteca;
+        document.getElementById("anms_margarina").checked=data.anms_margarina;
+        document.getElementById("anms_mayonesa").checked=data.anms_mayonesa;
+        document.getElementById("anms_otrasgrasas").value=data.anms_otrasgrasas;
+        document.getElementById("anms_salcomun").checked=data.anms_salcomun;
+        document.getElementById("anms_saldieta").checked=data.anms_saldieta;
+        document.getElementById("anms_sales").value=data.anms_sales;
+        document.getElementById("anms_bebidas").value=data.anms_bebidas;
+        document.getElementById("anms_cantvino").value=data.anms_cantvino;
+        document.getElementById("anms_cantcerveza").value=data.anms_cantcerveza;
+        document.getElementById("anms_cantbebblancas").value=data.anms_cantbebblancas;
+        document.getElementById("anms_desayuno").value=data.anms_desayuno;
+        document.getElementById("anms_mediamanana").value=data.anms_mediamanana;
+        document.getElementById("anms_almuerzo").value=data.anms_almuerzo;
+        document.getElementById("anms_merienda").value=data.anms_merienda;
+        document.getElementById("anms_mediatarde").value=data.anms_mediatarde;
+        document.getElementById("anms_cena").value=data.anms_cena;
+    }
+}
 
     function validarDatos(){
         var incompleto = false;

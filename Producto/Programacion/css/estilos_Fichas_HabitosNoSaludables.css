@@ -236,11 +236,9 @@ h2{
     border-style: solid solid none solid;
     text-align: center;
     border-radius: 10px 10px 0px 0px;
-
-
-    padding: 1rem;
+    padding: 2rem;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
@@ -331,17 +329,7 @@ input::-webkit-inner-spin-button {
     font-family: var(--fuentePrincipal);
     font-weight: bold;
 }
-.titulo__seccion{
-    margin-left: 1rem;
-    margin-right: 1rem;
-    background-color: var(--primario);
-    color: var(--negro);
-    font-weight: normal;
-    padding: 1rem 1rem;
-    text-align: center;
-    margin-right: -98%; /*VER*/
-    margin-bottom: 60rem;
-}
+
 /*************/
 /** AJUSTES **/
 /*************/
@@ -392,4 +380,29 @@ input::-webkit-inner-spin-button {
 
 html, body{
     height: 100%;
+}
+
+/** HÁBITOS NO SALUDABLES*/
+.titulo__solapa{
+text-align: center;
+background-color: var(--primario);
+padding: 1rem;
+}
+
+.tabla__resultados{
+padding-top: 2rem;
+margin-top: 1rem;
+font-family: var(--fuentePrincipal);
+font-size: 2rem;
+gap: 1rem;
+}
+.seleccion__input{
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    padding: 5px;
+    margin:2rem;
+}
+.contenido__check{
+    border: solid var(--secundario);
 }

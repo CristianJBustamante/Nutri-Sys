@@ -32,7 +32,7 @@ export const queries = {
     //--------------------------------CONSULTAS---------------------------------------------
     
     //Alta,Baja,Modif
-    actualizarAnamnesis: "UPDATE [dbo].[anamnesis_paciente] SET [anms_nrohc] = @anms_nrohc,[anms_fecharegistro] = @anms_fecharegistro,[anms_vacunacongrasa] = @anms_vacunacongrasa"+
+    actualizarAnamnesis: "UPDATE [dbo].[anamnesis_paciente] SET [anms_nrohc] = @anms_nrohc,[anms_fecharegistro] = getdate(),[anms_vacunacongrasa] = @anms_vacunacongrasa"+
     ",[anms_vacunasingrasa] = @anms_vacunasingrasa,[anms_polloconpiel] = @anms_polloconpiel,[anms_pollosinpiel] = @anms_pollosinpiel,[anms_pescadorio] = @anms_pescadorio,[anms_pescadomar] = @anms_pescadomar"+
     ",[anms_cerdo] = @anms_cerdo,[anms_higado] = @anms_higado,[anms_rinon] = @anms_rinon,[anms_otrasviceras] = @anms_otrasviceras,[anms_fiambres] = @anms_fiambres,[anms_embutidos] = @anms_embutidos"+
     ",[anms_salchichas] = @anms_salchichas,[anms_chorizo] = @anms_chorizo,[anms_morcilla] = @anms_morcilla,[anms_lecheentera] = @anms_lecheentera,[anms_lechedescremada] = @anms_lechedescremada"+

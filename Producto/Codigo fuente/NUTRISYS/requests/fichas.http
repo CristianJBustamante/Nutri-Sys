@@ -131,7 +131,7 @@ Content-Type: application/json
 
 ###
 
-PUT {{api}}/registraranamnesis/1000
+PUT {{api}}/actualizarAnamnesis/1000
 Content-Type: application/json
 
 {

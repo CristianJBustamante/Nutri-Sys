@@ -233,9 +233,11 @@ export const actualizarAnamnesis = async(req,res) => {
             anms_manteca,anms_margarina,anms_mayonesa,anms_otrasgrasas,anms_salcomun,anms_saldieta,anms_sales,
             anms_bebidas,anms_cantvino,anms_cantcerveza,anms_cantbebblancas,anms_desayuno,anms_mediamanana,anms_almuerzo,
             anms_merienda,anms_mediatarde,anms_cena } = req.body;
+    const {anms_nrohc} = req.params;
     try {
         const pool = await getConnection();
         await pool.request()
+        .input('anms_nrohc',sql.Int,anms_nrohc)
         .input('anms_vacunacongrasa', sql.Bit,anms_vacunacongrasa)
         .input('anms_vacunasingrasa', sql.Bit,anms_vacunasingrasa)
         .input('anms_polloconpiel', sql.Bit,anms_polloconpiel)
@@ -315,7 +317,7 @@ export const actualizarAnamnesis = async(req,res) => {
         .input('anms_merienda', sql.NVarChar,anms_merienda)
         .input('anms_mediatarde', sql.NVarChar,anms_mediatarde)
         .input('anms_cena', sql.NVarChar,anms_cena)
-        .query(pacquerys.actualizarAnamnesis)
+        .query(consultasquerys.actualizarAnamnesis)
         res.json({  anms_vacunacongrasa,anms_vacunasingrasa,anms_polloconpiel,anms_pollosinpiel,
             anms_pescadorio,anms_pescadomar,anms_cerdo,anms_higado,anms_rinon,anms_otrasviceras,
             anms_fiambres,anms_embutidos,anms_salchichas,anms_chorizo,anms_morcilla,

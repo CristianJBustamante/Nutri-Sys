@@ -9,26 +9,22 @@
     --grisOscuro: #acadac;
 
     --fuentePrincipal: 'Amatic+SC', cursive;
+    --fuenteLogo: 'Amatic SC', cursive;
 }
 
 html{
     box-sizing: border-box;
     font-size: 62.5%;
-    /*Solucion Corte*/
-    height: 100%;
+   
 }
 
 
 html, body{
     width:100%;
     margin: 0;
-    height: 100%;
     /*display: flex;*/
 
   }
-
-
-
     /*** Responsivo ***/
 
     @media (min-width: 700px) {
@@ -63,11 +59,11 @@ h2{
     font-size: 2rem;
 } 
 
-h3{
+/* h3{
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-size: 1.5rem;
-}
+} */
 
 
 .flex-imageItem{
@@ -89,8 +85,15 @@ h3{
 .aside{
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
-
+.aside__background{
+    display: flex;
+    flex-direction: column;
+    min-width: 22rem;
+    height: 100%;
+    width: 22rem;
+}
 /** LOGO **/
 
 .logo{
@@ -102,17 +105,18 @@ h3{
 }
 
 .name_app{
-    margin: 0 auto;
-    font-size: 3rem;
+    margin: 0;
+    font-size: 4.5rem;
     color: var(--blanco);
-    font-family: var(--fuentePrincipal);
-    padding: 1rem;
+    font-family: var(--fuenteLogo);
+    padding-right: 1rem;
+    font-weight: bold;
 }
 
 .logo__manzana{
     width: 8rem;
     height: 8rem;
-    margin: 1rem  0rem 1rem 4rem;
+    margin: 1rem  0rem 1rem 1rem;
 }
 
 /** MENU **/
@@ -172,8 +176,16 @@ h3{
     display: flex;
     flex-direction: column;
 }
-
-
+/** ARTICLE **/
+.contenido__section{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--grisMedio);
+    margin-left: 3rem;
+    margin-top: 3rem;
+    /*width: 120rem;*/
+    padding: 0 5rem;
+}
 .section__historiaClinica{
     display: flex;
     flex-direction: column;
@@ -224,11 +236,9 @@ h3{
     border-style: solid solid none solid;
     text-align: center;
     border-radius: 10px 10px 0px 0px;
-
-
-    padding: 1rem;
+    padding: 2rem;
     text-decoration: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
@@ -249,7 +259,7 @@ h3{
     grid-template-rows: 1fr 1fr;
 
     padding: 1rem;
-    height: 500px;
+    height: auto; 
 }
 
 
@@ -274,15 +284,30 @@ h3{
     height: 5rem;
     margin: 1rem  auto;
 }
-
-.padding__inputText{
+.input__text{
+    width: 35%;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    
+}
+.table{
+    font-size: 2rem ;
+}
+/* .padding__inputText{
     font-size: 2rem;
     font-family: var(--fuentePrincipal);
-}
+} */
 
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+.input__padding{
+    margin: 1rem;
+    width: 50%;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    height: 5rem;
 }
 
 /** TEXTO **/
@@ -303,4 +328,81 @@ input::-webkit-inner-spin-button {
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
+}
+
+/*************/
+/** AJUSTES **/
+/*************/
+
+@media (max-width: 900px) {
+    .input__text{
+        width: 40%;
+        margin-right: 3rem;
+    }
+}
+
+@media (max-width: 699px) {
+    .logo{
+        justify-content:center;
+    }
+    .name_app{
+        margin: auto 0;
+    }
+
+    .input__text{
+        width: 80%;
+        margin-right: 3rem;
+    }
+}
+
+/** Ajuestes - Acceso rápido **/
+
+.menuIcon{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 2rem ;
+}
+
+.nombreModulo{
+    display: flex;
+    align-items: center;
+    padding-left: 2rem ;
+}
+
+.notifYUsuario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 2rem;
+    margin-right: 2rem;
+}
+
+html, body{
+    height: 100%;
+}
+
+/** HÁBITOS NO SALUDABLES*/
+.titulo__solapa{
+text-align: center;
+background-color: var(--primario);
+padding: 1rem;
+}
+
+.tabla__resultados{
+padding-top: 2rem;
+margin-top: 1rem;
+font-family: var(--fuentePrincipal);
+font-size: 2rem;
+gap: 1rem;
+}
+.seleccion__input{
+    transform: scale(2);
+    -ms-transform: scale(2);
+    -webkit-transform: scale(2);
+    padding: 5px;
+    margin:2rem;
+}
+.contenido__check{
+    border: solid var(--secundario);
 }

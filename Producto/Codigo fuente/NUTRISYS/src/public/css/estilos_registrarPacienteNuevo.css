@@ -15,15 +15,16 @@
 html{
     box-sizing: border-box;
     font-size: 62.5%;
+    height:100%;
 }
 
 
-html, body{
+/* html, body{
     width:100%;
     margin: 0;
-    /*display: flex;*/
-
-  }
+    display: flex;
+    height: 100%;
+  } */
 
     /*** Responsivo ***/
 
@@ -83,7 +84,7 @@ h2{
     height: 100%;
 }
 
-.aside__background{
+.aside__front{
     display: flex;
     flex-direction: column;
     min-width: 22rem;
@@ -346,6 +347,3 @@ input::-webkit-inner-spin-button {
     margin-right: 2rem;
 }
 
-html, body{
-    height: 100%;
-}

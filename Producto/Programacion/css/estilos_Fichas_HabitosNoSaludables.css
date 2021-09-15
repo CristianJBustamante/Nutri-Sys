@@ -225,9 +225,7 @@ h2{
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
-
     background-color: var(--grisOscuro);
-
 }
 
 .nav__solapa--seleccionado{
@@ -243,7 +241,6 @@ h2{
     font-family: var(--fuentePrincipal);
     font-weight: bold;
 }
-
 .nav__solapa--resto{
     width: 61%;
     border: var(--negro) 0.3rem;
@@ -253,11 +250,9 @@ h2{
 .contenido__solapa{
     border: var(--negro) 0.3rem;
     border-style: none solid solid solid;
-
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-
     padding: 1rem;
     height: auto; 
 }
@@ -394,7 +389,7 @@ padding-top: 2rem;
 margin-top: 1rem;
 font-family: var(--fuentePrincipal);
 font-size: 2rem;
-gap: 1rem;
+
 }
 .seleccion__input{
     transform: scale(2);
@@ -405,4 +400,8 @@ gap: 1rem;
 }
 .contenido__check{
     border: solid var(--secundario);
+}
+.scrolltable{
+    height: 600px;
+    overflow: scroll;
 }

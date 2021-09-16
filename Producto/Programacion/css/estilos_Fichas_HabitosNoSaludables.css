@@ -7,6 +7,7 @@
     --grisClaro: #f0f3f4;
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
+    --verdeBtonHover: #3abe33;
 
     --fuentePrincipal: 'Amatic+SC', cursive;
     --fuenteLogo: 'Amatic SC', cursive;
@@ -379,7 +380,7 @@ html, body{
 
 /** HÁBITOS NO SALUDABLES*/
 .titulo__solapa{
-text-align: center;
+text-align: left;
 background-color: var(--primario);
 padding: 1rem;
 }
@@ -404,4 +405,89 @@ font-size: 2rem;
 .scrolltable{
     height: 600px;
     overflow: scroll;
+}
+/* para que no salga el azul en los enlaces*/
+a:hover{
+color: black;
+}
+
+.boton__listar{
+    font-family: var(--fuentePrincipal);
+    background-color: rgb(180, 180, 180);
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    margin-right: 5%;
+    margin-left: 6rem;
+}
+.boton__nuevo{
+    font-family: var(--fuentePrincipal);
+    background-color:  rgb(180, 180, 180);
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    margin-right: 5%;
+    margin-left: 6rem;
+    
+}
+.boton__modificar{
+    font-family: var(--fuentePrincipal);
+    background-color:  rgb(180, 180, 180);
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    margin-right: 5%;
+    margin-left: 6rem;
+}
+.contenido__solapa{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    column-gap: 2rem;
+}
+.contenedor__botones{
+    display: flex;
+    flex-direction: column;
+}
+.boton__listar:hover{background-color: var(--grisOscuro);}
+.boton__nuevo:hover{background-color: var(--grisOscuro);}
+.boton__modificar:hover{background-color: var(--grisOscuro);}
+.boton__guardar:hover{ background-color: var(--verdeBtonHover);}
+
+.tabla__seleccionados{
+    margin-top: 5rem;
+}
+.boton__guardar{
+    font-family: var(--fuentePrincipal);
+    background-color: var(--primario);
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    margin-right: 5%;
+}
+.contenedor__guardar{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin-top: 50rem;
+    margin-right: 3rem;
 }

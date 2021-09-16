@@ -14,6 +14,14 @@ export const consultasquerys = {
                                     "@hc_antecedentesnutricion,@hc_edaddieta,@hc_dieta,@hc_pesoactual,@hc_BMI,@hc_PD,@hc_Pmin,"+
                                     "@hc_Pmincuando,@hc_GC,@hc_MM,@hc_CC1,@hc_CC2,@hc_CC3,@hc_formula,@hc_talla,@hc_PH,@hc_PBMI,"+
                                     "@hc_Pmax,@hc_Pmaxcuando,@hc_GV,@hc_PBI,@hc_ajuste,@hc_medajuste)",
+
+    actualizarFichaInicial: "UPDATE historia_clinica SET hc_fechaprimerconsulta = getdate(),hc_diagnostico = @hc_diagnostico"+
+    ",hc_antecedentes = @hc_antecedentes,hc_medicacion = @hc_medicacion,hc_ocupacion = @hc_ocupacion,hc_actividadfisica = @hc_actividadfisica,hc_fechalaboratorios = @hc_fechalaboratorios"+
+    ",hc_laboratorios = @hc_laboratorios,hc_antecedentesnutricion = @hc_antecedentesnutricion,hc_edaddieta = @hc_edaddieta,hc_dieta = @hc_dieta"+
+    ",hc_pesoactual = @hc_pesoactual,hc_BMI = @hc_BMI,hc_PD = @hc_PD,hc_Pmin = @hc_Pmin,hc_Pmincuando = @hc_Pmincuando,hc_GC = @hc_GC,hc_MM = @hc_MM"+
+    ",hc_CC1 = @hc_CC1,hc_CC2 = @hc_CC2,hc_CC3 = @hc_CC3,hc_formula = @hc_formula,hc_talla = @hc_talla,hc_PH = @hc_PH,hc_PBMI = @hc_PBMI,hc_Pmax = @hc_Pmax"+
+    ",hc_Pmaxcuando = @hc_Pmaxcuando,hc_GV = @hc_GV,hc_PBI = @hc_PBI,hc_ajuste = @hc_ajuste,hc_medajuste = @hc_medajuste WHERE hc_nrohc=@hc_nrohc",
+    
     
 //ANAMNESIS
     getItemsAnamnesis: "select item_id,tipoitem_descripcion,item_descripcion "+

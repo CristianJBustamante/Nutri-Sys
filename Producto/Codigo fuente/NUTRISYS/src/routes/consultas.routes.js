@@ -4,7 +4,7 @@ const http=require('http');
 const router = express.Router();
 const app = express();
 
-import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis } from "../controllers/consultas.controller";
+import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial } from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -13,6 +13,10 @@ import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarA
 router.get('/consulta/registrarFichaInicial/hc=:anms_nrohc', (req,res) => {
   res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html');
 });
+
+router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc', (req,res) => {
+  res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html');
+  });
 
 //-------ANAMNESIS---------------
 //Registrar Anamnesis
@@ -33,6 +37,7 @@ res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html');
 //--------------------------------------ACCESO A DATOS----------------------------------------------
   //Alta, Baja, Modif
   router.post('/registrarfichainicial', registrarfichainicial)
+  router.post('/actualizarFichaInicial/:anms_nrohc', actualizarFichaInicial)
   router.post('/registraranamnesis', registrarAnamnesis)
   router.put('/actualizarAnamnesis/:anms_nrohc', actualizarAnamnesis)
 

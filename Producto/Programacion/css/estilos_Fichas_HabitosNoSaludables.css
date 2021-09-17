@@ -435,6 +435,12 @@ color: black;
     flex-direction: column;
 }
 .boton:hover{background-color: var(--grisOscuro);}
+.imagen__modificar:hover{
+    -webkit-transform:scale(1.3);
+    -moz-transform:scale(1.3);
+    -ms-transform:scale(1.3);
+    -o-transform:scale(1.3);
+    transform:scale(1.3);}
 
 .tabla__seleccionados{
     margin-top: 5rem;
@@ -452,6 +458,11 @@ color: black;
     float: right;
     margin-right: 5%;
 }
+.imagen__modificar{
+    margin-top: 1rem;
+}
+
+
 .contenedor__guardar{
     display: flex;
     flex-direction: row;

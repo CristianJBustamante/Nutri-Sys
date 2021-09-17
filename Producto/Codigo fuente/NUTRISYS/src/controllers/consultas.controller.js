@@ -61,7 +61,7 @@ export const registrarfichainicial = async (req,res) => {
 }
 
 export const actualizarFichaInicial = async(req,res) => {
-    let {hc_fechaprimerconsulta,hc_ocupacion,hc_actividadfisica,
+    let {hc_ocupacion,hc_actividadfisica,
         hc_diagnostico,hc_antecedentes,hc_medicacion,hc_fechalaboratorios,
         hc_laboratorios,hc_antecedentesnutricion,hc_edaddieta,hc_dieta,
         hc_pesoactual,hc_BMI,hc_PD,hc_Pmin,hc_Pmincuando,hc_GC,hc_MM,hc_CC1,hc_CC2,hc_CC3,
@@ -71,7 +71,6 @@ export const actualizarFichaInicial = async(req,res) => {
         const pool = await getConnection();
         await pool.request()
         .input('hc_nrohc',sql.Int,hc_nrohc)
-        .input('hc_fechaprimerconsulta',sql.DateTime,hc_fechaprimerconsulta)
         .input('hc_ocupacion',sql.NVarChar,hc_ocupacion)
         .input('hc_actividadfisica',sql.NVarChar,hc_actividadfisica)
         .input('hc_diagnostico',sql.NVarChar,hc_diagnostico)
@@ -104,7 +103,7 @@ export const actualizarFichaInicial = async(req,res) => {
         .input('hc_medajuste',sql.Numeric,hc_medajuste)
 
         .query(consultasquerys.actualizarFichaInicial)
-        res.json({hc_fechaprimerconsulta,hc_ocupacion,hc_actividadfisica,
+        res.json({hc_ocupacion,hc_actividadfisica,
             hc_diagnostico,hc_antecedentes,hc_medicacion,hc_fechalaboratorios,
             hc_laboratorios,hc_antecedentesnutricion,hc_edaddieta,hc_dieta,
             hc_pesoactual,hc_BMI,hc_PD,hc_Pmin,hc_Pmincuando,hc_GC,hc_MM,hc_CC1,hc_CC2,hc_CC3,
@@ -243,8 +242,6 @@ export const registrarAnamnesis = async (req,res) => {
         res.send(error.message);
     }         
 }
-
-
 
 
 //CONSULTAR ANAMNESIS POR HC
@@ -394,4 +391,137 @@ export const actualizarAnamnesis = async(req,res) => {
         res.send(error.message);
     }
     
+}
+
+
+//----------------------------------------------Habitos-------------------------------------------------------------
+//INSERTAR NUEVO HABITO NO SALUDABLE
+export const registrarHabitos = async (req,res) => {
+    const { hab_id } = req.body;
+    let { hab_descripcion } = req.body;
+
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('hab_id',sql.Numeric,hab_id)
+            .input('hab_descripcion', sql.NVarChar,hab_descripcion)
+            
+            .query(consultasquerys.registrarHabitos)
+        res.json({  hab_id, hab_descripcion})
+
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
+
+export const registrarHabitoPaciente = async (req,res) => {
+    const { habpac_id, habpac_nrohc } = req.body;
+    let { habpac_fecharegistro, habpac_observaciones, habpac_idconsulta } = req.body;
+
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('habpac_id',sql.Numeric,habpac_id)
+            .input('habpac_nrohc',sql.Numeric,habpac_nrohc)
+            .input('habpac_fecharegistro',sql.Date,habpac_fecharegistro)
+            .input('habpac_observaciones', sql.NVarChar,habpac_observaciones)
+            .input('habpac_idconsulta', sql.Numeric,habpac_idconsulta)
+            
+            .query(consultasquerys.registrarHabitoPaciente)
+        res.json({  habpac_id, habpac_nrohc, habpac_fecharegistro, habpac_observaciones, habpac_idconsulta})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
+
+export const registrarDetalleHabito = async (req,res) => {
+    const { habpac_id, dhabpac_linea, dhabpac_idhabito } = req.body;
+    let { dhabpac_realiza, habpac_observaciones } = req.body;
+
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('habpac_id',sql.Numeric,habpac_id)
+            .input('dhabpac_linea',sql.Numeric,dhabpac_linea)
+            .input('dhabpac_idhabito',sql.Numeric,dhabpac_idhabito)
+            .input('dhabpac_realiza', sql.Bit,dhabpac_realiza)
+            .input('habpac_observaciones', sql.NVarChar,habpac_observaciones)
+            
+            .query(consultasquerys.registrarDetalleHabito)
+        res.json({  habpac_id, dhabpac_linea, dhabpac_idhabito, dhabpac_realiza, habpac_observaciones})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
+
+
+//CONSULTAR HABITO POR HC
+export const getHabitoXHC = async(req,res) => {
+    try {
+        const {habpac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.getHabitosXHC)
+        res.send(result.recordset[0])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//ACTUALIZAR HABITOS POR HC
+export const actualizarHabitos = async(req,res) => {
+    let {hab_descripcion } = req.body;
+    const {hab_id} = req.params;
+    try {
+        const pool = await getConnection();
+        await pool.request()
+        .input('hab_id',sql.Int,hab_id)
+        .input('hab_descripcion', sql.NVarChar,hab_descripcion)
+        .query(consultasquerys.actualizarHabitos)
+        res.json({  hab_descripcion})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
+export const actualizarHabitoPaciente = async(req,res) => {
+    let {habpac_fecharegistro, habpac_observaciones  } = req.body;
+    const {hab_id} = req.params;
+    try {
+        const pool = await getConnection();
+        await pool.request()
+        .input('hab_id',sql.Int,hab_id)
+        .input('habpac_fecharegistro', sql.Date,habpac_fecharegistro)
+        .input('habpac_observaciones', sql.NVarChar,habpac_observaciones)
+        .input('habpac_idconsulta', sql.Numeric,habpac_idconsulta)
+
+        .query(consultasquerys.actualizarHabitoPaciente)
+        res.json({  hab_descripcion})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
+export const actualizarDetalleHabito = async(req,res) => {
+    let {dhabpac_realiza, habpac_observaciones  } = req.body;
+    const {hab_id} = req.params;
+    try {
+        const pool = await getConnection();
+        await pool.request()
+        .input('hab_id',sql.Int,hab_id)
+        .input('dhabpac_realiza', sql.Bit,dhabpac_realiza)
+        .input('habpac_observaciones', sql.NVarChar,habpac_observaciones)
+
+        .query(consultasquerys.actualizarDetalleHabito)
+        res.json({  hab_descripcion})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
 }

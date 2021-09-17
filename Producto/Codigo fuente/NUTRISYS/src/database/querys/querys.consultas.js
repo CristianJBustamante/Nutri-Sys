@@ -90,6 +90,28 @@ export const consultasquerys = {
 
 
 //HABITOS
+    getHabitosXHC: "select * from habito h JOIN detalle_habitos dh ON(dh.dhabpac_idhabito = h.hab_id)"+
+    " JOIN habitos_paciente hp ON(dh.dhabpac_id = hp.habpac_id) where habpac_nrohc=@habpac_nrohc",
+    
+    registrarHabitos: "INSERT INTO habito (hab_descripcion) VALUES (@hab_descripcion)",
+
+    registrarDetalleHabito: "INSERT INTO detalle_habitos (dhabpac_id, dhabpac_linea, dhabpac_idhabito, dhabpac_realiza, dhabpac_observaciones) "+
+    "VALUES (@dhabpac_id, @dhabpac_linea, @dhabpac_idhabito, @dhabpac_realiza, @dhabpac_observaciones)",
+
+    registrarHabitoPaciente: "INSERT INTO habitos_paciente (habpac_id, habpac_nrohc, habpac_fecharegistro,"+
+    "habpac_observaciones, habpac_idconsulta) VALUES (@habpac_id, @habpac_nrohc, getDate(), @habpac_observaciones,"+
+    "@habpac_idconsulta",
+
+    actualizarHabitos: "UPDATE habito SET hab_descripcion = @hab_descripcion WHERE habpac_nrohc = @habpac_nrohc",
+    
+    actualizarHabitoPaciente:"UPDATE habitos_paciente SET habpac_fecharegistro = @getDate(),"+
+    "habpac_observaciones = @habpac_observaciones, habpac_idconsulta = @habpac_idconsulta WHERE "+
+    "habpac_nrohc = @habpac_nrohc AND habpac_id= @habpac_id",
+
+
+    actualizarDetalleHabito: "UPDATE detalle_habitos SET dhabpac_id = @dhabpac_id , dhabpac_linea = @dhabpac_linea, dhabpac_idhabito = @dhabpac_idhabito,"+
+    " dhabpac_realiza = @dhabpac_realiza, dhabpac_observaciones = @dhabpac_observaciones WHERE "+
+    "dhabpac_id = @dhabpac_id AND dhabpac_linea = @dhabpac_linea AND dhabpac_idhabito = @dhabpac_idhabito"
 
 //ANTROPOMETRÍA
 

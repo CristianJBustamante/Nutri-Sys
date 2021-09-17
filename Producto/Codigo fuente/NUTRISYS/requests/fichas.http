@@ -128,7 +128,6 @@ Content-Type: application/json
 
 }
 
-
 ###
 
 PUT {{api}}/actualizarAnamnesis/1000
@@ -213,4 +212,42 @@ Content-Type: application/json
     "anms_merienda": "",
     "anms_mediatarde": "",
     "anms_cena": ""
+}
+
+###
+
+PUT {{api}}/actualizarFichaInicial/1000
+Content-Type: application/json
+
+{
+    "hc_ocupacion": "",
+    "hc_actividadfisica": "",
+    "hc_diagnostico":"",
+    "hc_antecedentes":"",
+    "hc_medicacion":"",
+    "hc_fechalaboratorios":"",
+    "hc_laboratorios":"",
+    "hc_antecedentesnutricion":"",
+    "hc_edaddieta":"",
+    "hc_dieta":"",
+    "hc_pesoactual":"",
+    "hc_BMI":"",
+    "hc_PD":"",
+    "hc_Pmin":"",
+    "hc_Pmincuando":"",
+    "hc_GC":"",
+    "hc_MM":"",
+    "hc_CC1":"",
+    "hc_CC2":"",
+    "hc_CC3":"",
+    "hc_formula":"",
+    "hc_talla":"",
+    "hc_PH":"",
+    "hc_PBMI":"",
+    "hc_Pmax":"",
+    "hc_Pmaxcuando":"",
+    "hc_GV":"",
+    "hc_PBI":"",
+    "hc_ajuste":"",
+    "hc_medajuste":""
 }

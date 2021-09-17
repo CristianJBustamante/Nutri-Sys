@@ -1,6 +1,71 @@
 //Get nrohc
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
+let modo = url.substr(url.indexOf("consulta/"),url.length)
+var nuevo=0
+var metodo=''
+var ruta=''
+if (modo=="consulta/registrarFichaInicial/hc="+pac_nrohc) {
+    nuevo=1;
+    metodo='POST'
+    ruta="http://localhost:3000/registrarFichaInicial"
+}
+else{
+    nuevo=0;
+    metodo='PUT'
+    ruta="http://localhost:3000/actualizarFichaInicial"+pac_nrohc
+    }
+
+
+//Cargar pagina según modo
+
+if (nuevo==1) {
+    let cabecera =''
+    cabecera += `Focha Inicial`        
+    document.getElementById('subTituloModo').innerHTML = cabecera
+} else {
+    let cabecera =''
+    cabecera += `Modificar Ficha Inicial`        
+    document.getElementById('subTituloModo').innerHTML = cabecera
+    let query = 'http://localhost:3000/consulta/registrarFichaInicial/'+pac_nrohc
+    fetch(query)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error))
+const mostrarData = (data) => {
+    console.log(data)
+
+    document.getElementById("hc_diagnostico").value=data.hc_diagnostico;
+    document.getElementById("hc_antecedentes").value=data.hc_antecedentes;
+    document.getElementById("hc_medicacion").value=data.hc_medicacion;
+    document.getElementById("hc_ocupacion").value=data.hc_ocupacion;
+    document.getElementById("hc_actividadfisica").value=data.hc_actividadfisica;
+    document.getElementById("hc_laboratorios").value=data.hc_laboratorios;
+    document.getElementById("hc_antecedentesnutricion").value=data.hc_antecedentesnutricion;
+    parseInt(document.getElementById("hc_edaddieta").value)=data.hc_edaddieta;
+    document.getElementById("hc_dieta").value=data.hc_dieta;
+    parseFloat(document.getElementById("hc_pesoactual").value)=data.hc_pesoactual;
+    parseFloat(document.getElementById("hc_BMI").value)=data.hc_BMI;
+    parseFloat(document.getElementById("hc_PD").value)=data.hc_PD;
+    parseFloat(document.getElementById("hc_Pmin").value)=data.hc_Pmin;
+    document.getElementById("hc_Pmincuando").value=data.hc_Pmincuando;
+    parseFloat(document.getElementById("hc_GC").value)=data.hc_GC;
+    parseFloat(document.getElementById("hc_MM").value)=data.hc_MM;
+    parseFloat(document.getElementById("hc_CC1").value)=data.hc_CC1;
+    parseFloat(document.getElementById("hc_CC2").value)=data.hc_CC2;
+    parseFloat(document.getElementById("hc_CC3").value)=data.hc_CC3;
+    parseFloat(document.getElementById("hc_formula").value)=data.hc_formula;
+    parseFloat(document.getElementById("hc_talla").value)=data.hc_talla;
+    parseFloat(document.getElementById("hc_PH").value)=data.hc_PH;
+    parseFloat(document.getElementById("hc_PBMI").value)=data.hc_PBMI;
+    parseFloat(document.getElementById("hc_Pmax").value)=data.hc_Pmax;
+    document.getElementById("hc_Pmaxcuando").value=data.hc_Pmaxcuando;
+    parseFloat(document.getElementById("hc_GV").value)=data.hc_GV;
+    parseFloat(document.getElementById("hc_PBI").value)=data.hc_PBI;
+    parseFloat(document.getElementById("hc_ajuste").value)=data.hc_ajuste;
+    parseFloat(document.getElementById("hc_medajuste").value)=data.hc_medajuste;
+    }
+}
 
 //Buscar datos personales del nrohc
 let query = 'http://localhost:3000/paciente/'+pac_nrohc

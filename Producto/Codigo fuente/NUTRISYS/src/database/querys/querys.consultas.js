@@ -14,6 +14,14 @@ export const consultasquerys = {
                                     "@hc_antecedentesnutricion,@hc_edaddieta,@hc_dieta,@hc_pesoactual,@hc_BMI,@hc_PD,@hc_Pmin,"+
                                     "@hc_Pmincuando,@hc_GC,@hc_MM,@hc_CC1,@hc_CC2,@hc_CC3,@hc_formula,@hc_talla,@hc_PH,@hc_PBMI,"+
                                     "@hc_Pmax,@hc_Pmaxcuando,@hc_GV,@hc_PBI,@hc_ajuste,@hc_medajuste)",
+
+    actualizarFichaInicial: "UPDATE historia_clinica SET hc_fechaprimerconsulta = getdate(),hc_diagnostico = @hc_diagnostico"+
+    ",hc_antecedentes = @hc_antecedentes,hc_medicacion = @hc_medicacion,hc_ocupacion = @hc_ocupacion,hc_actividadfisica = @hc_actividadfisica,hc_fechalaboratorios = @hc_fechalaboratorios"+
+    ",hc_laboratorios = @hc_laboratorios,hc_antecedentesnutricion = @hc_antecedentesnutricion,hc_edaddieta = @hc_edaddieta,hc_dieta = @hc_dieta"+
+    ",hc_pesoactual = @hc_pesoactual,hc_BMI = @hc_BMI,hc_PD = @hc_PD,hc_Pmin = @hc_Pmin,hc_Pmincuando = @hc_Pmincuando,hc_GC = @hc_GC,hc_MM = @hc_MM"+
+    ",hc_CC1 = @hc_CC1,hc_CC2 = @hc_CC2,hc_CC3 = @hc_CC3,hc_formula = @hc_formula,hc_talla = @hc_talla,hc_PH = @hc_PH,hc_PBMI = @hc_PBMI,hc_Pmax = @hc_Pmax"+
+    ",hc_Pmaxcuando = @hc_Pmaxcuando,hc_GV = @hc_GV,hc_PBI = @hc_PBI,hc_ajuste = @hc_ajuste,hc_medajuste = @hc_medajuste WHERE hc_nrohc=@hc_nrohc",
+    
     
 //ANAMNESIS
     getItemsAnamnesis: "select item_id,tipoitem_descripcion,item_descripcion "+
@@ -82,6 +90,28 @@ export const consultasquerys = {
 
 
 //HABITOS
+    getHabitosXHC: "select * from habito h JOIN detalle_habitos dh ON(dh.dhabpac_idhabito = h.hab_id)"+
+    " JOIN habitos_paciente hp ON(dh.dhabpac_id = hp.habpac_id) where habpac_nrohc=@habpac_nrohc",
+    
+    registrarHabitos: "INSERT INTO habito (hab_descripcion) VALUES (@hab_descripcion)",
+
+    registrarDetalleHabito: "INSERT INTO detalle_habitos (dhabpac_id, dhabpac_linea, dhabpac_idhabito, dhabpac_realiza, dhabpac_observaciones) "+
+    "VALUES (@dhabpac_id, @dhabpac_linea, @dhabpac_idhabito, @dhabpac_realiza, @dhabpac_observaciones)",
+
+    registrarHabitoPaciente: "INSERT INTO habitos_paciente (habpac_id, habpac_nrohc, habpac_fecharegistro,"+
+    "habpac_observaciones, habpac_idconsulta) VALUES (@habpac_id, @habpac_nrohc, getDate(), @habpac_observaciones,"+
+    "@habpac_idconsulta",
+
+    actualizarHabitos: "UPDATE habito SET hab_descripcion = @hab_descripcion WHERE habpac_nrohc = @habpac_nrohc",
+    
+    actualizarHabitoPaciente:"UPDATE habitos_paciente SET habpac_fecharegistro = @getDate(),"+
+    "habpac_observaciones = @habpac_observaciones, habpac_idconsulta = @habpac_idconsulta WHERE "+
+    "habpac_nrohc = @habpac_nrohc AND habpac_id= @habpac_id",
+
+
+    actualizarDetalleHabito: "UPDATE detalle_habitos SET dhabpac_id = @dhabpac_id , dhabpac_linea = @dhabpac_linea, dhabpac_idhabito = @dhabpac_idhabito,"+
+    " dhabpac_realiza = @dhabpac_realiza, dhabpac_observaciones = @dhabpac_observaciones WHERE "+
+    "dhabpac_id = @dhabpac_id AND dhabpac_linea = @dhabpac_linea AND dhabpac_idhabito = @dhabpac_idhabito"
 
 //ANTROPOMETRÍA
 

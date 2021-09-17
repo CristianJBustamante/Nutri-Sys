@@ -411,38 +411,9 @@ a:hover{
 color: black;
 }
 
-.boton__listar{
+.boton{
     font-family: var(--fuentePrincipal);
     background-color: rgb(180, 180, 180);
-    color: black;
-    font-size: 2rem;
-    height: 4rem;
-    width: 15rem;
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    float: right;
-    margin-right: 5%;
-    margin-left: 6rem;
-}
-.boton__nuevo{
-    font-family: var(--fuentePrincipal);
-    background-color:  rgb(180, 180, 180);
-    color: black;
-    font-size: 2rem;
-    height: 4rem;
-    width: 15rem;
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    float: right;
-    margin-right: 5%;
-    margin-left: 6rem;
-    
-}
-.boton__modificar{
-    font-family: var(--fuentePrincipal);
-    background-color:  rgb(180, 180, 180);
     color: black;
     font-size: 2rem;
     height: 4rem;
@@ -463,10 +434,7 @@ color: black;
     display: flex;
     flex-direction: column;
 }
-.boton__listar:hover{background-color: var(--grisOscuro);}
-.boton__nuevo:hover{background-color: var(--grisOscuro);}
-.boton__modificar:hover{background-color: var(--grisOscuro);}
-.boton__guardar:hover{ background-color: var(--verdeBtonHover);}
+.boton:hover{background-color: var(--grisOscuro);}
 
 .tabla__seleccionados{
     margin-top: 5rem;

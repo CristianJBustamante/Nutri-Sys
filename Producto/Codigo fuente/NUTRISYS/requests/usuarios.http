@@ -1,0 +1,29 @@
+ @api = http://localhost:3000
+
+GET {{api}}/usuarios
+
+###
+
+POST {{api}}/usuario
+Content-Type: application/json
+
+{
+    "usu_usuario": 69669,
+    "usu_clave": "sereprado1",
+    "usu_idperfil": "1",
+    "usu_correo": "serenaiprado@gmailcom"
+}
+
+###
+
+POST {{api}}/usuario/login
+Content-Type: application/json
+
+{
+    "usu_usuario": 34554,
+    "usu_clave": "mariela"
+}
+
+###
+
+GET {{api}}/datosusuario/69669

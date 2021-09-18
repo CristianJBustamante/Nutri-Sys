@@ -4,71 +4,47 @@ const http=require('http');
 const router = express.Router();
 const app = express();
 const jwt = require('jsonwebtoken');
+var passport = require('passport')
+var AuthMiddleware = require("../middleware/auth")
 
-import { getUsuario } from "../controllers/usuario.controller";
 
-const KEY = process.env.KEYSECRET ;
+import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, login, logout} from "../controllers/usuario.controller";
+
 //ACCESO A PAGINAS
   //login
   router.get('/usuarios/login', (req,res) => {
     res.render('usuarios/iniciarSesion.html');
   });
   //pantalla inicial
-  router.get('/welcome', (req,res) => {
-    res.render('pantallaInicial.html');
+  router.get('/welcome',AuthMiddleware.isLogged ,(req,res) => {
+      res.render('pantallaInicial.html',{
+        isAuthenticated : req.isAuthenticated(),
+        user : req.user
+    }); 
   });
 
-//login
-router.post('/usuarios/login', (req,res) => {
-  const usr = {
-    "usu" : "usu",
-    "pass": "pass"
-  }
-  
-  jwt.sign({usr: usr}, `${KEY}`, (err, token) => {
-    res.json({
-      token: token
-    })
-  })
-});
-
-router.post("/pacientes/buscarpaciente", verifyToken, (req, res) => {
-  jwt.verify(req.token, `${KEY}`, (error, authData) => {
-    if(error){
-      res.sendStatus(403);
-    }else{
-      res.json({
-        data: "OK",
-        authData
-      })
-    }
-  }
-  )
-})
-
-function verifyToken(req, res, next) {
-  const BH = req.headers['authorization'];
-
-  if(typeof BH !== 'undefined'){
-    const BT = BH.split(" ")[1];
-    req.token = BT;
-    next();
-  }else{
-    res.sendStatus(403);
-  }
-}
 
 //ACCESO A DATOS
 router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
 
-module.exports = router;
 //ACCESO A PAGINAS
   //login
   router.get('/usuarios/login', (req,res) => {
     res.render('usuarios/iniciarSesion.html');
   });
 
+
+
 //ACCESO A DATOS
 router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
+router.get('/usuarios',getallusers)
+router.get('/datosusuario/:usu_usuario',getDatosUsuario)
+router.post('/usuario',nuevousuario)
+router.post('/usuario/login', passport.authenticate('local',{
+  successRedirect : '../welcome',
+  failureRedirect : '../usuarios/login',
 
+}))
+  //logout
+  router.get('/usuarios/logout', logout)
 module.exports = router;

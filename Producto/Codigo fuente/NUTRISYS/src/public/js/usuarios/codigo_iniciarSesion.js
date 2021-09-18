@@ -1,27 +1,28 @@
 
 function validarUsuario() {
-    var usu_usuario = document.getElementById("usuario").value;
-    var usu_clave = document.getElementById("clave").value;
-    var url = "http://localhost:3000/usuario/"+usu_usuario+'/'+usu_clave
-    fetch(url)
-        .then(response => response.json())
-        .then(data => mostrarData(data))
-        .catch(error => console.log(error))
+//     var usu_usuario = document.getElementById("usuario").value;
+//     var usu_clave = document.getElementById("clave").value;
+//     var url = "http://localhost:3000/usuario/"+usu_usuario+'/'+usu_clave
+//     fetch(url)
+//         .then(response => response.json())
+//         .then(data => mostrarData(data))
+//         .catch(error => console.log(error))
 
-      const mostrarData = (data) => {
-        console.log(data)
-        if (data.length==0){
-          swal("Atención","Usuario no válido","error") 
-        }
-        else {
-                swal("Bienvenido/a",data[0].apellido + ", " + data[0].nombre,"success")
-                .then((value) => {
-                        location.href ="../welcome"})
+//       const mostrarData = (data) => {
+//         console.log(data)
+//         if (data.length==0){
+//           swal("Atención","Usuario no válido","error") 
+//         }
+//         else {
+//                 swal("Bienvenido/a",data[0].apellido + ", " + data[0].nombre,"success")
+//                 .then((value) => {
+//                         location.href ="../welcome"})
                 
                 
-        }
+//         }
         
-}}
+// }
+}
 
 function mostrarClave(){
         var tipo = document.getElementById("clave");

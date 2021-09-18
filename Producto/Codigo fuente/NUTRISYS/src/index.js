@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
+const passport = require('passport');
+require('./passport/passport')(passport);
 
 //Initializions
 const app = express();
@@ -22,10 +24,12 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
-    secret: 'mysecretapp',
-    resave: true,
-    saveUninitialized: true
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: false
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Global Variables
 
@@ -35,11 +39,16 @@ app.use(require('./routes/paciente.routes'));
 app.use(require('./routes/usuario.routes'));
 //Static Files
 app.use(express.static(path.join(__dirname,'public')));
+app.use((req, res, next) => {
+    app.locals.user = req.user;
+    next();
+});
 
 //Server is listenning
 app.listen(app.get('port'), () => {
     console.log('Servidor en Puerto', app.get('port'))
 });
+
 
 
 

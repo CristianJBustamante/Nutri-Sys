@@ -4,9 +4,7 @@ const http=require('http');
 const router = express.Router();
 const app = express();
 
-import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial,
-  registrarHabitos, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito,
-   actualizarHabitoPaciente, actualizarDetalleHabito, getHabitosXHC} from "../controllers/consultas.controller";
+import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, registrarHabitos, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitosXHC} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -66,7 +64,6 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc', (req,res) => {
 
  //Consultas
  router.get('/fichas', getAnamnesisXHC)
- router.get('/fichas', getHabitosXHC)
 
 
 module.exports = router;

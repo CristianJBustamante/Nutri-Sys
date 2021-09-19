@@ -8,7 +8,7 @@
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
 
-    --fuentePrincipal: 'Amatic+SC', cursive;
+    --fuentePrincipal: 'Open Sans', cursive;
     --fuenteLogo: 'Amatic SC', cursive;
 }
 
@@ -31,9 +31,9 @@ html, body{
 
   @media (min-width: 700px) {
    
-    body{
+    /* body{
     display: flex;
-   }   
+   }    */
 
   }
 
@@ -104,9 +104,9 @@ h2{
 }
 
 .logo__manzana{
-    width: 8rem;
-    height: 8rem;
-    margin: 1rem  0rem 1rem 1rem;
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem  0rem 1rem 0rem;
 }
 
 

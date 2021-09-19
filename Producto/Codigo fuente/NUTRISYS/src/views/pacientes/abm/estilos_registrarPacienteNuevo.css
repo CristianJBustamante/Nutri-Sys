@@ -30,10 +30,7 @@ html{
 
   @media (min-width: 700px) {
    
-    /* body{
-    /* display: flex; 
-   }    */
-
+ 
   }
 
   @media (max-width: 699px) {
@@ -114,7 +111,7 @@ h2{
 .logo__manzana{
     width: 5rem;
     height: 5rem;
-    margin: 1rem  0rem 1rem 1rem;
+    margin: 1rem  0rem 1rem 0rem;
 }
 
 

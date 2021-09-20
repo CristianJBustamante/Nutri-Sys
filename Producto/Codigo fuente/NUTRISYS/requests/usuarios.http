@@ -8,10 +8,10 @@ POST {{api}}/usuario
 Content-Type: application/json
 
 {
-    "usu_usuario": 69669,
-    "usu_clave": "sereprado1",
+    "usu_usuario": 67404,
+    "usu_clave": "12345",
     "usu_idperfil": "1",
-    "usu_correo": "serenaiprado@gmailcom"
+    "usu_correo": ""
 }
 
 ###

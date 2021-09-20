@@ -3,26 +3,37 @@ const express = require('express');
 const http=require('http');
 const router = express.Router();
 const app = express();
+var passport = require('passport')
+var AuthMiddleware = require("../middleware/auth")
 
-import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, registrarHabitos, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitosXHC} from "../controllers/consultas.controller";
+import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
 //-------FICHA INICIAL-----------
 //Registrar Ficha Inicial
-router.get('/consulta/registrarFichaInicial/hc=:hc_nrohc', (req,res) => {
-  res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html');
-});
+router.get('/consulta/registrarFichaInicial/hc=:hc_nrohc',AuthMiddleware.isLogged , (req,res) => {
+  res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+  });
+  });
 
-router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc', (req,res) => {
-  res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html');
+router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc',AuthMiddleware.isLogged , (req,res) => {
+  res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+  });
   });
 
 //-------ANAMNESIS---------------
 //Registrar Anamnesis
-    router.get('/consulta/registrarAnamnesis/hc=:anms_nrohc', (req,res) => {
-    res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html');
-});
+    router.get('/consulta/registrarAnamnesis/hc=:anms_nrohc',AuthMiddleware.isLogged , (req,res) => {
+    res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
+  });
 
   //Consultar Anamnesis x HC
   //router.get('/pacientes/consultaAnamnesisXHC/hc=:pac_nrohc', (req,res) => {
@@ -30,8 +41,11 @@ router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc', (req,res) => {
 //});
 
 //Editar Anamnesis
-router.get('/consulta/actualizarAnamnesis/hc=:anms_nrohc', (req,res) => {
-res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html');
+router.get('/consulta/actualizarAnamnesis/hc=:anms_nrohc', AuthMiddleware.isLogged ,(req,res) => {
+res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html',{
+  isAuthenticated : req.isAuthenticated(),
+  user : req.user
+});
 });
 
 
@@ -48,14 +62,21 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc', (req,res) => {
   
 
 //--------------------------------------ACCESO A DATOS----------------------------------------------
-  //Alta, Baja, Modif
+  //-------------FICHA INICIAL
   router.post('/registrarfichainicial', registrarfichainicial)
   router.put('/actualizarFichaInicial/:hc_nrohc', actualizarFichaInicial)
+
+  //-------------ANAMNESIS
   router.post('/registraranamnesis', registrarAnamnesis)
   router.put('/actualizarAnamnesis/:anms_nrohc', actualizarAnamnesis)
-  router.post('/registrarHabitos', registrarHabitos)
-  router.post('/registrarHabitos', registrarHabitoPaciente)
-  router.post('/registrarHabitos', registrarDetalleHabito)
+
+  //--------------HABITOS
+  router.post('/habitos', nuevohabito)
+  router.get("/habitos",getHabitos)
+
+  router.post('/cabecerahabitos', registrarHabitoPaciente)
+  router.post('/detallehabitos', registrarDetalleHabito)
+  router.get("/habitospaciente/:habpac_nrohc",getHabitoXHC)
 
   router.put('/actualizarHabitos/:habpac_nrohc', actualizarHabitos)
   router.put('/actualizarHabitos/:habpac_nrohc', actualizarHabitoPaciente)
@@ -63,7 +84,8 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc', (req,res) => {
 
 
  //Consultas
- router.get('/fichas', getAnamnesisXHC)
+ router.get('/anamnesis/:anms_nrohc', getAnamnesisXHC)
+ router.get('/fichainicial/:hc_nrohc', getFichaInicialXHC)
 
 
 module.exports = router;

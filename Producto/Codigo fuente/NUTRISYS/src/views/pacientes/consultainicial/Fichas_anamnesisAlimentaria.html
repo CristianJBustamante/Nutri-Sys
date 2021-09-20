@@ -38,7 +38,7 @@
             <div class="notifYUsuario">
                 <img class="flex__imageItem--small" src="/img/NotifyLogo.png" alt="Imagen Logo">
                 <img class="flex__imageItem--small" src="/img/UserLogo.png" alt="Imagen Logo">
-                <h2 class="flex__textItem">Apellido, Nombre</h2>
+                <h2 class="flex__textItem"><%= user.apellido %>, <%= user.nombre %></h2>
             </div>
         </div>
 
@@ -53,7 +53,7 @@
                     </div>
                     <div class="ficha"> <!-- Cambiar En cada Solapa -->
                         <div class="navegacion__solapas">
-                            <a class="nav__solapa" href="../html/fichaInicialPaciente.html">Ficha inicial</a>
+                            <a class="nav__solapa"  onclick="fichainicial()">Ficha inicial</a>
                             <a class="nav__solapa--seleccionado"  href="../html/anamnesisAlimentaria.html">Anamnesis alimentaria</a>
                             <a class="nav__solapa" href="../html/habitosNoSaludables.html">Habitos no saludables</a>
                             <a class="nav__solapa" href="../html/medidasAntropometricas.html" style="word-wrap: break-word;">Medidas antropométricas</a>
@@ -66,7 +66,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="carne__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('carne__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" id="carne" onchange="hideSeccion('carne__cuestionario')">
                                     <h2 class="titulo__seccion">Carne</h2>
                                 </div>
                                 <div class="carne__cuestionario" id="carne__cuestionario">
@@ -158,7 +158,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="lacteos__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('lacteos__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('lacteos__cuestionario')" id="lacteos">
                                     <h2 class="titulo__seccion">Lácteos</h2>
                                 </div>
                                 <div class="lacteos__cuestionario" id="lacteos__cuestionario">
@@ -242,7 +242,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="huevos__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('huevos__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('huevos__cuestionario')" id="huevos">
                                     <h2 class="titulo__seccion">Huevos</h2>
                                 </div>
                                 <div class="huevos__cuestionario" id="huevos__cuestionario">
@@ -270,7 +270,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="vegetales__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('vegetales__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('vegetales__cuestionario')" id="vegetales">
                                     <h2 class="titulo__seccion">Vegetales</h2>
                                 </div>
                                 <div class="vegetales__cuestionario" id="vegetales__cuestionario">
@@ -311,7 +311,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="panificacion__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('panificacion__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('panificacion__cuestionario')" id="panificacion">
                                     <h2 class="titulo__seccion">Panificación</h2>
                                 </div>
                                 <div class="panificacion__cuestionario" id="panificacion__cuestionario">
@@ -372,7 +372,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="azucar__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('azucar__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('azucar__cuestionario')" id="azucares">
                                     <h2 class="titulo__seccion">Azúcares</h2>
                                 </div>
                                 <div class="azucar__cuestionario" id="azucar__cuestionario">
@@ -428,7 +428,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="aceite__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('aceite__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('aceite__cuestionario')" id="aceites">
                                     <h2 class="titulo__seccion">Aceites</h2>
                                 </div>
                                 <div class="aceite__cuestionario" id="aceite__cuestionario">
@@ -465,7 +465,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="grasas__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('grasas__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('grasas__cuestionario')" id="grasas">
                                     <h2 class="titulo__seccion">Grasas</h2>
                                 </div>
                                 <div class="grasas__cuestionario" id="grasas__cuestionario">
@@ -494,7 +494,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="sal__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('sal__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('sal__cuestionario')" id="sales">
                                     <h2 class="titulo__seccion">Sal</h2>
                                 </div>
                                 <div class="sal__cuestionario" id="sal__cuestionario">
@@ -519,7 +519,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="bebidas__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('bebidas__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('bebidas__cuestionario')" id="bebidas">
                                     <h2 class="titulo__seccion">Bebidas-Infusiones</h2>
                                 </div>
                                 <div class="bebidas__cuestionario" id="bebidas__cuestionario">
@@ -534,7 +534,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="alcohol__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('alcohol__cuestionario')">
+                                    <input type="checkbox" id="alcohol" class="respuesta__pregunta--checkbox" onchange="hideSeccion('alcohol__cuestionario')">
                                     <h2 class="titulo__seccion">Alcohol</h2>
                                 </div>
                                 <div class="alcohol__cuestionario" id="alcohol__cuestionario">
@@ -571,7 +571,7 @@
 
                             <div class="seccion__anamnesis">
                                 <div class="seccion__titulo" name="comidas__cuestionario">
-                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('comidas__cuestionario')">
+                                    <input type="checkbox" class="respuesta__pregunta--checkbox" onchange="hideSeccion('comidas__cuestionario')" id="comidas">
                                     <h2 class="titulo__seccion">Comidas del día</h2>
                                 </div>
                                 <div class="comidas__cuestionario" id="comidas__cuestionario">

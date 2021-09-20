@@ -37,10 +37,10 @@ export const pacquerys = {
    
 
 //-------------------------------------------------------ABMS------------------------------------------------------
-    nuevoPaciente:  "INSERT INTO paciente (pac_nrodoc,pac_apellido,pac_nombre,pac_fechanacimiento,pac_fechaalta,"+
-                    "pac_direccion,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2) "+
-                    "VALUES (@pac_nrodoc,@pac_apellido,@pac_nombre,@pac_fechanacimiento,getdate(),@pac_direccion,"+
-                    "@pac_telefono1,@pac_telefono2,@pac_correo,@pac_mutual,@pac_mutual2)",
+    nuevoPaciente:  "INSERT INTO paciente (pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,pac_fechanacimiento,pac_fechaalta,"+
+                    "pac_direccion,pac_barrio,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2) "+
+                    "VALUES (@pac_tipodoc,@pac_nrodoc,@pac_apellido,@pac_nombre,@pac_sexo,@pac_fechanacimiento,getdate(),@pac_direccion,"+
+                    "@pac_barrio,@pac_telefono1,@pac_telefono2,@pac_correo,@pac_mutual,@pac_mutual2)",
     
     borrarPaciente: "DELETE FROM paciente WHERE pac_nrohc = @pac_nrohc",
 

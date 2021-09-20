@@ -1,253 +1,41 @@
  @api = http://localhost:3000
 
- ###
+GET {{api}}/habitos
 
-POST {{api}}/registraranamnesis
+###
+
+POST {{api}}/habitos
 Content-Type: application/json
 
 {
-    "anms_nrohc": 1003,
-    "anms_vacunacongrasa": 1,
-    "anms_vacunasingrasa": 0,
-    "anms_polloconpiel": 0,
-    "anms_pollosinpiel": 1,
-    "anms_pescadorio": 1,
-    "anms_pescadomar": 0,
-    "anms_cerdo": 1,
-    "anms_higado": 0,
-    "anms_rinon": 0,
-    "anms_otrasviceras": "chinchulin",
-    "anms_fiambres": 1,
-    "anms_embutidos": 1,
-    "anms_salchichas": 1,
-    "anms_chorizo": 1,
-    "anms_morcilla": 1,
-    "anms_lecheentera": 0,
-    "anms_lechedescremada": 0,
-    "anms_yogurtentero": 0,
-    "anms_yogurtdescremada": 0,
-    "anms_quesoduro": 1,
-    "anms_quesosemiblando": 0,
-    "anms_quesountable": 0,
-    "anms_flan": 0,
-    "anms_licuados": 0,
-    "anms_salsablanca": 0,
-    "anms_prepconleche": 1,
-    "anms_huevohervido": 1,
-    "anms_huevofrito": 1,
-    "anms_prephuevo": "tortilla de papa",
-    "anms_vegetalesfrescos": "lechuga y tomate",
-    "anms_vegetalesenlatados": "",
-    "anms_frutas": "manzana",
-    "anms_cereales": "",
-    "anms_pastas": "fideos",
-    "anms_vegfeculentos": "no se que es",
-    "anms_legumbres": "lentejas",
-    "anms_panblanco": 1,
-    "anms_pannegro": 0,
-    "anms_galletassaladas": 0,
-    "anms_galletasagua": 1,
-    "anms_galletasdulces": 1,
-    "anms_galletasintegrales": 0,
-    "anms_facturas": 1,
-    "anms_tortas": 0,
-    "anms_otrasmasas": "no soy pobre",
-    "anms_azucar": 1,
-    "anms_mermelada": 0,
-    "anms_gelatina": 0,
-    "anms_miel": 0,
-    "anms_dulces": 1,
-    "anms_jugos": 1,
-    "anms_golosinas": 1,
-    "anms_gaseosas": 1,
-    "anms_edulcorante": 1,
-    "anms_otrasazucares": "no",
-    "anms_aceitegirasol": 1,
-    "anms_aceitemaiz": 0,
-    "anms_aceiteoliva": 0,
-    "anms_otrosaceites": "no soy pobre",
-    "anms_aceitecrudo": 1,
-    "anms_aceitefritura": 1,
-    "anms_manteca": 0,
-    "anms_margarina": 0,
-    "anms_mayonesa": 1,
-    "anms_otrasgrasas": "ni idea",
-    "anms_salcomun": 1,
-    "anms_saldieta": 0,
-    "anms_sales": "",
-    "anms_bebidas": "mate cocido y cafe",
-    "anms_cantvino": 0,
-    "anms_cantcerveza": 0,
-    "anms_cantbebblancas": 0,
-    "anms_desayuno": "mate cocido con criollos",
-    "anms_mediamanana": "",
-    "anms_almuerzo": "milanesa de pollo",
-    "anms_merienda": "criollos",
-    "anms_mediatarde": "",
-    "anms_cena": "milanesa de pollo"
-}
-
- ###
-
-POST {{api}}/registrarfichainicial
-Content-Type: application/json
-
-{
-    "hc_nrohc": 1001,
-    "hc_fechaprimerconsulta": "01/01/1993",
-    "hc_diagnostico": "Sobrepeso",
-    "hc_antecedentes": "",
-    "hc_medicacion": "",
-    "hc_ocupacion": "Abogado",
-    "hc_actividadfisica": "No",
-    "hc_fechalaboratorios": "01/08/2021",
-    "hc_laboratorios": "0+",
-    "hc_antecedentesnutricion": "",
-    "hc_edaddieta": null,
-    "hc_dieta": "",
-    "hc_pesoactual": 1.5,
-    "hc_BMI": null,
-    "hc_PD": null,
-    "hc_Pmin": null,
-    "hc_Pmincuando": "",
-    "hc_GC": null,
-    "hc_MM": null,
-    "hc_CC1": 1,
-    "hc_CC2": null,
-    "hc_CC3": null,
-    "hc_formula": 1,
-    "hc_talla": 1,
-    "hc_PH": 1,
-    "hc_PBMI": 1,
-    "hc_Pmax": 1,
-    "hc_Pmaxcuando": "",
-    "hc_GV": 1,
-    "hc_PBI": 1,
-    "hc_ajuste": 1,
-    "hc_medajuste": 1
-
+    "hab_descripcion": 67404
+    
 }
 
 ###
 
-PUT {{api}}/actualizarAnamnesis/1000
+POST {{api}}/cabecerahabitos
 Content-Type: application/json
 
 {
-    "anms_vacunacongrasa": 1,
-    "anms_vacunasingrasa": 1,
-    "anms_polloconpiel": 1,
-    "anms_pollosinpiel": 1,
-    "anms_pescadorio": 1,
-    "anms_pescadomar": 1,
-    "anms_cerdo": 1,
-    "anms_higado": 1,
-    "anms_rinon": 1,
-    "anms_otrasviceras": "lin",
-    "anms_fiambres": 1,
-    "anms_embutidos": 1,
-    "anms_salchichas": 1,
-    "anms_chorizo": 1,
-    "anms_morcilla": 1,
-    "anms_lecheentera": 1,
-    "anms_lechedescremada": 1,
-    "anms_yogurtentero": 1,
-    "anms_yogurtdescremada": 1,
-    "anms_quesoduro": 1,
-    "anms_quesosemiblando": 1,
-    "anms_quesountable": 1,
-    "anms_flan": 1,
-    "anms_licuados": 1,
-    "anms_salsablanca": 1,
-    "anms_prepconleche": 1,
-    "anms_huevohervido": 1,
-    "anms_huevofrito": 1,
-    "anms_prephuevo": "",
-    "anms_vegetalesfrescos": "",
-    "anms_vegetalesenlatados": "",
-    "anms_frutas": "",
-    "anms_cereales": "",
-    "anms_pastas": "",
-    "anms_vegfeculentos": "",
-    "anms_legumbres": "",
-    "anms_panblanco": 1,
-    "anms_pannegro": 1,
-    "anms_galletassaladas": 1,
-    "anms_galletasagua": 1,
-    "anms_galletasdulces": 1,
-    "anms_galletasintegrales": 1,
-    "anms_facturas": 1,
-    "anms_tortas": 1,
-    "anms_otrasmasas": "",
-    "anms_azucar": 1,
-    "anms_mermelada": 1,
-    "anms_gelatina": 1,
-    "anms_miel": 1,
-    "anms_dulces": 1,
-    "anms_jugos": 1,
-    "anms_golosinas": 1,
-    "anms_gaseosas": 1,
-    "anms_edulcorante": 1,
-    "anms_otrasazucares": "",
-    "anms_aceitegirasol": 1,
-    "anms_aceitemaiz": 1,
-    "anms_aceiteoliva": 1,
-    "anms_otrosaceites": "",
-    "anms_aceitecrudo": 1,
-    "anms_aceitefritura": 1,
-    "anms_manteca": 1,
-    "anms_margarina": 1,
-    "anms_mayonesa": 1,
-    "anms_otrasgrasas": "",
-    "anms_salcomun": 1,
-    "anms_saldieta": 1,
-    "anms_sales": 1,
-    "anms_bebidas": "",
-    "anms_cantvino": 1,
-    "anms_cantcerveza": 1,
-    "anms_cantbebblancas": 1,
-    "anms_desayuno": "",
-    "anms_mediamanana": "",
-    "anms_almuerzo": "",
-    "anms_merienda": "",
-    "anms_mediatarde": "",
-    "anms_cena": ""
+    "habpac_nrohc": 1000,
+    "habpac_observaciones": "",
+    "habpac_idconsulta": 1
+    
 }
 
 ###
 
-PUT {{api}}/actualizarFichaInicial/1000
+POST {{api}}/detallehabitos
 Content-Type: application/json
 
 {
-    "hc_ocupacion": "",
-    "hc_actividadfisica": "",
-    "hc_diagnostico":"",
-    "hc_antecedentes":"",
-    "hc_medicacion":"",
-    "hc_fechalaboratorios":"",
-    "hc_laboratorios":"",
-    "hc_antecedentesnutricion":"",
-    "hc_edaddieta":"",
-    "hc_dieta":"",
-    "hc_pesoactual":"",
-    "hc_BMI":"",
-    "hc_PD":"",
-    "hc_Pmin":"",
-    "hc_Pmincuando":"",
-    "hc_GC":"",
-    "hc_MM":"",
-    "hc_CC1":"",
-    "hc_CC2":"",
-    "hc_CC3":"",
-    "hc_formula":"",
-    "hc_talla":"",
-    "hc_PH":"",
-    "hc_PBMI":"",
-    "hc_Pmax":"",
-    "hc_Pmaxcuando":"",
-    "hc_GV":"",
-    "hc_PBI":"",
-    "hc_ajuste":"",
-    "hc_medajuste":""
+    "dhabpac_id": 1,
+    "dhabpac_idhabito": 2,
+    "dhabpac_observaciones": ""
+    
 }
+
+###
+
+GET {{api}}/habitospaciente/1000

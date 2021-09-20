@@ -66,8 +66,7 @@ export const consultasquerys = {
                             "@anms_bebidas,@anms_cantvino,@anms_cantcerveza,@anms_cantbebblancas,"+
                             "@anms_desayuno,@anms_mediamanana,@anms_almuerzo,@anms_merienda,@anms_mediatarde,@anms_cena)",
                             
-    getAnamnesisXHC: "select * from anamnesis_paciente join detalle_anamnesis on(anms_id= danms_id) "+
-                                                      "join item_anamnesis on (danms_iditem = item_id)",
+    getAnamnesisXHC: "select * from anamnesis_paciente where anms_nrohc=@anms_nrohc",
 
 
     actualizarAnamnesis: "UPDATE anamnesis_paciente SET anms_fecharegistro = getdate(),anms_vacunacongrasa = @anms_vacunacongrasa,"+
@@ -90,17 +89,21 @@ export const consultasquerys = {
 
 
 //HABITOS
-    getHabitosXHC: "select * from habito h JOIN detalle_habitos dh ON(dh.dhabpac_idhabito = h.hab_id)"+
-    " JOIN habitos_paciente hp ON(dh.dhabpac_id = hp.habpac_id) where habpac_nrohc=@habpac_nrohc",
-    
+    getHabitos: "SELECT * FROM habito",
     registrarHabitos: "INSERT INTO habito (hab_descripcion) VALUES (@hab_descripcion)",
+    registrarHabitoPaciente: "INSERT INTO habitos_paciente (habpac_nrohc, habpac_fecharegistro,"+
+    "habpac_observaciones, habpac_idconsulta) VALUES (@habpac_nrohc, getDate(), @habpac_observaciones,"+
+    "@habpac_idconsulta)",
+    registrarDetalleHabito: "INSERT INTO detalle_habitos (dhabpac_id, dhabpac_idhabito, dhabpac_realiza, dhabpac_observaciones) "+
+    "VALUES (@dhabpac_id, @dhabpac_idhabito, 1, @dhabpac_observaciones)",
 
-    registrarDetalleHabito: "INSERT INTO detalle_habitos (dhabpac_id, dhabpac_linea, dhabpac_idhabito, dhabpac_realiza, dhabpac_observaciones) "+
-    "VALUES (@dhabpac_id, @dhabpac_linea, @dhabpac_idhabito, @dhabpac_realiza, @dhabpac_observaciones)",
+    getHabitosXHC: "select * from habitos_paciente hp "+
+                   "inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
+                   "inner join habito h on h.hab_id=dh.dhabpac_idhabito where hp.habpac_nrohc=@habpac_nrohc",
+    
 
-    registrarHabitoPaciente: "INSERT INTO habitos_paciente (habpac_id, habpac_nrohc, habpac_fecharegistro,"+
-    "habpac_observaciones, habpac_idconsulta) VALUES (@habpac_id, @habpac_nrohc, getDate(), @habpac_observaciones,"+
-    "@habpac_idconsulta",
+    
+    
 
     actualizarHabitos: "UPDATE habito SET hab_descripcion = @hab_descripcion WHERE habpac_nrohc = @habpac_nrohc",
     

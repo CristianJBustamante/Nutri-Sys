@@ -1,6 +1,20 @@
 import {getConnection,sql,consultasquerys} from "../database";
 
 //----------------------------------------------DATOS INICIALES-------------------------------------------------------
+//CONSULTAR FICHAINICIAL POR HC
+export const getFichaInicialXHC = async(req,res) => {
+    try {
+        const {hc_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('hc_nrohc', hc_nrohc).query(consultasquerys.getFichaInicial)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
 export const registrarfichainicial = async (req,res) => {
     const { hc_nrohc,hc_fechaprimerconsulta,hc_ocupacion,hc_actividadfisica } = req.body;
     let {hc_diagnostico,hc_antecedentes,hc_medicacion,hc_fechalaboratorios,
@@ -46,7 +60,7 @@ export const registrarfichainicial = async (req,res) => {
             .input('hc_Pmaxcuando',sql.NVarChar,hc_Pmaxcuando)
             .input('hc_GV',sql.Float,hc_GV)
             .input('hc_PBI',sql.Float,hc_PBI)
-            .input('hc_ajuste',sql.Float,hc_ajuste)
+            .input('hc_ajuste',sql.NVarChar,hc_ajuste)
             .input('hc_medajuste',sql.Float,hc_medajuste)
             .query(consultasquerys.registrarFichaInicial)
         res.json({  hc_nrohc,hc_fechaprimerconsulta,hc_ocupacion,hc_actividadfisica,
@@ -99,7 +113,7 @@ export const actualizarFichaInicial = async(req,res) => {
         .input('hc_Pmaxcuando',sql.NVarChar,hc_Pmaxcuando)
         .input('hc_GV',sql.Numeric,hc_GV)
         .input('hc_PBI',sql.Numeric,hc_PBI)
-        .input('hc_ajuste',sql.Numeric,hc_ajuste)
+        .input('hc_ajuste',sql.NVarChar,hc_ajuste)
         .input('hc_medajuste',sql.Numeric,hc_medajuste)
 
         .query(consultasquerys.actualizarFichaInicial)
@@ -193,7 +207,7 @@ export const registrarAnamnesis = async (req,res) => {
             .input('anms_jugos', sql.Bit,anms_jugos)
             .input('anms_golosinas', sql.Bit,anms_golosinas)
             .input('anms_gaseosas', sql.Bit,anms_gaseosas)
-            .input('anms_edulcorante', sql.Bit,anms_edulcorante)
+            .input('anms_edulcorante', sql.NVarChar,anms_edulcorante)
             .input('anms_otrasazucares', sql.NVarChar,anms_otrasazucares)
             .input('anms_aceitegirasol', sql.Bit,anms_aceitegirasol)
             .input('anms_aceitemaiz', sql.Bit,anms_aceitemaiz)
@@ -247,11 +261,11 @@ export const registrarAnamnesis = async (req,res) => {
 //CONSULTAR ANAMNESIS POR HC
 export const getAnamnesisXHC = async(req,res) => {
     try {
-        const {pac_nrohc} = req.params
+        const {anms_nrohc} = req.params
         const pool = await getConnection()
         const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc).query(consultasquerys.getAnamnesisXHC)
-        res.send(result.recordset[0])
+            .input('anms_nrohc', anms_nrohc).query(consultasquerys.getAnamnesisXHC)
+        res.send(result.recordset)
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -344,7 +358,7 @@ export const actualizarAnamnesis = async(req,res) => {
         .input('anms_jugos', sql.Bit,anms_jugos)
         .input('anms_golosinas', sql.Bit,anms_golosinas)
         .input('anms_gaseosas', sql.Bit,anms_gaseosas)
-        .input('anms_edulcorante', sql.Bit,anms_edulcorante)
+        .input('anms_edulcorante', sql.NVarChar,anms_edulcorante)
         .input('anms_otrasazucares', sql.NVarChar,anms_otrasazucares)
         .input('anms_aceitegirasol', sql.Bit,anms_aceitegirasol)
         .input('anms_aceitemaiz', sql.Bit,anms_aceitemaiz)
@@ -394,70 +408,77 @@ export const actualizarAnamnesis = async(req,res) => {
 }
 
 
-//----------------------------------------------Habitos-------------------------------------------------------------
-//INSERTAR NUEVO HABITO NO SALUDABLE
-export const registrarHabitos = async (req,res) => {
-    const { hab_id } = req.body;
-    let { hab_descripcion } = req.body;
+//----------------------------------------------HABITOS-------------------------------------------------------------
+//GET HABITOS
+export const getHabitos = async(req,res) => {
+    try {
+        const pool = await getConnection()
+        const result = await pool.request()
+            .query(consultasquerys.getHabitos)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+//INSERTAR NUEVO HABITO 
+export const nuevohabito = async (req,res) => {
+    let {hab_descripcion} = req.body;
+    console.log(hab_descripcion)
+    
+    if (hab_descripcion==null) {
+            return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})
+        }
 
     try {
         const pool = await getConnection();
         await pool.request()
-            .input('hab_id',sql.Numeric,hab_id)
-            .input('hab_descripcion', sql.NVarChar,hab_descripcion)
-            
+            .input('hab_descripcion',sql.NVarChar,hab_descripcion)
             .query(consultasquerys.registrarHabitos)
-        res.json({  hab_id, hab_descripcion})
-
+        res.json({  hab_descripcion})
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }         
 }
 
+//INSERTAR CABECERA HABITOS PACIENTE
 export const registrarHabitoPaciente = async (req,res) => {
-    const { habpac_id, habpac_nrohc } = req.body;
-    let { habpac_fecharegistro, habpac_observaciones, habpac_idconsulta } = req.body;
+    const { habpac_nrohc } = req.body;
+    let { habpac_observaciones, habpac_idconsulta } = req.body;
 
     try {
         const pool = await getConnection();
         await pool.request()
-            .input('habpac_id',sql.Numeric,habpac_id)
             .input('habpac_nrohc',sql.Numeric,habpac_nrohc)
-            .input('habpac_fecharegistro',sql.Date,habpac_fecharegistro)
             .input('habpac_observaciones', sql.NVarChar,habpac_observaciones)
             .input('habpac_idconsulta', sql.Numeric,habpac_idconsulta)
             
             .query(consultasquerys.registrarHabitoPaciente)
-        res.json({  habpac_id, habpac_nrohc, habpac_fecharegistro, habpac_observaciones, habpac_idconsulta})
+        res.json({  habpac_nrohc, habpac_observaciones, habpac_idconsulta})
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }         
 }
-
+//INSERTAR DETALLE HABITO PACIENTE
 export const registrarDetalleHabito = async (req,res) => {
-    const { habpac_id, dhabpac_linea, dhabpac_idhabito } = req.body;
-    let { dhabpac_realiza, habpac_observaciones } = req.body;
+    const { dhabpac_id, dhabpac_idhabito } = req.body;
+    let { dhabpac_observaciones } = req.body;
 
     try {
         const pool = await getConnection();
         await pool.request()
-            .input('habpac_id',sql.Numeric,habpac_id)
-            .input('dhabpac_linea',sql.Numeric,dhabpac_linea)
+            .input('dhabpac_id',sql.Numeric,dhabpac_id)
             .input('dhabpac_idhabito',sql.Numeric,dhabpac_idhabito)
-            .input('dhabpac_realiza', sql.Bit,dhabpac_realiza)
-            .input('habpac_observaciones', sql.NVarChar,habpac_observaciones)
-            
+            .input('dhabpac_observaciones', sql.NVarChar,dhabpac_observaciones)
             .query(consultasquerys.registrarDetalleHabito)
-        res.json({  habpac_id, dhabpac_linea, dhabpac_idhabito, dhabpac_realiza, habpac_observaciones})
+        res.json({  dhabpac_id, dhabpac_idhabito, dhabpac_observaciones})
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }         
 }
-
-
 //CONSULTAR HABITO POR HC
 export const getHabitoXHC = async(req,res) => {
     try {
@@ -465,7 +486,7 @@ export const getHabitoXHC = async(req,res) => {
         const pool = await getConnection()
         const result = await pool.request()
             .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.getHabitosXHC)
-        res.send(result.recordset[0])
+        res.send(result.recordset)
     } catch (error) {
         res.status(500);
         res.send(error.message);

@@ -3,6 +3,8 @@ const express = require('express');
 const http=require('http');
 const router = express.Router();
 const app = express();
+var passport = require('passport')
+var AuthMiddleware = require("../middleware/auth")
 import {actualizarPaciente, eliminarPaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, nuevoPaciente} from "../controllers/paciente.controller";
 
 
@@ -12,48 +14,81 @@ import {actualizarPaciente, eliminarPaciente, getPacienteAPDoc, getPacienteHCAP,
 
 //ACCESO A PÁGINAS
   //Registrar paciente
-  router.get('/pacientes/nuevopaciente/', (req,res) => {
-    res.render('pacientes/abm/registrarPacienteNuevo.html');
+  router.get('/pacientes/nuevopaciente/',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/abm/registrarPacienteNuevo.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
 });
 //Editar paciente
-router.get('/pacientes/modificarpaciente/hc=:pac_nrohc', (req,res) => {
-  res.render('pacientes/abm/registrarPacienteNuevo.html');
+router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/abm/registrarPacienteNuevo.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+});
 });
   //Buscar pacientes
-  router.get('/pacientes/buscarpaciente', (req,res) => {
-    res.render('pacientes/consultadatos/historiaClinicaMP.html');
+  router.get('/pacientes/buscarpaciente',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/historiaClinicaMP.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
 });
   //consulta hc paciente
-  router.get('/pacientes/consultapaciente/hc=:pac_nrohc', (req,res) => {
-    res.render('pacientes/consultadatos/historiaClinicaPaciente.html');
+  router.get('/pacientes/consultapaciente/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/historiaClinicaPaciente.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
 });
   //consulta hc paciente - Documentos
-  router.get('/pacientes/consultapacientedocumentos/:pac_nrohc', (req,res) => {
-    res.render('pacientes/consultadatos/documentosPaciente.html');
+  router.get('/pacientes/consultapacientedocumentos/:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/documentosPaciente.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
   });
   //consulta hc paciente - Estudios
-  router.get('/pacientes/consultapacienteestudios/:pac_nrohc', (req,res) => {
-    res.render('pacientes/consultadatos/estudiosPaciente.html');
+  router.get('/pacientes/consultapacienteestudios/:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/estudiosPaciente.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
   });
   //consulta hc paciente - Evoluciones
-  router.get('/pacientes/consultapacienteevolucion/:pac_nrohc', (req,res) => {
-    res.render('pacientes/consultadatos/evolucionesPaciente.html');
+  router.get('/pacientes/consultapacienteevolucion/:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/evolucionesPaciente.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
   });
   //consulta hc paciente - Ficha Inicial
-  router.get('/pacientes/consultapacientefichainicial/:pac_nrohc', (req,res) => {
-    res.render('pacientes/consultadatos/fichainicialPaciente.html');
+  router.get('/pacientes/consultapacientefichainicial/:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/fichainicialPaciente.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
    });
   //Editar Ficha Inicial
-  router.get('/pacientes/modificarFichaInicial/:pac_nrohc', (req,res) => {
-    res.render('pacientes/fichainicialPaciente.html');
+  router.get('/pacientes/modificarFichaInicial/:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/fichainicialPaciente.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
   });
  //consulta hc paciente - Fichas
-  router.get('/pacientes/consultapacientefichas/:pac_nrohc', (req,res) => {
-    res.render('pacientes/consultadatos/fichasPaciente.html');
+  router.get('/pacientes/consultapacientefichas/:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/fichasPaciente.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+  });
   });
  //consulta hc paciente - Planes
- router.get('/pacientes/consultapacienteplan/:pac_nrohc', (req,res) => {
-  res.render('pacientes/consultadatos/planesPaciente.html');
+ router.get('/pacientes/consultapacienteplan/:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/planesPaciente.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+});
 });
 
 

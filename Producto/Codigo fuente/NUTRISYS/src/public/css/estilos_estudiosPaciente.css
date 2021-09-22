@@ -8,7 +8,8 @@
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
 
-    --fuentePrincipal: 'Amatic+SC', cursive;
+    --fuentePrincipal: 'Open Sans', cursive;
+    --fuenteLogo: 'Amatic SC', cursive;
 }
 
 html{
@@ -33,9 +34,9 @@ html, body{
 
     @media (min-width: 700px) {
    
-        body{
+        /* body{
         display: flex;
-       }   
+       }    */
     
       }
     
@@ -102,17 +103,18 @@ h3{
 }
 
 .name_app{
-    margin: 0 auto;
-    font-size: 3rem;
+    margin: 0;
+    font-size: 4.5rem;
     color: var(--blanco);
-    font-family: var(--fuentePrincipal);
-    padding: 1rem;
+    font-family: var(--fuenteLogo);
+    padding-right: 1rem;
+    font-weight: bold;
 }
 
 .logo__manzana{
-    width: 8rem;
-    height: 8rem;
-    margin: 1rem  0rem 1rem 4rem;
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem  0rem 1rem 1rem;
 }
 
 /** MENU **/

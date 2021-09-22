@@ -142,35 +142,39 @@ export const getPacienteAPDoc = async(req,res) => {
 //----------------------------------------------------------------------------------
 //INSERTAR NUEVO PACIENTE
 export const nuevoPaciente = async (req,res) => {
-    const { pac_nrodoc,pac_apellido,pac_nombre,
+    const { pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,
             pac_telefono1,pac_correo,pac_fechanacimiento,pac_mutual } = req.body;
-    let {pac_direccion,pac_telefono2,pac_mutual2} = req.body;
+    let {pac_direccion,pac_telefono2,pac_mutual2,pac_barrio} = req.body;
     
-    if (pac_nrodoc==null || pac_apellido==null || pac_nombre==null || pac_mutual==null ||
-        pac_telefono1==null || pac_correo==null || pac_fechanacimiento==null ) {
+    if (pac_tipodoc==null || pac_nrodoc==null || pac_apellido==null || pac_nombre==null || pac_mutual==null ||
+        pac_telefono1==null || pac_correo==null || pac_fechanacimiento==null || pac_sexo==null) {
             return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})
         }
     
     if (pac_telefono2==null){pac_telefono2=''}
     if (pac_direccion==null){pac_direccion=''}
     if (pac_mutual2==null){pac_mutual2=''}
+    if (pac_barrio==null){pac_barrio=''}
 
     try {
         const pool = await getConnection();
         await pool.request()
+            .input('pac_tipodoc',sql.NVarChar,pac_tipodoc)
             .input('pac_nrodoc',sql.Numeric,pac_nrodoc)
             .input('pac_apellido',sql.NVarChar,pac_apellido)
             .input('pac_nombre',sql.NVarChar,pac_nombre)
+            .input('pac_sexo',sql.NVarChar,pac_sexo)
             .input('pac_fechanacimiento',sql.DateTime,pac_fechanacimiento)
             .input('pac_direccion',sql.NVarChar,pac_direccion)
+            .input('pac_barrio',sql.NVarChar,pac_nrodoc)
             .input('pac_telefono1',sql.NVarChar,pac_telefono1)
             .input('pac_telefono2',sql.NVarChar,pac_telefono2)
             .input('pac_correo',sql.NVarChar,pac_correo)
             .input('pac_mutual',sql.NVarChar,pac_mutual)
             .input('pac_mutual2',sql.NVarChar,pac_mutual2)
             .query(pacquerys.nuevoPaciente)
-        res.json({  pac_nrodoc,pac_apellido,pac_nombre,pac_fechanacimiento,
-                pac_direccion,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2})
+        res.json({  pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,pac_fechanacimiento,
+                pac_direccion,pac_barrio,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2})
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -192,37 +196,41 @@ export const eliminarPaciente = async(req,res) => {
 
 //ACTUALIZAR PACIENTE POR HC
 export const actualizarPaciente = async(req,res) => {
-    const { pac_nrodoc,pac_apellido,pac_nombre,
+    const { pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,
         pac_telefono1,pac_correo,pac_fechanacimiento,pac_mutual } = req.body;
-    let {pac_direccion,pac_telefono2,pac_mutual2} = req.body;
+let {pac_direccion,pac_telefono2,pac_mutual2,pac_barrio} = req.body;
     const {pac_nrohc} = req.params;
     
-    if (pac_nrodoc==null || pac_apellido==null || pac_nombre==null || pac_mutual==null ||
-        pac_telefono1==null || pac_correo==null || pac_fechanacimiento==null ) {
+    if (pac_tipodoc==null || pac_nrodoc==null || pac_apellido==null || pac_nombre==null || pac_mutual==null ||
+        pac_telefono1==null || pac_correo==null || pac_fechanacimiento==null || pac_sexo==null) {
             return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})
         }
     
     if (pac_telefono2==null){pac_telefono2=''}
     if (pac_direccion==null){pac_direccion=''}
     if (pac_mutual2==null){pac_mutual2=''}
+    if (pac_barrio==null){pac_barrio=''}
 
     try {
         const pool = await getConnection();
         await pool.request()
         .input('pac_nrohc',sql.Int,pac_nrohc)
+        .input('pac_tipodoc',sql.NVarChar,pac_tipodoc)
         .input('pac_nrodoc',sql.Numeric,pac_nrodoc)
         .input('pac_apellido',sql.NVarChar,pac_apellido)
         .input('pac_nombre',sql.NVarChar,pac_nombre)
+        .input('pac_sexo',sql.NVarChar,pac_sexo)
         .input('pac_fechanacimiento',sql.DateTime,pac_fechanacimiento)
         .input('pac_direccion',sql.NVarChar,pac_direccion)
+        .input('pac_barrio',sql.NVarChar,pac_nrodoc)
         .input('pac_telefono1',sql.NVarChar,pac_telefono1)
         .input('pac_telefono2',sql.NVarChar,pac_telefono2)
         .input('pac_correo',sql.NVarChar,pac_correo)
         .input('pac_mutual',sql.NVarChar,pac_mutual)
         .input('pac_mutual2',sql.NVarChar,pac_mutual2)
         .query(pacquerys.actualizarPaciente)
-        res.json({  pac_nrodoc,pac_apellido,pac_nombre,pac_fechanacimiento,
-                pac_direccion,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2})
+        res.json({  pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,pac_fechanacimiento,
+            pac_direccion,pac_barrio,pac_telefono1,pac_telefono2,pac_correo,pac_mutual,pac_mutual2})
     } catch (error) {
         res.status(500);
         res.send(error.message);

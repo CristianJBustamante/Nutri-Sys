@@ -39,7 +39,7 @@
                 <img class="flex__imageItem--small" src="/img/UserLogo.png" alt="Imagen Logo">
 
                 
-                <h2 class="flex__textItem">Apellido, Nombre</h2>
+                <h2 class="flex__textItem"><%= user.apellido %>, <%= user.nombre %></h2>
             </div>
         </div>
 
@@ -54,8 +54,8 @@
                     </div>
                     <div class="evoluciones"> <!-- Cambiar En cada Solapa -->
                         <div class="navegacion__solapas">
-                            <a class="nav__solapa--seleccionado" href="../html/fichaInicialPaciente.html">Ficha inicial</a>
-                            <a class="nav__solapa"  href="./Fichas_anamnesisAlimentaria.html">Anamnesis alimentaria</a>
+                            <a class="nav__solapa--seleccionado" >Ficha inicial</a>
+                            <a class="nav__solapa"  onclick="anamnesis()">Anamnesis alimentaria</a>
                             <a class="nav__solapa" href="./Fichas_habitosNoSaludables.html">Habitos no saludables</a>
                             <a class="nav__solapa" href="./Fichas_medidasAntropometricas.html">Medidas antropométricas</a>
                             <a class="nav__solapa--resto"></a>
@@ -120,7 +120,7 @@
                                     </div>
 
                                 </div>
-    <!-- ------------------------------------------------------------------------------------------------------------------------------->
+    
 
                                 <div class="seccion__carne"> <!-- contiene la seccion de antropometía-->
                                     <div class="carne__titulo">

@@ -33,9 +33,11 @@ if (nuevo==1) {
         .catch(error => console.log(error))
     const mostrarData = (data) => {
         console.log(data)
+        document.getElementById("tipodocumento__paciente").value = data.pac_tipodoc
         document.getElementById("documento__paciente").value = data.pac_nrodoc
         document.getElementById("apellido__paciente").value = data.pac_apellido
         document.getElementById("nombre__paciente").value = data.pac_nombre
+        document.getElementById("sexo__paciente").value = data.pac_sexo
         document.getElementById("mutual__paciente").value = data.pac_mutual
         document.getElementById("mutual__paciente2").value = data.pac_mutual2
         document.getElementById("celular__paciente").value = data.pac_telefono1
@@ -43,6 +45,8 @@ if (nuevo==1) {
         document.getElementById("fechaNac__paciente").value = data.pac_fnac
         document.getElementById("correo__paciente").value = data.pac_correo
         document.getElementById("direccion__paciente").value = data.pac_direccion
+        document.getElementById("barrio__paciente").value = data.pac_barrio
+
         calcularEdad();
     }
 }
@@ -84,9 +88,11 @@ function registrarPaciente(){
         return false;
     } 
     else {
+    var tipodoc = document.getElementById("tipodocumento__paciente").value;
     var nrodoc = document.getElementById("documento__paciente").value;
     var apellido =  document.getElementById("apellido__paciente").value;
     var nombre = document.getElementById("nombre__paciente").value;
+    var sexo = document.getElementById("sexo__paciente").value;
     var mutual = document.getElementById("mutual__paciente").value;
     var mutual2 = document.getElementById("mutual__paciente2").value;
     var telefono1 = document.getElementById("celular__paciente").value;
@@ -94,17 +100,22 @@ function registrarPaciente(){
     var fechanacimiento = document.getElementById("fechaNac__paciente").value;
     var correo = document.getElementById("correo__paciente").value;
     var direccion = document.getElementById("direccion__paciente").value;
+    var barrio = document.getElementById("barrio__paciente").value;
+
     const post = {
+        pac_tipodoc: tipodoc,
         pac_nrodoc: nrodoc,
         pac_apellido: apellido,
         pac_nombre: nombre,
+        pac_sexo: sexo,
         pac_mutual: mutual,
         pac_mutual2: mutual2,
         pac_telefono1: telefono1,
         pac_telefono2: telefono2,
         pac_fechanacimiento: fechanacimiento,
         pac_correo: correo,
-        pac_direccion: direccion
+        pac_direccion: direccion,
+        pac_barrio: barrio
     }
     try {
         console.log(JSON.stringify(post));
@@ -120,7 +131,8 @@ function registrarPaciente(){
         if (nuevo==1) {
             swal("Paciente Registrado","Paciente Registrado con Éxito!","success")
                 .then((value) => {
-                        location.href ="../buscarpaciente"})
+                        location.href ="../buscarpaciente"
+                    })
         }
         else {
             swal("Paciente Actualizado","Paciente "+pac_nrohc+" Actualizado con Éxito!","success")

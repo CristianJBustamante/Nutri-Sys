@@ -1,17 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="tituloModo">Nutri-Sys - Registrar Paciente</title>
-    <link rel="stylesheet" href="/css/normalize.css"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-    <link rel="stylesheet" href="/css/estilos_registrarPacienteNuevo.css"> 
+<<<<<<< HEAD
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta charset="utf-8" />
+		<title>Nutri-sys - Organizador</title>
 
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="/js/pacientes/abm/codigo_registrarPacienteNuevo.js"></script>
+		<meta name="description" content="overview &amp; stats" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+		<!-- bootstrap & fontawesome -->
+		<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+
+		<!-- page specific plugin styles -->
+
+		<!-- text fonts -->
+		<link rel="stylesheet" href="/assets/css/fonts.googleapis.com.css" />
+
+		<!-- ace styles -->
+		<link rel="stylesheet" href="/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
+		<![endif]-->
+		<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/assets/css/estilo_plantilla.css" />
+
+		<!--[if lte IE 9]>
+		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- ace settings handler -->
+		<script src="/assets/js/ace-extra.min.js"></script>
+
+		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+		<!--[if lte IE 8]>
+		<script src="assets/js/html5shiv.min.js"></script>
+		<script src="assets/js/respond.min.js"></script>
+		<![endif]-->
+
+		<!-- <link rel="stylesheet" href="/css/normalize.css"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+    	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+		<link rel="stylesheet" href="./estilos_registrarPacienteNuevo.css"> -->
+
+		<link rel="stylesheet" href="/css/normalize.css"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+		<link rel="stylesheet" href="/css/estilos_documentosPaciente.css"> <!-- Cambiar en cada Solapa -->
 	</head>
 
 	<body class="no-skin">
@@ -426,90 +467,33 @@
 
 						<div>
 							<div class="contenidoPagina">
+
 								<article class="contenido__article">
-									<section class="contenido__section" id="titulopagina"> 
-										<h2 class="titulo " id="subTituloModo" >Nuevo Paciente</h2> <!--Modo Edicion Modificar Etiqueta-->
-										<input type="button" value="Guardar" class="normal btn__crear" onclick="registrarPaciente()" id="botonModo">  
-									</section>
-									
-									<section class="contenido__section--datosPersonales"> 
-										<div class="titulo__datosPersonales">
-											<h2 style="margin-left: 2rem;">Datos Personales</h2>
+									<section class="section__historiaClinica">
+										<div class="encabezado__datosPaciente">
+											<h2>Paciente: Gonzalez, Eugenio</h2>
+											<h2>HC: 709543</h2>
+											<h2>DOC.: 23465973</h2>
+											<h2>FN: 05/06/1975</h2>
 										</div>
-										<div class="contenido__datosPersonales">
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Tipo Documento(*):</h2>
-												<select name="select" id="tipodocumento__paciente" placeholder=" Ingrese tipo documento" class="input__padding">
-													<option value="DNI">DNI</option>
-													<option value="PASAPORTE">PASAPORTE</option>
-													<option value="CARNET EXT.">CARNET EXT.</option>
-													<option value="LIBRETA UNIVERSITARIA">LIBRETA UNIVERSITARIA</option>
-												</select>
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Documento(*):</h2>
-												<input type="number" id="documento__paciente" placeholder=" Ingrese su Documento" class="input__padding">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Nombre/s:(*)</h2>
-												<input type="text" id="nombre__paciente" placeholder=" Ingrese su Nombre" class="input__padding">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Apellido/s:(*)</h2>
-												<input type="text" id="apellido__paciente" placeholder=" Ingrese su Apellido" class="input__padding">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Fecha Nacimiento:(*)</h2>
-												<input type="date" id="fechaNac__paciente" class="input__padding" onchange="calcularEdad()">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Edad:</h2>
-												<input type="text" class="input__padding" id="edad__paciente" readonly style="background-color: rgb(194, 194, 194);">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Sexo(*):</h2>
-												<select name="select" id="sexo__paciente" class="input__padding">
-													<option value="Masculino">Masculino</option>
-													<option value="Femenino">Femenino</option>
-												</select>
-											</section>
-											<section class="info__datosPersonales">
-												<!-- vacio -->
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Dirección(*):</h2>
-												<input type="text" class="input__padding" placeholder=" Calle y Numero" id="direccion__paciente">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Barrio(*):</h2>
-												<input type="text" class="input__padding" placeholder=" Ingrese barrio" id="barrio__paciente">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Celular:(*)</h2>
-												<input type="number" id="celular__paciente" placeholder=" Ej: 3515555555" class="input__padding">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Teléfono:</h2>
-												<input type="number" id="telefono__paciente" placeholder=" Opcional" class="input__padding">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Correo:(*)</h2>
-												<input type="email" id="correo__paciente" placeholder=" ejemplo@nutrisys.com.ar" class="input__padding">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Mutual(*):</h2>
-												<input type="text" class="input__padding" placeholder=" Sin Mutual (Particular)" id="mutual__paciente">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Otra Mutual:</h2>
-												<input type="text" placeholder=" Opcional" class="input__padding" id="mutual__paciente2">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 style="font-weight: normal;">* Campos Obligatorios *</h2>
-											</section>
+										<div class="documentos"> <!-- Cambiar En cada Solapa -->
+											<div class="navegacion__solapas">
+												<a class="nav__solapa"  href="../consultapacientefichainicial/0">Ficha Inicial</a>
+												<a class="nav__solapa" href="../consultapaciente/0">Resumen</a>
+												<a class="nav__solapa" href="../consultapacienteevolucion/0">Evoluciones</a>
+												<a class="nav__solapa" href="../consultapacientefichas/0">Fichas</a>
+												<a class="nav__solapa" href="../consultapacienteplan/0">Planes</a>
+												<a class="nav__solapa--seleccionado" href="../consultapacientedocumentos/0">Documentos</a>
+												<a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
+												<a class="nav__solapa--resto"></a>
+											</div>
+											<div class="contenido__solapa">
+					
+											</div>
 										</div>
 									</section>
 								</article>
+					
 							</div>
 						</div>
 						
@@ -784,3 +768,76 @@
 	</body>
 	
 </html>
+=======
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Clínica</title>
+    <link rel="stylesheet" href="/css/normalize.css"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="/css/estilos_documentosPaciente.css"> <!-- Cambiar en cada Solapa -->
+</head>
+<body>
+
+    <div class="aside">
+        <div class="logo">
+            <img class="logo__manzana " src="/img/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
+            <h1 class="name_app flex__textItem" >Nutry-Sys</h1>
+        </div>
+        <div class="menuPrincipal">
+            <div class="contenedorOpciones">
+                <a class="contenedorOpciones__opcion" href="">Organizador</a>
+                <a class="contenedorOpciones__opcion" href="../buscarpaciente">Historia Clínica</a>
+                <a class="contenedorOpciones__opcion" href="">Reportes</a>
+                <a class="contenedorOpciones__opcion" href="">Administración de Usuarios</a>
+            </div>
+        </div>
+    </div>
+    <div class="contenidoPrincipal">
+        <div class="accesoRapido">
+            <img class="flex__imageItem--small" src="/img/MenuLogo.png" alt="Imagen Logo">
+            <h2 class="flex__textItem titulo">Historia Clínica</h2>
+            <img class="flex__imageItem--small" src="/img/NotifyLogo.png" alt="Imagen Logo">
+            <img class="flex__imageItem--small" src="/img/UserLogo.png" alt="Imagen Logo">
+            <h2 class="flex__textItem"><%= user.apellido %>, <%= user.nombre %></h2>
+        </div>
+
+        <!-- Pagina variable -->
+
+        <div class="contenidoPagina">
+
+            <article class="contenido__article">
+                <section class="section__historiaClinica">
+                    <div class="encabezado__datosPaciente">
+                        <h2>Paciente: Gonzalez, Eugenio</h2>
+                        <h2>HC: 709543</h2>
+                        <h2>DOC.: 23465973</h2>
+                        <h2>FN: 05/06/1975</h2>
+                    </div>
+                    <div class="documentos"> <!-- Cambiar En cada Solapa -->
+                        <div class="navegacion__solapas">
+                            <a class="nav__solapa"  href="../consultapacientefichainicial/0">Ficha Inicial</a>
+                            <a class="nav__solapa" href="../consultapaciente/0">Resumen</a>
+                            <a class="nav__solapa" href="../consultapacienteevolucion/0">Evoluciones</a>
+                            <a class="nav__solapa" href="../consultapacientefichas/0">Fichas</a>
+                            <a class="nav__solapa" href="../consultapacienteplan/0">Planes</a>
+                            <a class="nav__solapa--seleccionado" href="../consultapacientedocumentos/0">Documentos</a>
+                            <a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
+                            <a class="nav__solapa--resto"></a>
+                        </div>
+                        <div class="contenido__solapa">
+
+                        </div>
+                    </div>
+                </section>
+            </article>
+
+        </div>
+
+    </div>
+    
+</body>
+</html>
+>>>>>>> 956b5cc5d9e1be25b091a188b0636806c194d6e1

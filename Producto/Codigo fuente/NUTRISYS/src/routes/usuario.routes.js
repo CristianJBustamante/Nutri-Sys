@@ -12,7 +12,7 @@ import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, log
 
 //ACCESO A PAGINAS
   //login
-  router.get('/usuarios/login', (req,res) => {
+  router.get('/usuarios/login', AuthMiddleware.isLogged2,(req,res) => {
     res.render('usuarios/iniciarSesion.html');
   });
   //pantalla inicial

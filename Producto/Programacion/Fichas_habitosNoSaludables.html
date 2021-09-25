@@ -12,7 +12,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
     <link rel="stylesheet" href="./css/estilos_Fichas_HabitosNoSaludables.css"> <!-- Cambiar en cada Solapa -->
-    <script src="js/codigo_habitosNoSaludables.js"></script>
     <!-- <link rel="preconnect" href="https://code.jquery.com/jquery-3.3.1.min.js">  -->
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
@@ -79,8 +78,7 @@
                                         <!-- una fila -->
                                         <tr class="contenido__check">
                                             <td>Tomo mucho café</td>
-                                            <!-- <td><input type="checkbox" id="check_1" class="seleccion__input" ></td> -->
-                                            <td><input type="button" class="seleccion__input envio" ></td>
+                                            <td><input type="checkbox" id="check_1" class="seleccion__input" onchange="comprobarCampos(this.id)"></td>
                                              <td>
                                                 <a class="enlace__modificar" href="#"><svg class="imagen__modificar" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                     <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -89,21 +87,22 @@
                                                     <line x1="16" y1="5" x2="19" y2="8" />
                                                   </svg></a></td>
                                         </tr>
-                                        <!-- ------------- -->
+                                        <!-- ------------------->
                                         <tr class="contenido__check">
-                                            <td>No desayuno</td>
-                                            <td><input type="checkbox" id="check_2" class="seleccion__input"></td>
+                                            <td id="habito_2">No desayuno</td>
+                                            <td><input type="checkbox" id="check_2" class="seleccion__input" onchange="comprobarCampos(this.id)"></td>
                                             <td> <a class="enlace__modificar" href="#"><svg class="imagen__modificar" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
                                                 <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3" />
                                                 <line x1="16" y1="5" x2="19" y2="8" />
                                               </svg></a></td>
+
                                         </tr>
                                             <!-- ------------- -->
                                         <tr class="contenido__check">
-                                            <td>Consumo menos de dos raciones de verduras al día</td>
-                                            <td><input type="checkbox" id="check_3" class="seleccion__input"></td>
+                                            <td id="habito_3">Consumo menos de dos raciones de verduras al día</td>
+                                            <td><input type="checkbox" id="check_3" class="seleccion__input" onchange="comprobarCampos(this.id)"></td>
                                             <td> <a class="enlace__modificar" href="#"><svg class="imagen__modificar" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
@@ -114,7 +113,7 @@
                                          <!-- ------------- -->
                                          <tr class="contenido__check">
                                             <td>No como frutas</td>
-                                            <td><input type="checkbox" id="check_4" class="seleccion__input"></td>
+                                            <td><input type="checkbox" id="check_4" class="seleccion__input" onchange="comprobarCampos(this.id)"></td>
                                             <td> <a class="enlace__modificar" href="#"><svg class="imagen__modificar" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
@@ -125,7 +124,7 @@
                                          <!-- ------------- -->
                                          <tr class="contenido__check">
                                             <td>Picoteo entre horas</td>
-                                            <td><input type="checkbox" id="check_5" class="seleccion__input"></td>
+                                            <td><input type="checkbox" id="check_5" class="seleccion__input" onchange="comprobarCampos(this.id)"></td>
                                             <td> <a class="enlace__modificar" href="#"><svg class="imagen__modificar" xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit" width="32" height="32" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                                                 <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3" />
@@ -419,7 +418,7 @@
                                                 <line x1="16" y1="5" x2="19" y2="8" />
                                               </svg></a></td>
                                         </tr>
-                                         <!-- ------------- -->
+                                         <!-- ------------------>
                                          <tr class="contenido__check">
                                             <td>Tengo alimentos en el dormitorio - como en la cama</td>
                                             <td><input type="checkbox" id="check_32" class="seleccion__input"></td>
@@ -441,7 +440,39 @@
                             <!-- tabla de habitos seleccionados -->
                             <div class="tabla__seleccionados">
                                 <h2 class="titulo__solapa">Hábitos seleccionados</h2>
-                                <table border="1" id="tabla2" class="table table-hover" >
+                                <table id="tabla2" class="table table-hover" >
+                                 
+                                    <!-- <tr><td id="habito_3">Consumo menos de dos raciones de verduras al día</td></tr>
+                                    <tr><td>No como frutas</td></tr>
+                                    <tr><td>Picoteo entre horas</td></tr>
+                                    <tr><td>Como rápido</td></tr>
+                                    <tr><td>Repito porciones</td></tr>
+                                    <tr><td>Me salteo comidas</td></tr>
+                                    <tr><td>Como al paso, de pie o caminando o mientras hago otras actividades</td></tr>
+                                    <tr><td>No bebo suficiente agua</td></tr>
+                                    <tr><td>Bebo alcohol con frecuencia</td></tr>
+                                    <tr><td>Como mucho pan y otros productos panificados</td></tr>
+                                    <tr><td>Comsumo alimentos ultraprocesados(premezclas,snack,alimentos instantáneos)</td></tr>
+                                    <tr><td>Como frituras con frecuencia</td></tr>
+                                    <tr><td>No retiro la grasa visible de las carnes antes de cocinar</td></tr>
+                                    <tr><td>Pido delivery con frecuencia</td></tr>
+                                    <tr><td>Como lo que dejan mis hijos u otro familiar en el plato</td></tr>
+                                    <tr><td>Como lo que sobra en la mesa</td></tr>
+                                    <tr><td>Como por aburrimiento</td></tr>
+                                    <tr><td>Como por nervios</td></tr>
+                                    <tr><td>Como cuando estoy triste</td></tr>
+                                    <tr><td>Como viendo pantallas(TV,computadora,celular)</td></tr>
+                                    <tr><td>Me premio con comida</td></tr>
+                                    <tr><td>Como golosinas azuracadas(caramelos,alfajores,bombones,etc)</td></tr>
+                                    <tr><td>Tomo gaseosa o jugos azucarados</td></tr>
+                                    <tr><td>Comsumo con frecuencia galletitas dulces,rellenas,obleas</td></tr>
+                                    <tr><td>No practico ejercicio físico con regularidad</td></tr>
+                                    <tr><td>Me excedo en fiestas y eventos</td></tr>
+                                    <tr><td>Como mucho en la cena o ceno tarde</td></tr>
+                                    <tr><td>Como con mucha sal,llevo el salero a la mesa o le agrego sal antes de probar</td></tr>
+                                    <tr><td>Me despierto en la noche y busco comida</td></tr>
+                                    <tr><td>Tengo alimentos en el dormitorio - como en la cama</td></tr>     -->
+
                                 </table>
                             </div>
                             <div class="contenedor__guardar">
@@ -456,6 +487,7 @@
         </div>
 
     </div>
+    <script src="js/codigo_habitosNoSaludables.js"></script>
     
 </body>
 </html>

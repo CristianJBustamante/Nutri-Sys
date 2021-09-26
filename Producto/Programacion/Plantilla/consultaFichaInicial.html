@@ -3,29 +3,29 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Nutri-sys - Organizador</title>
+		<title>Nutri-sys - Consulta Ficha Iniclal</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 		<!-- bootstrap & fontawesome -->
-		<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-		<link rel="stylesheet" href="/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 		<!-- page specific plugin styles -->
 
 		<!-- text fonts -->
-		<link rel="stylesheet" href="/assets/css/fonts.googleapis.com.css" />
+		<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
 
 		<!-- ace styles -->
-		<link rel="stylesheet" href="/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+		<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
 		<![endif]-->
-		<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
-		<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
-		<link rel="stylesheet" href="/assets/css/estilo_plantilla.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/estilo_plantilla.css" />
 
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -34,7 +34,7 @@
 		<!-- inline styles related to this page -->
 
 		<!-- ace settings handler -->
-		<script src="/assets/js/ace-extra.min.js"></script>
+		<script src="assets/js/ace-extra.min.js"></script>
 
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -48,11 +48,10 @@
     	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
 		<link rel="stylesheet" href="./estilos_registrarPacienteNuevo.css"> -->
 
-		<link rel="stylesheet" href="/css/normalize.css"> 
+		<link rel="stylesheet" href="../css/normalize.css"> 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-		<link rel="stylesheet" href="/css/estilos_Fichas_FichaInicial.css"> <!-- Cambiar en cada Solapa -->
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<link rel="stylesheet" href="../css/estilos_fichaInicialPaciente.css"> <!-- Cambiar en cada Solapa -->
 	</head>
 
 	<body class="no-skin">
@@ -72,7 +71,7 @@
 					<a href="index.html" class="navbar-brand">
 						<small>
 							<div class="logo">
-								<img class="logo__manzana" src="/assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
+								<img class="logo__manzana" src="./assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
 								<h2 class="name_app">Nutri-sys</h2>
 							</div>
 						</small>
@@ -167,7 +166,7 @@
 									<ul class="dropdown-menu dropdown-navbar">
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+												<img src="assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Alex:</span>
@@ -184,7 +183,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+												<img src="assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Susan:</span>
@@ -201,7 +200,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+												<img src="assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Bob:</span>
@@ -218,7 +217,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+												<img src="assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Kate:</span>
@@ -235,7 +234,7 @@
 
 										<li>
 											<a href="#" class="clearfix">
-												<img src="/assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+												<img src="assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
 												<span class="msg-body">
 													<span class="msg-title">
 														<span class="blue">Fred:</span>
@@ -263,10 +262,10 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
-									<small><%= user.apellido %>,</small>
-									<%= user.nombre %>
+									<small>Apellido,</small>
+									Nombre
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -466,207 +465,212 @@
 				************************************************************************************** -->
 
 						<div>
+							<div class="contenidoPagina">
+								<article class="contenido__article">
+									<section class="section__historiaClinica">
+										<div class="encabezado__datosPaciente">
+											<h2>Paciente: Gonzalez, Eugenio</h2>
+											<h2>HC: 709543</h2>
+											<h2>DOC.: 23465973</h2>
+											<h2>FN: 05/06/1975</h2>
+										</div>
+										<div class="fichaInicial"> <!-- Cambiar En cada Solapa -->
+											<div class="navegacion__solapas">
+												<a class="nav__solapa--seleccionado"  href="../consultapacientefichainicial/0">Ficha Inicial</a>
+												<a class="nav__solapa" href="../consultapaciente/0">Resumen</a>
+												<a class="nav__solapa" href="../consultapacienteevolucion/0">Evoluciones</a>
+												<a class="nav__solapa" href="../consultapacientefichas/0">Fichas</a>
+												<a class="nav__solapa" href="../consultapacienteplan/0">Planes</a>
+												<a class="nav__solapa" href="../consultapacientedocumentos/0">Documentos</a>
+												<a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
+												<a class="nav__solapa--resto"></a>
+											</div>
+                                            
+											<div class="contenido__solapa"> <!-- comienza el contenido de la ficha-->
+                                                <div class="seccion__carne"> <!-- contiene el cuestionario-->
+                                                            <div class="seccion__class">
+                                                                <h2 class="label__ficha"> Fecha actual: </h2>
+                                                                <input required class="contenido__input contenido__fecha" type="date" id="fechaactual">
+                                                            </div>
+                                                            <div class="seccion__class">
+                                                                <h2 class="label__ficha">Diag. médico:</h2>
+                                                                <input class="contenido__input" type="text"  title="Ingrese el diagnóstico médico si corresponde" id="hc_diagnostico">
+                                                            </div>
+                        
+                                                            <div class="seccion__class">
+                                                                <h2 class="label__ficha">Antecedentes:</h2>
+                                                                <input class="contenido__input" type="text" title="Ingrese los antecedentes médicos si corresponde" id="hc_antecedentes">
+                                                            </div>
+                                                            <div class="formulario__laboratorios"> <!-- laboratorios-->
+                                                                <h2 class="titulo__seccion--lab">Laboratorios</h2>
+                                                                <div class="seccion__class">
+                                                                    <h2 class="label__ficha" >Fecha:</h2>
+                                                                    <input class="contenido__input contenido__fecha" type="date" id="hc_fechalaboratorios">
+                                                                </div>
+                        
+                                                                <div class="seccion__observaciones">
+                                                                    <h2 class="label__ficha">Datos de laboratorio:</h2>
+                                                                    <input type="text" class="area__observaciones" id="hc_laboratorios">
+                                                                </div>
+                        
+                                                            </div>
+                                                                <div class="seccion__class">
+                                                                    <h2 class="label__ficha">Medicación:</h2>
+                                                                    <textarea required class="contenido__input" id="hc_medicacion"></textarea>
+                                                                </div>
+                        
+                                                                <div class="seccion__class">
+                                                                    <h2 class="label__ficha">Actividad física:</h2>
+                                                                    <textarea required class="contenido__input" id="hc_actividadfisica"></textarea>
+                                                                </div>
+                        
+                                                                <div class="seccion__class">
+                                                                    <h2 class="label__ficha">Tarea o ocupación:</h2>
+                                                                    <input required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion">
+                                                                </div>
+                        
+                                                            <div class="seccion__class">
+                                                                <h2 class="label__ficha">Antecedentes nutricionales anteriores:</h2>
+                                                                <textarea class="contenido__input" id="hc_antecedentesnutricion"></textarea>
+                                                            </div>
+                        
+                                                            <div class="seccion__class ">
+                                                                <h2 class="label__ficha">¿A que edad empezó su primera dieta?</h2>
+                                                                <input required class="contenido__input contenido__edad" type="number" min="1" title="edad" id="hc_edaddieta">
+                                                                <textarea class="contenido__input--edad" title="Algun dato adicional" id="hc_dieta"></textarea>
+                                                            </div>
+                                                            
+                                                        </div> <!-- fin div que contiene la 1era parte-->
+                                                        <br>
+                                                    <div class="seccion__carne"> <!-- contiene la seccion de antropometía-->
+                                                        <div class="carne__titulo">
+                                                            <h2 class="titulo__seccion">Antropometría</h2>
+                                                                <div class="tabla__antro" >
+                                                                
+                                                                        <div class="tabla__antro--class" >
+                                                                            <h2 class="tabla__antro--contenido" >P.A: </h2>
+                                                                            <input class="input__valor" type="number"  min="1" id="hc_pesoactual" step="0.01">
+                                                                            <!-- <label class="tabla__antro--contenidoMedida"> kg</label> -->
+                                                                        </div>
+                                                                         <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido" >Talla: </h2>
+                                                                            <input class="input__valor" type="number" min="1" id="hc_talla" step="0.01">
+                                                                            <!-- <label class="tabla__antro--contenidoMedida"> mts</label> -->
+                                                                        </div>
+                                                                        
+                                                                        <div class="tabla__antro--class">
+                                                                        <h2 class="tabla__antro--contenido" >B.M.I: </h2>
+                                                                        <input class="input__valor" type="number" min="1" id="hc_BMI" step="0.01">
+                                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> kg/ms^2</h2>  -->
+                                                                         </div>
+                    
+                                                                        <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido" >P.H: </h2>
+                                                                            <input class="input__valor" type="number" min="1" id="hc_PH" step="0.01">
+                                                                             <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2>  -->
+                                                                        </div>
+                    
+                                                                        <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido" >P.D: </h2>
+                                                                        <input class="input__valor" type="number" min="1" id="hc_PD" step="0.01">
+                                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
+                                                                        </div>
+                                                                        <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido" >P/B.M.I: </h2>
+                                                                        <input class="input__valor" type="number" min="1" id="hc_PBMI" step="0.01">
+                                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
+                                                                        </div>
+                    
+                    
+                                                                        <div class="tabla__antro--class">
+                                                                        <h2 class="tabla__antro--contenido">P.min: </h2>
+                                                                        <div class="input__valoresPeso">
+                                                                            <input class="input__valor--peso" type="number" min="0" id="hc_Pmin" step="0.01">
+                                                                            <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                                                                            <br>
+                                                                            <input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmincuando">
+                                                                            </div> <!-- contiene los inputs-->
+                                                                            
+                                                                        </div>
+                    
+                                                                        <div class="tabla__antro--class">
+                                                                        <h2 class="tabla__antro--contenido" >P.máx: </h2>
+                                                                        <div class="input__valoresPeso">
+                                                                            <input class=" input__valor--peso" type="number" min="0" id="hc_Pmax" step="0.01">
+                                                                            <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                                                                            <br>
+                                                                            <input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmaxcuando">
+                                                                            </div> 
+                                                                        </div> 
+                    
+                                                                         <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido" >G.C: </h2>
+                                                                        <input type="number" class="input__valor"  min="1" id="hc_GC" step="0.01">
+                                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
+                                                                        </div>
+                    
+                                                                        <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido" >G.V: </h2>
+                                                                        <input type="number" class="input__valor" id="hc_GV" step="0.01">
+                                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
+                                                                        </div>
+                    
+                                                                        <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido"> M.M: </h2>
+                                                                        <input class="input__valor" type="number" id="hc_MM" step="0.01">
+                                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
+                                                                        </div>
+                    
+                                                                        <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido" >P.B.I: </h2>
+                                                                        <input class="input__valor" type="number"min="0" id="hc_PBI" step="0.01">
+                                                                        <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                                                                        </div>
+                    
+                                                                        <div class="tabla__antro--class tabla__diametro" >
+                                                                            <h2 class="tabla__antro--contenido--cc">C.C:</h2>
+                                                                            <div class="input__valoresDiametro" id="hc_CC1" step="0.01">
+                                                                            <input class="input__valor--diametro" type="number" min="0">
+                                                                            <br>
+                                                                            <!-- <h2 class="tabla__antro--contenidoMedida"> cm(M)</h2> -->
+                                                                            <input class="input__valor--diametro" type="number" min="0" id="hc_CC2" step="0.01">
+                                                                            <br>
+                                                                            <!-- <h2 class="tabla__antro--contenidoMedida"> cm(U)</h2> -->
+                                                                            <input class="input__valor--diametro" type="number" min="0" id="hc_CC3" step="0.01">
+                                                                            <!-- <h2 class="tabla__antro--contenidoMedida"> cm(P)</h2> -->
+                                                                            </div> 
+                                                                        </div>  
+                                                                        <br> 
+                                                                        <div class="tabla__antro--class">
+                                                                            <h2 class="tabla__antro--contenido-2">Formula met.Basal:</h2>
+                                                                            <input type="number" class="input__valor-2" title="peso/talla/edad/sexo" id="hc_formula" step="0.01">
+                                                                            <!-- <label>Kcal/día</label> -->
+                                                                    </div>
+                                                                    <div class="tabla__antro--class">
+                                                                        <h2 class="tabla__antro--contenido-2">Ajuste por actividad:</h2>
+                                                                        <select class="input__valor-3" id="hc_ajuste">
+                                                                        <option value=1-2>1.2</option>
+                                                                        <option value=1-3>1.3</option>
+                                                                        <option value=1-5>1.5</option>
+                                                                        </select>
+                                                                        <br>
+                                                                        <input type="number" class="input__valor-4" id="hc_medajuste" step="0.01"> 
+                                                                     </div> <!-- fin ajustes por actiidad-->
+                                                                </div>
+                                                                </div>
+                                                            </div>
 
-							<div class="evoluciones"> <!-- Cambiar En cada Solapa -->
-								<div class="navegacion__solapas">
-									<a class="nav__solapa--seleccionado" href="../html/fichaInicialPaciente.html">Ficha inicial</a>
-									<a class="nav__solapa"  href="./Fichas_anamnesisAlimentaria.html">Anamnesis alimentaria</a>
-									<a class="nav__solapa" href="./Fichas_habitosNoSaludables.html">Habitos no saludables</a>
-									<a class="nav__solapa" href="./Fichas_medidasAntropometricas.html">Medidas antropométricas</a>
-									<a class="nav__solapa--resto"></a>
-								</div>
-								<form onsubmit="registrarficha()">
-								<div class="contenido__solapa">
-									<div class="seccion__carne"> <!-- contiene el cuestionario-->
-										<div class="carne__titulo">
-										</div>
-											<div class="seccion__class">
-											<h2 class="label__ficha"> Fecha actual: </h2>
-												<input required class="contenido__input contenido__fecha" type="date" id="fechaactual">
-											</div>
-		
-											<div class="seccion__class">
-											<h2 class="label__ficha">Diag. médico:</h2>
-											<input class="contenido__input" type="text"  title="Ingrese el diagnóstico médico si corresponde" id="hc_diagnostico">
-											</div>
-		
-											<div class="seccion__class">
-											<h2 class="label__ficha">Antecedentes:</h2>
-											<input class="contenido__input" type="text" title="Ingrese los antecedentes médicos si corresponde" id="hc_antecedentes">
-											</div>
-		
-											<div class="formulario__laboratorios"> <!-- laboratorios-->
-												<h2 class="titulo__seccion--lab">Laboratorios</h2>
-												<div class="seccion__class">
-													<h2 class="label__ficha" >Fecha:</h2>
-													<input class="contenido__input contenido__fecha" type="date" id="hc_fechalaboratorios">
-												</div>
-		
-												<div class="seccion__observaciones">
-													<h2 class="label__ficha">Datos de laboratorio:</h2>
-													<input type="text" class="area__observaciones" id="hc_laboratorios">
-												</div>
-		
-											</div>
-											<div class="seccion__class">
-												<h2 class="label__ficha">Medicación:</h2>
-												<textarea required class="contenido__input" id="hc_medicacion"></textarea>
-											</div>
-		
-											<div class="seccion__class">
-												<h2 class="label__ficha">Actividad física:</h2>
-												<textarea required class="contenido__input" id="hc_actividadfisica"></textarea>
-											</div>
-		
-											<div class="seccion__class">
-												<h2 class="label__ficha">Tarea o ocupación:</h2>
-												<input required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion">
-											</div>
-		
-											<div class="seccion__class">
-												<h2 class="label__ficha">Antecedentes nutricionales anteriores:</h2>
-												<textarea class="contenido__input" id="hc_antecedentesnutricion"></textarea>
-											</div>
-		
-											<div class="seccion__class ">
-												<h2 class="label__ficha">¿A que edad empezó su primera dieta?</h2>
-												<input required class="contenido__input contenido__edad" type="number" min="1" title="edad" id="hc_edaddieta">
-												<textarea class="contenido__input--edad" title="Algun dato adicional" id="hc_dieta"></textarea>
-											</div>
-		
-										</div>
-			
-		
-										<div class="seccion__carne"> <!-- contiene la seccion de antropometía-->
-											<div class="carne__titulo">
-												<h2 class="titulo__seccion">Antropometría</h2>
-													<div class="tabla__antro" >
-													
-															<div class="tabla__antro--class" >
-																<h2 class="tabla__antro--contenido" >P.A: </h2>
-																<input class="input__valor" type="number"  min="1" id="hc_pesoactual" step="0.01">
-																<!-- <label class="tabla__antro--contenidoMedida"> kg</label> -->
-															</div>
-															 <div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido" >Talla: </h2>
-																<input class="input__valor" type="number" min="1" id="hc_talla" step="0.01">
-																<!-- <label class="tabla__antro--contenidoMedida"> mts</label> -->
-															</div>
-															
-															<div class="tabla__antro--class">
-															<h2 class="tabla__antro--contenido" >B.M.I: </h2>
-															<input class="input__valor" type="number" min="1" id="hc_BMI" step="0.01">
-															<!-- <h2 class="tabla__antro--contenidoMedida"> kg/ms^2</h2>  -->
-															 </div>
-		
-															<div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido" >P.H: </h2>
-																<input class="input__valor" type="number" min="1" id="hc_PH" step="0.01">
-																 <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2>  -->
-															</div>
-		
-															<div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido" >P.D: </h2>
-															<input class="input__valor" type="number" min="1" id="hc_PD" step="0.01">
-															<!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
-															</div>
-															<div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido" >P/B.M.I: </h2>
-															<input class="input__valor" type="number" min="1" id="hc_PBMI" step="0.01">
-															<!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
-															</div>
-		
-		
-															<div class="tabla__antro--class">
-															<h2 class="tabla__antro--contenido">P.min: </h2>
-															<div class="input__valoresPeso">
-																<input class="input__valor--peso" type="number" min="0" id="hc_Pmin" step="0.01">
-																<!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
-																<br>
-																<input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmincuando">
-																</div> <!-- contiene los inputs-->
-																
-															</div>
-		
-															<div class="tabla__antro--class">
-															<h2 class="tabla__antro--contenido" >P.máx: </h2>
-															<div class="input__valoresPeso">
-																<input class=" input__valor--peso" type="number" min="0" id="hc_Pmax" step="0.01">
-																<!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
-																<br>
-																<input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmaxcuando">
-																</div> 
-															</div> 
-		
-															 <div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido" >G.C: </h2>
-															<input type="number" class="input__valor"  min="1" id="hc_GC" step="0.01">
-															<!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
-															</div>
-		
-															<div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido" >G.V: </h2>
-															<input type="number" class="input__valor" id="hc_GV" step="0.01">
-															<!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
-															</div>
-		
-															<div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido"> M.M: </h2>
-															<input class="input__valor" type="number" id="hc_MM" step="0.01">
-															<!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
-															</div>
-		
-															<div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido" >P.B.I: </h2>
-															<input class="input__valor" type="number"min="0" id="hc_PBI" step="0.01">
-															<!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
-															</div>
-		
-															<div class="tabla__antro--class tabla__diametro" >
-																<h2 class="tabla__antro--contenido--cc">C.C:</h2>
-																<div class="input__valoresDiametro" id="hc_CC1" step="0.01">
-																<input class="input__valor--diametro" type="number" min="0">
-																<br>
-																<!-- <h2 class="tabla__antro--contenidoMedida"> cm(M)</h2> -->
-																<input class="input__valor--diametro" type="number" min="0" id="hc_CC2" step="0.01">
-																<br>
-																<!-- <h2 class="tabla__antro--contenidoMedida"> cm(U)</h2> -->
-																<input class="input__valor--diametro" type="number" min="0" id="hc_CC3" step="0.01">
-																<!-- <h2 class="tabla__antro--contenidoMedida"> cm(P)</h2> -->
-																</div> 
-															</div>  
-															<br> 
-															<div class="tabla__antro--class">
-																<h2 class="tabla__antro--contenido-2">Formula met.Basal:</h2>
-																<input type="number" class="input__valor-2" title="peso/talla/edad/sexo" id="hc_formula" step="0.01">
-																<!-- <label>Kcal/día</label> -->
-														</div>
-														<div class="tabla__antro--class">
-															<h2 class="tabla__antro--contenido-2">Ajuste por actividad:</h2>
-															<select class="input__valor-3" id="hc_ajuste">
-															<option value=1-2>1.2</option>
-															<option value=1-3>1.3</option>
-															<option value=1-5>1.5</option>
-															</select>
-														<br>
-															<input type="number" class="input__valor-4" id="hc_medajuste" step="0.01"> 
-														</div>
-														
-												</div>
-												<div>
-													<input class="boton" type="button" name="Guardar" value="Siguiente" onclick="registrarficha()">
-												</div>
-											</div> 
-											</div>
-		
-		
-								</div>
-								
-								
-								   
-								
-							</div>
-							
+
+											</div> <!-- fin del contenido de la ficha-->
+										</div> <!-- fin div ficha inicial-->
+									</section>
+								</article>
+					
+							</div> <!-- fin contenido pagina-->
+
+
+
+
 						</div>
 						
 					</div><!-- /.page-content -->
@@ -689,7 +693,7 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-		<script src="/assets/js/jquery-2.1.4.min.js"></script>
+		<script src="assets/js/jquery-2.1.4.min.js"></script>
 
 		<!-- <![endif]-->
 
@@ -699,24 +703,24 @@
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
-		<script src="/assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
 
 		<!-- page specific plugin scripts -->
 
 		<!--[if lte IE 8]>
 		  <script src="/assets/js/excanvas.min.js"></script>
 		<![endif]-->
-		<script src="/assets/js/jquery-ui.custom.min.js"></script>
-		<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="/assets/js/jquery.easypiechart.min.js"></script>
-		<script src="/assets/js/jquery.sparkline.index.min.js"></script>
-		<script src="/assets/js/jquery.flot.min.js"></script>
-		<script src="/assets/js/jquery.flot.pie.min.js"></script>
-		<script src="/assets/js/jquery.flot.resize.min.js"></script>
+		<script src="assets/js/jquery-ui.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/jquery.easypiechart.min.js"></script>
+		<script src="assets/js/jquery.sparkline.index.min.js"></script>
+		<script src="assets/js/jquery.flot.min.js"></script>
+		<script src="assets/js/jquery.flot.pie.min.js"></script>
+		<script src="assets/js/jquery.flot.resize.min.js"></script>
 
 		<!-- ace scripts -->
-		<script src="/assets/js/ace-elements.min.js"></script>
-		<script src="/assets/js/ace.min.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">

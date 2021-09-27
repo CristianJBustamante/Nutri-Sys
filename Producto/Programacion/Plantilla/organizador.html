@@ -471,6 +471,16 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
+							<div>
+								<h2>Profesional: </h2>
+								<select class="form-control" id="form-field-select-1">
+									<option value=""></option>
+									<option value="AL">Alabama</option>
+									<option value="AK">Alaska</option>
+									<option value="AZ">Arizona</option>
+								</select>
+							</div>
+
 							<div class="row">
 								<div class="col-sm-9">
 									<div class="space"></div>
@@ -546,23 +556,6 @@
 			<div class="footer-inner">
 				<div class="footer-content">
 					<span class="bigger-120">
-						<span class="blue bolder">Ace</span>
-						Application &copy; 2013-2014
-					</span>
-
-					&nbsp; &nbsp;
-					<span class="action-buttons">
-						<a href="#">
-							<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-						</a>
-
-						<a href="#">
-							<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-						</a>
-
-						<a href="#">
-							<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-						</a>
 					</span>
 				</div>
 			</div>
@@ -716,7 +709,7 @@
 				selectHelper: true,
 				select: function (start, end, allDay) {
 
-					bootbox.prompt("New Event Title:", function (title) {
+					bootbox.prompt("Nuevo Turno:", function (title) {
 						if (title !== null) {
 							calendar.fullCalendar('renderEvent',
 								{
@@ -745,8 +738,13 @@
 				 <div class="modal-body">\
 				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
 				   <form class="no-margin">\
-					  <label>Change event name &nbsp;</label>\
+					  <label>HC Paciente: &nbsp;</label>\
 					  <input class="middle" autocomplete="off" type="text" value="' + calEvent.title + '" />\
+					  <select class="form-control" id="form-field-select-1" value="' + calEvent.title + '" />\
+						<option value=" ' + calEvent.title + ' ">Alabama</option>\
+						<option value=" ' + calEvent.title + ' ">Alaska</option>\
+						<option value=" ' + calEvent.title + ' ">Arizona</option>\
+					  </select>\
 					 <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Save</button>\
 				   </form>\
 				 </div>\

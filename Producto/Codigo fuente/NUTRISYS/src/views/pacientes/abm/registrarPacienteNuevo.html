@@ -267,8 +267,8 @@
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
-									<small><%= user.apellido %>,</small>
-									<%= user.nombre %>
+									<small>Apellido,</small>
+									Nombre
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -471,7 +471,7 @@
 							<div class="contenidoPagina">
 								<article class="contenido__article">
 									<section class="contenido__section" id="titulopagina"> 
-										<h2 class="titulo " id="subTituloModo" >Nuevo Paciente</h2> <!--Modo Edicion Modificar Etiqueta-->
+										<h2 class="titulo " id="data"><%= titulo %></h2> <!--Modo Edicion Modificar Etiqueta-->
 										<input type="button" value="Guardar" class="normal btn__crear" onclick="registrarPaciente()" id="botonModo">  
 									</section>
 									

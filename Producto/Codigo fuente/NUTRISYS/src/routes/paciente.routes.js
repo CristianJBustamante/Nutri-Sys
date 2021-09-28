@@ -17,14 +17,16 @@ import {actualizarPaciente, eliminarPaciente, getPacienteAPDoc, getPacienteHCAP,
   router.get('/pacientes/nuevopaciente/',AuthMiddleware.isLogged, (req,res) => {
     res.render('pacientes/abm/registrarPacienteNuevo.html',{
       isAuthenticated : req.isAuthenticated(),
-      user : req.user
+      user : req.user,
+      titulo : "Nuevo Paciente"
   });
 });
 //Editar paciente
 router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/abm/registrarPacienteNuevo.html',{
     isAuthenticated : req.isAuthenticated(),
-    user : req.user
+    user : req.user,
+    titulo : "Modificar Paciente"
 });
 });
   //Buscar pacientes

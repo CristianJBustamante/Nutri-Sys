@@ -1,4 +1,5 @@
 //Validar si es alta o modificacion
+
 const url = new String(window.location)
 let modo = url.substr(url.indexOf("pacientes/"),url.length)
 var nuevo=0
@@ -16,16 +17,15 @@ else{
     metodo='PUT'
     ruta="http://localhost:3000/pacientes/" +pac_nrohc
     }
+    console.log(modo,nuevo,pac_nrohc,ruta,metodo)
 
 //Cargar pagina según modo
 if (nuevo==1) {
     let cabecera =''
     cabecera += `Nuevo Paciente`        
-    document.getElementById('subTituloModo').innerHTML = cabecera
 } else {
     let cabecera =''
     cabecera += `Modificar Paciente`        
-    document.getElementById('subTituloModo').innerHTML = cabecera
     let query = 'http://localhost:3000/paciente/'+pac_nrohc
     fetch(query)
         .then(response => response.json())

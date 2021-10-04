@@ -1,6 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/habitos
+GET {{api}}/fichainicial/1000
 
 ###
 

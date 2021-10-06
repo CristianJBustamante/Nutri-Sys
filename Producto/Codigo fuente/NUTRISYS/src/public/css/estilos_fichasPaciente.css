@@ -12,24 +12,25 @@
     --fuenteLogo: 'Amatic SC', cursive;
 }
 
+
 html{
     box-sizing: border-box;
     font-size: 62.5%;
     /*Solucion Corte*/
-    height: 100%;
+    /* height: 100%; */
+    scroll-snap-type: y mandatory;
+    height:max-content;
 }
 
 
 html, body{
     width:100%;
     margin: 0;
-    height: 100%;
+    /* height: 100%; */
+    height: max-content;
     /*display: flex;*/
 
   }
-
-
-
     /*** Responsivo ***/
 
     @media (min-width: 700px) {
@@ -112,9 +113,9 @@ h3{
 }
 
 .logo__manzana{
-    width: 5rem;
-    height: 5rem;
-    margin: 1rem  0rem 1rem 1rem;
+    width: 8rem;
+    height: 8rem;
+    margin: 1rem  0rem 1rem 0rem;
 }
 
 /** MENU **/
@@ -132,12 +133,15 @@ h3{
     justify-content: space-between;
     max-height: 100% ;
     padding-top: 4rem;
+    position: fixed;
+    width: 27.5rem;
 
 }
 
 .contenedorOpciones__opcion{
 
     padding: 1rem;
+    margin: 1rem;
     text-decoration: none;
     font-size: 2rem;
     color: var(--negro);
@@ -167,12 +171,13 @@ h3{
     background-color: white;
     align-items: center;
     justify-content:space-around;
-    width: 100%;
+    width: 93%;
 }
 
 .contenidoPagina{
     display: flex;
     flex-direction: column;
+    width: auto;
 }
 
 
@@ -189,7 +194,11 @@ h3{
     justify-content: space-between;
     margin: 0 5rem;
 }
-
+.fichaInicial{
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem;
+}
 .ficha{
     display: flex;
     flex-direction: column;
@@ -203,7 +212,7 @@ h3{
 }
 
 .nav__solapa{
-    width: 10%;
+    width: 20%;
     border: black 0.3rem;
     border-style: solid;
     text-align: center;
@@ -221,7 +230,7 @@ h3{
 }
 
 .nav__solapa--seleccionado{
-    width: 10%;
+    width: 20%;
     border: var(--negro) 0.3rem;
     border-style: solid solid none solid;
     text-align: center;
@@ -246,14 +255,58 @@ h3{
     border: var(--negro) 0.3rem;
     border-style: none solid solid solid;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
 
     padding: 1rem;
-    height: 500px;
 }
+@media (min-width: 1180px) {
+    .navegacion__solapas{
+        display: flex;
+        flex-direction: row;
+        
+    }
 
+    .nav__solapa{
+        width: 12%;
+        border: black 0.3rem;
+        border-style: solid;
+        text-align: center;
+        border-radius: 10px 10px 0px 0px;
+    
+        padding: 1rem;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: var(--negro);
+        font-family: var(--fuentePrincipal);
+        font-weight: bold;
+    
+        background-color: var(--grisOscuro);
+    
+    }
+    
+    .nav__solapa--seleccionado{
+        width: 12%;
+        border: var(--negro) 0.3rem;
+        border-style: solid solid none solid;
+        text-align: center;
+        border-radius: 10px 10px 0px 0px;
+    
+    
+        padding: 1rem;
+        text-decoration: none;
+        font-size: 1.5rem;
+        color: var(--negro);
+        font-family: var(--fuentePrincipal);
+        font-weight: bold;
+    }
+    
+    .nav__solapa--resto{
+        width: 16%;
+        border: var(--negro) 0.3rem;
+        border-style: none none solid none;
+    }
+}
 
 
 /****************/
@@ -280,6 +333,18 @@ h3{
 .padding__inputText{
     font-size: 2rem;
     font-family: var(--fuentePrincipal);
+}
+span{
+    font-weight: 400;
+}
+.titulo{
+    font-weight: normal;
+    color: var(--grisOscuro);
+    font-size: 3rem;
+}
+.subtitulo{
+    font-weight: bold;
+    text-decoration: var(--negro);
 }
 
 input::-webkit-inner-spin-button {

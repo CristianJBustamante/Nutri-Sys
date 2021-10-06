@@ -5,7 +5,8 @@ export const pacquerys = {
 
     getPacienteXHC:     "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac,"+
                         "convert(varchar,pac_fechanacimiento,23) as pac_fnac "+
-                        "FROM paciente WHERE pac_nrohc = @pac_nrohc",
+                        "FROM paciente p left join historia_clinica h on p.pac_nrohc = h.hc_nrohc "+
+                        "WHERE pac_nrohc = @pac_nrohc",
 
     getPacientelikeHC:  "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac "+
                         "FROM paciente WHERE pac_nrohc like @pac_nrohc + '%'",

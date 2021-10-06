@@ -8,7 +8,7 @@ export const getFichaInicialXHC = async(req,res) => {
         const pool = await getConnection()
         const result = await pool.request()
             .input('hc_nrohc', hc_nrohc).query(consultasquerys.getFichaInicial)
-        res.send(result.recordset)
+        res.send(result.recordset[0])
     } catch (error) {
         res.status(500);
         res.send(error.message);

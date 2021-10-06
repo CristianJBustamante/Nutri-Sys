@@ -2,7 +2,9 @@ export const consultasquerys = {
 //-------------------------------------------------CONSULTA INICIAL------------------------------------------------------
 
 //FICHA INICIAL
-    getFichaInicial: "SELECT * from historia_clinica where hc_nrohc=@hc_nrohc",
+    getFichaInicial: "SELECT *,convert(varchar,hc_fechaprimerconsulta,23) as fecharegistro,"+
+                        "convert(varchar,hc_fechalaboratorios,23) as fechalab "+
+                        "from historia_clinica where hc_nrohc=@hc_nrohc",
     registrarFichaInicial: "INSERT INTO historia_clinica(hc_nrohc,hc_fechaprimerconsulta,hc_diagnostico,hc_antecedentes,"+
                                                         "hc_medicacion,hc_ocupacion,hc_actividadfisica,hc_fechalaboratorios,"+
                                                         "hc_laboratorios,hc_antecedentesnutricion,hc_edaddieta,hc_dieta,"+

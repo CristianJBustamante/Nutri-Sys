@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Nutri-sys - HABITOS NO SALUDABLES</title>
+		<title>Nutri-sys - Organizador</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -42,6 +42,14 @@
 		<script src="/assets/js/html5shiv.min.js"></script>
 		<script src="/assets/js/respond.min.js"></script>
 		<![endif]-->
+		<link rel="stylesheet" href="/css/normalize.css"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+		<link rel="stylesheet" href="/css/estilos_Fichas_HabitosNoSaludables.css"> <!-- Cambiar en cada Solapa -->
+		
+	
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	</head>
 	</head>
 
 	<body class="no-skin">
@@ -61,7 +69,7 @@
 					<a href="index.html" class="navbar-brand">
 						<small>
 							<div class="logo">
-								<img class="logo__manzana " src="/assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
+								<img class="logo__manzana" src="/assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
 								<h2 class="name_app">Nutri-sys</h2>
 							</div>
 						</small>
@@ -254,8 +262,6 @@
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 								<span class="user-info">
-									<small>Apellido,</small>
-									Nombre
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -316,7 +322,7 @@
 					</li>
 					
 					<li class="active">
-						<a href="index.html">
+						<a href="../buscarpaciente">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> Historia Clinica </span>
 						</a>
@@ -357,19 +363,10 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-
-							</li>
-							<li class="active">Historia Clinica</li>
+							<li class="active">Historia Clínica</li>
 						</ul><!-- /.breadcrumb -->
 
-						<div class="nav-search" id="nav-search">
-							<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input" id="nav-search-input" autocomplete="off" />
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-							</form>
-						</div><!-- /.nav-search -->
+
 					</div>
 
 					<div class="page-content">
@@ -441,67 +438,93 @@
 						</div><!-- /.ace-settings-container -->
 
 						<div class="page-header">
-							<h1>HABITOS NO SALUDABLES </h1>
+							<h1>
+								Historia Clínica
+								<small>
+									<i class="ace-icon fa fa-angle-double-right"></i>
+								</small>
+							</h1>
 						</div><!-- /.page-header -->
 
-						<div class="row">
-							<div class="col-xs-12">
-								<!-- PAGE CONTENT BEGINS -->
-								<form class="form-horizontal" role="form">
+						<div>
+							<div class="contenidoPagina">
 
-									<div class="hr hr-16 hr-dotted"></div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-top" for="duallist"> Seleccionar Habitos </label>
-
-										<div class="col-sm-8">
-											<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">
-												<option value="Tomo mucho cafe">Tomo mucho cafe</option>
-												<option value="No desayuno">No desayuno</option>
-												<option value="Consumo menos de dos raciones de verduras al día" selected="selected">Consumo menos de dos raciones de verduras al día</option>
-												<option value="No como frutas">No como frutas</option>
-												<option value="Picoteo entre horas">Picoteo entre horas</option>
-												<option value="Como rápido" selected="selected">Como rápido</option>
-												<option value="Repito porciones">Repito porciones</option>
-												<option value="Me salteo comidas">Me salteo comidas</option>
-												<option value="Como al paso, de pie o caminando o mientras hago otras actividades">Como al paso, de pie o caminando o mientras hago otras actividades</option>
-												<option value="No bebo suficiente agua">No bebo suficiente agua</option>
-												<option value="Bebo alcohol con frecuencia">Bebo alcohol con frecuencia</option>
-												<option value="Como mucho pan y otros productos panificados">Como mucho pan y otros productos panificados</option>
-												<option value="Comsumo alimentos ultraprocesados(premezclas,snack,alimentos instantáneos)">Comsumo alimentos ultraprocesados(premezclas,snack,alimentos instantáneos)</option>
-												<option value="Como frituras con frecuencia">Como frituras con frecuencia</option>
-												<option value="No retiro la grasa visible de las carnes antes de cocinar">No retiro la grasa visible de las carnes antes de cocinar</option>
-												<option value="Pido delivery con frecuencia">Pido delivery con frecuencia</option>
-												<option value="Como lo que dejan mis hijos u otro familiar en el plato">Como lo que dejan mis hijos u otro familiar en el plato</option>
-												<option value="Como lo que sobra en la mesa">Como lo que sobra en la mesa</option>
-												<option value="Como por aburrimiento">Como por aburrimiento</option>
-												<option value="Como por nervios">Como por nervios</option>
-												<option value="Como cuando estoy triste">Como cuando estoy triste</option>
-												<option value="Como viendo pantallas(TV,computadora,celular)">Como viendo pantallas(TV,computadora,celular)</option>
-												<option value="Me premio con comida">Me premio con comida</option>
-												<option value="Como golosinas azuracadas(caramelos,alfajores,bombones,etc)">Como golosinas azuracadas(caramelos,alfajores,bombones,etc)</option>
-												<option value="Tomo gaseosa o jugos azucarados">Tomo gaseosa o jugos azucarados</option>
-												<option value="Comsumo con frecuencia galletitas dulces,rellenas,obleas">Comsumo con frecuencia galletitas dulces,rellenas,obleas</option>
-												<option value="No practico ejercicio físico con regularidad">No practico ejercicio físico con regularidad</option>
-												<option value="Me excedo en fiestas y eventos">Me excedo en fiestas y eventos</option>
-												<option value="Como mucho en la cena o ceno tarde">Como mucho en la cena o ceno tarde</option>
-												<option value="Como con mucha sal,llevo el salero a la mesa o le agrego sal antes de probar">Como con mucha sal,llevo el salero a la mesa o le agrego sal antes de probar</option>
-												<option value="Me despierto en la noche y busco comida">Me despierto en la noche y busco comida</option>
-												<option value="Tengo alimentos en el dormitorio - como en la cama">Tengo alimentos en el dormitorio - como en la cama</option>
-
-											</select>
-											<div class="hr hr-16 hr-dotted"></div>
-											<button class="btn btn-white btn-primary" onclick="NuevoHabito(id)">Nuevo Habito</button>
-											<button class="btn btn-white btn-primary" onclick="GuardarHabito(id)">Guardar Habitos</button>
+								<article class="contenido__article">
+									<section class="section__fichas">
+										<div class="encabezado__datosPaciente" id="pac_datos">
+											
 										</div>
-									</div>
-										</div>
-									</div>
-								</form>
+										<div class="ficha"> <!-- Cambiar En cada Solapa -->
+											<div class="navegacion__solapas">
+												<a class="nav__solapa" href="../html/fichaInicialPaciente.html">Ficha inicial</a>
+												<a class="nav__solapa"  href="../html/anamnesisAlimentaria.html">Anamnesis alimentaria</a>
+												<a class="nav__solapa--seleccionado" href="../html/habitosNoSaludables.html">Habitos </a>
+												<a class="nav__solapa" href="../html/medidasAntropometricas.html" style="word-wrap: break-word;">Medidas antropométricas</a>
+												<a class="nav__solapa--resto"></a>
+											</div>
 
-								<!-- PAGE CONTENT ENDS -->
-							</div><!-- /.col -->
-						</div><!-- /.row -->
+											<div class="contenido__solapa">
+												<div class="seccion__anamnesis">
+													<div class="form-group">
+														<h2 class="" for="duallist"> Seleccionar Habitos </h2>
+				
+														<div class="col-sm-15">
+															<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">
+																<option value="Tomo mucho cafe">Tomo mucho cafe</option>
+																<option value="No desayuno">No desayuno</option>
+																<option value="Consumo menos de dos raciones de verduras al día">Consumo menos de dos raciones de verduras al día</option>
+																<option value="No como frutas">No como frutas</option>
+																<option value="Picoteo entre horas">Picoteo entre horas</option>
+																<option value="Como rápido">Como rápido</option>
+																<option value="Repito porciones">Repito porciones</option>
+																<option value="Me salteo comidas">Me salteo comidas</option>
+																<option value="Como al paso, de pie o caminando o mientras hago otras actividades">Como al paso, de pie o caminando o mientras hago otras actividades</option>
+																<option value="No bebo suficiente agua">No bebo suficiente agua</option>
+																<option value="Bebo alcohol con frecuencia">Bebo alcohol con frecuencia</option>
+																<option value="Como mucho pan y otros productos panificados">Como mucho pan y otros productos panificados</option>
+																<option value="Comsumo alimentos ultraprocesados(premezclas,snack,alimentos instantáneos)">Comsumo alimentos ultraprocesados(premezclas,snack,alimentos instantáneos)</option>
+																<option value="Como frituras con frecuencia">Como frituras con frecuencia</option>
+																<option value="No retiro la grasa visible de las carnes antes de cocinar">No retiro la grasa visible de las carnes antes de cocinar</option>
+																<option value="Pido delivery con frecuencia">Pido delivery con frecuencia</option>
+																<option value="Como lo que dejan mis hijos u otro familiar en el plato">Como lo que dejan mis hijos u otro familiar en el plato</option>
+																<option value="Como lo que sobra en la mesa">Como lo que sobra en la mesa</option>
+																<option value="Como por aburrimiento">Como por aburrimiento</option>
+																<option value="Como por nervios">Como por nervios</option>
+																<option value="Como cuando estoy triste">Como cuando estoy triste</option>
+																<option value="Como viendo pantallas(TV,computadora,celular)">Como viendo pantallas(TV,computadora,celular)</option>
+																<option value="Me premio con comida">Me premio con comida</option>
+																<option value="Como golosinas azuracadas(caramelos,alfajores,bombones,etc)">Como golosinas azuracadas(caramelos,alfajores,bombones,etc)</option>
+																<option value="Tomo gaseosa o jugos azucarados">Tomo gaseosa o jugos azucarados</option>
+																<option value="Comsumo con frecuencia galletitas dulces,rellenas,obleas">Comsumo con frecuencia galletitas dulces,rellenas,obleas</option>
+																<option value="No practico ejercicio físico con regularidad">No practico ejercicio físico con regularidad</option>
+																<option value="Me excedo en fiestas y eventos">Me excedo en fiestas y eventos</option>
+																<option value="Como mucho en la cena o ceno tarde">Como mucho en la cena o ceno tarde</option>
+																<option value="Como con mucha sal,llevo el salero a la mesa o le agrego sal antes de probar">Como con mucha sal,llevo el salero a la mesa o le agrego sal antes de probar</option>
+																<option value="Me despierto en la noche y busco comida">Me despierto en la noche y busco comida</option>
+																<option value="Tengo alimentos en el dormitorio - como en la cama">Tengo alimentos en el dormitorio - como en la cama</option>
+				
+															</select>
+															<div class="hr hr-16 hr-dotted"></div>
+															<button class="btn btn-white btn-primary boton-nuevo" onclick="nuevoHabito()">Nuevo Habito</button>
+															<button class="btn btn-white btn-primary boton-guardar" onclick="GuardarHabito(id)">Guardar Habitos</button>
+														</div>
+														<input type="text" id="nuevoHabito" class="input btn btn-white btn-primary" placeholder="Ingrese Habito" hidden=true>
+														</div>
+														
+												</div>
+												<div>
+													<button class="btn btn-white btn-primary boton-nuevo-novisible" hidden=true>Nuevo Habito</button>
+													<button class="btn btn-white btn-primary AñadirHabito-aceptar" id="Aceptar" onclick="añadirHabito(id)" hidden=true>Aceptar</button>
+													<button class="btn btn-white btn-primary AñadirHabito-cancelar" id="Cancelar" onclick="añadirHabito(id)" hidden=true>Cancelar</button>
+												</div>
+											</div>
+										</div>
+									</section>
+								</article>
+					
+							</div>
+						</div>
+
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
@@ -648,6 +671,9 @@
 				});
 			
 			});
+			
 		</script>
+		<script src="/js/pacientes/consultainicial/codigo_registrarHabitos.js"></script>
+
 	</body>
 </html>

@@ -587,7 +587,7 @@ font-family: var(--fuentePrincipal);
     height: 3rem;
     display: flex;
     font-size: 2rem;
-    width: 5rem;
+    width: 7rem;
     margin-top: -8rem;
     margin-bottom: 5rem;
     margin-left: 12rem; 
@@ -853,6 +853,9 @@ label{
         .tabla__antro--contenido{
             margin-left: -15rem;
         }
+       .tabla__antro--contenido__cc{
+           padding-left: 1rem;
+       }
         .input__valor{
             margin-left: 5rem;
         }

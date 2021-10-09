@@ -35,7 +35,7 @@
 
 		<!-- ace settings handler -->
 		<script src="assets/js/ace-extra.min.js"></script>
-
+       
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
 		<!--[if lte IE 8]>
@@ -469,10 +469,10 @@
 								<article class="contenido__article">
 									<section class="section__historiaClinica">
 										<div class="encabezado__datosPaciente">
-											<h2>Paciente: Gonzalez, Eugenio</h2>
-											<h2>HC: 709543</h2>
-											<h2>DOC.: 23465973</h2>
-											<h2>FN: 05/06/1975</h2>
+											<h2>Paciente: <span>Gonzalez, Eugenio</span> </h2>
+											<h2>HC:<span>709543</span> </h2>
+											<h2>DOC.: <span>23465973</span> </h2>
+											<h2>FN: <span>05/06/1975</span></h2>
 										</div>
 									<!-- <div class="fichaInicial"> 
 											<div class="navegacion__solapas">
@@ -493,12 +493,12 @@
                                                 <div class="contenido__primeraParte">
                                                 <div class="seccion__class">
                                                     <h2 class="label__ficha"> Edad: </h2>
-                                                    <input class="contenido__input " type="number" title="Ingrese su edad" min="1">
+                                                    <input class="contenido__input" type="number" title="Ingrese su edad" min="1">
                                                   </div>
                                                   <!-- ------------------------ -->
                                                   <div class="seccion__class">
                                                     <h2 class="label__ficha"> Peso: </h2>
-                                                    <input class="contenido__input" type="number" >
+                                                    <input class="contenido__input" type="number" min="1">
                                                     <label class="contenido__input--label">Kg</label>
                                                   </div>
                                                      <!-- ------------------------ -->
@@ -511,18 +511,23 @@
                                                   <div class="seccion__class">
                                                     <h2 title="Indice de masa corporal" class="label__ficha"> IMC: </h2>
                                                     <input class="contenido__input" type="number" >
-                                                    <label class="contenido__input--label">Kg/m2</label>
+                                                    <label class="contenido__input--label">Kg/m^2</label>
                                                   </div>
                               
                                                          <!-- ------------------------ -->
                                                     <div class=" seccion__class seccion__class--cc">
-                                                        <h2 title="Circunferencia de cintura" class="label__ficha"> C.C: </h2>
-                                                        <input class="contenido__input contenido__input--cc" type="number" title="">
-                                                        <label class="contenido__input--label">Cm(M)</label>
-                                                        <input class="contenido__input contenido__input--cc" type="number" title="">
-                                                        <label class="contenido__input--label">Cm(U)</label>
-                                                        <input class="contenido__input contenido__input--cc" type="number" title="">
-                                                        <label class="contenido__input--label">Cm(P)</label>
+                                                        
+                                                            <h2 title="Circunferencia de cintura" class="label__ficha"> C.C: </h2>
+                                                            <input class="contenido__input contenido__input--cc" type="number" title="">
+                                                            <label class="contenido__input--label contenido__imputcc">Cm(M)</label>
+                                                        
+                                                            <input class="contenido__input contenido__input--cc" type="number" title="">
+                                                            <label class="contenido__input--label contenido__imputcc">Cm(U)</label>
+                                                        
+                                                        
+                                                            <input class="contenido__input contenido__input--cc" type="number" title="">
+                                                            <label class="contenido__input--label contenido__imputcc">Cm(P)</label>
+                                                        
                                                     </div>
                                                      <!-- ------------------------ -->
                                                      <div class="seccion__class">
@@ -552,8 +557,19 @@
                                                     </div> <!--fin contenido primera parte-->
                                                     
                                                     <div class="seccion__class--evaluacion">
-                                                        <h2 class="label__ficha--evaluacion"> Evaluacion:</h2>
-                                                        <textarea class="area__observaciones">
+                                                        <h2 class="label__ficha--evaluacion" title="Alimentación, Neat, Entrenamiendo, Estado emocional"> Evaluacion:</h2>
+                                                        <textarea class="area__observaciones" placeholder="Alimentación:
+
+
+Neat:
+
+
+Entrenamiendo:
+
+
+
+Estado emocional:">
+                                                            
                                                         </textarea>
                                                     </div><!--fin div evaluacion-->
                                                         

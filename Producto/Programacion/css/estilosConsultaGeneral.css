@@ -99,7 +99,42 @@ h3{
     height: 5rem;
     margin: 1rem  auto;
 }
+span{
+    font-weight: 800;
+}
+/*************************/
+/** CONTENIDO A UN LADO **/
+/*************************/
 
+.aside{
+    display: flex;
+    flex-direction: column;
+}
+
+/** LOGO **/
+
+.logo{
+    background-color: var(--secundario);
+    display: flex;
+    justify-content:space-between;
+    gap: 1rem;
+    min-width: 20%;
+}
+
+.name_app{
+    margin: 0;
+    font-size: 4.5rem;
+    color: var(--blanco);
+    font-family: var(--fuenteLogo);
+    padding-right: 1rem;
+    font-weight: bold;
+}
+
+.logo__manzana{
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem  0rem 1rem 0rem;
+}
 .padding__inputText{
     font-size: 2rem;
     font-family: var(--fuentePrincipal);
@@ -139,39 +174,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 input[type=number] { -moz-appearance:textfield; }
 
-/*************************/
-/** CONTENIDO A UN LADO **/
-/*************************/
 
-.aside{
-    display: flex;
-    flex-direction: column;
-}
-
-/** LOGO **/
-
-.logo{
-    background-color: var(--secundario);
-    display: flex;
-    justify-content:space-between;
-    gap: 1rem;
-    min-width: 20%;
-}
-
-.name_app{
-    margin: 0;
-    font-size: 4.5rem;
-    color: var(--blanco);
-    font-family: var(--fuenteLogo);
-    padding-right: 1rem;
-    font-weight: bold;
-}
-
-.logo__manzana{
-    width: 8rem;
-    height: 8rem;
-    margin: 1rem  0rem 1rem 0rem;
-}
 /** MENU **/
 
 .menuPrincipal{
@@ -301,7 +304,7 @@ input[type=number] { -moz-appearance:textfield; }
     display: grid;
     font-family: var(--fuentePrincipal);
     font-size: 2rem;
-    width: 90%;
+    width: 98%;
     height: 40rem;
     margin-left: 1%;
     align-items: center;
@@ -309,7 +312,7 @@ input[type=number] { -moz-appearance:textfield; }
     resize: none;
 }
 .label__ficha--evaluacion{
-    width: 29%;
+    width: 98%;
     margin-left: 1%;
     background-color: var(--grisClaro);
     padding: 1rem;
@@ -325,7 +328,143 @@ input[type=number] { -moz-appearance:textfield; }
     margin-top: 2rem;
     margin-bottom: 2rem;
     float: right;
-    margin-right: 5%;
+    margin-right: 1%;
 }
+
+/* **** RESPONSIVIDAD ******
+**************************** */
+@media(max-width:1000px){
+
+    .label__ficha{
+        width: 20%;
+        margin-left: 4%;
+    }
+    .contenido__primeraParte{
+        display: flex;
+        flex-direction: column;
+    }
+    .contenido__input{
+        width: 35%;
+    }
+    .seccion__class--cc{
+        flex-direction: column;
+        margin-bottom: -6rem;
+        gap: 0;
+
+    }
+    /* .contenido__input--cc{
+        margin-left: 15.8rem;
+        margin-top: -5rem;
+    } */
+    .contenido__imputcc{
+        margin-left: 22rem;
+        color: var(--grisMedio); /* MAL HECHO REVISAR A FUTURO*/
+    }
+    .boton__guardar--boton{
+        width: 98%;
+    }
+    .encabezado__datosPaciente{
+        margin-left: 2rem;
+        gap: 0.7rem;
+        margin-left: 2rem;  
+    }
+    .encabezado__datosPaciente h2{
+        font-size: 2rem;
+        margin-left: 0.3rem;
+    }
+
+
+}
+
+/*celular*/
+@media(max-width:468px){
+    .label__ficha{
+        width: 20%;
+        margin-left: 4%;
+    }
+    .contenido__primeraParte{
+        display: flex;
+        flex-direction: column;
+    }
+    .contenido__input{
+        width: 35%;
+    }
+    .seccion__class--cc{
+        flex-direction: column;
+        margin-bottom: -6rem;
+        gap: 0;
+
+    }
+    .contenido__input--cc{
+        width: 35%;
+        margin-left: 9rem;
+        margin-top: -5rem;
+  
+    }
+    .contenido__imputcc{
+        margin-left: 22rem;
+        color: var(--grisMedio); /* MAL HECHO REVISAR A FUTURO*/
+    }
+    .boton__guardar--boton{
+        width: 98%;
+    }
+    .encabezado__datosPaciente{
+        margin-left: 1rem;
+        gap: 0.7rem;
+    }
+    .encabezado__datosPaciente h2{
+        font-size: 1.5rem;
+        margin-left: 0.3rem;
+    }
+}
+
+@media(max-width:700px){
+    .label__ficha{
+        width: 20%;
+        margin-left: 4%;
+    }
+    .contenido__primeraParte{
+        display: flex;
+        flex-direction: column;
+    }
+    .contenido__input{
+        width: 35%;
+    }
+    .seccion__class--cc{
+        flex-direction: column;
+        margin-bottom: -6rem;
+        gap: 0;
+
+    }
+    .contenido__input--cc{
+        margin-left: 9.4rem;
+        margin-top: -5rem;
+    }
+    .contenido__imputcc{
+        margin-left: 22rem;
+        color: var(--grisMedio); /* MAL HECHO REVISAR A FUTURO*/
+    }
+    .boton__guardar--boton{
+        width: 98%;
+    }
+    .encabezado__datosPaciente{
+        margin-left: 2rem;
+        gap: 2.7rem;
+    }
+    .encabezado__datosPaciente h2{
+        font-size: 2rem;
+        margin-left: 0.3rem;
+    }
+}
+/* @media(max-width:980px) {
+    .contenido__input--cc{
+        margin-left: 21.6rem;
+    }
+} */
+
+
+
+
+
 
 

@@ -1,4 +1,9 @@
 export const consultasquerys = {
+//-------------------------------------------------CONSULTAS------------------------------------------------------
+registrarconsulta: "INSERT INTO consulta(cons_idturno,cons_observaciones) "+
+"VALUES (@cons_idturno,@cons_observaciones)",
+getconsultaxturno: "SELECT * FROM consulta where cons_idturno=@cons_idturno",
+
 //-------------------------------------------------CONSULTA INICIAL------------------------------------------------------
 
 //FICHA INICIAL
@@ -99,19 +104,16 @@ export const consultasquerys = {
     registrarDetalleHabito: "INSERT INTO detalle_habitos (dhabpac_id, dhabpac_idhabito, dhabpac_realiza, dhabpac_observaciones) "+
     "VALUES (@dhabpac_id, @dhabpac_idhabito, 1, @dhabpac_observaciones)",
 
-    getHabitosXHC: "select * from habitos_paciente hp "+
-                   "inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
-                   "inner join habito h on h.hab_id=dh.dhabpac_idhabito where hp.habpac_nrohc=@habpac_nrohc",
-    
-
-    
-    
+    getHabitosXHC: "select top 1 * from habitos_paciente where habpac_nrohc=1000"+
+                    " order by habpac_fecharegistro desc",
 
     actualizarHabitos: "UPDATE habito SET hab_descripcion = @hab_descripcion WHERE habpac_nrohc = @habpac_nrohc",
     
     actualizarHabitoPaciente:"UPDATE habitos_paciente SET habpac_fecharegistro = @getDate(),"+
     "habpac_observaciones = @habpac_observaciones, habpac_idconsulta = @habpac_idconsulta WHERE "+
     "habpac_nrohc = @habpac_nrohc AND habpac_id= @habpac_id",
+
+    getultimoidhabito: "SELECT max(hab_id) as id_hab from habito",
 
 
     actualizarDetalleHabito: "UPDATE detalle_habitos SET dhabpac_id = @dhabpac_id , dhabpac_linea = @dhabpac_linea, dhabpac_idhabito = @dhabpac_idhabito,"+

@@ -1,4 +1,38 @@
 import {getConnection,sql,consultasquerys} from "../database";
+//----------------------------------------------CONSULTA---------------------------------------------------------
+//REGISTRAR CONSULTA
+export const registrarconsulta = async (req,res) => {
+    let { cons_idturno,cons_observaciones } = req.body;
+        
+    if (cons_idturno==null) {
+            return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})
+        }         
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('cons_idturno',sql.Int,cons_idturno)
+            .input('cons_observaciones',sql.NVarChar,cons_observaciones)
+            .query(consultasquerys.registrarconsulta)
+        res.json({cons_idturno,cons_observaciones})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
+
+//CONSULTAR ID CONSULTA POR TURNO
+export const getconsultaxturno = async(req,res) => {
+    try {
+        const {cons_idturno} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('cons_idturno', cons_idturno).query(consultasquerys.getconsultaxturno)
+        res.send(result.recordset[0])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
 
 //----------------------------------------------DATOS INICIALES-------------------------------------------------------
 //CONSULTAR FICHAINICIAL POR HC
@@ -8,7 +42,7 @@ export const getFichaInicialXHC = async(req,res) => {
         const pool = await getConnection()
         const result = await pool.request()
             .input('hc_nrohc', hc_nrohc).query(consultasquerys.getFichaInicial)
-        res.send(result.recordset[0])
+        res.send(result.recordset)
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -421,6 +455,19 @@ export const getHabitos = async(req,res) => {
         res.send(error.message);
     }
 } 
+//GET ULTIMO ID HABITO
+export const getultimoidhabito = async(req,res) => {
+    try {
+        const pool = await getConnection()
+        const result = await pool.request()
+            .query(consultasquerys.getultimoidhabito)
+        res.send(result.recordset[0])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
 //INSERTAR NUEVO HABITO 
 export const nuevohabito = async (req,res) => {
     let {hab_descripcion} = req.body;
@@ -479,19 +526,20 @@ export const registrarDetalleHabito = async (req,res) => {
         res.send(error.message);
     }         
 }
-//CONSULTAR HABITO POR HC
+//CONSULTAR ULTIMO HABITO POR HC
 export const getHabitoXHC = async(req,res) => {
     try {
         const {habpac_nrohc} = req.params
         const pool = await getConnection()
         const result = await pool.request()
             .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.getHabitosXHC)
-        res.send(result.recordset)
+        res.send(result.recordset[0])
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }
 } 
+
 
 //ACTUALIZAR HABITOS POR HC
 export const actualizarHabitos = async(req,res) => {

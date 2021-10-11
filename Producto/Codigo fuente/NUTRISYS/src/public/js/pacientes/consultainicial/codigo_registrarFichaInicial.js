@@ -1,10 +1,12 @@
  var metodo=''
 //Get nrohc
 const url = new String(window.location)
-let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
+let pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("hc=")+3,(url.indexOf("/trn="))-(url.indexOf("hc=")+3)))
+let cons_idturno = url.substr(url.indexOf("trn=")+4,url.length)
 let modo = url.substr(url.indexOf("consulta/"),url.length)
 
-if (modo.toLowerCase()==='consulta/registrarfichainicial/hc='+pac_nrohc){
+
+if (modo.toLowerCase()==='consulta/registrarfichainicial/hc='+pac_nrohc+'/trn='+cons_idturno){
     nuevo=1;
     metodo='POST'
     ruta="http://localhost:3000/registrarfichainicial"
@@ -13,7 +15,7 @@ if (modo.toLowerCase()==='consulta/registrarfichainicial/hc='+pac_nrohc){
     metodo='PUT'
     ruta="http://localhost:3000/actualizarfichainicial/"+pac_nrohc
 }
-console.log(nuevo,metodo,ruta,modo)
+console.log(pac_nrohc,cons_idturno,nuevo,metodo,ruta,modo)
 
 //Buscar datos personales del nrohc
 let query = 'http://localhost:3000/paciente/'+pac_nrohc
@@ -31,12 +33,19 @@ const mostrarData = (data) => {
 //Setear fecha actual
 var f = new Date();
 let mes=f.getMonth()+1
+let dia=f.getDate() 
 if(mes<10){
-    f=f.getFullYear() + "-0"+ mes+ "-" + f.getDate() 
+    f=f.getFullYear() + "-0"+ mes+ "-"  
   }else{
-    f=f.getFullYear() + "-"+ mes+ "-" + f.getDate() 
+    f=f.getFullYear() + "-"+ mes+ "-" 
   }
-document.getElementById("fechaactual").value = f 
+  if(dia<10){
+    f=f + "0"+ dia
+  }else{
+    f=f +dia
+  }
+  
+  document.getElementById("fechaactual").value=f
 
 //Cargar pagina según modo
 
@@ -48,7 +57,7 @@ document.getElementById("fechaactual").value = f
         .then(data => mostrarData(data))
         .catch(error => console.log(error))
 const mostrarData = (data) => {
-    console.log(data)
+    console.log(data.length)
     if (data.length>0) {
         data=data[0]
     
@@ -82,7 +91,7 @@ const mostrarData = (data) => {
         document.getElementById("hc_ajuste").value=data.hc_ajuste;
         document.getElementById("hc_medajuste").value=data.hc_medajuste;
     }else{
-        location.href ="../registrarfichainicial/hc="+pac_nrohc
+        location.href ="/consulta/registrarfichainicial/hc="+pac_nrohc+"/trn="+cons_idturno
     }
 }    
 }  
@@ -173,7 +182,28 @@ var hc_PBI = parseFloat(document.getElementById("hc_PBI").value);
 var hc_ajuste = document.getElementById("hc_ajuste").value;
 var hc_medajuste = parseFloat(document.getElementById("hc_medajuste").value);
 
-
+if (nuevo=1) {
+    const post = {
+        cons_idturno: cons_idturno,
+        cons_observaciones: 'Consulta Inicial',
+        habpac_idconsulta: hab_idconsulta
+    }
+    console.log(post)
+      try {
+        console.log(JSON.stringify(post));
+        fetch('http://localhost:3000/consulta',{
+        method:'PUT',
+        body: JSON.stringify(post),
+        headers: {
+            "Content-type": "application/json"
+        }
+        }).then(res=>res.json())
+        .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+    }  
+}
 
 
 const post = {
@@ -221,7 +251,7 @@ try {
     }
     }).then(res=>res.json())
     .then(data=>console.log(data))
-    location.href ="../actualizaranamnesis/hc="+pac_nrohc
+    location.href ="../actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
     console.log()
 
 } catch (error) {
@@ -240,9 +270,52 @@ function anamnesis() {
       })
       .then((willDelete) => {
         if (willDelete) {
-            location.href ="../actualizaranamnesis/hc="+pac_nrohc
+            location.href ="/consulta/actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
         } 
       });
     
 }
-
+function habitos() {
+    swal({
+        title: "Atención",
+        text: "Si avanza a Habitos, no se guardarán los datos seleccionados",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+        } 
+      });
+    
+}
+function medidas() {
+    swal({
+        title: "Atención",
+        text: "Si avanza a Medidas Antropométricas, no se guardarán los datos seleccionados",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            //location.href ="../actualizarhabitos/hc="+pac_nrohc
+        } 
+      });
+    
+}
+function calcularbmi(){
+    var peso = document.getElementById("hc_pesoactual").value;
+    var talla = document.getElementById("hc_talla").value;    
+    if(peso==null || peso=='' || talla==null || talla=='') {
+        document.getElementById("hc_BMI").value = ''
+        return false; 
+    } 
+    else {
+        var bmi = peso / (talla*talla)
+        var pbmi = peso/bmi
+        document.getElementById("hc_BMI").value =  bmi;
+        return document.getElementById("hc_PBMI").value =  pbmi;
+    }
+}

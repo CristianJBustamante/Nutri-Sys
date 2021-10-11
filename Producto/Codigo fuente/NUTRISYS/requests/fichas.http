@@ -1,6 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/fichainicial/1000
+GET {{api}}/consulta/123
 
 ###
 
@@ -8,8 +8,7 @@ POST {{api}}/habitos
 Content-Type: application/json
 
 {
-    "hab_descripcion": 67404
-    
+    "hab_descripcion": "prueba"
 }
 
 ###
@@ -38,4 +37,4 @@ Content-Type: application/json
 
 ###
 
-GET {{api}}/habitospaciente/1000
+GET {{api}}/ultimohabito

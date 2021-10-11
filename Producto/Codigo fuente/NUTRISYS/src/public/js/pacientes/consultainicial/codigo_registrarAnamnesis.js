@@ -1,9 +1,11 @@
-
+var metodo=''
 //Get nrohc
 const url = new String(window.location)
-let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
+let pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("hc=")+3,(url.indexOf("/trn="))-(url.indexOf("hc=")+3)))
+let cons_idturno = url.substr(url.indexOf("trn=")+4,url.length)
 let modo = url.substr(url.indexOf("consulta/"),url.length)
-if (modo.toLowerCase()==='consulta/registraranamnesis/hc='+pac_nrohc){
+
+if (modo.toLowerCase()==='consulta/registraranamnesis/hc='+pac_nrohc+'/trn='+cons_idturno){
     nuevo=1;
     metodo='POST'
     ruta="http://localhost:3000/registraranamnesis"
@@ -248,7 +250,7 @@ if (nuevo==0) {
                 hideSeccion('comidas__cuestionario')
         }
     }else{
-        location.href ="../registraranamnesis/hc="+pac_nrohc
+        location.href ="../registraranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
     }
     }
 }
@@ -557,10 +559,7 @@ function crearAnamnesis(){
         }
         }).then(res=>res.json())
         .then(data=>console.log(data))
-        swal("Ficha Registrada con Éxito",{
-            icon: "success"})
-            .then((value) => {
-                location.href ="../../pacientes/buscarpaciente"})
+        location.href ="../actualizarhabitos/hc="+pac_nrohc
     } catch (error) {
         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
     }
@@ -686,7 +685,36 @@ function fichainicial() {
       })
       .then((willDelete) => {
         if (willDelete) {
-            location.href ="../actualizarfichainicial/hc="+pac_nrohc
+            location.href ="/consulta/actualizarfichainicial/hc="+pac_nrohc+"/trn="+cons_idturno
+        } 
+      }); 
+}
+function habitos() {
+    swal({
+        title: "Atención",
+        text: "Si avanza a Habitos, no se guardarán los datos seleccionados",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+        } 
+      });
+    
+}
+function medidas() {
+    swal({
+        title: "Atención",
+        text: "Si avanza a Medidas Antropométricas, no se guardarán los datos seleccionados",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            //location.href ="../actualizarhabitos/hc="+pac_nrohc
         } 
       });
     

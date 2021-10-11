@@ -6,20 +6,20 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import { getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos} from "../controllers/consultas.controller";
+import { getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
 //-------FICHA INICIAL-----------
 //Registrar Ficha Inicial
-router.get('/consulta/registrarFichaInicial/hc=:hc_nrohc',AuthMiddleware.isLogged , (req,res) => {
+router.get('/consulta/registrarFichaInicial/hc=:hc_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged , (req,res) => {
   res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user
   });
   });
 
-router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc',AuthMiddleware.isLogged , (req,res) => {
+router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged , (req,res) => {
   res.render('pacientes/consultainicial/Fichas_fichaInicialPaciente.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user
@@ -28,7 +28,7 @@ router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc',AuthMiddleware.isLo
 
 //-------ANAMNESIS---------------
 //Registrar Anamnesis
-    router.get('/consulta/registrarAnamnesis/hc=:anms_nrohc',AuthMiddleware.isLogged , (req,res) => {
+    router.get('/consulta/registrarAnamnesis/hc=:anms_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged , (req,res) => {
     res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html',{
       isAuthenticated : req.isAuthenticated(),
       user : req.user
@@ -41,7 +41,7 @@ router.get('/consulta/actualizarFichaInicial/hc=:anms_nrohc',AuthMiddleware.isLo
 //});
 
 //Editar Anamnesis
-router.get('/consulta/actualizarAnamnesis/hc=:anms_nrohc', AuthMiddleware.isLogged ,(req,res) => {
+router.get('/consulta/actualizarAnamnesis/hc=:anms_nrohc/trn=:cons_idturno', AuthMiddleware.isLogged ,(req,res) => {
 res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html',{
   isAuthenticated : req.isAuthenticated(),
   user : req.user
@@ -51,13 +51,19 @@ res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html',{
 
 //---------Habitos No Saludables------------
 //Registrar Habitos
-    router.get('/consulta/registrarHabitos/hc=:anms_nrohc', (req,res) => {
-    res.render('pacientes/consultainicial/Fichas_habitosNoSaludables.html');
+    router.get('/consulta/registrarHabitos/hc=:anms_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged , (req,res) => {
+    res.render('pacientes/consultainicial/Fichas_habitosNoSaludables.html',{
+      isAuthenticated : req.isAuthenticated(),
+      user : req.user
+    });
 });
 
 //Editar Habitos
-router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc', (req,res) => {
-  res.render('pacientes/consultainicial/Fichas_habitosNoSaludables.html');
+router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultainicial/Fichas_habitosNoSaludables.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
 });
   
 
@@ -73,15 +79,19 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc', (req,res) => {
   //--------------HABITOS
   router.post('/habitos', nuevohabito)
   router.get("/habitos",getHabitos)
+  router.get("/ultimohabito",getultimoidhabito)
 
   router.post('/cabecerahabitos', registrarHabitoPaciente)
   router.post('/detallehabitos', registrarDetalleHabito)
   router.get("/habitospaciente/:habpac_nrohc",getHabitoXHC)
 
   router.put('/actualizarHabitos/:habpac_nrohc', actualizarHabitos)
-  router.put('/actualizarHabitos/:habpac_nrohc', actualizarHabitoPaciente)
-  router.put('/actualizarHabitos/:habpac_nrohc', actualizarDetalleHabito)
+  router.put('/actualizarcabecerahabito/:habpac_nrohc', actualizarHabitoPaciente)
+  router.put('/actualizardetallehabito/:habpac_nrohc', actualizarDetalleHabito)
 
+    //--------------CONSULTA
+  router.post('/consulta', registrarconsulta)
+  router.get('/consulta/:cons_idturno', getconsultaxturno)
 
  //Consultas
  router.get('/anamnesis/:anms_nrohc', getAnamnesisXHC)

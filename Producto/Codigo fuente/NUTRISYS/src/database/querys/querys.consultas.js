@@ -115,10 +115,21 @@ getconsultaxturno: "SELECT * FROM consulta where cons_idturno=@cons_idturno",
 
     getultimoidhabito: "SELECT max(hab_id) as id_hab from habito",
 
-
     actualizarDetalleHabito: "UPDATE detalle_habitos SET dhabpac_id = @dhabpac_id , dhabpac_linea = @dhabpac_linea, dhabpac_idhabito = @dhabpac_idhabito,"+
     " dhabpac_realiza = @dhabpac_realiza, dhabpac_observaciones = @dhabpac_observaciones WHERE "+
-    "dhabpac_id = @dhabpac_id AND dhabpac_linea = @dhabpac_linea AND dhabpac_idhabito = @dhabpac_idhabito"
+    "dhabpac_id = @dhabpac_id AND dhabpac_linea = @dhabpac_linea AND dhabpac_idhabito = @dhabpac_idhabito",
+
+    getultimoshabitos: "select hab_id,hab_descripcion "+
+                        "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
+                        "inner join habito h on h.hab_id=dhabpac_idhabito "+
+                        "where habpac_nrohc=1000 and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
+                                                                "where habpac_nrohc=1000)",
+    
+    getprimeroshabitos: "select hab_id,hab_descripcion "+
+                        "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
+                        "inner join habito h on h.hab_id=dhabpac_idhabito "+
+                        "where habpac_nrohc=1000 and dhabpac_id=(select min(habpac_id) from habitos_paciente "+
+                                                                "where habpac_nrohc=1000)",
 
 //ANTROPOMETRÍA
 

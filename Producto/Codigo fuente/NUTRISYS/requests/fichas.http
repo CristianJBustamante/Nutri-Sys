@@ -37,4 +37,4 @@ Content-Type: application/json
 
 ###
 
-GET {{api}}/ultimohabito
+GET {{api}}/primeroshabitos/1000

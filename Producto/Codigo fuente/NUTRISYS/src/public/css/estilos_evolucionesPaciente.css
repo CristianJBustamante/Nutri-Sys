@@ -114,7 +114,7 @@ h3{
 .logo__manzana{
     width: 5rem;
     height: 5rem;
-    margin: 1rem  0rem 1rem 1rem;
+    margin: 1rem  0rem 1rem 0rem;
 }
 
 /** MENU **/
@@ -203,7 +203,7 @@ h3{
 }
 
 .nav__solapa{
-    width: 10%;
+    width: 12%;
     border: black 0.3rem;
     border-style: solid;
     text-align: center;
@@ -221,7 +221,7 @@ h3{
 }
 
 .nav__solapa--seleccionado{
-    width: 10%;
+    width: 12%;
     border: var(--negro) 0.3rem;
     border-style: solid solid none solid;
     text-align: center;
@@ -237,7 +237,7 @@ h3{
 }
 
 .nav__solapa--resto{
-    width: 30%;
+    width: 16%;
     border: var(--negro) 0.3rem;
     border-style: none none solid none;
 }

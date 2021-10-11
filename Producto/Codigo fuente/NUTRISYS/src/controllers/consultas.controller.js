@@ -540,6 +540,34 @@ export const getHabitoXHC = async(req,res) => {
     }
 } 
 
+//CONSULTAR ULTIMOS HABITOS
+export const getultimoshabitos = async(req,res) => {
+    try {
+        const {habpac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.getultimoshabitos)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//CONSULTAR PRIMEROS HABITOS
+export const getprimeroshabitos = async(req,res) => {
+    try {
+        const {habpac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.getprimeroshabitos)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
 
 //ACTUALIZAR HABITOS POR HC
 export const actualizarHabitos = async(req,res) => {

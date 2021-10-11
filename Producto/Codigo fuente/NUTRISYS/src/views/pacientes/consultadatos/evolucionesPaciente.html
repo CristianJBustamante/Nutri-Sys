@@ -469,14 +469,10 @@
 
 								<article class="contenido__article">
 									<section class="section__historiaClinica">
-										<div class="encabezado__datosPaciente">
-											<h2>Paciente: Gonzalez, Eugenio</h2>
-											<h2>HC: 709543</h2>
-											<h2>DOC.: 23465973</h2>
-											<h2>FN: 05/06/1975</h2>
+										<div class="encabezado__datosPaciente" id="pac_datos">
 										</div>
 										<div class="evoluciones"> <!-- Cambiar En cada Solapa -->
-											<div class="navegacion__solapas">
+											<div class="navegacion__solapas" id="solapas">
 												<a class="nav__solapa"  href="../consultapacientefichainicial/0">Ficha Inicial</a>
 												<a class="nav__solapa" href="../consultapaciente/0">Resumen</a>
 												<a class="nav__solapa--seleccionado" href="../consultapacienteevolucion/0">Hábitos</a>
@@ -490,9 +486,8 @@
 
 												<!--Primer Tabla-->
 												<div class="col-sm-15">
-													<h2 class="" for="duallist" style="text-align: center;"> Primer Consulta </h2>
-													<select multiple="multiple" size="15" class="Tabla">
-														<option value="Tengo alimentos en el dormitorio - como en la cama">Tengo alimentos en el dormitorio - como en la cama</option>
+													<h2 class="" for="duallist" style="text-align: center;"> Primeros hábitos registrados </h2>
+													<select multiple="multiple" size="15" class="Tabla" id="primeros">
 													</select>
 												</div>
 
@@ -500,10 +495,8 @@
 												<!--Segunda Tabla-->
 
 												<div class="col-sm-15">
-													<h2 class="" for="duallist" style="text-align: center;"> Ultima Consulta </h2>
-													<select multiple="multiple" size="15" class="Tabla">
-														<option value="Me despierto en la noche y busco comida">Me despierto en la noche y busco comida</option>
-														<option value="Tengo alimentos en el dormitorio - como en la cama">Tengo alimentos en el dormitorio - como en la cama</option>
+													<h2 class="" for="duallist" style="text-align: center;"> Últimos hábitos registrados </h2>
+													<select multiple="multiple" size="15" class="Tabla" id="ultimos">
 													</select>
 												</div>
 											</div> <!-- fin del contenido de la consulta -->
@@ -782,6 +775,8 @@
 			
 			})
 		</script>
+		<script  src="/js/pacientes/consultadatos/codigo_consultaHabitos.js"></script>
+
 	</body>
 	
 </html>

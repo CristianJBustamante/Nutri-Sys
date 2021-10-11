@@ -6,7 +6,7 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import { getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito} from "../controllers/consultas.controller";
+import { getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -88,6 +88,9 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',Auth
   router.put('/actualizarHabitos/:habpac_nrohc', actualizarHabitos)
   router.put('/actualizarcabecerahabito/:habpac_nrohc', actualizarHabitoPaciente)
   router.put('/actualizardetallehabito/:habpac_nrohc', actualizarDetalleHabito)
+
+  router.get("/ultimoshabitos/:habpac_nrohc",getultimoshabitos)
+  router.get("/primeroshabitos/:habpac_nrohc",getprimeroshabitos)
 
     //--------------CONSULTA
   router.post('/consulta', registrarconsulta)

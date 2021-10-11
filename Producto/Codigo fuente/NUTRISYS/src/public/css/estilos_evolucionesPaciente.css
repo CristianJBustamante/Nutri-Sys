@@ -306,3 +306,7 @@ input::-webkit-inner-spin-button {
     font-family: var(--fuentePrincipal);
     font-weight: bold;
 }
+
+.Tabla{
+    width: 95%;
+}

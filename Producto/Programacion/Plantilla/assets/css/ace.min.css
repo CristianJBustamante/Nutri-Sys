@@ -16104,7 +16104,7 @@ input.typeahead.scrollable~.tt-menu {
     color: inherit;
 }
 }.no-skin .nav-list>li .submenu>li.active:not(.open)>a {
-    background-color: #F5F7FA;
+    background-color: #181E20;
 }
 .no-skin .nav-list>li .submenu>li.active:not(.open)>a:hover {
     background-color: #F1F5F9;
@@ -17374,3 +17374,10 @@ input.typeahead.scrollable~.tt-menu {
 .no-skin .nav-list>li.disabled .submenu>li>a {
     border-top-color: #505050;
 }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+input[type=number] { -moz-appearance:textfield; }

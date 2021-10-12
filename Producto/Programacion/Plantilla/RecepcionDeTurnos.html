@@ -37,6 +37,7 @@
 
 	<!-- ace settings handler -->
 	<script src="assets/js/ace-extra.min.js"></script>
+	<script src="assets/js/recepcionDeTurnos.js"></script>
 
 	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -65,7 +66,8 @@
 				<a href="index.html" class="navbar-brand">
 					<small>
 						<div class="logo">
-							<img class="logo__manzana " src="./assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
+							<img class="logo__manzana " src="./assets/images/Logo Final Blanco sin texto-01.png"
+								alt="Imagen Logo">
 							<h2 class="name_app">Nutri-sys</h2>
 						</div>
 					</small>
@@ -74,7 +76,7 @@
 
 			<div class="navbar-buttons navbar-header pull-right" role="navigation">
 				<ul class="nav ace-nav">
-					
+
 
 					<li class="purple dropdown-modal">
 						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -82,7 +84,8 @@
 							<span class="badge badge-important">8</span>
 						</a>
 
-						<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+						<ul
+							class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
 							<li class="dropdown-header">
 								<i class="ace-icon fa fa-exclamation-triangle"></i>
 								8 Notifications
@@ -160,7 +163,8 @@
 								<ul class="dropdown-menu dropdown-navbar">
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar.png" class="msg-photo" alt="Alex's Avatar" />
+											<img src="assets/images/avatars/avatar.png" class="msg-photo"
+												alt="Alex's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
 													<span class="blue">Alex:</span>
@@ -177,7 +181,8 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar3.png" class="msg-photo" alt="Susan's Avatar" />
+											<img src="assets/images/avatars/avatar3.png" class="msg-photo"
+												alt="Susan's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
 													<span class="blue">Susan:</span>
@@ -194,7 +199,8 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar4.png" class="msg-photo" alt="Bob's Avatar" />
+											<img src="assets/images/avatars/avatar4.png" class="msg-photo"
+												alt="Bob's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
 													<span class="blue">Bob:</span>
@@ -211,7 +217,8 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar2.png" class="msg-photo" alt="Kate's Avatar" />
+											<img src="assets/images/avatars/avatar2.png" class="msg-photo"
+												alt="Kate's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
 													<span class="blue">Kate:</span>
@@ -228,11 +235,12 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar5.png" class="msg-photo" alt="Fred's Avatar" />
+											<img src="assets/images/avatars/avatar5.png" class="msg-photo"
+												alt="Fred's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
 													<span class="blue">Fred:</span>
-													Vestibulum id penatibus et auctor  ...
+													Vestibulum id penatibus et auctor ...
 												</span>
 
 												<span class="msg-time">
@@ -265,7 +273,8 @@
 							<i class="ace-icon fa fa-caret-down"></i>
 						</a>
 
-						<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<ul
+							class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
 							<li>
 								<a href="#">
 									<i class="ace-icon fa fa-cog"></i>
@@ -318,10 +327,33 @@
 
 			<ul class="nav nav-list">
 				<li class="active">
-					<a href="index.html">
+					<a href="index.html" class="dropdown-toggle">
 						<i class="menu-icon fa fa-calendar"></i>
 						<span class="menu-text"> Organizador </span>
+						<b class="arrow fa fa-angle-down"></b>
 					</a>
+
+					<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="active">
+								<a href="RecepcionDeTurnos.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Recepción de Turnos
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="MisTurnos.html">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Mis Turnos
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+						</ul>
 
 
 				</li>
@@ -461,7 +493,7 @@
 
 					<div class="page-header">
 						<h1>
-							Organizador
+							Recepción de Turnos
 							<small>
 								<i class="ace-icon fa fa-angle-double-right"></i>
 							</small>
@@ -491,7 +523,7 @@
 								<div class="col-sm-3">
 									<div class="widget-box transparent">
 										<div class="widget-header">
-											<h4>Draggable events</h4>
+											<h4>Turnos rápidos</h4>
 										</div>
 
 										<div class="widget-body">
@@ -499,16 +531,16 @@
 												<div id="external-events">
 													<div class="external-event label-grey" data-class="label-grey">
 														<i class="ace-icon fa fa-arrows"></i>
-														No disponible
+														Consulta
 													</div>
 
-													<div class="external-event label-success"
-														data-class="label-success">
+													<div class="external-event label-danger"
+														data-class="label-danger">
 														<i class="ace-icon fa fa-arrows"></i>
 														Reservado
 													</div>
 
-													<div class="external-event label-danger" data-class="label-danger">
+													<!-- <div class="external-event label-danger" data-class="label-danger">
 														<i class="ace-icon fa fa-arrows"></i>
 														My Event 3
 													</div>
@@ -531,7 +563,7 @@
 													<div class="external-event label-info" data-class="label-info">
 														<i class="ace-icon fa fa-arrows"></i>
 														My Event 7
-													</div>
+													</div> -->
 
 													<label>
 														<input type="checkbox" class="ace ace-checkbox"
@@ -543,6 +575,34 @@
 										</div>
 									</div>
 								</div>
+
+								<div class="col-sm-3">
+									<div class="widget-box transparent">
+										<div class="widget-header">
+											<h4>Referencias</h4>
+										</div>
+
+										<div class="widget-body">
+											<div class="widget-main no-padding">
+												<div id="external-events">
+													<div class="label-grey" data-class="label-grey" style="padding: 1rem; margin: 1rem 0;">
+														<!-- <i class="ace-icon fa fa-arrows"></i> -->
+														Apartado - Sin confirmar
+													</div>
+
+													<div class="label-primary"
+														data-class="label-primary" style="padding: 1rem; margin: 1rem 0;">
+														<!-- <i class="ace-icon fa fa-arrows"></i> -->
+														Confirmado
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+
 							</div>
 
 							<!-- PAGE CONTENT ENDS -->
@@ -645,6 +705,13 @@
 					center: 'title',
 					right: 'month,agendaWeek,agendaDay'
 				},
+				dayClick:function(date,jsEvent,view){
+					var dia = date.format();
+					console.log(date.format());
+					$('#calendar').fullCalendar('gotoDate',date.format());
+            		$('#calendar').fullCalendar('changeView','agendaDay');
+				}
+				,
 				events: [
 					// {
 					// 	title: 'All Day Event',
@@ -659,14 +726,14 @@
 					// },
 					// {
 					// 	title: 'Some Event',
-					// 	start: new Date(y, m, d - 3, 16, 0),
+					// 	start: new Date(y, m, d - 4, 15, 30),
 					// 	allDay: false,
 					// 	className: 'label-info'
 					// }
 				]
 				,
 
-				/**eventResize: function(event, delta, revertFunc) {
+				eventResize: function(event, delta, revertFunc) {
 		
 					alert(event.title + " end is now " + event.end.format());
 		
@@ -674,7 +741,7 @@
 						revertFunc();
 					}
 		
-				},*/
+				},
 
 				editable: true,
 				droppable: true, // this allows things to be dropped onto the calendar !!!
@@ -690,6 +757,8 @@
 
 					// assign it the date that was reported
 					copiedEventObject.start = date;
+					copiedEventObject.end = date;
+
 					copiedEventObject.allDay = false;
 					if ($extraEventClass) copiedEventObject['className'] = [$extraEventClass];
 
@@ -707,29 +776,35 @@
 				,
 				selectable: true,
 				selectHelper: true,
-				select: function (start, end, allDay) {
+				// select: function (start, end, allDay) {
 
-					bootbox.prompt("Nuevo Turno:", function (title) {
-						if (title !== null) {
-							calendar.fullCalendar('renderEvent',
-								{
-									title: title,
-									start: start,
-									end: end,
-									allDay: allDay,
-									className: 'label-info'
-								},
-								true // make the event "stick"
-							);
-						}
-					});
+				// 	bootbox.prompt("Nuevo Turno:", function (title) {
+				// 		if (title !== null) {
+				// 			calendar.fullCalendar('renderEvent',
+				// 				{
+				// 					title: title,
+				// 					start: start,
+				// 					end: end,
+				// 					allDay: allDay,
+				// 					className: 'label-info'
+				// 				},
+				// 				true // make the event "stick"
+				// 			);
+				// 		}
+				// 	});
 
 
-					calendar.fullCalendar('unselect');
-				}
-				,
+
+
+				// 	calendar.fullCalendar('unselect');
+				// }
+				// ,
+
 				eventClick: function (calEvent, jsEvent, view) {
 
+
+					console.log('Event: ' + calEvent._start._d);
+					console.log('Event: ' + calEvent._end._d);
 					//display a modal
 					var modal =
 						'<div class="modal fade">\
@@ -739,17 +814,14 @@
 				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
 				   <form class="no-margin">\
 					  <label>HC Paciente: &nbsp;</label>\
-					  <input class="middle" autocomplete="off" type="text" value="' + calEvent.title + '" />\
-					  <select class="form-control" id="form-field-select-1" value="' + calEvent.title + '" />\
-						<option value=" ' + calEvent.title + ' ">Alabama</option>\
-						<option value=" ' + calEvent.title + ' ">Alaska</option>\
-						<option value=" ' + calEvent.title + ' ">Arizona</option>\
-					  </select>\
-					 <button type="submit" class="btn btn-sm btn-success"><i class="ace-icon fa fa-check"></i> Save</button>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" />\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" />\
+					 	<button id="btnGuardar" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-check"></i> Guardar</button>\
 				   </form>\
 				 </div>\
 				 <div class="modal-footer">\
-					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Delete Event</button>\
+					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Cancelar Turno</button>\
 					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
 				 </div>\
 			  </div>\
@@ -760,11 +832,33 @@
 					var modal = $(modal).appendTo('body');
 					modal.find('form').on('submit', function (ev) {
 						ev.preventDefault();
+						var documento;
+						documento = $(this).find("input[type=number]").val();
+						if(validarDoc(documento.toString())){
+							calEvent.title = buscarHCPorDoc(documento.toString());
+						}
+						else{
+							calEvent.title = $(this).find("input[type=text]").val();
+						}
+						
+						if (verificarPaciente(calEvent.title)) {
+							if (confirmarTurno(calEvent._start._d)) {
+								generarTurno(calEvent.title,calEvent._start._d,calEvent._end._d);
+								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title) ;
+								calEvent.title = turno;
+								// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
+								calEvent.className = 'label-primary';
+								calendar.fullCalendar('updateEvent', calEvent);
+								console.log(calEvent._start._d);
+								modal.modal("hide");
 
-						calEvent.title = $(this).find("input[type=text]").val();
-						calendar.fullCalendar('updateEvent', calEvent);
-						modal.modal("hide");
+							}
+						}
+						else {
+							alert("Paciente no encontrado. HC o Documento inválido.");
+						}
 					});
+
 					modal.find('button[data-action=delete]').on('click', function () {
 						calendar.fullCalendar('removeEvents', function (ev) {
 							return (ev._id == calEvent._id);
@@ -772,24 +866,36 @@
 						modal.modal("hide");
 					});
 
+
 					modal.modal('show').on('hidden', function () {
 						modal.remove();
 					});
 
+					// var hc = $(this).find("input[type=text]").val();
+					// hc.addEventListener('keyup'),(event)=>{
+					// 	var inputText = event.path
+					// }
 
 					//console.log(calEvent.id);
 					//console.log(jsEvent);
 					//console.log(view);
 
 					// change the border color just for fun
-					//$(this).css('border-color', 'red');
+					// $(this).css('border-color', 'red');
 
 				}
 
+				
+				
+
 			});
+
+			
 
 
 		})
+
+
 	</script>
 </body>
 

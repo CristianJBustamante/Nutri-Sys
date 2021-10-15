@@ -6,7 +6,7 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import { getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito} from "../controllers/consultas.controller";
+import {registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -67,6 +67,14 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',Auth
 });
   
 
+//------------------------CONSULTA GENERAL
+router.get('/consulta/registrarconsulta/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultas/ConsultaGeneral.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
+
 //--------------------------------------ACCESO A DATOS----------------------------------------------
   //-------------FICHA INICIAL
   router.post('/registrarfichainicial', registrarfichainicial)
@@ -94,6 +102,7 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',Auth
 
     //--------------CONSULTA
   router.post('/consulta', registrarconsulta)
+  router.post('/nuevaconsulta', registrarconsulta2)
   router.get('/consulta/:cons_idturno', getconsultaxturno)
 
  //Consultas

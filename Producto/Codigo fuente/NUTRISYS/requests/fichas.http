@@ -25,13 +25,23 @@ Content-Type: application/json
 
 ###
 
-POST {{api}}/detallehabitos
+POST {{api}}/nuevaconsulta
 Content-Type: application/json
 
 {
-    "dhabpac_id": 1,
-    "dhabpac_idhabito": 2,
-    "dhabpac_observaciones": ""
+    "cons_idturno": 222,
+    "cons_observaciones": "prueba",
+    "cons_edad": 23,
+    "cons_peso": 23.4,
+    "cons_talla": 1.5,
+    "cons_IMC": 43,
+    "cons_CCM":43,
+    "cons_CCU":43,
+    "cons_CCP":43,
+    "cons_GC":43,
+    "cons_GV":43,
+    "cons_M":43,
+    "cons_PBI":
     
 }
 

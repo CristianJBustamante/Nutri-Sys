@@ -8,7 +8,7 @@ module.exports = {
     },
     isLogged2: function(req, res, next){
         if(req.isAuthenticated()){
-            res.redirect('/welcome')
+            res.redirect('/pacientes/buscarpaciente')
         }else{
             next();
         }

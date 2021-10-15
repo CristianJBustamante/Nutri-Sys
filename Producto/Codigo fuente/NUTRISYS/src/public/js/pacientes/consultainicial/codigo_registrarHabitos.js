@@ -118,6 +118,9 @@ function registrarhabitos() {
         }  
 		//alert(opt.value);
 	}}
+    swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
+                .then((value) => {
+                        location.href ="/pacientes/buscarpaciente"})
     }else{
         swal("Atención","Debe seleccionar al menos un hábito de la grilla.","warning" )
     }

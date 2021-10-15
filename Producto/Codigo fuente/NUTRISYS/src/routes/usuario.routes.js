@@ -41,8 +41,8 @@ router.get('/usuarios',getallusers)
 router.get('/datosusuario/:usu_usuario',getDatosUsuario)
 router.post('/usuario',nuevousuario)
 router.post('/usuario/login', passport.authenticate('local',{
-  successRedirect : '../welcome',
-  failureRedirect : '../usuarios/login',
+  successRedirect : '/pacientes/buscarpaciente',
+  failureRedirect : '/usuarios/login',
 
 }))
   //logout

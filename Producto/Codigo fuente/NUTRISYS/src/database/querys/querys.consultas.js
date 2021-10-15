@@ -4,6 +4,13 @@ registrarconsulta: "INSERT INTO consulta(cons_idturno,cons_observaciones) "+
 "VALUES (@cons_idturno,@cons_observaciones)",
 getconsultaxturno: "SELECT * FROM consulta where cons_idturno=@cons_idturno",
 
+registrarconsulta2: "INSERT INTO consulta(cons_idturno,cons_observaciones,cons_edad,cons_peso,cons_talla,"+
+                                            "cons_IMC,cons_CCM,cons_CCU,cons_CCP,cons_GC,cons_GV,cons_M,cons_PBI) "+
+                            "VALUES (@cons_idturno,@cons_observaciones,@cons_edad,@cons_peso,"+
+                            "@cons_talla,@cons_IMC,@cons_CCM,@cons_CCU,"+
+                            "@cons_CCP,@cons_GC,@cons_GV,@cons_M,"+
+                            "@cons_PBI)",
+
 //-------------------------------------------------CONSULTA INICIAL------------------------------------------------------
 
 //FICHA INICIAL
@@ -122,14 +129,14 @@ getconsultaxturno: "SELECT * FROM consulta where cons_idturno=@cons_idturno",
     getultimoshabitos: "select hab_id,hab_descripcion "+
                         "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
                         "inner join habito h on h.hab_id=dhabpac_idhabito "+
-                        "where habpac_nrohc=1000 and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
-                                                                "where habpac_nrohc=1000)",
+                        "where habpac_nrohc=@habpac_nrohc and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
+                                                                "where habpac_nrohc=@habpac_nrohc)",
     
     getprimeroshabitos: "select hab_id,hab_descripcion "+
                         "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
                         "inner join habito h on h.hab_id=dhabpac_idhabito "+
-                        "where habpac_nrohc=1000 and dhabpac_id=(select min(habpac_id) from habitos_paciente "+
-                                                                "where habpac_nrohc=1000)",
+                        "where habpac_nrohc=@habpac_nrohc and dhabpac_id=(select min(habpac_id) from habitos_paciente "+
+                                                                "where habpac_nrohc=@habpac_nrohc)",
 
 //ANTROPOMETRÍA
 

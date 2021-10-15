@@ -30,7 +30,7 @@ const mostrarData = (data) => {
     }
 
 //Cargar habitos
-    /* if (nuevo=1) {
+     if (nuevo=1) {
     
 
         let queryh = 'http://localhost:3000/habitos'
@@ -40,12 +40,15 @@ const mostrarData = (data) => {
                 .catch(error => console.log(error))
         const cargarhabitos = (hab) => {
             console.log(hab)   
-            
+            const $select = document.querySelector("#duallist");
             for (let i = 0; i<hab.length; i++){
-                agregaritem(hab,i)
+                const option = document.createElement('option');
+                option.value = hab[i].hab_id
+                option.text = hab[i].hab_descripcion;
+                $select.appendChild(option); 
             }
         }}
- */
+ 
 
 
 

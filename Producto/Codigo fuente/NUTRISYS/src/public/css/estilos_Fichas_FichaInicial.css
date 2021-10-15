@@ -346,6 +346,18 @@ span{
     font-weight: normal;
     padding: 0.5rem 0rem 0.5rem 4rem;
 }
+a:hover{
+    color:var(--negro);
+    text-decoration: none;
+    cursor: pointer;
+}
+/*quitar las flechas de los inputs */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
 
 /*** CSS FICHA INICIAL ***/
 
@@ -367,6 +379,7 @@ margin-left: 2rem;
     margin-right: 5%;
     align-items: center;
     align-content: center;
+    resize: none;
 }
 .formulario__laboratorios{
 border-color: var(--grisOscuro);
@@ -437,8 +450,8 @@ font-family: var(--fuentePrincipal);
     font-family: var(--fuentePrincipal);
     border-color: var(--grisOscuro);
     display: grid;
-    margin-right: 5%;
-    margin-left: 2rem;
+    margin-right: 32%;
+    margin-left: 30rem;
     grid-template-columns: 40% 40%;
     justify-content: space-around;
     column-gap: 20%;
@@ -461,7 +474,7 @@ font-family: var(--fuentePrincipal);
     width: 15rem;
     margin-top: 0rem;
     margin-left: 10rem; 
-    text-align: center;
+    /* text-align: center; */
 }
 
 .input__valor--diametro{
@@ -471,7 +484,7 @@ font-family: var(--fuentePrincipal);
     margin-top: -4rem;
     margin-bottom: 4rem;
     margin-left: 10rem; 
-    text-align: center;
+    /* text-align: center; */
 }
 
 .tabla__antro--contenido-2{
@@ -588,6 +601,16 @@ label{
         /* margin-left: 2rem;
         margin-top: -4rem; */
 }
+
+.seccion__class2{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.tabla__antro--contenidoMedida{
+    font-size: 1.4rem;
+    color: var(--grisOscuro);
+}
 /** RESPONSIVIDAD :O**/
 /*********************/
 
@@ -657,6 +680,7 @@ label{
         align-items: center;
         margin-left: 6rem;
         width: 70%;
+        
     }
     .nav__solapa{
         font-size: 1.3rem;
@@ -735,7 +759,7 @@ label{
             margin-left: 5rem;
         }
         .contenido__input{
-            margin: 1rem 5rem;
+            margin: 1rem 1rem;
             width: 55%;
         }
         h2{
@@ -750,10 +774,13 @@ label{
         }
         
         .contenido__input--edad{
-            width: 14rem;
-            margin-top: 2rem;
-            height: 5rem;
-            margin-left: 0rem;
+            width: 38rem;
+            margin-top: 1rem;
+            height: 13rem;
+            margin-left: -1rem;
+        }
+        .encabezado__datosPaciente{
+            margin: 1rem;
         }
    
         .area__observaciones{
@@ -762,44 +789,49 @@ label{
         }
         
         .nav__solapa--seleccionado {
-        font-size: 2rem;
+        font-size: 1.5rem;
         width: 300%;
         }
         .nav__solapa {
-            width: 380%;
-            font-size: 1.2rem;
+            width: 34%;
+            font-size: 1.1rem;
+        
         }
         /*antro*/
         .tabla__antro--contenido{
-            margin-left: -15rem;
+            margin-left: 0rem;
         }
         .input__valor{
-            margin-left: 15rem;
+            margin-left: 7rem;
         }
         .input__valor--peso{
             width: 15rem;
-            margin-left: 15rem;
+            margin-left: 7rem;
         }
         .input__valor--peso2{
             width: 15rem;
-            margin-left: 15rem;
+            margin-left: 7rem;
         }
         .input__valor--diametro{
             width: 15rem;
-            margin-left: 15rem;
+            margin-left: 7rem;
         }
 
         .tabla__antro--contenido-2{
-            margin-left: 0rem;
+            margin-left: -1rem;
+            margin-top: 4rem;
         }
         .input__valor-2{
-            margin-left: 15rem;
+            margin-left: 8rem;
+            width: 15rem;
         }
         .input__valor-3{
-            margin-left: 15rem;
+            margin-left: 8rem;
+            
         }
         .input__valor-4{
-            margin-left: 15rem;
+            margin-left: 8rem;
+            width: 15rem;
         }
         .boton{
                 margin-left: 1rem;

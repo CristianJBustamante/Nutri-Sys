@@ -62,7 +62,11 @@ h3{
     font-family: var(--fuentePrincipal);
     font-size: 1.5rem;
 }
-
+a:hover{
+    color:var(--negro);
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .flex-imageItem{
     width: 10rem;

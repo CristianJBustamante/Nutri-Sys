@@ -19,7 +19,11 @@ html{
     /*Solucion Corte*/
     height: 100%;
 }
-
+a:hover{
+    color:var(--negro);
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 

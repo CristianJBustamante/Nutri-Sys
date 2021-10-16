@@ -74,6 +74,14 @@ h2{
     margin: 1rem  auto;
 }
 
+/*quitar las flechas de los inputs */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
 /*************************/
 /** CONTENIDO A UN LADO **/
 /*************************/
@@ -196,7 +204,7 @@ h2{
 }
 
 .titulo__datosPersonales{
-    background-color: var(--grisOscuro);
+    background-color: var(--primario);
     margin: 2rem;
 }
 
@@ -229,12 +237,17 @@ h2{
     border-radius: 10px;
 }
 
-
 .btn__crear{
+    font-family: var(--fuentePrincipal);
     background-color: var(--primario);
-    color: var(--negro);
-    margin: 2rem;
-    padding: 1rem;
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
 }
 
 

@@ -397,7 +397,7 @@ span{
 }
 
 .titulo__seccion{
-    background-color: var(--primario);
+    /* background-color: var(--primario); */
     color: var(--negro);
     font-weight: normal;
     padding: 1rem 1rem;
@@ -424,7 +424,11 @@ span{
     margin-bottom: 3rem;
 }
 .titulo__2{
-    background-color: var(--grisOscuro);
+    background-color: var(--grisClaro);
+}
+a:hover{
+    color: #000;
+    /* text-decoration: none; */
 }
 
 /*** CSS FICHA INICIAL ***/
@@ -517,12 +521,11 @@ font-family: var(--fuentePrincipal);
     font-family: var(--fuentePrincipal);
     border-color: var(--grisOscuro);
     display: grid;
-    margin-right: 5%;
-    margin-left: 2rem;
+    margin-right: 32%;
+    margin-left: 30rem;
     grid-template-columns: 40% 40%;
     justify-content: space-around;
     column-gap: 20%;
-    margin-bottom: 3rem;
 }
 
 .tabla__antro--contenido-peso{
@@ -673,7 +676,7 @@ label{
 /*********************/
 
 /*------------------------------------*/
-    @media(max-width:1000px){
+@media(max-width:1000px){
     
     .contenedorOpciones{
         width: 25%;
@@ -738,6 +741,7 @@ label{
         align-items: center;
         margin-left: 6rem;
         width: 70%;
+        
     }
     .nav__solapa{
         font-size: 1.3rem;
@@ -751,7 +755,7 @@ label{
         display: grid;
         text-align: center;
         align-items: center;
-        margin-right: 9rem;
+        margin-right: 15rem;
     }
 
     .input__valor{
@@ -820,8 +824,7 @@ label{
             width: 55%;
         }
         h2{
-            font-size: 1.4rem;
-            margin-left: 1rem;
+            font-size: 1.7rem;
         }
 
         .contenido__fecha{ 
@@ -832,10 +835,13 @@ label{
         }
         
         .contenido__input--edad{
-            width: 14rem;
-            margin-top: 2rem;
-            height: 5rem;
-            margin-left: 0rem;
+            width: 38rem;
+            margin-top: 1rem;
+            height: 13rem;
+            margin-left: -1rem;
+        }
+        .encabezado__datosPaciente{
+            margin: 1rem;
         }
    
         .area__observaciones{
@@ -844,48 +850,49 @@ label{
         }
         
         .nav__solapa--seleccionado {
-            font-size: 1.1rem;
-            width: auto;
+        font-size: 1.5rem;
+        width: 300%;
         }
         .nav__solapa {
-            width: auto;
+            width: 34%;
             font-size: 1.1rem;
+        
         }
         /*antro*/
         .tabla__antro--contenido{
-            margin-left: -15rem;
+            margin-left: 0rem;
         }
-       .tabla__antro--contenido__cc{
-           padding-left: 1rem;
-       }
         .input__valor{
-            margin-left: 5rem;
+            margin-left: 7rem;
         }
         .input__valor--peso{
             width: 15rem;
-            margin-left: 5rem;
+            margin-left: 7rem;
         }
         .input__valor--peso2{
             width: 15rem;
-            margin-left: 5rem;
+            margin-left: 7rem;
         }
         .input__valor--diametro{
             width: 15rem;
-            margin-left: 5rem;
+            margin-left: 7rem;
         }
 
         .tabla__antro--contenido-2{
-            margin-left: -3rem;
-            margin-top: 0rem;
+            margin-left: -1rem;
+            margin-top: 4rem;
         }
         .input__valor-2{
-            margin-left: 7rem;
+            margin-left: 8rem;
+            width: 15rem;
         }
         .input__valor-3{
-            margin-left: 7rem;
+            margin-left: 8rem;
+            
         }
         .input__valor-4{
-            margin-left: 7rem;
+            margin-left: 8rem;
+            width: 15rem;
         }
         .boton{
                 margin-left: 1rem;

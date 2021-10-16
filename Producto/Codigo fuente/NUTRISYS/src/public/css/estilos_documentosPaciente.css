@@ -82,6 +82,9 @@ h3{
     height: 5rem;
     margin: 1rem  auto;
 }
+a:hover{
+    color: #000;
+}
 
 /*************************/
 /** CONTENIDO A UN LADO **/

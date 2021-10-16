@@ -348,9 +348,9 @@ span{
 }
 a:hover{
     color:var(--negro);
-    text-decoration: none;
     cursor: pointer;
 }
+
 /*quitar las flechas de los inputs */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 

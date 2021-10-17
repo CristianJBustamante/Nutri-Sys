@@ -9,7 +9,7 @@ fetch(query)
 const mostrarData = (data) => {
     console.log(data) 
     let solapas=''
-    solapas += `<a class="nav__solapa"  href="../consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a><a class="nav__solapa" href="../consultapaciente/hc=${data.pac_nrohc}">Resumen </a><a class="nav__solapa--seleccionado" href="../consultapacienteevolucion/hc=${data.pac_nrohc}">Hábitos</a><a class="nav__solapa" href="../consultapacientefichas/hc=${data.pac_nrohc}">Fichas</a><a class="nav__solapa" href="../consultapacienteplan/hc=${data.pac_nrohc}">Planes</a><a class="nav__solapa" href="../consultapacientedocumentos/hc=${data.pac_nrohc}">Documentos</a><a class="nav__solapa" href="../consultapacienteestudios/hc=${data.pac_nrohc}">Estudios</a><a class="nav__solapa--resto"></a>`
+    solapas += `<a class="nav__solapa"  href="../consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a><a class="nav__solapa" href="../consultapaciente/hc=${data.pac_nrohc}">Resumen </a><a class="nav__solapa--seleccionado" href="../consultapacienteevolucion/hc=${data.pac_nrohc}">Hábitos</a><a class="nav__solapa" href="../consultapacientefichas/hc=${data.pac_nrohc}">Evoluciones</a><a class="nav__solapa" href="../consultapacienteplan/hc=${data.pac_nrohc}">Planes</a><a class="nav__solapa" href="../consultapacientedocumentos/hc=${data.pac_nrohc}">Documentos</a><a class="nav__solapa" href="../consultapacienteestudios/hc=${data.pac_nrohc}">Estudios</a><a class="nav__solapa--resto"></a>`
     let cabecera =''
     document.getElementById('solapas').innerHTML = solapas
     cabecera += `<h2>Paciente: ${data.pac_apellido}, ${data.pac_nombre}</h2><h2>HC: ${data.pac_nrohc}</h2><h2>DOC.: ${data.pac_nrodoc}</h2><h2>FN: ${data.pac_fechanac}</h2>`        

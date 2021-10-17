@@ -1,146 +1,12 @@
 import {getConnection,sql,pacquerys} from "../database";
 
-//CONSULTAR TODOS LOS PACIENTES
-export const getPacientes = async (req,res) => {  
-    try {
-        const pool = await getConnection();
-        const result = await pool.request().query(pacquerys.getPaciente);
-        res.json(result.recordset);
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-};
-
-//CONSULTAR PACIENTE POR HC
-export const getPacienteXHC = async(req,res) => {
-    try {
-        const {pac_nrohc} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc).query(pacquerys.getPacienteXHC)
-        res.send(result.recordset[0])
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-//CONSULTAR PACIENTE POR APELLIDO
-export const getPacienteXap = async(req,res) => {
-    try {
-        const {pac_apellido} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_apellido', pac_apellido).query(pacquerys.getPacienteXApellido)
-        res.json(result.recordset);
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-//CONSULTAR PACIENTE POR HC SIMILAR
-export const getPacienteLikeHC = async(req,res) => {
-    try {
-        const {pac_nrohc} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc).query(pacquerys.getPacientelikeHC)
-        res.json(result.recordset);
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-//CONSULTAR PACIENTE POR DOC
-export const getPacienteLikeDoc = async(req,res) => {
-    try {
-        const {pac_nrodoc} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_nrodoc', pac_nrodoc).query(pacquerys.getPacienteXDoc)
-        res.json(result.recordset);
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-//CONSULTAR PACIENTE POR HC,APELLIDO,DOC
-export const getPacienteMixto = async(req,res) => {
-    try {
-        const {pac_nrohc} = req.params
-        const {pac_apellido} = req.params
-        const {pac_nrodoc} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc)
-            .input('pac_apellido', pac_apellido)
-            .input('pac_nrodoc', pac_nrodoc)
-            .query(pacquerys.getPacienteHCAPDoc)
-        res.send(result.recordset)
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-//CONSULTAR PACIENTE POR HC,APELLIDO
-export const getPacienteHCAP = async(req,res) => {
-    try {
-        const {pac_nrohc} = req.params
-        const {pac_apellido} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc)
-            .input('pac_apellido', pac_apellido)
-            .query(pacquerys.getPacienteHCAP)
-        res.send(result.recordset)
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-
-//CONSULTAR PACIENTE POR HC,DOC
-export const getPacienteHCDoc = async(req,res) => {
-    try {
-        const {pac_nrohc} = req.params
-        const {pac_nrodoc} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_nrohc', pac_nrohc)
-            .input('pac_nrodoc', pac_nrodoc)
-            .query(pacquerys.getPacienteHCDoc)
-        res.send(result.recordset)
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-//CONSULTAR PACIENTE POR APELLIDO,DOC
-export const getPacienteAPDoc = async(req,res) => {
-    try {
-        const {pac_apellido} = req.params
-        const {pac_nrodoc} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_apellido', pac_apellido)
-            .input('pac_nrodoc', pac_nrodoc)
-            .query(pacquerys.getPacienteAPDoc)
-        res.send(result.recordset)
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-} 
-
-//----------------------------------------------------------------------------------
-//INSERTAR NUEVO PACIENTE
+//----------------------------------------------REGISTRAR----------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//PACIENTE
 export const nuevoPaciente = async (req,res) => {
     const { pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,
             pac_telefono1,pac_correo,pac_fechanacimiento,pac_mutual } = req.body;
@@ -180,21 +46,14 @@ export const nuevoPaciente = async (req,res) => {
         res.send(error.message);
     }         
 }
-//ELIMINAR PACIENTE POR HC
-export const eliminarPaciente = async(req,res) => {
-    try {
-        const {pac_nrohc} = req.params
-        const pool = await getConnection()
-        const result = await pool.request()
-            .input('pac_nrohc',pac_nrohc).query(pacquerys.borrarPaciente)
-    res.sendStatus(204);
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }
-}
 
-//ACTUALIZAR PACIENTE POR HC
+//----------------------------------------------ACTUALIZAR---------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//PACIENTE
 export const actualizarPaciente = async(req,res) => {
     const { pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,
         pac_telefono1,pac_correo,pac_fechanacimiento,pac_mutual } = req.body;
@@ -234,6 +93,172 @@ let {pac_direccion,pac_telefono2,pac_mutual2,pac_barrio} = req.body;
     } catch (error) {
         res.status(500);
         res.send(error.message);
-    }
-    
+    } 
 }
+
+//------------------------------------------------ELIMINAR---------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//PACIENTE
+export const eliminarPaciente = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc',pac_nrohc).query(pacquerys.borrarPaciente)
+    res.sendStatus(204);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}  
+
+//----------------------------------------------CONSULTAR----------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------
+
+//PACIENTES
+export const getPacientes = async (req,res) => {  
+    try {
+        const pool = await getConnection();
+        const result = await pool.request().query(pacquerys.getPaciente);
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+};
+
+//PACIENTE X HC
+export const getPacienteXHC = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc).query(pacquerys.getPacienteXHC)
+        res.send(result.recordset[0])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//PACIENTE X APELLIDO
+export const getPacienteXap = async(req,res) => {
+    try {
+        const {pac_apellido} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_apellido', pac_apellido).query(pacquerys.getPacienteXApellido)
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//PACIENTE X HC SIMILAR
+export const getPacienteLikeHC = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc).query(pacquerys.getPacientelikeHC)
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//PACIENTE X DNI
+export const getPacienteLikeDoc = async(req,res) => {
+    try {
+        const {pac_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrodoc', pac_nrodoc).query(pacquerys.getPacienteXDoc)
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//PACIENTE X HC, APELLIDO Y DNI
+export const getPacienteMixto = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const {pac_apellido} = req.params
+        const {pac_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc)
+            .input('pac_apellido', pac_apellido)
+            .input('pac_nrodoc', pac_nrodoc)
+            .query(pacquerys.getPacienteHCAPDoc)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//PACIENTE X HC Y APELLIDO
+export const getPacienteHCAP = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const {pac_apellido} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc)
+            .input('pac_apellido', pac_apellido)
+            .query(pacquerys.getPacienteHCAP)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+
+//PACIENTE X HC Y DNI
+export const getPacienteHCDoc = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const {pac_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc)
+            .input('pac_nrodoc', pac_nrodoc)
+            .query(pacquerys.getPacienteHCDoc)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//PACIENTE X DNI Y APELLIDO
+export const getPacienteAPDoc = async(req,res) => {
+    try {
+        const {pac_apellido} = req.params
+        const {pac_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_apellido', pac_apellido)
+            .input('pac_nrodoc', pac_nrodoc)
+            .query(pacquerys.getPacienteAPDoc)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+

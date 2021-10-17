@@ -10,24 +10,24 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 	<!-- bootstrap & fontawesome -->
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="assets/font-awesome/4.5.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 	<!-- page specific plugin styles -->
-	<link rel="stylesheet" href="assets/css/jquery-ui.custom.min.css" />
-	<link rel="stylesheet" href="assets/css/fullcalendar.min.css" />
+	<link rel="stylesheet" href="/assets/css/jquery-ui.custom.min.css" />
+	<link rel="stylesheet" href="/assets/css/fullcalendar.min.css" />
 
 	<!-- text fonts -->
-	<link rel="stylesheet" href="assets/css/fonts.googleapis.com.css" />
+	<link rel="stylesheet" href="/assets/css/fonts.googleapis.com.css" />
 
 	<!-- ace styles -->
-	<link rel="stylesheet" href="assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
+	<link rel="stylesheet" href="/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
 
 	<!--[if lte IE 9]>
 			<link rel="stylesheet" href="assets/css/ace-part2.min.css" class="ace-main-stylesheet" />
 		<![endif]-->
-	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
-	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
+	<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
 
 	<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -36,8 +36,8 @@
 	<!-- inline styles related to this page -->
 
 	<!-- ace settings handler -->
-	<script src="assets/js/ace-extra.min.js"></script>
-	<script src="assets/js/recepcionDeTurnos.js"></script>
+	<script src="/assets/js/ace-extra.min.js"></script>
+	<script src="/js/pacientes/turnos/misTurnos.js"></script>
 
 	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -46,7 +46,7 @@
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
 
-	<link rel="stylesheet" href="assets/css/estilo_plantilla.css" />
+	<link rel="stylesheet" href="/assets/css/estilo_plantilla.css" />
 </head>
 
 <body class="no-skin">
@@ -66,7 +66,7 @@
 				<a href="index.html" class="navbar-brand">
 					<small>
 						<div class="logo">
-							<img class="logo__manzana " src="./assets/images/Logo Final Blanco sin texto-01.png"
+							<img class="logo__manzana " src="/assets/images/Logo Final Blanco sin texto-01.png"
 								alt="Imagen Logo">
 							<h2 class="name_app">Nutri-sys</h2>
 						</div>
@@ -163,7 +163,7 @@
 								<ul class="dropdown-menu dropdown-navbar">
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar.png" class="msg-photo"
 												alt="Alex's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -181,7 +181,7 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar3.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar3.png" class="msg-photo"
 												alt="Susan's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -199,7 +199,7 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar4.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar4.png" class="msg-photo"
 												alt="Bob's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -217,7 +217,7 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar2.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar2.png" class="msg-photo"
 												alt="Kate's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -235,7 +235,7 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar5.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar5.png" class="msg-photo"
 												alt="Fred's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -264,7 +264,7 @@
 
 					<li class="light-blue dropdown-modal">
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-							<img class="nav-user-photo" src="assets/images/avatars/user.jpg" alt="Jason's Photo" />
+							<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 							<span class="user-info">
 								<small>Apellido,</small>
 								Nombre
@@ -565,7 +565,7 @@
 	<!-- basic scripts -->
 
 	<!--[if !IE]> -->
-	<script src="assets/js/jquery-2.1.4.min.js"></script>
+	<script src="/assets/js/jquery-2.1.4.min.js"></script>
 
 	<!-- <![endif]-->
 
@@ -575,18 +575,18 @@
 	<script type="text/javascript">
 		if ('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
 	</script>
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="/assets/js/bootstrap.min.js"></script>
 
 	<!-- page specific plugin scripts -->
-	<script src="assets/js/jquery-ui.custom.min.js"></script>
-	<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
-	<script src="assets/js/moment.min.js"></script>
-	<script src="assets/js/fullcalendar.min.js"></script>
-	<script src="assets/js/bootbox.js"></script>
+	<script src="/assets/js/jquery-ui.custom.min.js"></script>
+	<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+	<script src="/assets/js/moment.min.js"></script>
+	<script src="/assets/js/fullcalendar.min.js"></script>
+	<script src="/assets/js/bootbox.js"></script>
 
 	<!-- ace scripts -->
-	<script src="assets/js/ace-elements.min.js"></script>
-	<script src="assets/js/ace.min.js"></script>
+	<script src="/assets/js/ace-elements.min.js"></script>
+	<script src="/assets/js/ace.min.js"></script>
 
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
@@ -660,12 +660,13 @@
 					// 	end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
 					// 	className: 'label-success'
 					// },
-					// {
-					// 	title: 'Some Event',
-					// 	start: new Date(y, m, d - 4, 15, 30),
-					// 	allDay: false,
-					// 	className: 'label-info'
-					// }
+					{
+						title: '1001 - Pedro Sanchez - 22321456',
+						start: new Date(y, m, d - 4, 15, 30),
+						allDay: false,
+						className: 'label-success',
+						status: 'Confirmado'
+					}
 				]
 				,
 
@@ -679,8 +680,8 @@
 		
 				// },
 
-				editable: true,
-				droppable: true, // this allows things to be dropped onto the calendar !!!
+				editable: false,
+				droppable: false, // this allows things to be dropped onto the calendar !!!
 				drop: function (date) { // this function is called when something is dropped
 
 					// retrieve the dropped element's stored Event Object
@@ -742,7 +743,9 @@
 					console.log('Event: ' + calEvent._start._d);
 					console.log('Event: ' + calEvent._end._d);
 					//display a modal
-					var modal =
+
+					if(calEvent.status == 'Confirmado'){
+						var modal =
 						'<div class="modal fade">\
 			  <div class="modal-dialog">\
 			   <div class="modal-content">\
@@ -750,49 +753,84 @@
 				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
 				   <form class="no-margin">\
 					  <label>HC Paciente: &nbsp;</label>\
-						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" />\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
 					  <label>Doc Paciente: &nbsp;</label>\
-						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" />\
-					 	<button id="btnGuardar" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-check"></i> Guardar</button>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+					 	<button id="btnReceptar" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-list"></i> Receptar</button>\
 				   </form>\
 				 </div>\
 				 <div class="modal-footer">\
 					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Cancelar Turno</button>\
-					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
 				 </div>\
 			  </div>\
 			 </div>\
 			</div>';
+						}
+						else if(calEvent.status == 'Receptado'){
+							var modal =
+						'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					  <label>HC Paciente: &nbsp;</label>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+					 	<button id="btnAtender" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-list"></i> Atender</button>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+						}
 
 
 					var modal = $(modal).appendTo('body');
 					modal.find('form').on('submit', function (ev) {
 						ev.preventDefault();
-						var documento;
-						documento = $(this).find("input[type=number]").val();
-						if(validarDoc(documento.toString())){
-							calEvent.title = buscarHCPorDoc(documento.toString());
-						}
-						else{
-							calEvent.title = $(this).find("input[type=text]").val();
-						}
-						
-						if (verificarPaciente(calEvent.title)) {
-							if (confirmarTurno(calEvent._start._d)) {
-								generarTurno(calEvent.title,calEvent._start._d,calEvent._end._d);
-								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title) ;
-								calEvent.title = turno;
-								// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
-								calEvent.className = 'label-primary';
-								calendar.fullCalendar('updateEvent', calEvent);
-								console.log(calEvent._start._d);
-								modal.modal("hide");
 
-							}
+						if(calEvent.status == 'Confirmado'){
+							calEvent.status = 'Receptado';
+							alert(calEvent.status);
+							modal.modal("hide");
 						}
-						else {
-							alert("Paciente no encontrado. HC o Documento inválido.");
+						else if(calEvent.status == 'Receptado'){
+							calEvent.status = 'En Atención';
+							alert(calEvent.status);
+							modal.modal("hide");
 						}
+
+						// var documento;
+						// documento = $(this).find("input[type=number]").val();
+						// if(validarDoc(documento.toString())){
+						// 	calEvent.title = buscarHCPorDoc(documento.toString());
+						// }
+						// else{
+						// 	calEvent.title = $(this).find("input[type=text]").val();
+						// }
+						
+						// if (verificarPaciente(calEvent.title)) {
+						// 	if (confirmarTurno(calEvent._start._d)) {
+						// 		generarTurno(calEvent.title,calEvent._start._d,calEvent._end._d);
+						// 		var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title) ;
+						// 		calEvent.title = turno;
+						// 		// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
+						// 		calEvent.className = 'label-primary';
+						// 		calendar.fullCalendar('updateEvent', calEvent);
+						// 		console.log(calEvent._start._d);
+						// 		modal.modal("hide");
+
+						// 	}
+						// }
+						// else {
+						// 	alert("Paciente no encontrado. HC o Documento inválido.");
+						// }
 					});
 
 					modal.find('button[data-action=delete]').on('click', function () {

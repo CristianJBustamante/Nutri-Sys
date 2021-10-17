@@ -7,7 +7,7 @@
     --grisClaro: #f0f3f4;
     --grisMedio: #e5e5e5;
     --grisOscuro: #acadac;
-    --verdeBtonHover: #3abe33;
+    --verdeBtonHover: #3abe33; /* no se usa*/
 
     --fuentePrincipal: 'Open Sans', cursive;
     --fuenteLogo: 'Amatic SC', cursive;
@@ -348,9 +348,9 @@ span{
 }
 a:hover{
     color:var(--negro);
-    text-decoration: none;
     cursor: pointer;
 }
+
 /*quitar las flechas de los inputs */
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 

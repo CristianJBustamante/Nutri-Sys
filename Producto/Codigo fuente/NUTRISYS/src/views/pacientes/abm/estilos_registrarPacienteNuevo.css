@@ -193,7 +193,7 @@ h2{
 }
 
 .titulo__datosPersonales{
-    background-color: var(--grisOscuro);
+    background-color: var(--primario);
     margin: 2rem;
 }
 
@@ -228,10 +228,22 @@ h2{
 
 
 .btn__crear{
-    background-color: var(--primario);
+    /* background-color: var(--primario);
     color: var(--negro);
     margin: 2rem;
-    padding: 1rem;
+    padding: 1rem; */
+
+    font-family: var(--fuentePrincipal);
+    background-color: var(--primario);
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    margin-right: 5%;
 }
 
 

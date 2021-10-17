@@ -21,7 +21,6 @@ html{
 }
 a:hover{
     color:var(--negro);
-    text-decoration: none;
     cursor: pointer;
 }
 
@@ -527,17 +526,16 @@ input::-webkit-inner-spin-button {
 
 .boton{
     font-family: var(--fuentePrincipal);
-    /* margin-top: 6%;
-    margin-bottom: 5%; */
-    margin-left: 85%;
     background-color: var(--primario);
-    color: var(--blanco);
-    /* padding-left: 2%;
-    padding-right: 2%; */
-    padding-top: 1%;
-    padding-bottom: 1%;
+    color: black;
     font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
     text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    float: right;
+    margin-right: 5%;
 }
 .boton:hover{
     background-color:var(--verdeBtonHover);

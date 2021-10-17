@@ -37,7 +37,7 @@
 
 	<!-- ace settings handler -->
 	<script src="/assets/js/ace-extra.min.js"></script>
-	<script src="/assets/js/recepcionDeTurnos.js"></script>
+	<script src="/js/pacientes/turnos/misTurnos.js"></script>
 
 	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -660,12 +660,13 @@
 					// 	end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
 					// 	className: 'label-success'
 					// },
-					// {
-					// 	title: 'Some Event',
-					// 	start: new Date(y, m, d - 4, 15, 30),
-					// 	allDay: false,
-					// 	className: 'label-info'
-					// }
+					{
+						title: '1001 - Pedro Sanchez - 22321456',
+						start: new Date(y, m, d - 4, 15, 30),
+						allDay: false,
+						className: 'label-success',
+						status: 'Confirmado'
+					}
 				]
 				,
 
@@ -679,8 +680,8 @@
 		
 				// },
 
-				editable: true,
-				droppable: true, // this allows things to be dropped onto the calendar !!!
+				editable: false,
+				droppable: false, // this allows things to be dropped onto the calendar !!!
 				drop: function (date) { // this function is called when something is dropped
 
 					// retrieve the dropped element's stored Event Object
@@ -742,7 +743,9 @@
 					console.log('Event: ' + calEvent._start._d);
 					console.log('Event: ' + calEvent._end._d);
 					//display a modal
-					var modal =
+
+					if(calEvent.status == 'Confirmado'){
+						var modal =
 						'<div class="modal fade">\
 			  <div class="modal-dialog">\
 			   <div class="modal-content">\
@@ -750,49 +753,84 @@
 				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
 				   <form class="no-margin">\
 					  <label>HC Paciente: &nbsp;</label>\
-						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" />\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
 					  <label>Doc Paciente: &nbsp;</label>\
-						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" />\
-					 	<button id="btnGuardar" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-check"></i> Guardar</button>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+					 	<button id="btnReceptar" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-list"></i> Receptar</button>\
 				   </form>\
 				 </div>\
 				 <div class="modal-footer">\
 					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Cancelar Turno</button>\
-					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cancel</button>\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
 				 </div>\
 			  </div>\
 			 </div>\
 			</div>';
+						}
+						else if(calEvent.status == 'Receptado'){
+							var modal =
+						'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					  <label>HC Paciente: &nbsp;</label>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+					 	<button id="btnAtender" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-list"></i> Atender</button>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+						}
 
 
 					var modal = $(modal).appendTo('body');
 					modal.find('form').on('submit', function (ev) {
 						ev.preventDefault();
-						var documento;
-						documento = $(this).find("input[type=number]").val();
-						if(validarDoc(documento.toString())){
-							calEvent.title = buscarHCPorDoc(documento.toString());
-						}
-						else{
-							calEvent.title = $(this).find("input[type=text]").val();
-						}
-						
-						if (verificarPaciente(calEvent.title)) {
-							if (confirmarTurno(calEvent._start._d)) {
-								generarTurno(calEvent.title,calEvent._start._d,calEvent._end._d);
-								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title) ;
-								calEvent.title = turno;
-								// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
-								calEvent.className = 'label-primary';
-								calendar.fullCalendar('updateEvent', calEvent);
-								console.log(calEvent._start._d);
-								modal.modal("hide");
 
-							}
+						if(calEvent.status == 'Confirmado'){
+							calEvent.status = 'Receptado';
+							alert(calEvent.status);
+							modal.modal("hide");
 						}
-						else {
-							alert("Paciente no encontrado. HC o Documento inválido.");
+						else if(calEvent.status == 'Receptado'){
+							calEvent.status = 'En Atención';
+							alert(calEvent.status);
+							modal.modal("hide");
 						}
+
+						// var documento;
+						// documento = $(this).find("input[type=number]").val();
+						// if(validarDoc(documento.toString())){
+						// 	calEvent.title = buscarHCPorDoc(documento.toString());
+						// }
+						// else{
+						// 	calEvent.title = $(this).find("input[type=text]").val();
+						// }
+						
+						// if (verificarPaciente(calEvent.title)) {
+						// 	if (confirmarTurno(calEvent._start._d)) {
+						// 		generarTurno(calEvent.title,calEvent._start._d,calEvent._end._d);
+						// 		var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title) ;
+						// 		calEvent.title = turno;
+						// 		// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
+						// 		calEvent.className = 'label-primary';
+						// 		calendar.fullCalendar('updateEvent', calEvent);
+						// 		console.log(calEvent._start._d);
+						// 		modal.modal("hide");
+
+						// 	}
+						// }
+						// else {
+						// 	alert("Paciente no encontrado. HC o Documento inválido.");
+						// }
 					});
 
 					modal.find('button[data-action=delete]').on('click', function () {

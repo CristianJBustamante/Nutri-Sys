@@ -405,13 +405,13 @@
 					</ul><!-- /.breadcrumb -->
 
 					<div class="nav-search" id="nav-search">
-						<form class="form-search">
+						<!-- <form class="form-search">
 							<span class="input-icon">
 								<input type="text" placeholder="Search ..." class="nav-search-input"
 									id="nav-search-input" autocomplete="off" />
 								<i class="ace-icon fa fa-search nav-search-icon"></i>
 							</span>
-						</form>
+						</form> -->
 					</div><!-- /.nav-search -->
 				</div>
 
@@ -521,16 +521,31 @@
 										<div class="widget-body">
 											<div class="widget-main no-padding">
 												<div id="external-events">
-													<div class="label-grey" data-class="label-grey" style="padding: 1rem; margin: 1rem 0;">
-														<!-- <i class="ace-icon fa fa-arrows"></i> -->
-														Apartado - Sin confirmar
-													</div>
-
 													<div class="label-success"
 														data-class="label-success" style="padding: 1rem; margin: 1rem 0;">
-														<!-- <i class="ace-icon fa fa-arrows"></i> -->
 														Confirmado
 													</div>
+													<div class="label-yellow"
+														data-class="label-yellow" style="padding: 1rem; margin: 1rem 0;">
+														Receptado
+													</div>
+													<div class="label-info"
+														data-class="label-info" style="padding: 1rem; margin: 1rem 0;">
+														En Atención
+													</div>
+													<div class="label-brown"
+														data-class="label-yellow" style="padding: 1rem; margin: 1rem 0;">
+														Finalizado
+													</div>
+													<div id="referenciaCancelado" class="label-danger"
+														data-class="label-danger" style="padding: 1rem; margin: 1rem 0;" hidden=true>
+														Cancelado
+													</div>
+													<label>
+														<input type="checkbox" class="ace ace-checkbox"
+															id="drop-remove" onchange="verTurnosCancelados()"/>
+														<span class="lbl"> Ver turnos cancelados</span>
+													</label>
 												</div>
 											</div>
 										</div>
@@ -665,7 +680,21 @@
 						start: new Date(y, m, d - 4, 15, 30),
 						allDay: false,
 						className: 'label-success',
-						status: 'Confirmado'
+						estado: 'Confirmado'
+					},
+					{
+						title: '1001 - Pedro Sanchez - 22321456',
+						start: new Date(y, m, d - 3, 15, 30),
+						allDay: false,
+						className: 'label-turno-cancelado label-danger invisible',
+						estado: 'Cancelado'
+					},
+					{
+						title: '1001 - Pedro Sanchez - 22321456',
+						start: new Date(y, m, d - 2, 15, 30),
+						allDay: false,
+						className: 'label-turno-cancelado label-danger invisible',
+						estado: 'Cancelado'
 					}
 				]
 				,
@@ -744,7 +773,7 @@
 					console.log('Event: ' + calEvent._end._d);
 					//display a modal
 
-					if(calEvent.status == 'Confirmado'){
+					if(calEvent.estado == 'Confirmado'){
 						var modal =
 						'<div class="modal fade">\
 			  <div class="modal-dialog">\
@@ -767,7 +796,7 @@
 			 </div>\
 			</div>';
 						}
-						else if(calEvent.status == 'Receptado'){
+						else if(calEvent.estado == 'Receptado'){
 							var modal =
 						'<div class="modal fade">\
 			  <div class="modal-dialog">\
@@ -789,20 +818,41 @@
 			 </div>\
 			</div>';
 						}
+						else if(calEvent.estado == 'Cancelado'){
+							var modal =
+						'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					  <label>HC Paciente: &nbsp;</label>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+						}
 
 
 					var modal = $(modal).appendTo('body');
 					modal.find('form').on('submit', function (ev) {
 						ev.preventDefault();
 
-						if(calEvent.status == 'Confirmado'){
-							calEvent.status = 'Receptado';
-							alert(calEvent.status);
+						if(calEvent.estado == 'Confirmado'){
+							calEvent.estado = 'Receptado';
+							receptarTurno(calEvent.estado);
 							modal.modal("hide");
 						}
-						else if(calEvent.status == 'Receptado'){
-							calEvent.status = 'En Atención';
-							alert(calEvent.status);
+						else if(calEvent.estado == 'Receptado'){
+							calEvent.estado = 'En Atención';
+							atenderPaciente(calEvent.estado);
 							modal.modal("hide");
 						}
 
@@ -834,10 +884,14 @@
 					});
 
 					modal.find('button[data-action=delete]').on('click', function () {
-						calendar.fullCalendar('removeEvents', function (ev) {
+						
+						if (confirm("¿Desea cancelar el turno?")) {
+							calendar.fullCalendar('removeEvents', function (ev) {
 							return (ev._id == calEvent._id);
-						})
-						modal.modal("hide");
+							})
+							modal.modal("hide");
+						}
+						
 					});
 
 

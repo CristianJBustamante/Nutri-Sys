@@ -5682,6 +5682,9 @@ button.btn:active {
 .badge-success, .badge.badge-success, .label-success, .label.label-success {
     background-color: #82AF6F;
 }
+.badge-brown, .badge.badge-brown, .label-brown, .label.label-brown {
+    background-color: #98906E;
+}
 .badge-danger, .badge-important, .badge.badge-danger, .badge.badge-important, .label-danger, .label-important, .label.label-danger, .label.label-important {
     background-color: #D15B47;
 }
@@ -5710,6 +5713,9 @@ button.btn:active {
 .badge-light, .label-light {
     color: #888;
 }
+
+
+
 .label.arrowed, .label.arrowed-in {
     position: relative;
     z-index: 1;

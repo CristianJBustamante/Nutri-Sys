@@ -1,3 +1,28 @@
+
+var verCancelados = false;
+
+function verTurnosCancelados(){
+   
+    const labelReferenciaCancelado = document.querySelector('#referenciaCancelado');
+    const labelsTurnoCancelado = document.querySelectorAll('.label-turno-cancelado');
+    if(!verCancelados){
+        console.log('entra');
+        labelReferenciaCancelado.hidden = false;
+        verCancelados = true;
+        labelsTurnoCancelado.forEach(function(label){
+            label.classList.remove('invisible');
+        })
+    }
+    else{
+        console.log('sale');
+        labelReferenciaCancelado.hidden = true;
+        verCancelados = false;
+        labelsTurnoCancelado.forEach(function(label){
+            label.classList.add('invisible');
+        })
+    }
+}
+
 function verificarPaciente(hc)
 {
     //Consulta de Base de Datos
@@ -110,4 +135,12 @@ function buscarHCPorDoc(doc){
           });
     
     return hc;
+}
+
+function receptarTurno(estado){
+    alert(estado);
+}
+
+function atenderPaciente(estado){
+    alert(estado);
 }

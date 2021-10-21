@@ -316,6 +316,9 @@ a:hover{
     width: 95%;
     font-size: 1.7rem;
 }
+.select[multiple], select[size] {
+    height: 400PX;
+}
 .titulo__seccion{
     background-color: var(--primario);
     color: var(--negro);

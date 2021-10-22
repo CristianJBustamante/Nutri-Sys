@@ -250,7 +250,7 @@ if (nuevo==0) {
                 hideSeccion('comidas__cuestionario')
         }
     }else{
-        location.href ="../registraranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
+        location.href ="/consulta/registraranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
     }
     }
 }
@@ -559,7 +559,7 @@ function crearAnamnesis(){
         }
         }).then(res=>res.json())
         .then(data=>console.log(data))
-        location.href ="../actualizarhabitos/hc="+pac_nrohc
+        location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
     } catch (error) {
         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
     }

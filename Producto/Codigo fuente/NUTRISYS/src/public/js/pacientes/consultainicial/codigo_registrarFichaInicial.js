@@ -1,4 +1,5 @@
  var metodo=''
+ var hab_idconsulta
 //Get nrohc
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("hc=")+3,(url.indexOf("/trn="))-(url.indexOf("hc=")+3)))
@@ -182,17 +183,16 @@ var hc_PBI = parseFloat(document.getElementById("hc_PBI").value);
 var hc_ajuste = document.getElementById("hc_ajuste").value;
 var hc_medajuste = parseFloat(document.getElementById("hc_medajuste").value);
 
-if (nuevo=1) {
+if (nuevo==1) {
     const post = {
         cons_idturno: cons_idturno,
-        cons_observaciones: 'Consulta Inicial',
-        habpac_idconsulta: hab_idconsulta
+        cons_observaciones: 'Consulta Inicial'
     }
     console.log(post)
       try {
         console.log(JSON.stringify(post));
         fetch('http://localhost:3000/consulta',{
-        method:'PUT',
+        method:'POST',
         body: JSON.stringify(post),
         headers: {
             "Content-type": "application/json"
@@ -251,7 +251,7 @@ try {
     }
     }).then(res=>res.json())
     .then(data=>console.log(data))
-    location.href ="../actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
+    location.href ="/consulta/actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
     console.log()
 
 } catch (error) {

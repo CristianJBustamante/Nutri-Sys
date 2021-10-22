@@ -6,7 +6,7 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import {registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito} from "../controllers/consultas.controller";
+import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -92,13 +92,15 @@ router.get('/consulta/registrarconsulta/hc=:habpac_nrohc/trn=:cons_idturno',Auth
   router.post('/cabecerahabitos', registrarHabitoPaciente)
   router.post('/detallehabitos', registrarDetalleHabito)
   router.get("/habitospaciente/:habpac_nrohc",getHabitoXHC)
+  router.get("/idultimohabpac",getultimoidhabpac)
 
-  router.put('/actualizarHabitos/:habpac_nrohc', actualizarHabitos)
-  router.put('/actualizarcabecerahabito/:habpac_nrohc', actualizarHabitoPaciente)
-  router.put('/actualizardetallehabito/:habpac_nrohc', actualizarDetalleHabito)
+  router.put('/actualizarHabitos/:hab_id', actualizarHabitos)
+  router.put('/actualizarcabecerahabito/:habpac_id', actualizarHabitoPaciente)
+  router.delete('/borrardetallehabito/:habpac_id', actualizarDetalleHabito)
 
   router.get("/ultimoshabitos/:habpac_nrohc",getultimoshabitos)
   router.get("/primeroshabitos/:habpac_nrohc",getprimeroshabitos)
+  router.get("/noultimoshabitos/:habpac_nrohc",getnoultimoshabitos)
 
     //--------------CONSULTA
   router.post('/consulta', registrarconsulta)

@@ -483,12 +483,13 @@
 												<div class="seccion__anamnesis">
 													<div class="form-group">
 														<h2 class="" for="duallist"> Seleccionar Habitos </h2>
-														<script src="/js/pacientes/consultainicial/codigo_registrarHabitos.js"></script>
+														<script src="/js/pacientes/consultainicial/codigo_registrarHabitosPaciente.js"></script>
 
 														<div class="col-sm-15">
-															<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">
-																
-				
+															<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">												
+																<script>				
+        	
+																</script>
 															</select>
 															
 															<div class="hr hr-16 hr-dotted"></div>
@@ -501,8 +502,8 @@
 												</div>
 												<div>
 													<button class="btn btn-white btn-primary boton-nuevo-novisible" hidden=true>Nuevo Habito</button>
-													<button class="btn btn-white btn-primary AñadirHabito-aceptar" id="Aceptar" onclick="añadirHabito('Aceptar')" hidden=true>Aceptar</button>
-													<button class="btn btn-white btn-primary AñadirHabito-cancelar" id="Cancelar" onclick="añadirHabito('Cancelar')" hidden=true>Cancelar</button>
+													<button class="btn btn-white btn-primary AñadirHabito-aceptar" id="Aceptar" onclick="añadirHabito(id)" hidden=true>Aceptar</button>
+													<button class="btn btn-white btn-primary AñadirHabito-cancelar" id="Cancelar" onclick="añadirHabito(id)" hidden=true>Cancelar</button>
 												</div>
 											</div>
 										</div>
@@ -551,33 +552,16 @@
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			jQuery(function($){
+			jQuery(function($){			
 			    var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({infoTextFiltered: '<span class="label label-purple label-lg">Filtered</span>'});
 				var container1 = demo1.bootstrapDualListbox('getContainer');
 				container1.find('.btn').addClass('btn-white btn-info btn-bold');
 			
-				/**var setRatingColors = function() {
-					$(this).find('.star-on-png,.star-half-png').addClass('orange2').removeClass('grey');
-					$(this).find('.star-off-png').removeClass('orange2').addClass('grey');
-				}*/
 				$('.rating').raty({
 					'cancel' : true,
 					'half': true,
 					'starType' : 'i'
-					/**,
-					
-					'click': function() {
-						setRatingColors.call(this);
-					},
-					'mouseover': function() {
-						setRatingColors.call(this);
-					},
-					'mouseout': function() {
-						setRatingColors.call(this);
-					}*/
-				})//.find('i:not(.star-raty)').addClass('grey');
-				
-				
+				})
 				
 				//////////////////
 				//select2
@@ -604,7 +588,6 @@
 			        liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
 				 }
 				});
-			
 				
 				///////////////////
 					
@@ -629,11 +612,9 @@
 								matches.push({ value: str });
 							}
 						});
-			
 						cb(matches);
 					}
 				 }
-			
 				 $('input.typeahead').typeahead({
 					hint: true,
 					highlight: true,
@@ -645,10 +626,8 @@
 					limit: 10
 				 });
 					
-					
 				///////////////
-				
-				
+
 				//in ajax mode, remove remaining elements before leaving page
 				$(document).one('ajaxloadstart.page', function(e) {
 					$('[class*=select2]').remove();
@@ -656,10 +635,47 @@
 					$('.rating').raty('destroy');
 					$('.multiselect').multiselect('destroy');
 				});
-			
-			});
-			
-		</script>
+				//CARGAR HABITOS DESDE BD
+				if (nuevo==1) {
+				let queryh = 'http://localhost:3000/habitos'
+        		fetch(queryh)
+            	.then(response => response.json())
+            	.then(hab => cargarhabitos(hab))
+            	.catch(error => console.log(error))
+        		const cargarhabitos = (hab) => {
+            	let op=''
+            	for (let i = 0; i<hab.length; i++){
+                	op+=`<option value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
+            		}
+            	document.getElementById("duallist").innerHTML=op
+				demo1.bootstrapDualListbox('refresh')}
+			}else{
+				let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
+        		fetch(queryh)
+            	.then(response => response.json())
+            	.then(hab => cargarhabitos(hab))
+            	.catch(error => console.log(error))
+        		const cargarhabitos = (hab) => {
+					console.log(pac_nrohc)
+            	let op=''
+            	for (let i = 0; i<hab.length; i++){
+                	op+=`<option selected="selected" value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
+            		}
+				
+				let queryh = 'http://localhost:3000/noultimoshabitos/'+ pac_nrohc
+        		fetch(queryh)
+            	.then(response => response.json())
+            	.then(hab => cargarhabitos(hab))
+            	.catch(error => console.log(error))
+        		const cargarhabitos = (hab) => {
+            	for (let i = 0; i<hab.length; i++){
+                	op+=`<option value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
+            		}
 
+            	document.getElementById("duallist").innerHTML=op
+				demo1.bootstrapDualListbox('refresh')}}
+			}
+			});
+		</script>
 	</body>
 </html>

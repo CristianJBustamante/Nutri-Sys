@@ -335,25 +335,25 @@
 
 					<b class="arrow"></b>
 
-						<ul class="submenu">
-							<li class="">
-								<a href="RecepcionDeTurnos.html">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Recepción de Turnos
-								</a>
+					<ul class="submenu">
+						<li class="">
+							<a href="http://localhost:3000/turnos">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Recepción de Turnos
+							</a>
 
-								<b class="arrow"></b>
-							</li>
+							<b class="arrow"></b>
+						</li>
 
-							<li class="active">
-								<a href="">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Mis Turnos
-								</a>
+						<li class="active">
+							<a href="">
+								<i class="menu-icon fa fa-caret-right"></i>
+								Mis Turnos
+							</a>
 
-								<b class="arrow"></b>
-							</li>
-						</ul>
+							<b class="arrow"></b>
+						</li>
+					</ul>
 
 
 				</li>
@@ -503,7 +503,7 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<!-- PAGE CONTENT BEGINS -->
-							
+
 
 							<div class="row">
 								<div class="col-sm-9">
@@ -521,29 +521,30 @@
 										<div class="widget-body">
 											<div class="widget-main no-padding">
 												<div id="external-events">
-													<div class="label-success"
-														data-class="label-success" style="padding: 1rem; margin: 1rem 0;">
+													<div class="label-success" data-class="label-success"
+														style="padding: 1rem; margin: 1rem 0;">
 														Confirmado
 													</div>
-													<div class="label-yellow"
-														data-class="label-yellow" style="padding: 1rem; margin: 1rem 0;">
+													<div class="label-yellow" data-class="label-yellow"
+														style="padding: 1rem; margin: 1rem 0;">
 														Receptado
 													</div>
-													<div class="label-info"
-														data-class="label-info" style="padding: 1rem; margin: 1rem 0;">
+													<div class="label-info" data-class="label-info"
+														style="padding: 1rem; margin: 1rem 0;">
 														En Atención
 													</div>
-													<div class="label-brown"
-														data-class="label-yellow" style="padding: 1rem; margin: 1rem 0;">
+													<div class="label-brown" data-class="label-yellow"
+														style="padding: 1rem; margin: 1rem 0;">
 														Finalizado
 													</div>
 													<div id="referenciaCancelado" class="label-danger"
-														data-class="label-danger" style="padding: 1rem; margin: 1rem 0;" hidden=true>
+														data-class="label-danger" style="padding: 1rem; margin: 1rem 0;"
+														hidden=true>
 														Cancelado
 													</div>
 													<label>
-														<input type="checkbox" class="ace ace-checkbox"
-															id="drop-remove" onchange="verTurnosCancelados()"/>
+														<input type="checkbox" class="ace ace-checkbox" id="drop-remove"
+															onchange="verTurnosCancelados()" />
 														<span class="lbl"> Ver turnos cancelados</span>
 													</label>
 												</div>
@@ -656,11 +657,13 @@
 					center: 'title',
 					right: 'month,agendaWeek,agendaDay'
 				},
-				dayClick:function(date,jsEvent,view){
+
+				// Va a al día seleccionado
+				dayClick: function (date, jsEvent, view) {
 					var dia = date.format();
 					console.log(date.format());
-					$('#calendar').fullCalendar('gotoDate',date.format());
-            		$('#calendar').fullCalendar('changeView','agendaDay');
+					$('#calendar').fullCalendar('gotoDate', date.format());
+					$('#calendar').fullCalendar('changeView', 'agendaDay');
 				}
 				,
 				events: [
@@ -676,7 +679,7 @@
 					// 	className: 'label-success'
 					// },
 					{
-						title: '1001 - Pedro Sanchez - 22321456',
+						title: '1000 - Juan Ramirez - 40245879',
 						start: new Date(y, m, d - 4, 15, 30),
 						allDay: false,
 						className: 'label-success',
@@ -699,15 +702,11 @@
 				]
 				,
 
-				// eventResize: function(event, delta, revertFunc) {
-		
-				// 	alert(event.title + " end is now " + event.end.format());
-		
-				// 	if (!confirm("is this okay?")) {
-				// 		revertFunc();
-				// 	}
-		
-				// },
+				businessHours: {
+					start: '8:00', // hora inicial
+					end: '22:00', // hora final
+					dow: [1, 2, 3, 4, 5] // dias de semana, 0=Domingo
+				},
 
 				editable: false,
 				droppable: false, // this allows things to be dropped onto the calendar !!!
@@ -773,9 +772,9 @@
 					console.log('Event: ' + calEvent._end._d);
 					//display a modal
 
-					if(calEvent.estado == 'Confirmado'){
+					if (calEvent.estado == 'Confirmado') {
 						var modal =
-						'<div class="modal fade">\
+							'<div class="modal fade">\
 			  <div class="modal-dialog">\
 			   <div class="modal-content">\
 				 <div class="modal-body">\
@@ -795,10 +794,10 @@
 			  </div>\
 			 </div>\
 			</div>';
-						}
-						else if(calEvent.estado == 'Receptado'){
-							var modal =
-						'<div class="modal fade">\
+					}
+					else if (calEvent.estado == 'Receptado') {
+						var modal =
+							'<div class="modal fade">\
 			  <div class="modal-dialog">\
 			   <div class="modal-content">\
 				 <div class="modal-body">\
@@ -817,10 +816,10 @@
 			  </div>\
 			 </div>\
 			</div>';
-						}
-						else if(calEvent.estado == 'Cancelado'){
-							var modal =
-						'<div class="modal fade">\
+					}
+					else if (calEvent.estado == 'Cancelado') {
+						var modal =
+							'<div class="modal fade">\
 			  <div class="modal-dialog">\
 			   <div class="modal-content">\
 				 <div class="modal-body">\
@@ -838,22 +837,27 @@
 			  </div>\
 			 </div>\
 			</div>';
-						}
+					}
 
 
 					var modal = $(modal).appendTo('body');
 					modal.find('form').on('submit', function (ev) {
 						ev.preventDefault();
 
-						if(calEvent.estado == 'Confirmado'){
+						if (calEvent.estado == 'Confirmado') {
 							calEvent.estado = 'Receptado';
 							receptarTurno(calEvent.estado);
+							calEvent.className = 'label-yellow';
+							calendar.fullCalendar('updateEvent', calEvent);
 							modal.modal("hide");
 						}
-						else if(calEvent.estado == 'Receptado'){
+						else if (calEvent.estado == 'Receptado') {
 							calEvent.estado = 'En Atención';
 							atenderPaciente(calEvent.estado);
+							calEvent.className = 'label-info';
+							calendar.fullCalendar('updateEvent', calEvent);
 							modal.modal("hide");
+							$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc=1000/trn=123');
 						}
 
 						// var documento;
@@ -864,7 +868,7 @@
 						// else{
 						// 	calEvent.title = $(this).find("input[type=text]").val();
 						// }
-						
+
 						// if (verificarPaciente(calEvent.title)) {
 						// 	if (confirmarTurno(calEvent._start._d)) {
 						// 		generarTurno(calEvent.title,calEvent._start._d,calEvent._end._d);
@@ -884,14 +888,14 @@
 					});
 
 					modal.find('button[data-action=delete]').on('click', function () {
-						
+
 						if (confirm("¿Desea cancelar el turno?")) {
 							calendar.fullCalendar('removeEvents', function (ev) {
-							return (ev._id == calEvent._id);
+								return (ev._id == calEvent._id);
 							})
 							modal.modal("hide");
 						}
-						
+
 					});
 
 
@@ -913,12 +917,12 @@
 
 				}
 
-				
-				
+
+
 
 			});
 
-			
+
 
 
 		})

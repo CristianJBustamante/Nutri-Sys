@@ -506,7 +506,7 @@
 							<!-- PAGE CONTENT BEGINS -->
 							<div>
 								<h2>Profesional: </h2>
-								<select class="form-control" id="form-field-select-1">
+								<select class="form-control" id="select-profesional" onchange="buscarAgendaProfesional()">
 									<option value=""></option>
 									<option value="AL">Lilian Palo</option>
 									<option value="AK">Claudia Travella</option>
@@ -734,10 +734,20 @@
 				]
 				,
 
+				businessHours: {
+					start: '8:00', // hora inicial
+					end: '22:00', // hora final
+					dow: [1, 2, 3, 4, 5] // dias de semana, 0=Domingo
+				},
+
+				selectConstraint: "businessHours",
+				eventConstraint: "businessHours",
+
 				// Ampliación momento fin de turno
 
 				eventResize: function (event, delta, revertFunc) {
 
+					
 					alert("Cambiar finalización turno de paciente " + event.title + " al horario  " + event.end.format());
 
 					if (!confirm("Desea confirmar?")) {

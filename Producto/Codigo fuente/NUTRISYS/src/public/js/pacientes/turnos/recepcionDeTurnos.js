@@ -113,3 +113,9 @@ function buscarHCPorDoc(doc){
     return hc;
 }
 
+function buscarAgendaProfesional(){
+
+    //Busqueda de datos en DB
+
+    alert("Agenda capturada correctamente.");
+}

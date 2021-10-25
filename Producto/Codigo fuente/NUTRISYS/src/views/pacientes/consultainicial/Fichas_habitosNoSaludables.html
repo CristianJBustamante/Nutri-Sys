@@ -81,10 +81,11 @@
 						
 
 						<li class="purple dropdown-modal">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<!-- NOTIFICACIONES-->
+							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 								<span class="badge badge-important">8</span>
-							</a>
+							</a> -->
 
 							<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
@@ -149,10 +150,11 @@
 						</li>
 
 						<li class="green dropdown-modal">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<!-- NOTIFICACIONES-->
+							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
 								<span class="badge badge-success">5</span>
-							</a>
+							</a> -->
 
 							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
@@ -260,7 +262,7 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="/assets/images/avatars/avatar2.png" alt="Jason's Photo" />
 								<span class="user-info">
 									<small><%= user.apellido %>,</small>
 									<%= user.nombre %>
@@ -273,14 +275,14 @@
 								<li>
 									<a href="#">
 										<i class="ace-icon fa fa-cog"></i>
-										Settings
+										Configuración
 									</a>
 								</li>
 
 								<li>
 									<a href="profile.html">
 										<i class="ace-icon fa fa-user"></i>
-										Profile
+										Perfil
 									</a>
 								</li>
 
@@ -289,7 +291,7 @@
 								<li>
 									<a href="/usuarios/logout">
 										<i class="ace-icon fa fa-power-off"></i>
-										Logout
+										Cerrar sesión
 									</a>
 								</li>
 							</ul>
@@ -482,7 +484,7 @@
 											<div class="contenido__solapa">
 												<div class="seccion__anamnesis">
 													<div class="form-group">
-														<h2 class="" for="duallist"> Seleccionar Habitos </h2>
+														<h2 class="titulo__seccion" for="duallist"> Seleccionar Habitos </h2>
 														<script src="/js/pacientes/consultainicial/codigo_registrarHabitosPaciente.js"></script>
 
 														<div class="col-sm-15">
@@ -494,7 +496,7 @@
 															
 															<div class="hr hr-16 hr-dotted"></div>
 															<button class="btn btn-white btn-primary boton-nuevo" onclick="nuevoHabito()">Nuevo Habito</button>
-															<button class="btn btn-white btn-primary boton-guardar" onclick="registrarhabitos()">Guardar Habitos</button>
+															<button class="btn btn-white btn-primary boton-guardar" onclick="registrarhabitos()">Guardar</button>
 														</div>
 														<input type="text" id="nuevoHabito" class="input btn btn-white btn-primary" placeholder="Ingrese Habito" hidden=true>
 														</div>

@@ -525,14 +525,15 @@ input::-webkit-inner-spin-button {
 .input{
     text-align: left;
     float: left;
-    margin-left: 2%;
+    margin-left: -2%; /* 2*/
     width: 35rem;
+    height: 4rem;
 }
 
 .AñadirHabito-aceptar{
     float: left;
     margin-top: 1rem;
-    margin-left: 2%
+    margin-left: 5%
 }
 .AñadirHabito-cancelar{
     float: left;
@@ -542,6 +543,12 @@ input::-webkit-inner-spin-button {
 
 .boton-nuevo{
     float: left;
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-right: 5%;
 }
 
 .boton-nuevo-novisible{
@@ -552,6 +559,13 @@ input::-webkit-inner-spin-button {
 
 .boton-guardar{
     float: right;
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-right: 5%;
+
 }
 
 .boton:hover{
@@ -565,7 +579,6 @@ input::-webkit-inner-spin-button {
     color: var(--grisOscuro);
     font-size: 3rem;
 }
-
 .subtitulo{
     font-weight: bold;
     text-decoration: var(--negro);
@@ -579,11 +592,13 @@ input::-webkit-inner-spin-button {
 }
 
 .titulo__seccion{
-    /* background-color: var(--primario); */
+    /* margin-block-start: 0.3rem;
+    margin-block-end: 0.3rem; */
+    background-color: var(--primario);
     color: var(--negro);
     font-weight: normal;
-    margin-block-start: 0.3rem;
-    margin-block-end: 0.3rem;
+    padding: 1rem 1rem;
+    width: 49%;
 }
 
 .camposAVerificar{

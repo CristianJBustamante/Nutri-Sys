@@ -192,7 +192,17 @@ input[type=number] { -moz-appearance:textfield; }
     /*width: 120rem;*/
     padding: 0 5rem;
 }
+.info_Perfiles{
+    margin-left: 3.5%;
+    margin-right: 3.5%;
+}
+.AñadirHabito-aceptar{
+    margin-left: 4rem;
+}
 
+.AñadirHabito-cancelar{
+    margin-left: 2.5rem;
+}
 .contenido__section--datosPersonales{
     display: flex;
     flex-direction: column;
@@ -272,6 +282,12 @@ input[type=number] { -moz-appearance:textfield; }
     margin: 1rem  auto;
 }
 
+.input{
+    width: 19rem;
+}
+.boton-nuevo{
+    margin-top: 0;
+}
 .input__padding{
     margin: 1rem;
     width: 50%;

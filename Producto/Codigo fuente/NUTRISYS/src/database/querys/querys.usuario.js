@@ -10,7 +10,16 @@ export const usuquerys = {
     "on emp_idusuario=usu_id left join paciente on pac_idusuario=usu_id where usu_usuario=@usu_usuario",
 
 
-    nuevousuario: "INSERT INTO usuario(usu_usuario,usu_clave,usu_idperfil,usu_correo) "+
-                    "VALUES (@usu_usuario,@usu_clave,@usu_idperfil,@usu_correo)"
+    nuevousuario: "INSERT INTO usuario(usu_clave,usu_idperfil,usu_correo) "+
+                    "VALUES (@usu_clave,@usu_idperfil,@usu_correo)",
 
+//martin
+    registrarEmpleado: "INSERT INTO empleado(emp_idusuario,emp_nrodoc,emp_apellido,emp_nombre,"
+    +"emp_matricula,emp_direccion,emp_telefono1,emp_telefono2) VALUES (@emp_idusuario, @emp_nrodoc,"
+    +"@emp_apellido,@emp_nombre,@emp_matricula,@emp_direccion,@emp_telefono1,@emp_telefono2)",
+
+    registrarUsuarioEmpleado: "INSERT INTO usuario(usu_usuario, usu_clave,usu_idperfil,usu_correo) VALUES (@usu_usuario,@usu_clave,@usu_idperfil,@usu_correo)",
+    registrarUsuPerfil: "INSERT INTO usuario_perfil(usu_id,usu_idperfil) VALUES(@usu_id,@usu_idperfil)",
+    getultimolegajo: "Select top 1 * From Empleado order by emp_legajo desc",
+    getultimoidusuario: "Select top 1 * From Usuario order by usu_id desc",
 }

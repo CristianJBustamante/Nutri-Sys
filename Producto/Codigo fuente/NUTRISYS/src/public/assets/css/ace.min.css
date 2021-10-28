@@ -5685,6 +5685,9 @@ button.btn:active {
 .badge-brown, .badge.badge-brown, .label-brown, .label.label-brown {
     background-color: #98906E;
 }
+.badge-verde, .badge.badge-verde, .label-verde, .label.label-verde {
+    background-color: #00aa00;
+}
 .badge-danger, .badge-important, .badge.badge-danger, .badge.badge-important, .label-danger, .label-important, .label.label-danger, .label.label-important {
     background-color: #D15B47;
 }

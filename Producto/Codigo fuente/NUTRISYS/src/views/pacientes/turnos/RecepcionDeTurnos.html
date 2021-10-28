@@ -591,11 +591,35 @@
 														Apartado - Sin confirmar
 													</div>
 
-													<div class="label-success" data-class="label-primary"
+													<div class="label-verde" data-class="label-verde"
 														style="padding: 1rem; margin: 1rem 0;">
 														<!-- <i class="ace-icon fa fa-arrows"></i> -->
 														Confirmado
 													</div>
+
+													<div class="label-yellow" data-class="label-yellow"
+														style="padding: 1rem; margin: 1rem 0;">
+														Receptado
+													</div>
+													<div class="label-info" data-class="label-info"
+														style="padding: 1rem; margin: 1rem 0;">
+														En Atención
+													</div>
+													<div class="label-brown" data-class="label-yellow"
+														style="padding: 1rem; margin: 1rem 0;">
+														Finalizado
+													</div>
+													<div id="referenciaCancelado" class="label-danger"
+														data-class="label-danger" style="padding: 1rem; margin: 1rem 0;"
+														hidden=true>
+														Cancelado
+													</div>
+													<label>
+														<input type="checkbox" class="ace ace-checkbox" id="drop-remove"
+															onchange="verTurnosCancelados()" />
+														<span class="lbl"> Ver turnos cancelados</span>
+													</label>
+
 												</div>
 											</div>
 										</div>
@@ -731,6 +755,20 @@
 					// 	allDay: false,
 					// 	className: 'label-info'
 					// }
+					{
+						title: '1001 - Pedro Sanchez - 22321456',
+						start: new Date(y, m, d - 3, 15, 30),
+						allDay: false,
+						className: 'label-turno-cancelado label-danger invisible',
+						estado: 'Cancelado'
+					},
+					{
+						title: '1001 - Pedro Sanchez - 22321456',
+						start: new Date(y, m, d - 2, 15, 30),
+						allDay: false,
+						className: 'label-turno-cancelado label-danger invisible',
+						estado: 'Cancelado'
+					}
 				]
 				,
 
@@ -870,7 +908,7 @@
 								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title);
 								calEvent.title = turno;
 								// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
-								calEvent.className = 'label-success';
+								calEvent.className = 'label-verde';
 								calendar.fullCalendar('updateEvent', calEvent);
 								console.log(calEvent._start._d);
 								modal.modal("hide");

@@ -1,6 +1,10 @@
 
 var verCancelados = false;
 
+//Get legajo profesional
+const url = new String(window.location)
+let emp_legajo = url.substr(url.indexOf("leg=")+4,url.length)
+
 function verTurnosCancelados(){
    
     const labelReferenciaCancelado = document.querySelector('#referenciaCancelado');
@@ -137,10 +141,45 @@ function buscarHCPorDoc(doc){
     return hc;
 }
 
-function receptarTurno(estado){
-    alert(estado);
+function receptarTurno(turno){
+    console.log(turno);
+    const post = {
+        turno_idestado: 2}
+    console.log(post)
+     try {
+        console.log(JSON.stringify(post));
+        fetch("http://localhost:3000/actualizarturno/"+turno.idturno,{
+        method:"PUT",
+        body: JSON.stringify(post),
+        headers: {
+        "Content-type": "application/json"
+        }
+        })  .then(res=>res.json())
+            .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+        } 
+    
 }
 
-function atenderPaciente(estado){
-    alert(estado);
+function atenderPaciente(turno){
+    console.log(turno);
+    const post = {
+        turno_idestado: 3}
+    console.log(post)
+     try {
+        console.log(JSON.stringify(post));
+        fetch("http://localhost:3000/actualizarturno/"+turno.idturno,{
+        method:"PUT",
+        body: JSON.stringify(post),
+        headers: {
+        "Content-type": "application/json"
+        }
+        })  .then(res=>res.json())
+            .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+        } 
 }

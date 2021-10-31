@@ -46,11 +46,11 @@ const buscarconsulta = (data) => {
      }
      console.log(hab_idconsulta,habpac_id)
      if (nuevo==0 && habpac_id == null) {
-         location.href ="/consulta/registrarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+         //location.href ="/consulta/registrarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
      }
-     if (nuevo==1 && habpac_id != null) {
+     /* if (nuevo==1 && habpac_id != null) {
         location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
-    } 
+    } */ 
 }
 //------------------------------------------------------------------------------------------------------------------------------
 //BUSCAR ID HABITO PARA REGISTRAR

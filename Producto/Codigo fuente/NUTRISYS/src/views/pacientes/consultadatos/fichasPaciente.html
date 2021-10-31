@@ -68,7 +68,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="" class="navbar-brand">
 						<small>
 							<div class="logo">
 								<img class="logo__manzana" src="/assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
@@ -326,12 +326,35 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.html">
+						<a href="index.html" class="dropdown-toggle">
 							<i class="menu-icon fa fa-calendar"></i>
 							<span class="menu-text"> Organizador </span>
+							<b class="arrow fa fa-angle-down"></b>
 						</a>
-
-						
+	
+						<b class="arrow"></b>
+	
+						<ul class="submenu">
+							<li class="">
+								<a href="/turnos">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Recepción de Turnos
+								</a>
+	
+								<b class="arrow"></b>
+							</li>
+	
+							<li class="">
+								<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Mis Turnos
+								</a>
+	
+								<b class="arrow"></b>
+							</li>
+						</ul>
+	
+	
 					</li>
 					
 					<li class="active">
@@ -344,7 +367,7 @@
 					</li>
 
 					<li class="">
-						<a href="index.html">
+						<a href="">
 							<i class="menu-icon fa fa-signal"></i>
 							<span class="menu-text"> Reportes </span>
 						</a>
@@ -353,7 +376,7 @@
 					</li>
 
 					<li class="">
-						<a href="index.html">
+						<a href="">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> Adm. de Usuarios </span>
 						</a>
@@ -479,13 +502,13 @@
 										</div>
 										<div class="ficha"> <!-- Cambiar En cada Solapa -->
 											<div class="navegacion__solapas">
-												<a class="nav__solapa"  href="../consultapacientefichainicial/0">Ficha Inicial</a>
-												<a class="nav__solapa" href="../consultapaciente/0">Resumen</a>
-												<a class="nav__solapa" href="../consultapacienteevolucion/0">Hábitos</a>
-												<a class="nav__solapa--seleccionado" href="../consultapacientefichas/0">Evoluciones</a>
-												<a class="nav__solapa" href="../consultapacienteplan/0">Planes</a>
-												<a class="nav__solapa" href="../consultapacientedocumentos/0">Documentos</a>
-												<a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
+												<a class="nav__solapa"  href="/pacientes/consultapacientefichainicial/0">Ficha Inicial</a>
+												<a class="nav__solapa" href="/pacientes/consultapaciente/0">Resumen</a>
+												<a class="nav__solapa" href="/pacientes/consultapacientehabitos/0">Hábitos</a>
+												<a class="nav__solapa--seleccionado" href="/pacientes/consultapacientefichas/0">Evoluciones</a>
+												<a class="nav__solapa" href="/pacientes/consultapacienteplan/0">Planes</a>
+												<a class="nav__solapa" href="/pacientes/consultapacientedocumentos/0">Documentos</a>
+												<a class="nav__solapa" href="/pacientes/consultapacienteestudios/0">Estudios</a>
 												<a class="nav__solapa--resto"></a>
 											</div>
 											<div class="contenido__solapa">

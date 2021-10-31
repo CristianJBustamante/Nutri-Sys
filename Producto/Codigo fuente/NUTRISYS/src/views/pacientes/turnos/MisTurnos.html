@@ -607,6 +607,7 @@
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
 		jQuery(function ($) {
+	
 
 			/* initialize the external events
 				-----------------------------------------------------------------*/
@@ -641,8 +642,65 @@
 			var d = date.getDate();
 			var m = date.getMonth();
 			var y = date.getFullYear();
+			var eventos = []
+			var agen = []
 
-
+			let query = 'http://localhost:3000/turnosempleado/'+emp_legajo
+        		fetch(query)
+            	.then(response => response.json())
+            	.then(turnos => cargarturnos(turnos))
+            	.catch(error => console.log(error))
+        		const cargarturnos = (turnos) => {
+					for (let i = 0; i<turnos.length; i++){
+						console.log(turnos[i])
+						var turno = {}
+						let titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
+						var fechahora = turnos[i].turno_fechahora
+						fechahora = fechahora.substr(0,23)
+						var clase = "label-success"
+						if (turnos[i].estadoturno_descripcion=='Confirmado') {
+							clase = "label-success"
+						}
+						if (turnos[i].estadoturno_descripcion=='Cancelado') {
+							clase = "label-turno-cancelado label-danger invisible"
+						}
+						if (turnos[i].estadoturno_descripcion=='Receptado') {
+							clase = "label-yellow"
+						}
+						if (turnos[i].estadoturno_descripcion=='En Atención') {
+							clase = "label-info"
+						}
+						if (turnos[i].estadoturno_descripcion=='Finalizado') {
+							clase = "label-brown"
+						}
+						
+						turno.title = titulo
+						turno.start = new Date(fechahora)
+						turno.allDay = false
+						turno.className = clase
+						turno.estado = turnos[i].estadoturno_descripcion
+						turno.idturno = turnos[i].turno_id
+						turno.nrohc = turnos[i].turno_nrohc
+						eventos.push(turno)	 
+					}
+					let query = 'http://localhost:3000/agendaempleado/'+emp_legajo
+        		fetch(query)
+            	.then(response => response.json())
+            	.then(agenda => cargaragenda(agenda))
+            	.catch(error => console.log(error))
+        		const cargaragenda = (agenda) => {
+					 for (let i = 0; i<agenda.length; i++){
+						var dia = {}
+						var horainicio=agenda[i].agen_horainicio
+						var horafin = agenda[i].agen_horafin
+						horainicio=horainicio.substr(11,5)
+						horafin=horafin.substr(11,5)
+					 	dia.start = horainicio
+					 	dia.end = horafin
+					 	dia.dow = [agenda[i].agen_diasemana]
+					 	agen.push(dia)	 
+					 }
+					console.log(agen)
 			var calendar = $('#calendar').fullCalendar({
 				//isRTL: true,
 				//firstDay: 1,// >> change first day of week 
@@ -666,40 +724,7 @@
 					$('#calendar').fullCalendar('changeView', 'agendaDay');
 				}
 				,
-				events: [
-					// {
-					// 	title: 'All Day Event',
-					// 	start: new Date(y, m, 1),
-					// 	className: 'label-important'
-					// },
-					// {
-					// 	title: 'Long Event',
-					// 	start: moment().subtract(5, 'days').format('YYYY-MM-DD'),
-					// 	end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
-					// 	className: 'label-success'
-					// },
-					{
-						title: '1000 - Juan Ramirez - 40245879',
-						start: new Date(y, m, d - 4, 15, 30),
-						allDay: false,
-						className: 'label-verde',
-						estado: 'Confirmado'
-					},
-					{
-						title: '1001 - Pedro Sanchez - 22321456',
-						start: new Date(y, m, d - 3, 15, 30),
-						allDay: false,
-						className: 'label-turno-cancelado label-danger invisible',
-						estado: 'Cancelado'
-					},
-					{
-						title: '1001 - Pedro Sanchez - 22321456',
-						start: new Date(y, m, d - 2, 15, 30),
-						allDay: false,
-						className: 'label-turno-cancelado label-danger invisible',
-						estado: 'Cancelado'
-					}
-				]
+				events: eventos
 				,
 
 				businessHours: {
@@ -846,18 +871,18 @@
 
 						if (calEvent.estado == 'Confirmado') {
 							calEvent.estado = 'Receptado';
-							receptarTurno(calEvent.estado);
+							receptarTurno(calEvent);
 							calEvent.className = 'label-yellow';
 							calendar.fullCalendar('updateEvent', calEvent);
 							modal.modal("hide");
 						}
 						else if (calEvent.estado == 'Receptado') {
 							calEvent.estado = 'En Atención';
-							atenderPaciente(calEvent.estado);
 							calEvent.className = 'label-info';
 							calendar.fullCalendar('updateEvent', calEvent);
 							modal.modal("hide");
-							$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc=1000/trn=123');
+							atenderPaciente(calEvent);
+							$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc='+calEvent.nrohc+'/trn='+calEvent.idturno);
 						}
 
 						// var documento;
@@ -924,7 +949,8 @@
 
 
 
-
+		}
+		}
 		})
 
 

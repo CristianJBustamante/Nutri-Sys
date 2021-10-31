@@ -57,9 +57,9 @@ router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged,
       user : req.user
   });
   });
-  //consulta hc paciente - Evoluciones
-  router.get('/pacientes/consultapacienteevolucion/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
-    res.render('pacientes/consultadatos/evolucionesPaciente.html',{
+  //consulta hc paciente - Habitos
+  router.get('/pacientes/consultapacientehabitos/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+    res.render('pacientes/consultadatos/habitosPaciente.html',{
       isAuthenticated : req.isAuthenticated(),
       user : req.user
   });

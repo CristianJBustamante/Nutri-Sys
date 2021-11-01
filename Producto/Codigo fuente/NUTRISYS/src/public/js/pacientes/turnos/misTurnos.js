@@ -1,6 +1,12 @@
 
 var verCancelados = false;
 
+var hcs=[
+    {hc:"1000", nombre:"Juan Carlos", apellido:"Altamiranda", doc:"37463213", celular:"3518132532"},
+    {hc:"1001", nombre:"Pedro", apellido:"Sanchez", doc:"22321456", celular:"3512133213"},
+    {hc:"1002", nombre:"Dario", apellido:"Vito", doc:"29384732", celular:"3513212341"}
+    ];
+
 //Get legajo profesional
 const url = new String(window.location)
 let emp_legajo = url.substr(url.indexOf("leg=")+4,url.length)
@@ -39,14 +45,9 @@ function verificarPaciente(hc)
     }
 }
 
-function buscarNombrePaciente(hc){
+function buscarNombrePaciente(titulo){
     var nombre;
-
-    var hcs=[
-        {hc:"1000", nombre:"Juan Carlos Altamiranda"},
-        {hc:"1001", nombre:"Pedro Sanchez"},
-        {hc:"1002", nombre:"Dario Vito"}
-        ]
+    var hc = mostrarHC(titulo);
 
         const filtered = hcs.filter(function(element){
             if(element.hc == hc){
@@ -59,14 +60,36 @@ function buscarNombrePaciente(hc){
 
 }
 
+function buscarApellidoPaciente(titulo){
+    var apellido;
+    var hc = mostrarHC(titulo);
+        const filtered = hcs.filter(function(element){
+            if(element.hc == hc){
+                console.log(element.apellido);
+                apellido = element.apellido;
+            }
+          });
+    
+    return apellido;
+
+}
+
+function buscarCelularPaciente(titulo){
+    var celular;
+    var hc = mostrarHC(titulo);
+        const filtered = hcs.filter(function(element){
+            if(element.hc == hc){
+                console.log(element.celular);
+                celular = element.celular;
+            }
+          });
+    
+    return celular;
+
+}
+
 function buscarDocPaciente(hc){
     var doc;
-
-    var hcs=[
-        {hc:"1000", doc:"37463213"},
-        {hc:"1001", doc:"22321456"},
-        {hc:"1002", doc:"29384732"}
-        ]
 
         const filtered = hcs.filter(function(element){
             if(element.hc == hc){
@@ -124,12 +147,6 @@ function validarDoc(doc){
 function buscarHCPorDoc(doc){
 
     var hc;
-
-    var hcs=[
-        {hc:"1000", doc:"37463213"},
-        {hc:"1001", doc:"22321456"},
-        {hc:"1002", doc:"29384732"}
-        ]
 
         const filtered = hcs.filter(function(element){
             if(element.doc == doc){

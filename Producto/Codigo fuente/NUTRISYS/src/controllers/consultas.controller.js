@@ -17,6 +17,19 @@ import {getConnection,sql,consultasquerys} from "../database";
         }
     } 
 
+    export const getconsultaxnrohc = async(req,res) => {
+        try {
+            const {turno_nrohc} = req.params
+            const pool = await getConnection()
+            const result = await pool.request()
+                .input('turno_nrohc', turno_nrohc).query(consultasquerys.getconsultaxnrohc)
+            res.send(result.recordset)
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    } 
+
     //Altas----------------------------------------------------------------------------------------------------
     export const registrarconsulta = async (req,res) => {
         let { cons_idturno,cons_observaciones } = req.body;          

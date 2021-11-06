@@ -63,7 +63,7 @@
 			</button>
 
 			<div class="navbar-header pull-left">
-				<a href="index.html" class="navbar-brand">
+				<a href="" class="navbar-brand">
 					<small>
 						<div class="logo">
 							<img class="logo__manzana " src="/assets/images/Logo Final Blanco sin texto-01.png"
@@ -266,8 +266,8 @@
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 							<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 							<span class="user-info">
-								<small>Apellido,</small>
-								Nombre
+								<small><%= user.apellido %>,</small>
+								<%= user.nombre %>
 							</span>
 
 							<i class="ace-icon fa fa-caret-down"></i>
@@ -292,7 +292,7 @@
 							<li class="divider"></li>
 
 							<li>
-								<a href="#">
+								<a href="/usuarios/logout">
 									<i class="ace-icon fa fa-power-off"></i>
 									Logout
 								</a>
@@ -346,7 +346,7 @@
 						</li>
 
 						<li class="active">
-							<a href="">
+							<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
 								<i class="menu-icon fa fa-caret-right"></i>
 								Mis Turnos
 							</a>
@@ -359,7 +359,7 @@
 				</li>
 
 				<li class="">
-					<a href="index.html">
+					<a href="/pacientes/buscarpaciente">
 						<i class="menu-icon fa fa-list-alt"></i>
 						<span class="menu-text"> Historia Clinica </span>
 					</a>
@@ -368,7 +368,7 @@
 				</li>
 
 				<li class="">
-					<a href="index.html">
+					<a href="">
 						<i class="menu-icon fa fa-signal"></i>
 						<span class="menu-text"> Reportes </span>
 					</a>
@@ -377,7 +377,7 @@
 				</li>
 
 				<li class="">
-					<a href="index.html">
+					<a href="">
 						<i class="menu-icon fa fa-pencil-square-o"></i>
 						<span class="menu-text"> Adm. de Usuarios </span>
 					</a>
@@ -651,11 +651,13 @@
             	.then(turnos => cargarturnos(turnos))
             	.catch(error => console.log(error))
         		const cargarturnos = (turnos) => {
+					console.log(turnos)
+
 					for (let i = 0; i<turnos.length; i++){
-						console.log(turnos[i])
 						var turno = {}
 						let titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
 						var fechahora = turnos[i].turno_fechahora
+						var fechahorafin =  turnos[i].turno_fechahorafin
 						fechahora = fechahora.substr(0,23)
 						var clase = "label-success"
 						if (turnos[i].estadoturno_descripcion=='Confirmado') {
@@ -676,6 +678,7 @@
 						
 						turno.title = titulo
 						turno.start = new Date(fechahora)
+						turno.end = new Date(fechahorafin)
 						turno.allDay = false
 						turno.className = clase
 						turno.estado = turnos[i].estadoturno_descripcion
@@ -939,7 +942,7 @@
 							calendar.fullCalendar('updateEvent', calEvent);
 							modal.modal("hide");
 							atenderPaciente(calEvent);
-							$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc='+calEvent.nrohc+'/trn='+calEvent.idturno);
+							//$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc='+calEvent.nrohc+'/trn='+calEvent.idturno);
 						}
 
 						// var documento;
@@ -976,6 +979,7 @@
 								return (ev._id == calEvent._id);
 							})
 							modal.modal("hide");
+							cancelarTurno(calEvent);
 						}
 
 					});

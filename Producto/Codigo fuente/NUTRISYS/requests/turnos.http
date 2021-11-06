@@ -3,3 +3,15 @@
 GET {{api}}/agendaempleado/69718
 
 ###
+
+put {{api}}/actualizarhoraturno/1
+Content-Type: application/json
+
+{
+    "turno_horainicio": "16:00:00",
+    "turno_horafin": "17:00:00"
+}
+
+###
+
+GET {{api}}/consultanrohc/1000

@@ -103,6 +103,8 @@ function generarTurno(hcPaciente, momentoStart, momentoEnd){
     horainicio = horainicio.substr(16,8)
     horafin = horafin.substr(16,8)
     
+
+    
     const post = {
         turno_legajoempleado: legajo,
         turno_fecha: fecha,

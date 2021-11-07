@@ -1,16 +1,42 @@
 
 var verCancelados = false;
+var pacientes
+var legajo =""
+
+//Buscar profesionales
+let query = 'http://localhost:3000/profesionales'
+        		fetch(query)
+            	.then(response => response.json())
+            	.then(data => getdatos(data))
+            	.catch(error => console.log(error))
+        		const getdatos = (data) => {
+                    let lista =`<option value=""></option>`
+                    for (let i = 0; i<data.length; i++){
+						lista += `<option value=${data[i].emp_legajo}>${data[i].emp_apellido}, ${data[i].emp_nombre}</option>`
+					 }
+                     document.getElementById('select-profesional').innerHTML = lista
+                }
+
+//GET PACIENTES
+query = 'http://localhost:3000/pacientes'
+fetch(query)
+    .then(response => response.json())
+    .then(data => getpacientes(data))
+    .catch(error => console.log(error))
+const getpacientes = (data) => {
+    pacientes = data
+}
 
 function verificarPaciente(hc)
 {
     //Consulta de Base de Datos
-    var hcs=["1000","1001","1002"];
-    if(hcs.includes(hc)){
-        return true;
+    for (let i = 0; i<pacientes.length; i++){
+    //var hcs=["1000","1001","1002"];
+        if(hc==pacientes[i].pac_nrohc){
+            return true;
+        }
     }
-    else{
-        return false;
-    }
+    return false
 }
 
 function buscarNombrePaciente(hc){
@@ -22,10 +48,10 @@ function buscarNombrePaciente(hc){
         {hc:"1002", nombre:"Dario Vito"}
         ]
 
-        const filtered = hcs.filter(function(element){
-            if(element.hc == hc){
-                console.log(element.nombre);
-                nombre = element.nombre;
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_nombre + " " + element.pac_apellido);
+                nombre = element.pac_nombre + " " + element.pac_apellido;
             }
           });
     
@@ -42,10 +68,10 @@ function buscarDocPaciente(hc){
         {hc:"1002", doc:"29384732"}
         ]
 
-        const filtered = hcs.filter(function(element){
-            if(element.hc == hc){
-                console.log(element.doc);
-                doc = element.doc;
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_nrodoc);
+                doc = element.pac_nrodoc;
             }
           });
     
@@ -53,15 +79,59 @@ function buscarDocPaciente(hc){
 
 }
 
-function confirmarTurno(momento){
-
-    var result = confirm("Desea confirmar turno: " + momento + " ?.");
-    return result;
+function confirmarTurno(momento,nrohc){
+    swal({
+        title: "Atención",
+        text: "¿Desea Confirmar el Registro del Turno: " +momento._start._d,
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            generarTurno(nrohc, momento._start._d, momento._end._d)
+            
+        } 
+      });
 }
 
 function generarTurno(hcPaciente, momentoStart, momentoEnd){
+    let fecha = new String(momentoStart)
+    let horainicio = new String(momentoStart)
+    let horafin = new String(momentoEnd)
+    fecha = fecha.substr(4,12)
+    horainicio = horainicio.substr(16,8)
+    horafin = horafin.substr(16,8)
+    
+
+    
+    const post = {
+        turno_legajoempleado: legajo,
+        turno_fecha: fecha,
+        turno_horainicio: horainicio,
+        turno_horafin: horafin,
+        turno_nrohc: hcPaciente,
+        turno_idtipo: 1,
+        turno_idestado: 1
+    }
+    console.log(post)
+      try {
+        console.log(JSON.stringify(post));
+        fetch('http://localhost:3000/registrarturno',{
+        method:'POST',
+        body: JSON.stringify(post),
+        headers: {
+            "Content-type": "application/json"
+        }
+        }).then(res=>res.json())
+        .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+    }  
+    
     // Codigo Pos-Back
-    alert("El turno se generó correctamente");
+    swal("Turno Registrado","Se registró el Turno con Éxito!","success");
 }
 
 function mostrarHC(title){
@@ -87,12 +157,12 @@ function mostrarDoc(title){
 
 function validarDoc(doc){
     var docs=["37463213","22321456","29384732"];
-    if(docs.includes(doc)){
-        return true;
+    for (let i = 0; i<pacientes.length; i++){
+        if(doc==pacientes[i].pac_nrodoc){
+            return true;
+        }
     }
-    else{
-        return false;
-    }
+    return false
 }
 
 function buscarHCPorDoc(doc){
@@ -105,21 +175,68 @@ function buscarHCPorDoc(doc){
         {hc:"1002", doc:"29384732"}
         ]
 
-        const filtered = hcs.filter(function(element){
-            if(element.doc == doc){
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrodoc == doc){
                 console.log("OK");
-                hc = element.hc;
+                hc = element.pac_nrohc;
             }
           });
     
     return hc;
 }
 
-function buscarAgendaProfesional(){
-
-    //Busqueda de datos en DB
-
-    alert("Agenda capturada correctamente.");
+function buscarAgendaProfesional(emp_legajo){
+    legajo = emp_legajo
+    console.log(emp_legajo)
+    if (emp_legajo>0) {   
+        var eventos = []
+        let query = 'http://localhost:3000/turnosempleado/'+emp_legajo
+        fetch(query)
+            .then(response => response.json())
+            .then(turnos => cargarturnos(turnos))
+            .catch(error => console.log(error))
+        const cargarturnos = (turnos) => {
+            console.log(turnos)
+		    for (let i = 0; i<turnos.length; i++){
+			    var turno = {}
+			    let titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
+			    var fechahora = turnos[i].turno_fechahora
+                var fechahorafin = turnos[i].turno_fechahorafin
+                console.log(fechahora,fechahorafin)
+			    fechahora = fechahora.substr(0,23)
+			    fechahorafin = fechahorafin.substr(0,23)
+			    var clase = "label-success"
+			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
+				    clase = "label-success"
+			    }
+			    if (turnos[i].estadoturno_descripcion=='Cancelado') {
+				    clase = "label-turno-cancelado label-danger invisible"
+			    }
+			    if (turnos[i].estadoturno_descripcion=='Receptado') {
+				    clase = "label-yellow"
+			    }
+			    if (turnos[i].estadoturno_descripcion=='En Atención') {
+				    clase = "label-info"
+			    }
+			    if (turnos[i].estadoturno_descripcion=='Finalizado') {
+				    clase = "label-brown"
+			    }	
+			    turno.title = titulo
+			    turno.start = new Date(fechahora)
+                turno.end = new Date(fechahorafin)
+			    turno.allDay = false
+			    turno.className = clase
+			    turno.estado = turnos[i].estadoturno_descripcion
+			    turno.idturno = turnos[i].turno_id
+			    turno.nrohc = turnos[i].turno_nrohc
+			    eventos.push(turno)	 
+		    }
+            $('#calendar').fullCalendar('removeEvents')
+            $('#calendar').fullCalendar('addEventSource', eventos)
+        }
+    }else{
+        $('#calendar').fullCalendar('removeEvents')
+    }
 }
 
 function verTurnosCancelados(){
@@ -142,4 +259,47 @@ function verTurnosCancelados(){
             label.classList.add('invisible');
         })
     }
+}
+
+function actualizarhoraturno(evento,revertFunc){
+    swal({
+        title: "Atención",
+        text: "¿Desea Confirmar la modificación del turno del Paciente " + evento.title +"?",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            let fecha = new String(evento._start._d)
+            let horainicio = new String(evento._start._d)
+            let horafin = new String(evento._end._d)
+            horainicio = horainicio.substr(16,8)
+            horafin = horafin.substr(16,8)  
+            fecha = fecha.substr(4,12)
+            const post = {
+                turno_fecha: fecha,
+                turno_horainicio: horainicio,
+                turno_horafin: horafin
+            }
+            console.log(post)
+            try {
+                console.log(JSON.stringify(post));
+                fetch('http://localhost:3000/actualizarhoraturno/'+evento.idturno,{
+                    method:'PUT',
+                    body: JSON.stringify(post),
+                    headers: {
+                        "Content-type": "application/json"
+                    }
+                }).then(res=>res.json())
+                .then(data=>console.log(data))
+            } catch (error) {
+                swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                console.log(error)
+            }  
+        swal("Turno Registrado","Se registró el Turno con Éxito!","success");    
+        } else{
+            revertFunc()
+        }
+      });
 }

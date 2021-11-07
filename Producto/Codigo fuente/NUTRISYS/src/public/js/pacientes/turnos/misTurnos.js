@@ -199,4 +199,41 @@ function atenderPaciente(turno){
         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
         console.log(error)
         } 
+        console.log(turno.nrohc)
+         let query = 'http://localhost:3000/consultanrohc/'+turno.nrohc
+         fetch(query)
+         .then(response => response.json())
+         .then(consultas => consulta(consultas))
+         .catch(error => console.log(error))
+         const consulta = (consultas) => {
+             console.log(consultas)
+             if (consultas.length>0) {
+                 location.href = 'http://localhost:3000/consulta/registrarconsulta/hc='+turno.nrohc+'/trn='+turno.idturno
+             }else{
+                 location.href = '/consulta/registrarFichaInicial/hc='+turno.nrohc+'/trn='+turno.idturno
+             }
+         }
+    
+}
+
+function cancelarTurno(turno){
+    console.log(turno);
+    const post = {
+        turno_idestado: 4}
+    console.log(post)
+     try {
+        console.log(JSON.stringify(post));
+        fetch("http://localhost:3000/actualizarturno/"+turno.idturno,{
+        method:"PUT",
+        body: JSON.stringify(post),
+        headers: {
+        "Content-type": "application/json"
+        }
+        })  .then(res=>res.json())
+            .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+        } 
+    
 }

@@ -48,6 +48,8 @@
 		<![endif]-->
 
 	<link rel="stylesheet" href="/assets/css/estilo_plantilla.css" />
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body class="no-skin">
@@ -64,7 +66,7 @@
 			</button>
 
 			<div class="navbar-header pull-left">
-				<a href="index.html" class="navbar-brand">
+				<a href="" class="navbar-brand">
 					<small>
 						<div class="logo">
 							<img class="logo__manzana " src=".//assets/images/Logo Final Blanco sin texto-01.png"
@@ -267,8 +269,8 @@
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 							<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 							<span class="user-info">
-								<small>Apellido,</small>
-								Nombre
+								<small><%= user.apellido %>,</small>
+								<%= user.nombre %>
 							</span>
 
 							<i class="ace-icon fa fa-caret-down"></i>
@@ -293,7 +295,7 @@
 							<li class="divider"></li>
 
 							<li>
-								<a href="#">
+								<a href="/usuarios/logout">
 									<i class="ace-icon fa fa-power-off"></i>
 									Logout
 								</a>
@@ -338,7 +340,7 @@
 
 					<ul class="submenu">
 						<li class="active">
-							<a href="RecepcionDeTurnos.html">
+							<a href="/turnos">
 								<i class="menu-icon fa fa-caret-right"></i>
 								Recepción de Turnos
 							</a>
@@ -347,7 +349,7 @@
 						</li>
 
 						<li class="">
-							<a href="http://localhost:3000/turnos/leg=:69669">
+							<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
 								<i class="menu-icon fa fa-caret-right"></i>
 								Mis Turnos
 							</a>
@@ -360,7 +362,7 @@
 				</li>
 
 				<li class="">
-					<a href="index.html">
+					<a href="/pacientes/buscarpaciente">
 						<i class="menu-icon fa fa-list-alt"></i>
 						<span class="menu-text"> Historia Clinica </span>
 					</a>
@@ -369,7 +371,7 @@
 				</li>
 
 				<li class="">
-					<a href="index.html">
+					<a href="">
 						<i class="menu-icon fa fa-signal"></i>
 						<span class="menu-text"> Reportes </span>
 					</a>
@@ -378,7 +380,7 @@
 				</li>
 
 				<li class="">
-					<a href="index.html">
+					<a href="">
 						<i class="menu-icon fa fa-pencil-square-o"></i>
 						<span class="menu-text"> Adm. de Usuarios </span>
 					</a>
@@ -506,7 +508,7 @@
 							<!-- PAGE CONTENT BEGINS -->
 							<div>
 								<h2>Profesional: </h2>
-								<select class="form-control" id="select-profesional" onchange="buscarAgendaProfesional()">
+								<select class="form-control" id="select-profesional" onchange="buscarAgendaProfesional(this.value)">
 									<option value=""></option>
 									<option value="AL">Lilian Palo</option>
 									<option value="AK">Claudia Travella</option>
@@ -736,40 +738,8 @@
 					$('#calendar').fullCalendar('gotoDate', date.format());
 					$('#calendar').fullCalendar('changeView', 'agendaDay');
 				}
-				,
-				events: [
-					// {
-					// 	title: 'All Day Event',
-					// 	start: new Date(y, m, 1),
-					// 	className: 'label-important'
-					// },
-					// {
-					// 	title: 'Long Event',
-					// 	start: moment().subtract(5, 'days').format('YYYY-MM-DD'),
-					// 	end: moment().subtract(1, 'days').format('YYYY-MM-DD'),
-					// 	className: 'label-success'
-					// },
-					// {
-					// 	title: 'Some Event',
-					// 	start: new Date(y, m, d - 4, 15, 30),
-					// 	allDay: false,
-					// 	className: 'label-info'
-					// }
-					{
-						title: '1001 - Pedro Sanchez - 22321456',
-						start: new Date(y, m, d - 3, 15, 30),
-						allDay: false,
-						className: 'label-turno-cancelado label-danger invisible',
-						estado: 'Cancelado'
-					},
-					{
-						title: '1001 - Pedro Sanchez - 22321456',
-						start: new Date(y, m, d - 2, 15, 30),
-						allDay: false,
-						className: 'label-turno-cancelado label-danger invisible',
-						estado: 'Cancelado'
-					}
-				]
+				
+				
 				,
 
 				businessHours: {
@@ -784,24 +754,15 @@
 				// Ampliación momento fin de turno
 
 				eventResize: function (event, delta, revertFunc) {
-
 					
-					alert("Cambiar finalización turno de paciente " + event.title + " al horario  " + event.end.format());
-
-					if (!confirm("Desea confirmar?")) {
-						revertFunc();
-					}
+					actualizarhoraturno(event,revertFunc)
 
 				},
 
 				// Movimiento de Turnos
 
 				eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {
-					alert("Moviendo turno a" + event.start.format());
-
-					if (!confirm("Desea confirmar?")) {
-						revertFunc();
-					}
+					actualizarhoraturno(event,revertFunc)
 				},
 
 				editable: true,
@@ -862,7 +823,13 @@
 				// ,
 
 				eventClick: function (calEvent, jsEvent, view) {
-
+					if (document.getElementById("select-profesional").value=="") {
+						swal("Atención","Debe seleccionar un profesional","error")
+						calendar.fullCalendar('removeEvents', function (ev) {
+							return (ev._id == calEvent._id);
+						})
+						return false
+					}
 
 					console.log('Event: ' + calEvent._start._d);
 					console.log('Event: ' + calEvent._end._d);
@@ -895,7 +862,9 @@
 						ev.preventDefault();
 						var documento;
 						documento = $(this).find("input[type=number]").val();
+						
 						if (validarDoc(documento.toString())) {
+							
 							calEvent.title = buscarHCPorDoc(documento.toString());
 						}
 						else {
@@ -903,17 +872,15 @@
 						}
 
 						if (verificarPaciente(calEvent.title)) {
-							if (confirmarTurno(calEvent._start._d)) {
-								generarTurno(calEvent.title, calEvent._start._d, calEvent._end._d);
+								confirmarTurno(calEvent,calEvent.title)
+								//generarTurno(calEvent.title, calEvent._start._d, calEvent._end._d);
 								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title);
 								calEvent.title = turno;
 								// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
 								calEvent.className = 'label-verde';
 								calendar.fullCalendar('updateEvent', calEvent);
-								console.log(calEvent._start._d);
+								//console.log(calEvent._start._d);
 								modal.modal("hide");
-
-							}
 						}
 						else {
 							alert("Paciente no encontrado. HC o Documento inválido.");
@@ -945,7 +912,7 @@
 					// $(this).css('border-color', 'red');
 
 				}
-
+				
 
 
 

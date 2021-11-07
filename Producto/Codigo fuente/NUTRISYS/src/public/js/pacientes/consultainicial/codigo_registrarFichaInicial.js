@@ -203,6 +203,24 @@ if (nuevo==1) {
         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
         console.log(error)
     }  
+
+    const post2 = {
+        turno_idestado: 4}
+    console.log(post2)
+     try {
+        console.log(JSON.stringify(post2));
+        fetch("http://localhost:3000/actualizarturno/"+cons_idturno,{
+        method:"PUT",
+        body: JSON.stringify(post2),
+        headers: {
+        "Content-type": "application/json"
+        }
+        })  .then(res=>res.json())
+            .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+        } 
 }
 
 

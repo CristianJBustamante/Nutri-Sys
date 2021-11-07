@@ -63,3 +63,45 @@ export const actualizarestadoturno = async(req,res) => {
         res.send(error.message);
     } 
 }
+
+//INSERTAR TURNO
+export const nuevoTurno = async (req,res) => {
+    let { turno_legajoempleado,turno_fecha,turno_horainicio,turno_horafin,turno_nrohc,
+        turno_idtipo,turno_idestado } = req.body;
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('turno_legajoempleado',sql.Int,turno_legajoempleado)
+            .input('turno_fecha',sql.DateTime,turno_fecha)
+            .input('turno_horainicio',sql.NVarChar,turno_horainicio)
+            .input('turno_horafin',sql.NVarChar,turno_horafin)
+            .input('turno_nrohc',sql.Int,turno_nrohc)
+            .input('turno_idtipo',sql.Int,turno_idtipo)
+            .input('turno_idestado',sql.Int,turno_idestado)
+            .query(turnosquerys.nuevoturno)
+        res.json({  turno_legajoempleado,turno_fecha,turno_horainicio,turno_horafin,turno_nrohc,turno_idtipo,turno_idestado})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
+
+//MODIFICAR ESTADO TURNO
+export const actualizarhoraturno = async(req,res) => {
+    let {turno_fecha,turno_horainicio,turno_horafin} = req.body;
+    const {turno_id} = req.params;
+
+    try {
+        const pool = await getConnection();
+        await pool.request()
+        .input('turno_id',sql.Int,turno_id)
+        .input('turno_fecha',sql.DateTime,turno_fecha)
+        .input('turno_horainicio',sql.NVarChar,turno_horainicio)
+        .input('turno_horafin',sql.NVarChar,turno_horafin)
+        .query(turnosquerys.actualizarhorafin)
+        res.json({  turno_id,turno_fecha,turno_horainicio,turno_horafin})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    } 
+}

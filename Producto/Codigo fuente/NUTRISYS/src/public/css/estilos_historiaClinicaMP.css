@@ -279,6 +279,14 @@ h2{
 /** UTILIDADES **/
 /****************/
 
+/*quitar las flechas de los inputs */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
 .flex__textItem{
     margin: auto;
     text-align: center;

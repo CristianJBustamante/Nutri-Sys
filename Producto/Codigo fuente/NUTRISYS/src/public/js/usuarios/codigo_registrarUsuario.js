@@ -2,7 +2,7 @@
 
  const url = new String(window.location)
  let modo = url.substr(url.indexOf("usuario/"),url.length)
- var nuevo=1
+ var nuevo=0
  var emp_legajo=0
  var metodo=''
  var ruta=''
@@ -118,14 +118,11 @@ function registrarEmpleado() {
                 console.log(error)
                 } 
             //Usuarios
-            for (var i = 0; i < sel.length; i++) {
-                var usu_clave =   document.getElementById("usu_clave").value;
-                var usu_correo =   document.getElementById("usu_correo").value;
-                    
+            var usu_clave =   document.getElementById("usu_clave").value;
+            var usu_correo =   document.getElementById("usu_correo").value;
                 const post2 = {
                     usu_usuario: emp_legajoUltimo,
                     usu_clave: usu_clave,
-                    usu_idperfil: sel[i].value,
                     usu_correo: usu_correo,
                 }
                 console.log(post2)
@@ -143,7 +140,9 @@ function registrarEmpleado() {
                     swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
                     console.log(error)
                     } 
+
                 //Perfiles
+            for (var i = 0; i < sel.length; i++) {
                 const post3 = {
                     usu_id: usu_ultimoid,
                     usu_idperfil: sel[i].value,
@@ -165,44 +164,100 @@ function registrarEmpleado() {
                     console.log(error)
                 }
             }
-            swal("Consulta Registrada","Consulta del Empleado "+emp_legajoUltimo+" Registrada con Éxito!","success")
+            swal("Empleado Registrado","Empleado "+emp_legajoUltimo+" Registrado con Éxito!","success")
         }
-    //     else{
-    //     //ACTUALIZAR HABITOS
-    //     try {
-    //         fetch("http://localhost:3000/borrarusuxip/"+habpac_id,{
-    //         method:"DELETE"
-    //         })  .then(res=>res.json())
-    //     } catch (error) {
-    //         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-    //         console.log(error)
-    //         } 
-    //         for (var i = 0; i < sel.length; i++) {
-    //             const post = {
-    //                 usu_id: usu_ultimoid,
-    //                 usu_idperfil: sel[i].value,
-    //             }
-    //             console.log(post)
+        else{
 
-    //              try {
-    //                 console.log(JSON.stringify(post));
-    //                 fetch("http://localhost:3000/usuxperfil",{
-    //                     method:"POST",
-    //                     body: JSON.stringify(post),
-    //                     headers: {
-    //                         "Content-type": "application/json"
-    //                     }
-    //                 })  .then(res=>res.json())
-    //                     .then(data=>console.log(data))
-    //             } catch (error) {
-    //                 swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-    //                 console.log(error)
-    //             } 
-    //         }
-    //         swal("Consulta Registrada","Consulta del Empleado "+emp_legajo+" Registrada con Éxito!","success")
-    //             /* .then((value) => {
-    //                 location.href ="/pacientes/buscarpaciente"}) */
-    //     }  
+        //ACTUALIZAR EMPLEADOS
+        var emp_nrodoc =   document.getElementById("emp_nrodoc").value;
+        var emp_apellido =   document.getElementById("emp_apellido").value;
+        var emp_nombre =   document.getElementById("emp_nombre").value;
+        var emp_matricula =   document.getElementById("emp_matricula").value;
+        var emp_direccion =   document.getElementById("emp_direccion").value;
+        var emp_telefono1 =   document.getElementById("emp_telefono1").value;
+        var emp_telefono2 =   document.getElementById("emp_telefono2").value;
+        const post = {
+            emp_nrodoc: emp_nrodoc,
+            emp_idusuario: usu_ultimoid,
+            emp_apellido: emp_apellido,
+            emp_nombre: emp_nombre,
+            emp_matricula: emp_matricula,
+            emp_direccion: emp_direccion,
+            emp_telefono1: emp_telefono1,
+            emp_telefono2: emp_telefono2,
+        }
+
+        try {
+            console.log(JSON.stringify(post));
+            fetch(ruta,{
+            method:metodo,
+            body: JSON.stringify(post),
+            headers: {
+                "Content-type": "application/json"
+            }
+            }).then(res=>res.json())
+            .then(data=>console.log(data))
+            location.href ="/usuario/actualizarEmpleado/leg="+emp_legajo
+        } catch (error) {
+            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        } 
+
+        //Actualizar Usuario
+        var usu_clave =   document.getElementById("usu_clave").value;
+        var usu_correo =   document.getElementById("usu_correo").value;
+            
+        const post2 = {
+            usu_clave: usu_clave,
+            usu_correo: usu_correo,
+        }
+        try {
+            console.log(JSON.stringify(post2));
+            fetch(ruta,{
+            method:metodo,
+            body: JSON.stringify(post2),
+            headers: {
+                "Content-type": "application/json"
+            }
+            }).then(res=>res.json())
+            .then(data=>console.log(data))
+            location.href ="/usuario/actualizarUsuario/usu="+usu_usuario
+        } catch (error) {
+            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        }
+
+        try {
+            fetch("http://localhost:3000/borrarusuxip/"+usu_id,{
+            method:"DELETE"
+            })  .then(res=>res.json())
+        } catch (error) {
+            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+            console.log(error)
+            } 
+
+            for (var i = 0; i < sel.length; i++) {
+                const post3 = {
+                    usu_id: usu_ultimoid,
+                    usu_idperfil: sel[i].value,
+                }
+                console.log(post3)
+
+                 try {
+                    console.log(JSON.stringify(post3));
+                    fetch("http://localhost:3000/usuxperfil",{
+                        method:"POST",
+                        body: JSON.stringify(post3),
+                        headers: {
+                            "Content-type": "application/json"
+                        }
+                    })  .then(res=>res.json())
+                        .then(data=>console.log(data))
+                } catch (error) {
+                    swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                    console.log(error)
+                } 
+            }
+            swal("Consulta Registrada","Consulta del Empleado "+emp_legajo+" Registrada con Éxito!","success")
+        }  
     }
     else{
          swal("Atención","Debe seleccionar al menos un perfil de la grilla.","warning" )

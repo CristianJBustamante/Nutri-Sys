@@ -54,7 +54,6 @@ Content-Type: application/json
 {
     "usu_usuario": 69716,
     "usu_clave": "12345",
-    "usu_idperfil": "1",
     "usu_correo": ""
 }
 ###
@@ -66,3 +65,40 @@ Content-Type: application/json
     "usu_id": 15,
     "usu_idperfil": "1"
 }
+###
+
+PUT {{api}}/actualizarEmpleado/69724
+Content-Type: application/json
+
+{
+    "emp_idusuario": "",
+    "emp_nrodoc": 11001100,
+    "emp_apellido": "prueba",
+    "emp_nombre": "prueba",
+    "emp_matricula": 1100,
+    "emp_direccion": "aaa 11",
+    "emp_telefono1": 111,
+    "emp_telefono2": 222
+}
+###
+
+PUT {{api}}/actualizarUsuario/69716
+Content-Type: application/json
+
+{
+    "usu_clave": "112233",
+    "usu_correo": "prueba@.com"
+}
+###
+
+PUT {{api}}/actualizarUsuPerfil/
+Content-Type: application/json
+
+{
+    "usu_id": 15,
+    "usu_idperfil": "1"
+}
+
+###
+
+GET {{api}}/usuario/69718

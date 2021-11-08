@@ -48,15 +48,23 @@
     	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
 		<link rel="stylesheet" href="./estilos_registrarPacienteNuevo.css"> -->
 
-	<link rel="stylesheet" href="/css/normalize.css"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-    <link rel="stylesheet" href="/css/estilos_registrarPacienteNuevo.css"> 
-
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<link rel="stylesheet" href="/css/normalize.css"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+		<link rel="stylesheet" href="/css/estilos_buscarEmpleado.css"> 
+		<script src="/js/pacientes/usuarios/codigo_registrarUsuario.js"></script>
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</head>
 
 	<body class="no-skin">
+
+		<!-- Option 1: Bootstrap Bundle with Popper -->
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+		<!-- Bootstrap Bundle with Popper -->
+
+
 		<div id="navbar" class="navbar navbar-default          ace-save-state">
 			<div class="navbar-container ace-save-state" id="navbar-container">
 				<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
@@ -70,7 +78,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="index.html" class="navbar-brand">
+					<a href="" class="navbar-brand">
 						<small>
 							<div class="logo">
 								<img class="logo__manzana" src="/assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
@@ -85,10 +93,11 @@
 						
 
 						<li class="purple dropdown-modal">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<!-- NOTIFICACIONES -->
+							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 								<span class="badge badge-important">8</span>
-							</a>
+							</a> -->
 
 							<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
@@ -153,10 +162,11 @@
 						</li>
 
 						<li class="green dropdown-modal">
-							<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<!-- NOFICACIONES-->
+							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
 								<span class="badge badge-success">5</span>
-							</a>
+							</a> -->
 
 							<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 								<li class="dropdown-header">
@@ -264,7 +274,7 @@
 
 						<li class="light-blue dropdown-modal">
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-								<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+								<img class="nav-user-photo" src="/assets/images/avatars/avatar2.png" alt="Jason's Photo" />
 								<span class="user-info">
 									<small><%= user.apellido %>,</small>
 									<%= user.nombre %>
@@ -277,14 +287,14 @@
 								<li>
 									<a href="#">
 										<i class="ace-icon fa fa-cog"></i>
-										Settings
+										Configuración
 									</a>
 								</li>
 
 								<li>
 									<a href="profile.html">
 										<i class="ace-icon fa fa-user"></i>
-										Profile
+										Perfil
 									</a>
 								</li>
 
@@ -293,7 +303,7 @@
 								<li>
 									<a href="/usuarios/logout">
 										<i class="ace-icon fa fa-power-off"></i>
-										Logout
+										Cerrar sesión
 									</a>
 								</li>
 							</ul>
@@ -326,25 +336,48 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.html">
+						<a href="index.html" class="dropdown-toggle">
 							<i class="menu-icon fa fa-calendar"></i>
 							<span class="menu-text"> Organizador </span>
+							<b class="arrow fa fa-angle-down"></b>
 						</a>
-
-						
+	
+						<b class="arrow"></b>
+	
+						<ul class="submenu">
+							<li class="">
+								<a href="/turnos">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Recepción de Turnos
+								</a>
+	
+								<b class="arrow"></b>
+							</li>
+	
+							<li class="">
+								<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Mis Turnos
+								</a>
+	
+								<b class="arrow"></b>
+							</li>
+						</ul>
+	
+	
 					</li>
 					
 					<li class="">
-						<a href="../buscarpaciente">
+						<a href="/pacientes/buscarpaciente">
 							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Historia Clinica </span>
+							<span class="menu-text"> Historia Clínica </span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
 
 					<li class="">
-						<a href="index.html">
+						<a href="">
 							<i class="menu-icon fa fa-signal"></i>
 							<span class="menu-text"> Reportes </span>
 						</a>
@@ -353,9 +386,9 @@
 					</li>
 
 					<li class="active">
-						<a href="index.html">
-							<i class="menu-icon fa fa-pencil-square-o" ></i>
-							<span class="menu-text" > Adm. de Usuarios </span>
+						<a href="">
+							<i class="menu-icon fa fa-pencil-square-o"></i>
+							<span class="menu-text"> Adm. de Usuarios </span>
 						</a>
 
 						<b class="arrow"></b>
@@ -376,7 +409,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-							<li class="active">Adm </li>
+							<li class="active">Administracion de Usuarios</li>
 						</ul><!-- /.breadcrumb -->
 
 						
@@ -452,7 +485,7 @@
 
 						<div class="page-header">
 							<h1>
-								Adm. de Usuarios
+								Administracion de Usuarios
 								<small>
 									<i class="ace-icon fa fa-angle-double-right"></i>
 								</small>
@@ -469,74 +502,35 @@
 						<div>
 							<div class="contenidoPagina">
 								<article class="contenido__article">
-									<section class="contenido__section" id="titulopagina"> 
-										<h2 class="titulo " id="data"><%= titulo %></h2> <!--Modo Edicion Modificar Etiqueta-->
-										<input class="btn btn-white btn-primary btn__crear" type="button" name="Guardar" value="Guardar" onclick="registrarEmpleado()">
+									<section class="section__parametros">
+										<div class="contenido__parametros">
+											<h2 class="parametro paramHC1">Legajo:</h2>
+											<input type="number" class="parametro__input padding__inputText paramHC2" id="pac_nrohc">
+											<h2 class="parametro paramDoc1">Documento:</h2>
+											<input type="number" class="parametro__input padding__inputText paramDoc2" id="pac_nrodoc">
+											<input type="button" value="Buscar Empleado" class="normal parametro__input btnBuscar" onclick="buscarPaciente()">
+											<h2 class="parametro paramAN1">Apellido, Nombre:</h2>
+											<input type="text" class="parametro__input padding__inputText paramAN2" id="pac_apellido">
+											<input type="button" value="Nuevo Empleado" class="normal parametro__input btnNuevo" style="visibility:hidden;" onclick="crearPacienteNuevo()">
+											<input type="button" value="Nuevo Empleado" class="normal parametro__input btnNuevo" style="visibility:hidden;" onclick="crearPacienteNuevo()">
+											<input type="button" value="Nuevo Empleado" class="normal parametro__input btnNuevo" style="float: left;" onclick="crearPacienteNuevo()">
+										</div> 
 									</section>
-									
-									<section class="contenido__section--datosPersonales"> 
-										<div class="titulo__datosPersonales">
-											<h2 style="margin-left: 2rem;">Registrar Usuario</h2>
-										</div>										
-										<div class="contenido__datosPersonales">
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Nombre:(*)</h2>
-												<input type="text" id="emp_nombre" placeholder=" Ingrese Nombre " class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Apellido:(*)</h2>
-												<input type="text" id="emp_apellido" placeholder=" Ingrese Apellido" class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">DNI:(*)</h2>
-												<input type="number" id="emp_nrodoc" placeholder=" Ingrese Nro Documento" class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Matricula:</h2>
-												<input type="number" id="emp_matricula" placeholder=" Ingrese Matricula " class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Direccion:(*)</h2>
-												<input type="text" id="emp_direccion" placeholder=" Ingrese Direccion " class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Telefono:(*)</h2>
-												<input type="number" id="emp_telefono1" placeholder=" Ingrese Telefono " class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Telefono Alternativo:</h2>
-												<input type="number" id="emp_telefono2" placeholder=" Ingrese Telefono Alternativo " class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Correo:(*)</h2>
-												<input type="email" id="usu_correo" placeholder=" ejemplo@nutrisys.com.ar " class="input__padding" style="text-align: center;"">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Contraseña(*):</h2>
-												<input type="password" class="input__padding" placeholder=" Ingrese Contraseña " id="usu_clave" style="text-align: center;">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Confirmar Contraseña(*):</h2>
-												<input type="password" placeholder=" Ingrese Contraseña " class="input__padding" id="usu_claveC" style="text-align: center;">
-											</section>
-											<section class="info__datosPersonales">
-												<h2 style="font-weight: normal;">* Campos Obligatorios *</h2>
-											</section>
-											<section class="info__datosPersonales">
-											</section>										
-										</div>
-										<section class="info_Perfiles">
-											<h2 class="" for="duallist"> Seleccionar Perfil/es </h2>
-											<div class="col-sm-15">
-												<select multiple="multiple" size="1" name="duallistbox_demo1[]">
-													<option value="1" text="Administrador de Usuario">Administrador de Usuario</option>
-													<option value="2" text="Recepcionista">Recepcionista</option>
-													<option value="3" text="Profesional">Profesional</option>
-												</select>
-											</div>
-										</section>
-										<br>
-										<div>
+									<section class="contenido__resultados"> 
+										<div class="tabla__resultados">
+											<table class="table table-hover table-fixed">
+												<thead>
+												  <tr class="tr__width">
+													<th class="td__width--LEG" scope="col">Legajo</th>
+													<th class="td__width--Ape"  scope="col">Apelido/s</th>
+													<th class="td__width--Nom"  scope="col">Nombre/s</th>
+													<th class="td__width--Doc"  scope="col">Documento</th>
+												  </tr>
+												</thead>
+												<tbody id="data">
+												</tbody>
+											  </table>
+					
 										</div>
 									</section>
 								</article>
@@ -567,189 +561,250 @@
 
 		<!-- <![endif]-->
 
-		<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-			<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-		</a>
-	</div><!-- /.main-container -->
-
-	<!-- basic scripts -->
-
-	<!--[if !IE]> -->
-	<script src="/assets/js/jquery-2.1.4.min.js"></script>
-
-	<!-- <![endif]-->
-
-	<!--[if IE]>
+		<!--[if IE]>
 <script src="/assets/js/jquery-1.11.3.min.js"></script>
 <![endif]-->
-	<script type="text/javascript">
-		if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-	</script>
-	<script src="/assets/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		<script src="/assets/js/bootstrap.min.js"></script>
 
-	<!-- page specific plugin scripts -->
-	<script src="/assets/js/jquery.bootstrap-duallistbox.min.js"></script>
-	<script src="/assets/js/jquery.raty.min.js"></script>
-	<script src="/assets/js/bootstrap-multiselect.min.js"></script>
-	<script src="/assets/js/select2.min.js"></script>
-	<script src="/assets/js/jquery-typeahead.js"></script>
+		<!-- page specific plugin scripts -->
 
-	<!-- ace scripts -->
-	<script src="/assets/js/ace-elements.min.js"></script>
-	<script src="/assets/js/ace.min.js"></script>
+		<!--[if lte IE 8]>
+		  <script src="/assets/js/excanvas.min.js"></script>
+		<![endif]-->
+		<script src="/assets/js/jquery-ui.custom.min.js"></script>
+		<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="/assets/js/jquery.easypiechart.min.js"></script>
+		<script src="/assets/js/jquery.sparkline.index.min.js"></script>
+		<script src="/assets/js/jquery.flot.min.js"></script>
+		<script src="/assets/js/jquery.flot.pie.min.js"></script>
+		<script src="/assets/js/jquery.flot.resize.min.js"></script>
 
-	<!-- inline scripts related to this page -->
-	<script type="text/javascript">
-		jQuery(function($){
-			var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox({infoTextFiltered: '<span class="label label-purple label-lg">Filtered</span>'});
-			var container1 = demo1.bootstrapDualListbox('getContainer');
-			container1.find('.btn').addClass('btn-white btn-info btn-bold');
-		
-			/**var setRatingColors = function() {
-				$(this).find('.star-on-png,.star-half-png').addClass('orange2').removeClass('grey');
-				$(this).find('.star-off-png').removeClass('orange2').addClass('grey');
-			}*/
-			$('.rating').raty({
-				'cancel' : true,
-				'half': true,
-				'starType' : 'i'
-				/**,
-				
-				'click': function() {
-					setRatingColors.call(this);
-				},
-				'mouseover': function() {
-					setRatingColors.call(this);
-				},
-				'mouseout': function() {
-					setRatingColors.call(this);
-				}*/
-			})//.find('i:not(.star-raty)').addClass('grey');
-							
-			//////////////////
-			//select2
-			$('.select2').css('width','200px').select2({allowClear:true})
-			$('#select2-multiple-style .btn').on('click', function(e){
-				var target = $(this).find('input[type=radio]');
-				var which = parseInt(target.val());
-				if(which == 2) $('.select2').addClass('tag-input-style');
-				 else $('.select2').removeClass('tag-input-style');
-			});
-			
+		<!-- ace scripts -->
+		<script src="/assets/js/ace-elements.min.js"></script>
+		<script src="/assets/js/ace.min.js"></script>
 
-			//CARGAR Perfil DESDE BD
-			if (nuevo==1) {
-				let queryh = 'http://localhost:3000/perfil'
-        		fetch(queryh)
-            	.then(response => response.json())
-            	.then(perfiles => cargarperfiles(hab))
-            	.catch(error => console.log(error))
-        		const cargarperfiles = (hab) => {
-            	let op=''
-            	for (let i = 0; i<perfiles.length; i++){
-                	op+=`<option value=${perfiles[i].usu_id}>${perfiles[i].usu_idperfil}</option>`
-            		}
-            	document.getElementById("duallist").innerHTML=op
-				demo1.bootstrapDualListbox('refresh')}
-			}else{
-				let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
-        		fetch(queryh)
-            	.then(response => response.json())
-            	.then(hab => cargarhabitos(hab))
-            	.catch(error => console.log(error))
-        		const cargarhabitos = (hab) => {
-					console.log(pac_nrohc)
-            	let op=''
-            	for (let i = 0; i<hab.length; i++){
-                	op+=`<option selected="selected" value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
-            		}
-				
-				let queryh = 'http://localhost:3000/noultimoshabitos/'+ pac_nrohc
-        		fetch(queryh)
-            	.then(response => response.json())
-            	.then(hab => cargarhabitos(hab))
-            	.catch(error => console.log(error))
-        		const cargarhabitos = (hab) => {
-            	for (let i = 0; i<hab.length; i++){
-                	op+=`<option value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
-            		}
-
-            	document.getElementById("duallist").innerHTML=op
-				demo1.bootstrapDualListbox('refresh')}}
-			}
-
-			//////////////////
-			$('.multiselect').multiselect({
-			 enableFiltering: true,
-			 enableHTML: true,
-			 buttonClass: 'btn btn-white btn-primary',
-			 templates: {
-				button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> &nbsp;<b class="fa fa-caret-down"></b></button>',
-				ul: '<ul class="multiselect-container dropdown-menu"></ul>',
-				filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="fa fa-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
-				filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default btn-white btn-grey multiselect-clear-filter" type="button"><i class="fa fa-times-circle red2"></i></button></span>',
-				li: '<li><a tabindex="0"><label></label></a></li>',
-				divider: '<li class="multiselect-item divider"></li>',
-				liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'
-			 }
-			});
-		
-			
-			///////////////////
-				
-			//typeahead.js
-			//example taken from plugin's page at: https://twitter.github.io/typeahead.js/examples/
-			var substringMatcher = function(strs) {
-				return function findMatches(q, cb) {
-					var matches, substringRegex;
-				 
-					// an array that will be populated with substring matches
-					matches = [];
-				 
-					// regex used to determine if a string contains the substring `q`
-					substrRegex = new RegExp(q, 'i');
-				 
-					// iterate through the pool of strings and for any string that
-					// contains the substring `q`, add it to the `matches` array
-					$.each(strs, function(i, str) {
-						if (substrRegex.test(str)) {
-							// the typeahead jQuery plugin expects suggestions to a
-							// JavaScript object, refer to typeahead docs for more info
-							matches.push({ value: str });
-						}
+		<!-- inline scripts related to this page -->
+		<script type="text/javascript">
+			jQuery(function($) {
+				$('.easy-pie-chart.percentage').each(function(){
+					var $box = $(this).closest('.infobox');
+					var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
+					var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
+					var size = parseInt($(this).data('size')) || 50;
+					$(this).easyPieChart({
+						barColor: barColor,
+						trackColor: trackColor,
+						scaleColor: false,
+						lineCap: 'butt',
+						lineWidth: parseInt(size/10),
+						animate: ace.vars['old_ie'] ? false : 1000,
+						size: size
 					});
-		
-					cb(matches);
-				}
+				})
+			
+				$('.sparkline').each(function(){
+					var $box = $(this).closest('.infobox');
+					var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
+					$(this).sparkline('html',
+									 {
+										tagValuesAttribute:'data-values',
+										type: 'bar',
+										barColor: barColor ,
+										chartRangeMin:$(this).data('min') || 0
+									 });
+				});
+			
+			
+			  //flot chart resize plugin, somehow manipulates default browser resize event to optimize it!
+			  //but sometimes it brings up errors with normal resize event handlers
+			  $.resize.throttleWindow = false;
+			
+			  var placeholder = $('#piechart-placeholder').css({'width':'90%' , 'min-height':'150px'});
+			  var data = [
+				{ label: "social networks",  data: 38.7, color: "#68BC31"},
+				{ label: "search engines",  data: 24.5, color: "#2091CF"},
+				{ label: "ad campaigns",  data: 8.2, color: "#AF4E96"},
+				{ label: "direct traffic",  data: 18.6, color: "#DA5430"},
+				{ label: "other",  data: 10, color: "#FEE074"}
+			  ]
+			  function drawPieChart(placeholder, data, position) {
+			 	  $.plot(placeholder, data, {
+					series: {
+						pie: {
+							show: true,
+							tilt:0.8,
+							highlight: {
+								opacity: 0.25
+							},
+							stroke: {
+								color: '#fff',
+								width: 2
+							},
+							startAngle: 2
+						}
+					},
+					legend: {
+						show: true,
+						position: position || "ne", 
+						labelBoxBorderColor: null,
+						margin:[-30,15]
+					}
+					,
+					grid: {
+						hoverable: true,
+						clickable: true
+					}
+				 })
 			 }
-		
-			 $('input.typeahead').typeahead({
-				hint: true,
-				highlight: true,
-				minLength: 1
-			 }, {
-				name: 'states',
-				displayKey: 'value',
-				source: substringMatcher(ace.vars['US_STATES']),
-				limit: 10
+			 drawPieChart(placeholder, data);
+			
+			 /**
+			 we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
+			 so that's not needed actually.
+			 */
+			 placeholder.data('chart', data);
+			 placeholder.data('draw', drawPieChart);
+			
+			
+			  //pie chart tooltip example
+			  var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
+			  var previousPoint = null;
+			
+			  placeholder.on('plothover', function (event, pos, item) {
+				if(item) {
+					if (previousPoint != item.seriesIndex) {
+						previousPoint = item.seriesIndex;
+						var tip = item.series['label'] + " : " + item.series['percent']+'%';
+						$tooltip.show().children(0).text(tip);
+					}
+					$tooltip.css({top:pos.pageY + 10, left:pos.pageX + 10});
+				} else {
+					$tooltip.hide();
+					previousPoint = null;
+				}
+				
 			 });
-				
-				
-			///////////////
+			
+				/////////////////////////////////////
+				$(document).one('ajaxloadstart.page', function(e) {
+					$tooltip.remove();
+				});
 			
 			
-			//in ajax mode, remove remaining elements before leaving page
-			$(document).one('ajaxloadstart.page', function(e) {
-				$('[class*=select2]').remove();
-				$('select[name="duallistbox_demo1[]"]').bootstrapDualListbox('destroy');
-				$('.rating').raty('destroy');
-				$('.multiselect').multiselect('destroy');
-			});
-		
-		});
-		
-	</script>
-	<script src="/js/usuarios/codigo_registrarUsuario.js"></script>
+			
+			
+				var d1 = [];
+				for (var i = 0; i < Math.PI * 2; i += 0.5) {
+					d1.push([i, Math.sin(i)]);
+				}
+			
+				var d2 = [];
+				for (var i = 0; i < Math.PI * 2; i += 0.5) {
+					d2.push([i, Math.cos(i)]);
+				}
+			
+				var d3 = [];
+				for (var i = 0; i < Math.PI * 2; i += 0.2) {
+					d3.push([i, Math.tan(i)]);
+				}
+				
+			
+				var sales_charts = $('#sales-charts').css({'width':'100%' , 'height':'220px'});
+				$.plot("#sales-charts", [
+					{ label: "Domains", data: d1 },
+					{ label: "Hosting", data: d2 },
+					{ label: "Services", data: d3 }
+				], {
+					hoverable: true,
+					shadowSize: 0,
+					series: {
+						lines: { show: true },
+						points: { show: true }
+					},
+					xaxis: {
+						tickLength: 0
+					},
+					yaxis: {
+						ticks: 10,
+						min: -2,
+						max: 2,
+						tickDecimals: 3
+					},
+					grid: {
+						backgroundColor: { colors: [ "#fff", "#fff" ] },
+						borderWidth: 1,
+						borderColor:'#555'
+					}
+				});
+			
+			
+				$('#recent-box [data-rel="tooltip"]').tooltip({placement: tooltip_placement});
+				function tooltip_placement(context, source) {
+					var $source = $(source);
+					var $parent = $source.closest('.tab-content')
+					var off1 = $parent.offset();
+					var w1 = $parent.width();
+			
+					var off2 = $source.offset();
+					//var w2 = $source.width();
+			
+					if( parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2) ) return 'right';
+					return 'left';
+				}
+			
+			
+				$('.dialogs,.comments').ace_scroll({
+					size: 300
+			    });
+				
+				
+				//Android's default browser somehow is confused when tapping on label which will lead to dragging the task
+				//so disable dragging when clicking on label
+				var agent = navigator.userAgent.toLowerCase();
+				if(ace.vars['touch'] && ace.vars['android']) {
+				  $('#tasks').on('touchstart', function(e){
+					var li = $(e.target).closest('#tasks li');
+					if(li.length == 0)return;
+					var label = li.find('label.inline').get(0);
+					if(label == e.target || $.contains(label, e.target)) e.stopImmediatePropagation() ;
+				  });
+				}
+			
+				$('#tasks').sortable({
+					opacity:0.8,
+					revert:true,
+					forceHelperSize:true,
+					placeholder: 'draggable-placeholder',
+					forcePlaceholderSize:true,
+					tolerance:'pointer',
+					stop: function( event, ui ) {
+						//just for Chrome!!!! so that dropdowns on items don't appear below other items after being moved
+						$(ui.item).css('z-index', 'auto');
+					}
+					}
+				);
+				$('#tasks').disableSelection();
+				$('#tasks input:checkbox').removeAttr('checked').on('click', function(){
+					if(this.checked) $(this).closest('li').addClass('selected');
+					else $(this).closest('li').removeClass('selected');
+				});
+			
+			
+				//show the dropdowns on top or bottom depending on window height and menu position
+				$('#task-tab .dropdown-hover').on('mouseenter', function(e) {
+					var offset = $(this).offset();
+			
+					var $w = $(window)
+					if (offset.top > $w.scrollTop() + $w.innerHeight() - 100) 
+						$(this).addClass('dropup');
+					else $(this).removeClass('dropup');
+				});
+			
+			})
+		</script>
 	</body>
 	
 </html>

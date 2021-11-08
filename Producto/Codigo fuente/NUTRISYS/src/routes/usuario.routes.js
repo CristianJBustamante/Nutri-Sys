@@ -9,7 +9,7 @@ var AuthMiddleware = require("../middleware/auth")
 
 
 import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, login, logout, getlegajo, getultimolegajo, getultimoidusuario,
-  registrarEmpleado, registrarUsuarioEmpleado, registrarUsuPerfil} from "../controllers/usuario.controller";
+  registrarEmpleado, registrarUsuarioEmpleado, registrarUsuPerfil, actualizarEmpleado, actualizarUsuPerfil, actualizarUsuario, getEmpleado} from "../controllers/usuario.controller";
 
 //ACCESO A PAGINAS
   //login
@@ -54,12 +54,13 @@ router.get('/usuario/modificarusuario/leg=:emp_legajo',AuthMiddleware.isLogged, 
 });
 });
 //Buscar usuario
-router.get('/usuario/hc=:emp_legajo',AuthMiddleware.isLogged, (req,res) => {
-  res.render('pacientes/abm/registrarUsuario.html',{
+router.get('/usuario/consultausuario/',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/buscarEmpleado.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user
 });
 });
+
 //ACCESO A DATOS
 router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
 router.get('/usuarios',getallusers)
@@ -78,8 +79,11 @@ router.post('/usuario/login', passport.authenticate('local',{
 router.get('/ultimolegajo', getultimolegajo)
 //get ultimo idusuario registrado
 router.get('/ultimoidusuario', getultimoidusuario)
-
 router.post('/registrarEmpleado', registrarEmpleado)
 router.post('/registrarUsuarioEmpleado', registrarUsuarioEmpleado)
 router.post('/registrarUsuPerfil', registrarUsuPerfil)
+router.post('/borrarusuxip/:usu_id', actualizarUsuPerfil)
+router.put('/actualizarEmpleado/:emp_legajo', actualizarEmpleado)
+router.put('/actualizarUsuario/:usu_usuario', actualizarUsuario)
+router.get('/usuario/:emp_legajo', getEmpleado)
 module.exports = router;

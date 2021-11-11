@@ -229,10 +229,163 @@ export const getEmpleado = async(req,res) => {
         const pool = await getConnection()
         const result = await pool.request()
             .input('emp_legajo', emp_legajo).query(usuquerys.getEmpleado)
-        res.send(result.recordset[0])
+        res.send(result.recordset)
     } catch (error) {
         res.status(500);
         res.send(error.message);
     }
 } 
 
+//Empleado X Legajo
+export const getEmpleadoXL = async(req,res) => {
+    try {
+        const {emp_legajo} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('emp_legajo', emp_legajo).query(usuquerys.getEmpleadoXL)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Empleado X DNI
+export const getEmpleadoXD = async(req,res) => {
+    try {
+        const {emp_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('emp_nrodoc', emp_nrodoc).query(usuquerys.getEmpleadoXD)
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Empleado X HC, APELLIDO Y DNI
+export const getEmpleadoXLAD = async(req,res) => {
+    try {
+        const {emp_legajo} = req.params
+        const {emp_apellido} = req.params
+        const {emp_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('emp_legajo', emp_legajo)
+            .input('emp_apellido', emp_apellido)
+            .input('emp_nrodoc', emp_nrodoc)
+            .query(usuquerys.getEmpleadoXLAD)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Empleado X LEG Y APELLIDO
+export const getEmpleadoLA = async(req,res) => {
+    try {
+        const {emp_legajo} = req.params
+        const {emp_apellido} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('emp_legajo', emp_legajo)
+            .input('emp_apellido', emp_apellido)
+            .query(usuquerys.getEmpleadoLA)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Empleado APELLIDO
+export const getEmpleadoXA = async(req,res) => {
+    try {
+        const {emp_apellido} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('emp_apellido', emp_apellido)
+            .query(usuquerys.getEmpleadoXA)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Empleado X LEG Y DNI
+export const getEmpleadoLD = async(req,res) => {
+    try {
+        const {emp_legajo} = req.params
+        const {emp_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('emp_legajo', emp_legajo)
+            .input('emp_nrodoc', emp_nrodoc)
+            .query(usuquerys.getEmpleadoLD)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Empleado X DNI Y APELLIDO
+export const getEmpleadoAD = async(req,res) => {
+    try {
+        const {emp_apellido} = req.params
+        const {emp_nrodoc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('emp_apellido', emp_apellido)
+            .input('emp_nrodoc', emp_nrodoc)
+            .query(usuquerys.getEmpleadoAD)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Perfiles
+export const getPerfiles = async(req,res) => {
+    try {
+        const pool = await getConnection()
+        const result = await pool.request()
+            .query(usuquerys.getPerfiles)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Perfiles X Usuario SELECT
+export const getPerfilesSelec = async(req,res) => {
+    try {
+        const {usu_id} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('usu_id', usu_id).query(usuquerys.getPerfilesSelec)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//Perfiles X Usuario NO SELECT
+export const getPerfilesNOSelec = async(req,res) => {
+    try {
+        const {usu_id} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('usu_id', usu_id).query(usuquerys.getPerfilesNOSelec)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 

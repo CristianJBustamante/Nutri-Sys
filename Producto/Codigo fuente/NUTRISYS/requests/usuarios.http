@@ -67,7 +67,7 @@ Content-Type: application/json
 }
 ###
 
-PUT {{api}}/actualizarEmpleado/69724
+PUT {{api}}/usuarios/modificarusuario/69716
 Content-Type: application/json
 
 {
@@ -82,7 +82,7 @@ Content-Type: application/json
 }
 ###
 
-PUT {{api}}/actualizarUsuario/69716
+PUT {{api}}/usuarios/actualizarUsuario/69716
 Content-Type: application/json
 
 {
@@ -101,4 +101,4 @@ Content-Type: application/json
 
 ###
 
-GET {{api}}/usuario/69718
+GET {{api}}/empleado/leg=69716

@@ -375,3 +375,41 @@ a:hover{
     color: #000;
     /* text-decoration: none; */
 }
+
+/***** ESTILOS REPORTE ******/
+#form-param {
+	padding: 20px;
+	/* background-color: #fff; */
+	display: flex;
+}
+
+#form-param .container {
+    flex: 2;
+}
+#form-param .buttons {
+	flex: 1;
+}
+
+input {
+	padding: 9px;
+	margin: 6px;
+	width: 42%
+}
+
+button{
+	border: none;
+	padding: 9px;
+	display: block;
+	margin: 6px
+}
+
+button:first-child {
+	background-color: #48e;
+	color: #fff
+}
+.addParam{
+    display: none;
+}
+#grafico{
+    color: var(--primario);
+}

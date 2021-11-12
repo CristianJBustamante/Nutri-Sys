@@ -31,7 +31,7 @@ router.get("/agendaempleado/:agen_legajoempleado",getagendaxlegajo)
 router.put("/actualizarturno/:turno_id",actualizarestadoturno)
 router.post("/registrarturno",nuevoTurno)
 router.put("/actualizarhoraturno/:turno_id",actualizarhoraturno)
-router.delete("/borrarturno/:turno_id",borrarturno)
+// router.delete("/borrarturno/:turno_id",borrarturno)
 
 
 module.exports = router;

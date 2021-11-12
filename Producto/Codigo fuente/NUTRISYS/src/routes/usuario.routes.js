@@ -86,7 +86,7 @@ router.get('/ultimoidusuario', getultimoidusuario)
 router.post('/registrarEmpleado', registrarEmpleado)
 router.post('/registrarUsuarioEmpleado', registrarUsuarioEmpleado)
 router.post('/registrarUsuPerfil', registrarUsuPerfil)
-router.post('/borrarusuxip/:usu_id', actualizarUsuPerfil)
+router.delete('/borrarusuxip/:usu_id', actualizarUsuPerfil)
 router.put('/usuarios/actualizarEmpleado/:emp_legajo', actualizarEmpleado)
 router.put('/usuarios/actualizarUsuario/:usu_usuario', actualizarUsuario)
 router.get('/usuarios/:emp_legajo', getEmpleado)
@@ -102,6 +102,6 @@ router.get('/usuarios/:emp_legajo', getEmpleado)
 
   router.get('/perfil/', getPerfiles)
   router.get('/perfil/:usu_id', getPerfilesSelec)
-  router.get('/perfil/:usu_id', getPerfilesNOSelec)
+  router.get('/noperfil/:usu_id', getPerfilesNOSelec)
 
 module.exports = router;

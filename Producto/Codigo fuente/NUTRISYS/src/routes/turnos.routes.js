@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
-import {actualizarestadoturno, actualizarhoraturno, getagendaxlegajo, getprofesionales, getturnosxlegajo, nuevoTurno} from "../controllers/turnos.controller";
+import {actualizarestadoturno, actualizarhoraturno, borrarturno, getagendaxlegajo, getprofesionales, getturnosxlegajo, nuevoTurno} from "../controllers/turnos.controller";
 
 //ACCESO A PAGINAS
 //MIS TURNOS
@@ -31,6 +31,7 @@ router.get("/agendaempleado/:agen_legajoempleado",getagendaxlegajo)
 router.put("/actualizarturno/:turno_id",actualizarestadoturno)
 router.post("/registrarturno",nuevoTurno)
 router.put("/actualizarhoraturno/:turno_id",actualizarhoraturno)
+router.delete("/borrarturno/:turno_id",borrarturno)
 
 
 module.exports = router;

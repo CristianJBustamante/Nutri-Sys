@@ -528,7 +528,7 @@
 										<section class="info_Perfiles">
 											<h2 class="" for="duallist"> Seleccionar Perfil/es </h2>
 											<div class="col-sm-15">
-												<select multiple="multiple" size="1" name="duallistbox_demo1[]">
+												<select multiple="multiple" size="1" name="duallistbox_demo1[]" id="duallist">
 													<option value="1" text="Administrador de Usuario">Administrador de Usuario</option>
 													<option value="2" text="Recepcionista">Recepcionista</option>
 													<option value="3" text="Profesional">Profesional</option>
@@ -636,47 +636,49 @@
 				 else $('.select2').removeClass('tag-input-style');
 			});
 			
+//CARGAR GRILLA
+//CARGAR Perfil DESDE BD
+if (nuevo==1) {
+    let queryh = 'http://localhost:3000/perfil'
+    fetch(queryh)
+    .then(response => response.json())
+    .then(perfiles => cargarperfiles(perfiles))
+    .catch(error => console.log(error))
+    const cargarperfiles = (perfiles) => {
+    let op=''
+    for (let i = 0; i<perfiles.length; i++){
+        op+=`<option value=${perfiles[i].perfil_id}>${perfiles[i].perfil_descripcion}</option>`
+        }
+    document.getElementById("duallist").innerHTML=op
+    demo1.bootstrapDualListbox('refresh')}
+}else{
+    console.log(usu_id)
+    let queryh = 'http://localhost:3000/perfil/'+ emp_legajo
+    fetch(queryh)
+    .then(response => response.json())
+    .then(perfiles => cargarperfiles(perfiles))
+    .catch(error => console.log(error))
+    const cargarperfiles = (perfiles) => {
+        
+    let op=''
+    for (let i = 0; i<perfiles.length; i++){
+        op+=`<option selected="selected" value=${perfiles[i].perfil_id}>${perfiles[i].perfil_descripcion}</option>`
+        }
+    
+    let queryh = 'http://localhost:3000/noperfil/'+ emp_legajo
+    fetch(queryh)
+    .then(response => response.json())
+    .then(perfiles => cargarperfiles(perfiles))
+    .catch(error => console.log(error))
+    const cargarperfiles = (perfiles) => {
+    for (let i = 0; i<perfiles.length; i++){
+        op+=`<option value=${perfiles[i].perfil_id}>${perfiles[i].perfil_descripcion}</option>`
+        }
 
-			//CARGAR Perfil DESDE BD
-			if (nuevo==1) {
-				let queryh = 'http://localhost:3000/perfil'
-        		fetch(queryh)
-            	.then(response => response.json())
-            	.then(perfiles => cargarperfiles(perfil))
-            	.catch(error => console.log(error))
-        		const cargarperfiles = (perfil) => {
-            	let op=''
-            	for (let i = 0; i<perfiles.length; i++){
-                	op+=`<option value=${perfiles[i].perfil_id}>${perfiles[i].perfil_descripcion}</option>`
-            		}
-            	document.getElementById("duallist").innerHTML=op
-				demo1.bootstrapDualListbox('refresh')}
-			}else{
-				let queryh = 'http://localhost:3000/perfil/'+ usu_id
-        		fetch(queryh)
-            	.then(response => response.json())
-            	.then(perfiles => cargarperfiles(perfil))
-            	.catch(error => console.log(error))
-        		const perfiles = (perfil) => {
-					console.log(usu_id)
-            	let op=''
-            	for (let i = 0; i<perfiles.length; i++){
-                	op+=`<option selected="selected" value=${perfiles[i].perfil_id}>${perfiles[i].perfil_descripcion}</option>`
-            		}
-				
-				let queryh = 'http://localhost:3000/perfil/'+ usu_id
-        		fetch(queryh)
-            	.then(response => response.json())
-            	.then(perfiles => cargarperfiles(perfiles))
-            	.catch(error => console.log(error))
-        		const cargarperfiles = (perfiles) => {
-            	for (let i = 0; i<perfiles.length; i++){
-                	op+=`<option value=${perfiles[i].perfil_id}>${perfiles[i].perfil_descripcion}</option>`
-            		}
-
-            	document.getElementById("duallist").innerHTML=op
-				demo1.bootstrapDualListbox('refresh')}}
-			}
+    document.getElementById("duallist").innerHTML=op
+    demo1.bootstrapDualListbox('refresh')}}
+}
+			
 
 			//////////////////
 			$('.multiselect').multiselect({

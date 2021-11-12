@@ -5,8 +5,9 @@
  var emp_legajo=0
  var metodo=''
  var ruta=''
- let emp_legajoUltimo;
- let usu_ultimoid = 0;
+ var emp_legajoUltimo;
+ var usu_ultimoid = 0;
+ var usu_id=0
  if (modo.toLowerCase()==='usuarios/nuevousuario') {
      nuevo=1;
      metodo='POST'
@@ -44,8 +45,12 @@ if (nuevo==1) {
         document.getElementById("emp_telefono1").value = data[0].emp_telefono1
         document.getElementById("emp_telefono2").value = data[0].emp_telefono2
         document.getElementById("usu_correo").value = data[0].usu_correo
+        usu_id = data[0].usu_id
+        console.log(usu_id)
     }
 }
+console.log(usu_id)
+
 
 //BUSCAR LEGAJO A REGISTRAR
 if (nuevo == 1) {
@@ -145,7 +150,7 @@ function registrarEmpleado() {
                 //Perfiles
             for (var i = 0; i < sel.length; i++) {
                 const post3 = {
-                    usu_id: usu_ultimoid,
+                    usu_id: emp_legajoUltimo,
                     usu_idperfil: sel[i].value,
                 }
                 console.log(post3)
@@ -190,7 +195,7 @@ function registrarEmpleado() {
 
         try {
             console.log(JSON.stringify(post));
-            fetch(ruta,{
+            fetch("http://localhost:3000/usuarios/actualizarEmpleado/"+emp_legajo,{
             method:metodo,
             body: JSON.stringify(post),
             headers: {
@@ -198,7 +203,7 @@ function registrarEmpleado() {
             }
             }).then(res=>res.json())
             .then(data=>console.log(data))
-            location.href ="/usuarios/actualizarEmpleado/"+emp_legajo
+            //location.href ="/usuarios/actualizarEmpleado/"+emp_legajo
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
         } 
@@ -213,7 +218,7 @@ function registrarEmpleado() {
         }
         try {
             console.log(JSON.stringify(post2));
-            fetch(ruta,{
+            fetch("http://localhost:3000/usuarios/actualizarusuario/"+emp_legajo,{
             method:metodo,
             body: JSON.stringify(post2),
             headers: {
@@ -221,13 +226,13 @@ function registrarEmpleado() {
             }
             }).then(res=>res.json())
             .then(data=>console.log(data))
-            location.href ="/usuarios/actualizarUsuario/"+usu_usuario
+            //location.href ="/usuarios/actualizarUsuario/"+usu_usuario
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
         }
 
         try {
-            fetch("http://localhost:3000/borrarusuxip/"+usu_id,{
+            fetch("http://localhost:3000/borrarusuxip/"+emp_legajo,{
             method:"DELETE"
             })  .then(res=>res.json())
         } catch (error) {
@@ -237,14 +242,14 @@ function registrarEmpleado() {
 
             for (var i = 0; i < sel.length; i++) {
                 const post3 = {
-                    usu_id: usu_ultimoid,
+                    usu_id: emp_legajo,
                     usu_idperfil: sel[i].value,
                 }
                 console.log(post3)
 
                  try {
                     console.log(JSON.stringify(post3));
-                    fetch("http://localhost:3000/usuxperfil",{
+                    fetch("http://localhost:3000/registrarUsuPerfil",{
                         method:"POST",
                         body: JSON.stringify(post3),
                         headers: {

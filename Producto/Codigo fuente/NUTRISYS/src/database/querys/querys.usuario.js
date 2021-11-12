@@ -28,7 +28,7 @@ export const usuquerys = {
     ",emp_nombre = @emp_nombre, emp_matricula = @emp_matricula, emp_direccion = @emp_direccion,emp_telefono1 = @emp_telefono1"+
     ",emp_telefono2 = @emp_telefono2 WHERE emp_legajo = @emp_legajo",
     actualizarUsuario: "UPDATE usuario SET usu_clave = @usu_clave, usu_correo = @usu_correo WHERE usu_usuario = @usu_usuario",
-    getEmpleado: "select e.emp_apellido, e.emp_nombre, e.emp_matricula, e.emp_nrodoc, e.emp_direccion, e.emp_telefono1, e.emp_telefono2, u.usu_correo from empleado e"
+    getEmpleado: "select e.emp_apellido, e.emp_nombre, e.emp_matricula, e.emp_nrodoc, e.emp_direccion, e.emp_telefono1, e.emp_telefono2, u.usu_correo, u.usu_id from empleado e"
     +" join usuario u on (u.usu_usuario = e.emp_legajo) WHERE emp_legajo = @emp_legajo",
     getUsuario: "Select * From Usuario where usu_usuario = @usu_usuario",
 
@@ -64,11 +64,11 @@ export const usuquerys = {
 
     getPerfiles: "select p.perfil_id, p.perfil_descripcion from perfil p join usuario_perfil up on(up.usu_idperfil = p.perfil_id)",
 
-    getPerfilesSelec: "select p.perfil_id, p.perfil_descripcion from perfil p join usuario_perfil up on(up.usu_idperfil = p.perfil_id) "+
-                        "where up.usu_id = @usu_id",
+    getPerfilesSelec: "select p.perfil_id, p.perfil_descripcion from perfil p join usuario_perfil up on(up.usu_idperfil = p.perfil_id) inner join usuario u on u.usu_usuario=up.usu_id "+
+                        "where u.usu_usuario = @usu_id",
 
     getPerfilesNOSelec: "select p.perfil_id, p.perfil_descripcion from perfil p "+
         "where p.perfil_id not in ("+
-                            "select pe.perfil_id, pe.perfil_descripcion from perfil pe join usuario_perfil up on(up.usu_idperfil = p.perfil_id) "+
-                            "where up.usu_id = @usu_id))",
+                            "select pe.perfil_id from perfil pe join usuario_perfil up on(up.usu_idperfil = p.perfil_id) inner join usuario u on u.usu_usuario=up.usu_id "+
+                            "where u.usu_usuario = @usu_id)",
 }

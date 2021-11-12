@@ -101,4 +101,4 @@ Content-Type: application/json
 
 ###
 
-GET {{api}}/empleado/leg=69716
+GET {{api}}/noperfil/69669

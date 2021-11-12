@@ -559,7 +559,7 @@ function crearAnamnesis(){
         }
         }).then(res=>res.json())
         .then(data=>console.log(data))
-        location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+        location.href ="/consulta/registrarHabitos/hc="+pac_nrohc+"/trn="+cons_idturno
     } catch (error) {
         swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
     }
@@ -699,7 +699,7 @@ function habitos() {
       })
       .then((willDelete) => {
         if (willDelete) {
-            location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+            location.href ="/consulta/registrarHabitos/hc="+pac_nrohc+"/trn="+cons_idturno
         } 
       });
     

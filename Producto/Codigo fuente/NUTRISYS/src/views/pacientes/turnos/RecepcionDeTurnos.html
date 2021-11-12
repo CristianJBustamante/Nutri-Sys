@@ -509,10 +509,7 @@
 							<div>
 								<h2>Profesional: </h2>
 								<select class="form-control" id="select-profesional" onchange="buscarAgendaProfesional(this.value)">
-									<option value=""></option>
-									<option value="AL">Lilian Palo</option>
-									<option value="AK">Claudia Travella</option>
-									<option value="AZ">Mario Campazzo</option>
+									
 								</select>
 							</div>
 
@@ -743,8 +740,8 @@
 				,
 
 				businessHours: {
-					start: '8:00', // hora inicial
-					end: '22:00', // hora final
+					start: '7:00', // hora inicial
+					end: '21:00', // hora final
 					dow: [1, 2, 3, 4, 5] // dias de semana, 0=Domingo
 				},
 
@@ -828,11 +825,42 @@
 						calendar.fullCalendar('removeEvents', function (ev) {
 							return (ev._id == calEvent._id);
 						})
+						console.log(calEvent.className.toString())
 						return false
 					}
-
 					console.log('Event: ' + calEvent._start._d);
 					console.log('Event: ' + calEvent._end._d);
+					if (calEvent.className.toString()=="label-danger") {
+						if (calEvent.idturno==null) {
+							generarReservado(calEvent)
+							return
+						}else{
+							swal({
+        						title: "Atención",
+        						text: "¿Desea Eliminar el turno " + calEvent.title +"?",
+        						icon: "warning",
+        						buttons: true,
+        						dangerMode: true,
+      						})
+      						.then((willDelete) => {
+        					if (willDelete) {
+								try {
+            						fetch("http://localhost:3000/borrarturno/"+calEvent.idturno,{
+            							method:"DELETE"
+            						})  .then(res=>res.json())
+        						} catch (error) {
+            						swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+            						console.log(error)
+            					} 
+								calendar.fullCalendar('removeEvents', function (ev) {
+									return (ev._id == calEvent._id);
+								})
+							}
+							})
+							return
+						}	
+						
+					}
 					//display a modal
 					var modal =
 						'<div class="modal fade">\
@@ -888,10 +916,65 @@
 					});
 
 					modal.find('button[data-action=delete]').on('click', function () {
-						calendar.fullCalendar('removeEvents', function (ev) {
-							return (ev._id == calEvent._id);
-						})
-						modal.modal("hide");
+						swal({
+        					title: "Atención",
+        					text: "¿Desea Cancelar el turno " + calEvent.title +"?",
+        					icon: "warning",
+        					buttons: true,
+        					dangerMode: true,
+      					})
+      					.then((willDelete) => {
+        				if (willDelete) {
+							var f = new Date();
+							let mes=f.getMonth()+1
+							let dia=f.getDate() 
+							if(mes<10){
+    							f=f.getFullYear() + "-0"+ mes+ "-"  
+  							}else{
+    							f=f.getFullYear() + "-"+ mes+ "-" 
+  							}
+  							if(dia<10){
+    							f=f + "0"+ dia
+  							}else{
+    							f=f +dia
+  							}
+							if (f==calEvent.fecharegistro.substr(0,10)) {
+								try {
+            						fetch("http://localhost:3000/borrarturno/"+calEvent.idturno,{
+            							method:"DELETE"
+            						})  .then(res=>res.json())
+        						} catch (error) {
+            						swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+            						console.log(error)
+            					} 
+								calendar.fullCalendar('removeEvents', function (ev) {
+									return (ev._id == calEvent._id);
+								})
+							}  else{
+								const post = {
+        							turno_idestado: 4}
+    							console.log(post)
+     							try {
+        							console.log(JSON.stringify(post));
+        							fetch("http://localhost:3000/actualizarturno/"+calEvent.idturno,{
+       									method:"PUT",
+        								body: JSON.stringify(post),
+       	 								headers: {
+        									"Content-type": "application/json"
+        								}
+        							})  .then(res=>res.json())
+            						.then(data=>console.log(data))
+    							} catch (error) {
+        							swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        							console.log(error)
+        						} 
+								calEvent.estado = 'Cancelado';
+								calEvent.className = 'label-turno-cancelado label-danger invisible';
+								calendar.fullCalendar('updateEvent', calEvent);
+							}
+						}
+					})
+					modal.modal("hide");	
 					});
 
 

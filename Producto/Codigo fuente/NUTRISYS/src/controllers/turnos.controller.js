@@ -105,3 +105,18 @@ export const actualizarhoraturno = async(req,res) => {
         res.send(error.message);
     } 
 }
+
+//BORRAR TURNO
+export const borrarturno = async(req,res) => {
+    const {turno_id} = req.params;
+    try {
+        const pool = await getConnection();
+        await pool.request()
+        .input('turno_id', turno_id)
+        .query(turnosquerys.borrarturno)
+        res.sendStatus(204);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}

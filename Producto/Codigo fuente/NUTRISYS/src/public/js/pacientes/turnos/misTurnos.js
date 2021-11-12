@@ -1,5 +1,6 @@
 
 var verCancelados = false;
+var pacientes
 
 var hcs=[
     {hc:"1000", nombre:"Juan Carlos", apellido:"Altamiranda", doc:"37463213", celular:"3518132532"},
@@ -10,6 +11,7 @@ var hcs=[
 //Get legajo profesional
 const url = new String(window.location)
 let emp_legajo = url.substr(url.indexOf("leg=")+4,url.length)
+
 
 function verTurnosCancelados(){
    
@@ -33,6 +35,16 @@ function verTurnosCancelados(){
     }
 }
 
+//GET PACIENTES
+query = 'http://localhost:3000/pacientes'
+fetch(query)
+    .then(response => response.json())
+    .then(data => getpacientes(data))
+    .catch(error => console.log(error))
+const getpacientes = (data) => {
+    pacientes = data
+}
+
 function verificarPaciente(hc)
 {
     //Consulta de Base de Datos
@@ -49,10 +61,10 @@ function buscarNombrePaciente(titulo){
     var nombre;
     var hc = mostrarHC(titulo);
 
-        const filtered = hcs.filter(function(element){
-            if(element.hc == hc){
-                console.log(element.nombre);
-                nombre = element.nombre;
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_nombre);
+                nombre = element.pac_nombre;
             }
           });
     
@@ -63,10 +75,10 @@ function buscarNombrePaciente(titulo){
 function buscarApellidoPaciente(titulo){
     var apellido;
     var hc = mostrarHC(titulo);
-        const filtered = hcs.filter(function(element){
-            if(element.hc == hc){
-                console.log(element.apellido);
-                apellido = element.apellido;
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_apellido);
+                apellido = element.pac_apellido;
             }
           });
     
@@ -77,10 +89,10 @@ function buscarApellidoPaciente(titulo){
 function buscarCelularPaciente(titulo){
     var celular;
     var hc = mostrarHC(titulo);
-        const filtered = hcs.filter(function(element){
-            if(element.hc == hc){
-                console.log(element.celular);
-                celular = element.celular;
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_telefono1);
+                celular = element.pac_telefono1;
             }
           });
     

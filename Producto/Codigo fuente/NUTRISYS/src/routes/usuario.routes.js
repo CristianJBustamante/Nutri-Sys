@@ -10,7 +10,7 @@ var AuthMiddleware = require("../middleware/auth")
 
 import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, login, logout, getlegajo, getultimolegajo, getultimoidusuario,
   registrarEmpleado, registrarUsuarioEmpleado, registrarUsuPerfil, actualizarEmpleado, actualizarUsuPerfil, actualizarUsuario, getEmpleado, getEmpleadoXL, getEmpleadoXD,
-  getEmpleadoXA, getEmpleadoXLAD, getEmpleadoLA, getEmpleadoLD, getEmpleadoAD, getPerfiles, getPerfilesNOSelec, getPerfilesSelec} from "../controllers/usuario.controller";
+  getEmpleadoXA, getEmpleadoXLAD, getEmpleadoLA, getEmpleadoLD, getEmpleadoAD,getEmpleadoTodos, getPerfiles, getPerfilesNOSelec, getPerfilesSelec} from "../controllers/usuario.controller";
 
 //ACCESO A PAGINAS
   //login
@@ -86,12 +86,15 @@ router.get('/ultimoidusuario', getultimoidusuario)
 router.post('/registrarEmpleado', registrarEmpleado)
 router.post('/registrarUsuarioEmpleado', registrarUsuarioEmpleado)
 router.post('/registrarUsuPerfil', registrarUsuPerfil)
+
+
 router.delete('/borrarusuxip/:usu_id', actualizarUsuPerfil)
 router.put('/usuarios/actualizarEmpleado/:emp_legajo', actualizarEmpleado)
 router.put('/usuarios/actualizarUsuario/:usu_usuario', actualizarUsuario)
 router.get('/usuarios/:emp_legajo', getEmpleado)
 
   //Consultas
+  router.get('/empleado/',getEmpleadoTodos)
   router.get('/empleado/leg=:emp_legajo',getEmpleadoXL)
   router.get('/empleado/doc=:emp_nrodoc',getEmpleadoXD)
   router.get('/empleado/ap=:emp_apellido', getEmpleadoXA)

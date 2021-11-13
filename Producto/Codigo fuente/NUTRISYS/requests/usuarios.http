@@ -37,11 +37,11 @@ POST {{api}}/registrarEmpleado
 Content-Type: application/json
 
 {
-    "emp_idusuario": "",
+    "emp_idusuario": 40,
     "emp_nrodoc": 11001100,
-    "emp_apellido": "prueba",
-    "emp_nombre": "prueba",
-    "emp_matricula": 1100,
+    "emp_apellido": "prueba2",
+    "emp_nombre": "prueba2",
+    "emp_matricula": "",
     "emp_direccion": "aaa 11",
     "emp_telefono1": 111,
     "emp_telefono2": 222

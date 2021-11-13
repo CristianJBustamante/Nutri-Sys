@@ -38,7 +38,7 @@ function buscarEmpleado(){
 
       const mostrarData = (data) => {
         if (data.length==0){
-          swal("Atención","No se encontraron Pacientes","warning")
+          swal("Atención","No se encontraron Empleados","warning")
           limpiar()
         }
         if (data.length==1) {

@@ -291,7 +291,7 @@ input[type=number] { -moz-appearance:textfield; }
 .input__padding{
     margin: 1rem;
     width: 50%;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-family: var(--fuentePrincipal);
     height: 5rem;
 }

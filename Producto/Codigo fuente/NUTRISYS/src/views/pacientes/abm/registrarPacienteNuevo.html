@@ -508,11 +508,11 @@
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Tipo Documento(*):</h2>
 												<select name="select" id="tipodocumento__paciente" placeholder=" Ingrese tipo documento" class="input__padding">
-													<option value="">SELECCIONE</option>
-													<option value="DNI">DNI</option>
-													<option value="PASAPORTE">PASAPORTE</option>
-													<option value="CARNET EXT.">CARNET EXT.</option>
-													<option value="LIBRETA UNIVERSITARIA">LIBRETA UNIVERSITARIA</option>
+													<option disabled selected>--Seleccione tipo documento--</option>
+													<option value="DNI">Dni</option>
+													<option value="PASAPORTE">Pasaporte</option>
+													<option value="CARNET EXT.">Carnet ext.</option>
+													<option value="LIBRETA UNIVERSITARIA">Libreta universitaria</option>
 												</select>
 											</section>
 											<section class="info__datosPersonales">
@@ -538,8 +538,9 @@
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Sexo(*):</h2>
 												<select name="select" id="sexo__paciente" class="input__padding">
-													<option value="Masculino">MASCULINO</option>
-													<option value="Femenino">FEMENINO</option>
+													<option disabled selected >--Seleccione sexo--</option>
+													<option class="input__padding" value="Masculino">Masculino</option>
+													<option class="input__padding" value="Femenino">Femenino</option>
 												</select>
 											</section>
 											<section class="info__datosPersonales">

@@ -19,7 +19,8 @@ function showResults(){
     var data = [{
       x: parametros,
       y: valores,
-      type: "bar"
+      type: "linear"
+      
     }];
     Plotly.newPlot("grafico",data);
 }

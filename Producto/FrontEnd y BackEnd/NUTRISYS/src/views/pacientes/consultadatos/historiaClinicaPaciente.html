@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Nutri-sys - grafico</title>
+		<title>Nutri-sys - Organizador</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -38,10 +38,6 @@
 
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
-		 <!-- llama al scrip que hace la estadistica en si-->
- 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-		 
 		<!--[if lte IE 8]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -55,7 +51,8 @@
 		<link rel="stylesheet" href="/css/normalize.css"> 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-		<link rel="stylesheet" href="/css/estilos_fichasPaciente.css"> <!-- Cambiar en cada Solapa -->
+		<link rel="stylesheet" href="/css/estilos_historiaClinicaPaciente.css"> 
+		<script  src="/js/pacientes/consultadatos/codigo_historiaClinicaPaciente.js"></script>
 	</head>
 
 	<body class="no-skin">
@@ -295,9 +292,9 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="/usuarios/logout">">
+									<a href="/usuarios/logout">
 										<i class="ace-icon fa fa-power-off"></i>
-										Cerrar Sesión
+										Cerrar sesión
 									</a>
 								</li>
 							</ul>
@@ -498,51 +495,65 @@
 
 								<article class="contenido__article">
 									<section class="section__historiaClinica">
-										<div class="encabezado__datosPaciente">
-											<h2>Paciente: Gonzalez, Eugenio</h2>
-											<h2>HC: 709543</h2>
-											<h2>DOC.: 23465973</h2>
-											<h2>FN: 05/06/1975</h2>
+										<div class="encabezado__datosPaciente" id="pac_datos">
+											
 										</div>
-										<div class="ficha"> <!-- Cambiar En cada Solapa -->
-											<div class="navegacion__solapas">
-												<a class="nav__solapa"  href="/pacientes/consultapacientefichainicial/0">Ficha Inicial</a>
-												<a class="nav__solapa" href="/pacientes/consultapaciente/0">Resumen</a>
-												<a class="nav__solapa" href="/pacientes/consultapacientehabitos/0">Hábitos</a>
-												<a class="nav__solapa--seleccionado" href="/pacientes/consultapacientefichas/0">Evoluciones</a>
-												<a class="nav__solapa" href="/pacientes/consultapacienteplan/0">Planes</a>
-												<a class="nav__solapa" href="/pacientes/consultapacientedocumentos/0">Documentos</a>
-												<a class="nav__solapa" href="/pacientes/consultapacienteestudios/0">Estudios</a>
-												<a class="nav__solapa--resto"></a>
-											</div >
-
-											<div class="contenido__solapa">
-												<div>
-												<form id="form-param">
-													<div class="container">
-														<div>
-															<input type="date" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
+										<div class="resumen">
+											
+											<div class="resumen__navegación" id="solapas">
+												
+											</div>
+					
+											
+											<div class="resumen__contenido">
+												<div class="resumen__contenidoDerIzq">
+													<div class="resumen__datos">
+														<div class="resumen__contenedorTitulo">
+															<h2 class="resumen__Titulo">Datos Personales</h2>
+															<input type="button" value="Editar" class=" normal btnEditar" onclick=editarpaciente()>
 														</div>
-														<!-- <div>
-															<input type="text" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
-														</div> -->
+														<div class="datos__personales" id="pac_datospersonales">
+															
+														</div>
 													</div>
-													<div class="buttons">
-														<button type="button" class="addParam" >Agregar Parametro</button> 
-														<input type="button" class=" btn btn-white btn-primary showResults" value="Graficar">
+													<div class="resumen__datos">
+														<div class="resumen__contenedorTitulo">
+															<h2 class="resumen__Titulo">Datos Nutricionales Actuales</h2>
+														</div>
+														<div class="datos__nutricionales">
+															<h3>Peso Actual: 75,4 Kg.</h3>
+															<h3>Talla:</h3>
+															<h3>BMI:</h3>
+														</div>
 													</div>
-												</form>
-												<div id="grafico"></div>
-											</div><!-- ffin div que contiene el grafico-->
-
-
-											</div> <!-- fin div contenido principal -->
+												</div>
+												<div class="resumen__contenidoDerIzq">
+													<div class="resumen__datos">
+														<div class="resumen__contenedorTitulo">
+															<h2 class="resumen__Titulo">Datos Personales - Observaciones</h2>
+														</div>
+														<div>
+															<textarea name="paragraph_text" class="texto__libre"  cols="50" rows="10"></textarea>
+														</div>
+													</div>
+													<div class="resumen__datos">
+														<div class="resumen__contenedorTitulo">
+															<h2 class="resumen__Titulo">Datos Nutricionales - Observaciones</h2>
+														</div>
+														<div>
+															<textarea name="paragraph_text" class="texto__libre" cols="50" rows="10"></textarea>
+														</div>
+													</div>
+												</div>
+												
+												
+											</div>
 										</div>
 									</section>
 								</article>
 					
-							</div> <!-- fin div contenido de la pagina-->
-						</div> <!-- fin div que contiene todo-->
+							</div>
+						</div>
 						
 					</div><!-- /.page-content -->
 				</div>
@@ -812,7 +823,6 @@
 			
 			})
 		</script>
-		<script src="../../../public/js/pacientes/consultadatos/codigo_estadistica2.js"></script>
 	</body>
 	
 </html>

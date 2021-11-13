@@ -1,0 +1,68 @@
+ @api = http://localhost:3000
+
+GET {{api}}/usuarios
+
+###
+
+POST {{api}}/usuario
+Content-Type: application/json
+
+{
+    "usu_usuario": 67404,
+    "usu_clave": "12345",
+    "usu_idperfil": "1",
+    "usu_correo": ""
+}
+
+###
+
+POST {{api}}/usuario/login
+Content-Type: application/json
+
+{
+    "usu_usuario": 34554,
+    "usu_clave": "mariela"
+}
+
+###
+
+GET {{api}}/ultimolegajo
+###
+
+GET {{api}}/ultimoidusuario
+
+###
+
+POST {{api}}/registrarEmpleado
+Content-Type: application/json
+
+{
+    "emp_idusuario": "",
+    "emp_nrodoc": 11001100,
+    "emp_apellido": "prueba",
+    "emp_nombre": "prueba",
+    "emp_matricula": 1100,
+    "emp_direccion": "aaa 11",
+    "emp_telefono1": 111,
+    "emp_telefono2": 222
+}
+###
+
+POST {{api}}/registrarUsuarioEmpleado
+Content-Type: application/json
+
+{
+    "usu_usuario": 69716,
+    "usu_clave": "12345",
+    "usu_idperfil": "1",
+    "usu_correo": ""
+}
+###
+
+POST {{api}}/registrarUsuPerfil
+Content-Type: application/json
+
+{
+    "usu_id": 15,
+    "usu_idperfil": "1"
+}

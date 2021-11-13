@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Nutri-sys - grafico</title>
+		<title>Nutri-sys - Consulta General</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -35,13 +35,9 @@
 
 		<!-- ace settings handler -->
 		<script src="/assets/js/ace-extra.min.js"></script>
-
+       
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
-		 <!-- llama al scrip que hace la estadistica en si-->
- 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-		 
 		<!--[if lte IE 8]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -55,7 +51,9 @@
 		<link rel="stylesheet" href="/css/normalize.css"> 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-		<link rel="stylesheet" href="/css/estilos_fichasPaciente.css"> <!-- Cambiar en cada Solapa -->
+		<link rel="stylesheet" href="/css/estilosConsultaGeneral.css"> <!-- Cambiar en cada Solapa -->
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 	</head>
 
 	<body class="no-skin">
@@ -72,7 +70,7 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="" class="navbar-brand">
+					<a href="index.html" class="navbar-brand">
 						<small>
 							<div class="logo">
 								<img class="logo__manzana" src="/assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
@@ -87,7 +85,7 @@
 						
 
 						<li class="purple dropdown-modal">
-							<!-- NOTIFICACIONES-->
+							<!--NOTIFICACIONES -->
 							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 								<span class="badge badge-important">8</span>
@@ -270,8 +268,8 @@
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<img class="nav-user-photo" src="/assets/images/avatars/avatar2.png" alt="Jason's Photo" />
 								<span class="user-info">
-									<small><%= user.apellido %>,</small>
-									<%= user.nombre %>
+									<small>Apellido,</small>
+									Nombre
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -281,23 +279,23 @@
 								<li>
 									<a href="#">
 										<i class="ace-icon fa fa-cog"></i>
-										Configuración
+										Settings
 									</a>
 								</li>
 
 								<li>
 									<a href="profile.html">
 										<i class="ace-icon fa fa-user"></i>
-										Perfil
+										Profile
 									</a>
 								</li>
 
 								<li class="divider"></li>
 
 								<li>
-									<a href="/usuarios/logout">">
+									<a href="#">
 										<i class="ace-icon fa fa-power-off"></i>
-										Cerrar Sesión
+										Logout
 									</a>
 								</li>
 							</ul>
@@ -330,39 +328,16 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.html" class="dropdown-toggle">
+						<a href="index.html">
 							<i class="menu-icon fa fa-calendar"></i>
 							<span class="menu-text"> Organizador </span>
-							<b class="arrow fa fa-angle-down"></b>
 						</a>
-	
-						<b class="arrow"></b>
-	
-						<ul class="submenu">
-							<li class="">
-								<a href="/turnos">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Recepción de Turnos
-								</a>
-	
-								<b class="arrow"></b>
-							</li>
-	
-							<li class="">
-								<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Mis Turnos
-								</a>
-	
-								<b class="arrow"></b>
-							</li>
-						</ul>
-	
-	
+
+						
 					</li>
 					
 					<li class="active">
-						<a href="/pacientes/buscarpaciente">
+						<a href="../buscarpaciente">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> Historia Clinica </span>
 						</a>
@@ -371,7 +346,7 @@
 					</li>
 
 					<li class="">
-						<a href="">
+						<a href="index.html">
 							<i class="menu-icon fa fa-signal"></i>
 							<span class="menu-text"> Reportes </span>
 						</a>
@@ -380,7 +355,7 @@
 					</li>
 
 					<li class="">
-						<a href="">
+						<a href="index.html">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> Adm. de Usuarios </span>
 						</a>
@@ -495,54 +470,118 @@
 
 						<div>
 							<div class="contenidoPagina">
-
 								<article class="contenido__article">
 									<section class="section__historiaClinica">
-										<div class="encabezado__datosPaciente">
-											<h2>Paciente: Gonzalez, Eugenio</h2>
-											<h2>HC: 709543</h2>
-											<h2>DOC.: 23465973</h2>
-											<h2>FN: 05/06/1975</h2>
+										<div class="encabezado__datosPaciente" id="pac_datos">
+											
 										</div>
-										<div class="ficha"> <!-- Cambiar En cada Solapa -->
+									<!-- <div class="fichaInicial"> 
 											<div class="navegacion__solapas">
-												<a class="nav__solapa"  href="/pacientes/consultapacientefichainicial/0">Ficha Inicial</a>
-												<a class="nav__solapa" href="/pacientes/consultapaciente/0">Resumen</a>
-												<a class="nav__solapa" href="/pacientes/consultapacientehabitos/0">Hábitos</a>
-												<a class="nav__solapa--seleccionado" href="/pacientes/consultapacientefichas/0">Evoluciones</a>
-												<a class="nav__solapa" href="/pacientes/consultapacienteplan/0">Planes</a>
-												<a class="nav__solapa" href="/pacientes/consultapacientedocumentos/0">Documentos</a>
-												<a class="nav__solapa" href="/pacientes/consultapacienteestudios/0">Estudios</a>
+												<a class="nav__solapa" href="../Plantilla/consultaFichaInicial.html">Ficha Inicial</a>
+												<a class="nav__solapa" href="../consultapaciente/0">Resumen </a>
+												<a class="nav__solapa--seleccionado" href="../Plantilla/consultaFichas.html">Fichas</a>
+												<a class="nav__solapa" href="../consultapacientefichas/0">Evoluciones</a>
+												<a class="nav__solapa" href="../consultapacienteplan/0">Planes</a>
+												<a class="nav__solapa" href="../consultapacientedocumentos/0">Documentos</a>
+												<a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
 												<a class="nav__solapa--resto"></a>
-											</div >
+											</div> fin div de las solapas -->
+                                            
+                                            <!-- aqui tiene que ir el contenido de la pagina-->
+                                            <div>
+                                              <div class="Consulta__general">
+                                                <h2 class="titulo__seccion"> Consulta General </h2>
+                                                <div class="contenido__primeraParte">
+                                                <div class="seccion__class">
+                                                    <h2 class="label__ficha"> Edad: </h2>
+                                                    <input readonly class="contenido__input" type="number" min="1" max="100" id="edad__paciente">
+                                                  </div>       
+                                                     <!-- ------------------------ -->
+													 <div class=" seccion__class seccion__class--cc">
+                                                        
+														<h2 title="Circunferencia de cintura" class="label__ficha"> C.C: </h2>
+														<input class="contenido__input contenido__input--cc" type="number" id="cons_CCM">
+														<label class="contenido__input--label contenido__imputcc" title="Marcada">Cm(M)</label>
+													
+														<input class="contenido__input contenido__input--cc" type="number" id="cons_CCU">
+														<label class="contenido__input--label contenido__imputcc" title="Umbilical">Cm(U)</label>
+													
+													
+														<input class="contenido__input contenido__input--cc" type="number" id="cons_CCP">
+														<label class="contenido__input--label contenido__imputcc" title="Prominente">Cm(P)</label>
+													
+												</div>
+												 <!-- ------------------------ -->
+												 <div class="seccion__class">
+													<h2 class="label__ficha"> Peso: </h2>
+													<input class="contenido__input" type="number" min="1" max="150" id="cons_peso">
+													<label class="contenido__input--label">Kg</label>
+												  </div>
+												  <!-- ------------------------ -->
+												  <div class="seccion__class">
+                                                    <h2 title="Indice de masa corporal" class="label__ficha"> IMC: </h2>
+                                                    <input class="contenido__input" type="number" min="1" max="300" id="cons_IMC">
+                                                    <label class="contenido__input--label">Kg/m^2</label>
+                                                  </div>
+                                                         <!-- ------------------------ -->
+                                                     <div class="seccion__class">
+                                                        <h2 class="label__ficha"> Talla: </h2>
+                                                        <input class="contenido__input" type="number" min="10" max="500" id="cons_talla">
+                                                        <label class="contenido__input--label">Cm</label>
+                                                      </div>
+                                                         <!-- ------------------------ -->
+														 
+                                                 
+                                                    
+                                                     <div class="seccion__class">
+                                                        <h2 title="Grasa corporal" class="label__ficha"> G.C:  </h2>
+                                                        <input class="contenido__input" type="number" min="0" max="100" id="cons_GC">
+                                                        <label class="contenido__input--label">%</label>
+                                                      </div>
+                                                       <!-- ------------------------ -->
+													   <div class="seccion__class">
+                                                        <h2 class="label__ficha" title="Masa muscular"> M.M: </h2>
+                                                        <input class="contenido__input" type="number" min="0" max="100" title="" id="cons_M">
+                                                        <label class="contenido__input--label">%</label>
+                                                      </div>
+                                                       <!-- ------------------------ -->
+                                                     <div class="seccion__class">
+                                                        <h2 title="Grasa visceral" class="label__ficha"> G.V: </h2>
+                                                        <input class="contenido__input" type="number" min="1" max="100" id="cons_GV">
+                                                        <label class="contenido__input--label">%</label>
+                                                      </div>
+                                                       <!-- ------------------------ -->
+                                                    
+                                                     <div class="seccion__class">
+                                                        <h2 title="Peso con bioimpedancia" class="label__ficha"> PBI: </h2>
+                                                        <input class="contenido__input" type="number" min="1" max="150" id="cons_PBI">
+                                                        <label class="contenido__input--label">Kg</label>
+                                                      </div>
+                                                       <!-- ------------------------ -->
+                                                    </div> <!--fin contenido primera parte-->
+                                                    
+                                                    <div class="seccion__class--evaluacion">
+                                                        <h2 class="label__ficha--evaluacion" title="Alimentación, Neat, Entrenamiendo, Estado emocional"> Evolución</h2>
+                                                        <textarea class="area__observaciones" id="cons_observaciones" placeholder="Alimentación,Neat,Entrenamiendo,Estado emocional"> </textarea>
+                                                    </div><!--fin div evaluacion-->
+                                                        
+                                                        <div class="boton__guardar">
+                                                            <input class="btn btn-white btn-primary boton__guardar--boton" type="button" type="submit" value="Guardar" onclick="registrarPaciente()">
+                                                        </div>
+                                              </div> <!-- fin div de la consulta general-->
 
-											<div class="contenido__solapa">
-												<div>
-												<form id="form-param">
-													<div class="container">
-														<div>
-															<input type="date" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
-														</div>
-														<!-- <div>
-															<input type="text" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
-														</div> -->
-													</div>
-													<div class="buttons">
-														<button type="button" class="addParam" >Agregar Parametro</button> 
-														<input type="button" class=" btn btn-white btn-primary showResults" value="Graficar">
-													</div>
-												</form>
-												<div id="grafico"></div>
-											</div><!-- ffin div que contiene el grafico-->
 
+                                            </div>
 
-											</div> <!-- fin div contenido principal -->
-										</div>
+    
+										<!-- </div> fin del contenido de la ficha -->
+									<!-- </div> fin div ficha inicial -->
 									</section>
 								</article>
 					
-							</div> <!-- fin div contenido de la pagina-->
-						</div> <!-- fin div que contiene todo-->
+							</div> <!-- fin contenido pagina-->
+
+						</div> <!-- fin primer div-->
 						
 					</div><!-- /.page-content -->
 				</div>
@@ -812,7 +851,8 @@
 			
 			})
 		</script>
-		<script src="../../../public/js/pacientes/consultadatos/codigo_estadistica2.js"></script>
+			<script src="/js/pacientes/consultas/codigo_consultaGeneral.js"></script>
+
 	</body>
 	
 </html>

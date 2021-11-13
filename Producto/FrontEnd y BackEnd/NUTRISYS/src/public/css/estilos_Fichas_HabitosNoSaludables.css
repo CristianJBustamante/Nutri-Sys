@@ -1,0 +1,615 @@
+:root{
+
+    --primario: #00d500;
+    --secundario: #00aa00;
+    --blanco: #fff;
+    --negro: #000;
+    --grisClaro: #f0f3f4;
+    --grisMedio: #e5e5e5;
+    --grisOscuro: #acadac;
+    --verdeBtonHover: #3abe33;
+
+    --fuentePrincipal: 'Open Sans', cursive;
+    --fuenteLogo: 'Amatic SC', cursive;
+}
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /*Solucion Corte*/
+    height: 100%;
+}
+
+
+
+
+    /*** Responsivo ***/
+
+    @media (min-width: 700px) {
+   
+        /* body{
+        display: flex;
+       }    */
+    
+      }
+    
+      @media (max-width: 699px) {
+        .menuPrincipal{
+           padding-bottom: 4rem;
+        }
+    
+      }
+
+  *, *:before, *:after{
+    box-sizing: inherit;
+}
+
+h1{
+    text-align: center;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-size: 10rem;
+}
+
+h2{
+    color: var(--negro);
+    font-size: 2rem;
+    margin-top: 1rem;
+} 
+
+h3{
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-size: 1.5rem;
+}
+a:hover{
+    color:var(--negro);
+    cursor: pointer;
+}
+
+.flex-imageItem{
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem  auto;
+}
+
+.flex-imageItem--small{
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem  auto;
+}
+
+/*************************/
+/** CONTENIDO A UN LADO **/
+/*************************/
+
+.aside{
+    display: flex;
+    flex-direction: column;
+}
+
+/** LOGO **/
+
+.logo{
+    background-color: var(--secundario);
+    display: flex;
+    justify-content:space-between;
+    gap: 1rem;
+    min-width: 20%;
+}
+
+.name_app{
+    margin: 0;
+    font-size: 4.5rem;
+    color: var(--blanco);
+    font-family: var(--fuenteLogo);
+    padding-right: 1rem;
+    font-weight: bold;
+}
+
+.logo__manzana{
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem  0rem 1rem 0rem;
+}
+
+/** MENU **/
+
+.menuPrincipal{
+    background-color: var(--primario);
+    height:200%;
+    margin-bottom:auto;
+}
+
+.contenedorOpciones{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    max-height: 100% ;
+    padding-top: 4rem;
+
+}
+
+.contenedorOpciones__opcion{
+
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 2rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+
+.contenedorOpciones__opcion:hover{
+    background-color: var(--secundario);
+    color: var(--blanco);
+}
+
+/*************************/
+/** CONTENIDO PRINCIPAL **/
+/*************************/
+
+.seccion__titulo{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--primario);
+    padding-left: 4rem ;
+    margin-bottom: 1rem;
+
+}
+
+.contenidoPrincipal{
+    display: flex;
+    flex-direction: column;
+    width: 100% !important;
+    background-color: var(--grisClaro);
+}
+
+.accesoRapido{
+    
+    display: flex;
+    background-color: white;
+    align-items: center;
+    justify-content:space-between;
+    width: 100%;
+}
+
+.menuIcon{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 2rem ;
+}
+
+.notifYUsuario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 2rem;
+    margin-right: 2rem;
+}
+
+.contenidoPagina{
+    display: flex;
+    flex-direction: column;
+}
+
+/***********************/
+/**** CUESTIONARIOS ****/
+/***********************/
+
+.carne__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,3fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.pregunta__cuestionario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.label__pregunta{
+    width: 50%;
+}
+
+.label__pregunta--desarrolo{
+    width: 20%;
+}
+
+.textarea{
+    resize: none;
+    width: 100%;
+    height: 8rem;
+    margin: 1rem 0rem;
+    font-size: 2rem;
+}
+
+
+
+.respuesta__pregunta--checkbox{
+    width: 2rem;
+    height: 2rem;
+}
+
+.section__fichas{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--grisMedio);
+    margin: 2rem;
+}
+
+.lacteos__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.huevos__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.vegetales__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.panificacion__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.bebidas__cuestionario{
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.azucar__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.aceite__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.grasas__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.sal__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.alcohol__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.comidas__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.decoracion__pregunta{
+    border: solid;
+    border-color: var(--grisMedio);
+    margin: 0rem 1rem 1rem 0rem;
+    background-color: var(--grisClaro);
+    justify-content: center;
+}
+
+.pregunta__desarrollo{
+    padding: 0rem 4rem;
+}
+
+.otros__allcolumns1-3{
+    grid-column: 1/3;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    gap: 2rem;
+}
+
+
+.otros__allcolumns1-4{
+    grid-column: 1/4;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    gap: 2rem;
+}
+
+
+.boton__siguiente{
+    justify-content: flex-end;
+}
+
+/* Correcciones */
+
+#div-55{grid-column: 1/2; grid-row: 3/4;}
+
+.subtitulo__sub{
+    border: solid 0.5rem ;
+    border-color: var(--grisOscuro);
+}
+
+.crn__salsa{
+    grid-column: 1/3;
+}
+
+.textarea__sal{
+    height: 3rem;
+}
+
+.bebidas__cantidades{
+    height: 3rem;
+    width: 60%;
+    font-size: 2rem;
+}
+
+@media (max-width: 1140px) {
+
+ .carne__cuestionario, .panificacion__cuestionario, 
+.aceite__cuestionario, .grasas__cuestionario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.otros__allcolumns1-4{
+    grid-column: 1/3;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+}
+
+/* Ajustes Ubicacion */
+
+#div-3{grid-column: 2/3; grid-row: 2/3;}
+#div-11{grid-column: 1/2; grid-row: 2/3;}
+#div-4{grid-column: 1/2; grid-row: 3/4;}
+#div-12{grid-column: 1/2; grid-row: 4/5;}
+#div-5{grid-column: 2/3; grid-row: 3/4;}
+#div-6{grid-column: 2/3; grid-row: 4/5;}
+#div-7{grid-column: 1/2; grid-row: 5/6;}
+#div-8{grid-column: 2/3; grid-row: 5/6;}
+#div-9{grid-column: 2/3; grid-row: 6/7;} /*Pescado Mar*/
+#div-10{grid-column: 1/2; grid-row: 7/8;} /*Cerdo*/
+#div-13{grid-column: 1/2; grid-row: 8/9;}
+#div-14{grid-column: 2/3; grid-row: 8/9;}
+#div-15{grid-column: 2/3; grid-row: 9/10;}
+
+
+#div-55{grid-column: 1/2; grid-row: 2/3;}
+#div-49{grid-column: 2/3; grid-row: 2/3;}
+#div-50{grid-column: 1/2; grid-row: 3/4;}
+#div-51{grid-column: 2/3; grid-row: 3/4;}
+#div-52{grid-column: 2/3; grid-row: 4/5;}
+#div-53{grid-column: 2/3; grid-row: 5/6;}
+#div-54{grid-column: 2/3; grid-row: 6/7;} 
+#div-56{grid-column: 1/2; grid-row: 7/8;}
+#div-57{grid-column: 2/3; grid-row: 7/8;}
+#div-58{grid-column: 2/3; grid-row: 8/9;}
+#div-59{grid-column: 1/3; grid-row: 9/10;}
+
+
+}
+
+
+/******FIN*******/
+/* CUESTIONARIOS */
+/****************/
+
+.encabezado__datosPaciente{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5rem;
+}
+
+.ficha{
+    display: flex;
+    flex-direction: column;
+    margin: 0 2rem;
+}
+
+.navegacion__solapas{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.nav__solapa{
+    width: 20%;
+    border: black 0.3rem;
+    border-style: solid;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+
+    background-color: var(--grisOscuro);
+
+}
+
+.nav__solapa--seleccionado{
+    width: 20%;
+    border: var(--negro) 0.3rem;
+    border-style: solid solid none solid;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+
+
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+
+.nav__solapa--resto{
+    width: 20%;
+    border: var(--negro) 0.3rem;
+    border-style: none none solid none;
+}
+
+.contenido__solapa{
+    border: var(--negro) 0.3rem;
+    border-style: none solid solid solid;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+}
+
+
+/****************/
+/** UTILIDADES **/
+/****************/
+
+.flex__textItem{
+    margin: auto;
+    text-align: center;
+}
+
+.flex__imageItem{
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem  auto;
+}
+
+.flex__imageItem--small{
+    width: 5rem;
+    height: 5rem;
+    margin: 1rem  auto;
+}
+
+.padding__inputText{
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+}
+
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.input{
+    text-align: left;
+    float: left;
+    margin-left: -2%; /* 2*/
+    width: 35rem;
+    height: 4rem;
+}
+
+.AñadirHabito-aceptar{
+    float: left;
+    margin-top: 1rem;
+    margin-left: 5%
+}
+.AñadirHabito-cancelar{
+    float: left;
+    margin-top: 1rem;
+    margin-left: 2%;
+}
+
+.boton-nuevo{
+    float: left;
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-right: 5%;
+}
+
+.boton-nuevo-novisible{
+    float: left;
+    display: inline;
+    visibility: hidden;
+}
+
+.boton-guardar{
+    float: right;
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-right: 5%;
+
+}
+
+.boton:hover{
+    background-color:var(--verdeBtonHover);
+}
+
+/** TEXTO **/
+
+.titulo{
+    font-weight: normal;
+    color: var(--grisOscuro);
+    font-size: 3rem;
+}
+.subtitulo{
+    font-weight: bold;
+    text-decoration: var(--negro);
+}
+
+.normal{
+    font-size: 2rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+
+.titulo__seccion{
+    /* margin-block-start: 0.3rem;
+    margin-block-end: 0.3rem; */
+    background-color: var(--primario);
+    color: var(--negro);
+    font-weight: normal;
+    padding: 1rem 1rem;
+    width: 49%;
+}
+
+.camposAVerificar{
+    background-color: var(--grisOscuro);
+}
+
+.democlass{
+    background-color: var(--grisClaro);
+}
+
+.selected{
+    background-color: red;
+}
+

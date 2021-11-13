@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Nutri-sys - grafico</title>
+		<title>Nutri-sys - Organizador</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -38,10 +38,6 @@
 
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
-		 <!-- llama al scrip que hace la estadistica en si-->
- 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-		 
 		<!--[if lte IE 8]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -52,10 +48,13 @@
     	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
 		<link rel="stylesheet" href="./estilos_registrarPacienteNuevo.css"> -->
 
-		<link rel="stylesheet" href="/css/normalize.css"> 
-		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-		<link rel="stylesheet" href="/css/estilos_fichasPaciente.css"> <!-- Cambiar en cada Solapa -->
+	<link rel="stylesheet" href="/css/normalize.css"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="/css/estilos_registrarPacienteNuevo.css"> 
+
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="/js/pacientes/abm/codigo_registrarPacienteNuevo.js"></script>
 	</head>
 
 	<body class="no-skin">
@@ -87,7 +86,7 @@
 						
 
 						<li class="purple dropdown-modal">
-							<!-- NOTIFICACIONES-->
+							<!-- NOTIFICACIONES -->
 							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 								<span class="badge badge-important">8</span>
@@ -156,7 +155,7 @@
 						</li>
 
 						<li class="green dropdown-modal">
-							<!-- NOTIFICACIONES-->
+							<!-- NOTIFICACIONES -->
 							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
 								<span class="badge badge-success">5</span>
@@ -295,9 +294,9 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="/usuarios/logout">">
+									<a href="/usuarios/logout">
 										<i class="ace-icon fa fa-power-off"></i>
-										Cerrar Sesión
+										Cerrar sesión
 									</a>
 								</li>
 							</ul>
@@ -495,54 +494,92 @@
 
 						<div>
 							<div class="contenidoPagina">
-
 								<article class="contenido__article">
-									<section class="section__historiaClinica">
-										<div class="encabezado__datosPaciente">
-											<h2>Paciente: Gonzalez, Eugenio</h2>
-											<h2>HC: 709543</h2>
-											<h2>DOC.: 23465973</h2>
-											<h2>FN: 05/06/1975</h2>
+									<section class="contenido__section" id="titulopagina"> 
+										<h2 class="titulo " id="data"><%= titulo %></h2> <!--Modo Edicion Modificar Etiqueta-->
+										<input type=" button" value="Guardar" class="btn btn-white btn-primary btn__crear" onclick="registrarPaciente()" id="botonModo">  
+									</section>
+									
+									<section class="contenido__section--datosPersonales"> 
+										<div class="titulo__datosPersonales">
+											<h2 style="margin-left: 2rem;">Datos Personales</h2>
 										</div>
-										<div class="ficha"> <!-- Cambiar En cada Solapa -->
-											<div class="navegacion__solapas">
-												<a class="nav__solapa"  href="/pacientes/consultapacientefichainicial/0">Ficha Inicial</a>
-												<a class="nav__solapa" href="/pacientes/consultapaciente/0">Resumen</a>
-												<a class="nav__solapa" href="/pacientes/consultapacientehabitos/0">Hábitos</a>
-												<a class="nav__solapa--seleccionado" href="/pacientes/consultapacientefichas/0">Evoluciones</a>
-												<a class="nav__solapa" href="/pacientes/consultapacienteplan/0">Planes</a>
-												<a class="nav__solapa" href="/pacientes/consultapacientedocumentos/0">Documentos</a>
-												<a class="nav__solapa" href="/pacientes/consultapacienteestudios/0">Estudios</a>
-												<a class="nav__solapa--resto"></a>
-											</div >
-
-											<div class="contenido__solapa">
-												<div>
-												<form id="form-param">
-													<div class="container">
-														<div>
-															<input type="date" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
-														</div>
-														<!-- <div>
-															<input type="text" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
-														</div> -->
-													</div>
-													<div class="buttons">
-														<button type="button" class="addParam" >Agregar Parametro</button> 
-														<input type="button" class=" btn btn-white btn-primary showResults" value="Graficar">
-													</div>
-												</form>
-												<div id="grafico"></div>
-											</div><!-- ffin div que contiene el grafico-->
-
-
-											</div> <!-- fin div contenido principal -->
+										<div class="contenido__datosPersonales">
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Tipo Documento(*):</h2>
+												<select name="select" id="tipodocumento__paciente" placeholder=" Ingrese tipo documento" class="input__padding">
+													<option value="DNI">DNI</option>
+													<option value="PASAPORTE">PASAPORTE</option>
+													<option value="CARNET EXT.">CARNET EXT.</option>
+													<option value="LIBRETA UNIVERSITARIA">LIBRETA UNIVERSITARIA</option>
+												</select>
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Documento(*):</h2>
+												<input type="number" id="documento__paciente" placeholder=" Ingrese su Documento" class="input__padding">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Nombre/s:(*)</h2>
+												<input type="text" id="nombre__paciente" placeholder=" Ingrese su Nombre" class="input__padding">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Apellido/s:(*)</h2>
+												<input type="text" id="apellido__paciente" placeholder=" Ingrese su Apellido" class="input__padding">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Fecha Nacimiento:(*)</h2>
+												<input type="date" id="fechaNac__paciente" class="input__padding" onchange="calcularEdad()">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Edad:</h2>
+												<input type="text" class="input__padding" id="edad__paciente" readonly style="background-color: rgb(194, 194, 194);">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Sexo(*):</h2>
+												<select name="select" id="sexo__paciente" class="input__padding">
+													<option value="Masculino">Masculino</option>
+													<option value="Femenino">Femenino</option>
+												</select>
+											</section>
+											<section class="info__datosPersonales">
+												<!-- vacio -->
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Dirección(*):</h2>
+												<input type="text" class="input__padding" placeholder=" Calle y Numero" id="direccion__paciente">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Barrio(*):</h2>
+												<input type="text" class="input__padding" placeholder=" Ingrese barrio" id="barrio__paciente">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Celular:(*)</h2>
+												<input type="number" id="celular__paciente" placeholder=" Ej: 3515555555" class="input__padding">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Teléfono:</h2>
+												<input type="number" id="telefono__paciente" placeholder=" Opcional" class="input__padding">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Correo:(*)</h2>
+												<input type="email" id="correo__paciente" placeholder=" ejemplo@nutrisys.com.ar" class="input__padding">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Mutual(*):</h2>
+												<input type="text" class="input__padding" placeholder=" Sin Mutual (Particular)" id="mutual__paciente">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Otra Mutual:</h2>
+												<input type="text" placeholder=" Opcional" class="input__padding" id="mutual__paciente2">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 style="font-weight: normal;">* Campos Obligatorios *</h2>
+											</section>
 										</div>
 									</section>
 								</article>
-					
-							</div> <!-- fin div contenido de la pagina-->
-						</div> <!-- fin div que contiene todo-->
+							</div>
+						</div>
 						
 					</div><!-- /.page-content -->
 				</div>
@@ -812,7 +849,6 @@
 			
 			})
 		</script>
-		<script src="../../../public/js/pacientes/consultadatos/codigo_estadistica2.js"></script>
 	</body>
 	
 </html>

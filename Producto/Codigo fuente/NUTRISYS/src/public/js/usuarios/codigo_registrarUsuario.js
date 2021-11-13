@@ -265,7 +265,7 @@ function registrarEmpleado() {
                     console.log(error)
                 } 
             }
-            swal("Empleado Registrado","Empleado "+emp_legajoUltimo+" Registrado con Éxito!","success")
+            swal("Empleado Registrado","Empleado "+emp_legajo+" Registrado con Éxito!","success")
         }  
     }
     else{

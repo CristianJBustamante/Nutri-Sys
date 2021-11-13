@@ -18,7 +18,7 @@ export const usuquerys = {
     +"emp_matricula,emp_direccion,emp_telefono1,emp_telefono2) VALUES (@emp_idusuario, @emp_nrodoc,"
     +"@emp_apellido,@emp_nombre,@emp_matricula,@emp_direccion,@emp_telefono1,@emp_telefono2)",
 
-    registrarUsuarioEmpleado: "INSERT INTO usuario(usu_usuario, usu_clave,usu_correo) VALUES (@usu_usuario,@usu_clave,@usu_correo)",
+    registrarUsuarioEmpleado: "INSERT INTO usuario(usu_usuario, usu_clave,usu_correo, usu_hab) VALUES (@usu_usuario,@usu_clave,@usu_correo, 1)",
     registrarUsuPerfil: "INSERT INTO usuario_perfil(usu_id,usu_idperfil) VALUES(@usu_id,@usu_idperfil)",
     getultimolegajo: "Select top 1 * From Empleado order by emp_legajo desc",
     getultimoidusuario: "Select top 1 * From Usuario order by usu_id desc",

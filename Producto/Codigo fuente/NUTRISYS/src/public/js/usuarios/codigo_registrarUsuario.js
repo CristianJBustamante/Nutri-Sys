@@ -45,6 +45,7 @@ if (nuevo==1) {
         document.getElementById("emp_telefono1").value = data[0].emp_telefono1
         document.getElementById("emp_telefono2").value = data[0].emp_telefono2
         document.getElementById("usu_correo").value = data[0].usu_correo
+        getElementById('registrar').value = 'Habilitar Usuario'
         usu_id = data[0].usu_id
         console.log(usu_id)
     }

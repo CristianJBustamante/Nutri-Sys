@@ -668,22 +668,29 @@
 			    fechahora = fechahora.substr(0,23)
 			    fechahorafin = fechahorafin.substr(0,23)
 			    var clase = "label-danger"
+				var editable
 			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
 				    clase = "label-success"
+					editable = true
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Cancelado') {
 				    clase = "label-turno-cancelado label-danger invisible"
+					editable = false
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Receptado') {
 				    clase = "label-yellow"
+					editable = false
 			    }
 			    if (turnos[i].estadoturno_descripcion=='En Atención') {
 				    clase = "label-info"
+					editable = false
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Finalizado') {
 				    clase = "label-brown"
+					editable = false
 			    }	
 			    turno.title = titulo
+				turno.editable = editable
 			    turno.start = new Date(fechahora)
                 turno.end = new Date(fechahorafin)
 			    turno.allDay = false
@@ -777,35 +784,12 @@
 				,
 				selectable: true,
 				selectHelper: true,
-				// select: function (start, end, allDay) {
-
-				// 	bootbox.prompt("Nuevo Turno:", function (title) {
-				// 		if (title !== null) {
-				// 			calendar.fullCalendar('renderEvent',
-				// 				{
-				// 					title: title,
-				// 					start: start,
-				// 					end: end,
-				// 					allDay: allDay,
-				// 					className: 'label-info'
-				// 				},
-				// 				true // make the event "stick"
-				// 			);
-				// 		}
-				// 	});
-
-
-
-
-				// 	calendar.fullCalendar('unselect');
-				// }
-				// ,
 
 				eventClick: function (calEvent, jsEvent, view) {
 
 
-					console.log('Event: ' + calEvent._start._d);
-					console.log('Event: ' + calEvent._end._d);
+					// console.log('Event: ' + calEvent._start._d);
+					// console.log('Event: ' + calEvent._end._d);
 					//display a modal
 
 					if (calEvent.estado == 'Confirmado') {
@@ -941,43 +925,20 @@
 							calEvent.estado = 'Receptado';
 							receptarTurno(calEvent);
 							calEvent.className = 'label-yellow';
+							calEvent.editable = false;
 							calendar.fullCalendar('updateEvent', calEvent);
 							modal.modal("hide");
 						}
 						else if (calEvent.estado == 'Receptado') {
 							calEvent.estado = 'En Atención';
 							calEvent.className = 'label-info';
+							calEvent.editable = false;
 							calendar.fullCalendar('updateEvent', calEvent);
 							modal.modal("hide");
 							atenderPaciente(calEvent);
 							//$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc='+calEvent.nrohc+'/trn='+calEvent.idturno);
 						}
 
-						// var documento;
-						// documento = $(this).find("input[type=number]").val();
-						// if(validarDoc(documento.toString())){
-						// 	calEvent.title = buscarHCPorDoc(documento.toString());
-						// }
-						// else{
-						// 	calEvent.title = $(this).find("input[type=text]").val();
-						// }
-
-						// if (verificarPaciente(calEvent.title)) {
-						// 	if (confirmarTurno(calEvent._start._d)) {
-						// 		generarTurno(calEvent.title,calEvent._start._d,calEvent._end._d);
-						// 		var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title) ;
-						// 		calEvent.title = turno;
-						// 		// calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
-						// 		calEvent.className = 'label-primary';
-						// 		calendar.fullCalendar('updateEvent', calEvent);
-						// 		console.log(calEvent._start._d);
-						// 		modal.modal("hide");
-
-						// 	}
-						// }
-						// else {
-						// 	alert("Paciente no encontrado. HC o Documento inválido.");
-						// }
 					});
 
 					modal.find('button[data-action=delete]').on('click', function () {

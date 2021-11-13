@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
+	<!-- <script src="/js/pacientes/turnos/recepcionDeTurnos.js"></script> -->
 	<!-- page specific plugin styles -->
 	<link rel="stylesheet" href="/assets/css/jquery-ui.custom.min.css" />
 	<link rel="stylesheet" href="/assets/css/fullcalendar.min.css" />
@@ -37,8 +38,7 @@
 
 	<!-- ace settings handler -->
 	<script src="/assets/js/ace-extra.min.js"></script>
-	<script src="/js/pacientes/turnos/recepcionDeTurnos.js"></script>
-	
+
 
 	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -269,7 +269,9 @@
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 							<img class="nav-user-photo" src="/assets/images/avatars/avatar2.png" alt="Jason's Photo" />
 							<span class="user-info">
-								<small><%= user.apellido %>,</small>
+								<small>
+									<%= user.apellido %>,
+								</small>
 								<%= user.nombre %>
 							</span>
 
@@ -508,8 +510,9 @@
 							<!-- PAGE CONTENT BEGINS -->
 							<div>
 								<h2>Profesional: </h2>
-								<select class="form-control" id="select-profesional" onchange="buscarAgendaProfesional(this.value)">
-									
+								<select class="form-control" id="select-profesional"
+									onchange="buscarAgendaProfesional(this.value)">
+
 								</select>
 							</div>
 
@@ -735,8 +738,8 @@
 					$('#calendar').fullCalendar('gotoDate', date.format());
 					$('#calendar').fullCalendar('changeView', 'agendaDay');
 				}
-				
-				
+
+
 				,
 
 				businessHours: {
@@ -751,15 +754,15 @@
 				// Ampliación momento fin de turno
 
 				eventResize: function (event, delta, revertFunc) {
-					
-					actualizarhoraturno(event,revertFunc)
+
+					actualizarhoraturno(event, revertFunc)
 
 				},
 
 				// Movimiento de Turnos
 
 				eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {
-					actualizarhoraturno(event,revertFunc)
+					actualizarhoraturno(event, revertFunc)
 				},
 
 				editable: true,
@@ -820,50 +823,56 @@
 				// ,
 
 				eventClick: function (calEvent, jsEvent, view) {
-					if (document.getElementById("select-profesional").value=="") {
-						swal("Atención","Debe seleccionar un profesional","error")
+					if (document.getElementById("select-profesional").value == "") {
+						swal("Atención", "Debe seleccionar un profesional", "error")
 						calendar.fullCalendar('removeEvents', function (ev) {
 							return (ev._id == calEvent._id);
 						})
 						console.log(calEvent.className.toString())
 						return false
 					}
-					console.log('Event: ' + calEvent._start._d);
-					console.log('Event: ' + calEvent._end._d);
-					if (calEvent.className.toString()=="label-danger") {
-						if (calEvent.idturno==null) {
+
+					// console.log('Event: ' + calEvent._start._d);
+					// console.log('Event: ' + calEvent._end._d);
+
+					if (calEvent.className.toString() == "label-danger") {
+						if (calEvent.idturno == null) {
 							generarReservado(calEvent)
 							return
-						}else{
+						} else {
 							swal({
-        						title: "Atención",
-        						text: "¿Desea Eliminar el turno " + calEvent.title +"?",
-        						icon: "warning",
-        						buttons: true,
-        						dangerMode: true,
-      						})
-      						.then((willDelete) => {
-        					if (willDelete) {
-								try {
-            						fetch("http://localhost:3000/borrarturno/"+calEvent.idturno,{
-            							method:"DELETE"
-            						})  .then(res=>res.json())
-        						} catch (error) {
-            						swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-            						console.log(error)
-            					} 
-								calendar.fullCalendar('removeEvents', function (ev) {
-									return (ev._id == calEvent._id);
-								})
-							}
+								title: "Atención",
+								text: "¿Desea Eliminar el turno " + calEvent.title + "?",
+								icon: "warning",
+								buttons: true,
+								dangerMode: true,
 							})
+								.then((willDelete) => {
+									if (willDelete) {
+										try {
+											fetch("http://localhost:3000/borrarturno/" + calEvent.idturno, {
+												method: "DELETE"
+											}).then(res => res.json())
+										} catch (error) {
+											swal("Error", "Hubo un Error al Registrar. Intente nuevamente.", "error")
+											console.log(error)
+										}
+										calendar.fullCalendar('removeEvents', function (ev) {
+											return (ev._id == calEvent._id);
+										})
+									}
+								})
 							return
-						}	
-						
+						}
+
 					}
 					//display a modal
-					var modal =
-						'<div class="modal fade">\
+					console.log('Event: ' + calEvent.estado);
+
+					if (calEvent.estado == undefined) {
+
+						var modal =
+							'<div class="modal fade">\
 			  <div class="modal-dialog">\
 			   <div class="modal-content">\
 				 <div class="modal-body">\
@@ -884,23 +893,124 @@
 			 </div>\
 			</div>';
 
+					}
+
+					else if (calEvent.estado == 'Confirmado') {
+						var modal =
+							'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					<label>HC Paciente: &nbsp;</label>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+						<br>\
+						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
+						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
+						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Celular: &nbsp;</label>\
+						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
+						<div align="right"><button id="btnReceptar" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-right: 2rem"><i class="ace-icon fa fa-list"></i> Receptar</button>\</div>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Cancelar Turno</button>\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+					}
+
+					else if (calEvent.estado == 'Receptado') {
+						var modal =
+							'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					  <label>HC Paciente: &nbsp;</label>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+						<br>\
+						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
+						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
+						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Celular: &nbsp;</label>\
+						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Cancelar Turno</button>\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+					}
+
+					else if (calEvent.estado == 'En Atención' || calEvent.estado == 'Finalizado' || calEvent.estado == 'Cancelado' ) {
+						var modal =
+							'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					<label>HC Paciente: &nbsp;</label>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+						<br>\
+						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
+						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
+						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Celular: &nbsp;</label>\
+						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+					}
+
 
 					var modal = $(modal).appendTo('body');
 					modal.find('form').on('submit', function (ev) {
-						ev.preventDefault();
-						var documento;
-						documento = $(this).find("input[type=number]").val();
-						
-						if (validarDoc(documento.toString())) {
-							
-							calEvent.title = buscarHCPorDoc(documento.toString());
-						}
-						else {
-							calEvent.title = $(this).find("input[type=text]").val();
-						}
 
-						if (verificarPaciente(calEvent.title)) {
-								confirmarTurno(calEvent,calEvent.title)
+						ev.preventDefault();
+
+						if (calEvent.estado == undefined) {
+							var documento;
+							documento = $(this).find("input[type=number]").val();
+
+							if (validarDoc(documento.toString())) {
+
+								calEvent.title = buscarHCPorDoc(documento.toString());
+							}
+							else {
+								calEvent.title = $(this).find("input[type=text]").val();
+							}
+
+							if (verificarPaciente(calEvent.title)) {
+								confirmarTurno(calEvent, calEvent.title)
 								//generarTurno(calEvent.title, calEvent._start._d, calEvent._end._d);
 								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title);
 								calEvent.title = turno;
@@ -909,72 +1019,88 @@
 								calendar.fullCalendar('updateEvent', calEvent);
 								//console.log(calEvent._start._d);
 								modal.modal("hide");
+							}
+							else {
+								alert("Paciente no encontrado. HC o Documento inválido.");
+							}
+
+							calendar.fullCalendar('updateEvent', calEvent);
+
 						}
-						else {
-							alert("Paciente no encontrado. HC o Documento inválido.");
+
+						if (calEvent.estado == 'Confirmado') {
+							calEvent.estado = 'Receptado';
+							calEvent.editable = false;
+							receptarTurno(calEvent);
+							calEvent.className = 'label-yellow';
+							calendar.fullCalendar('updateEvent', calEvent);
+							modal.modal("hide");
 						}
+
+
 					});
 
 					modal.find('button[data-action=delete]').on('click', function () {
 						swal({
-        					title: "Atención",
-        					text: "¿Desea Cancelar el turno " + calEvent.title +"?",
-        					icon: "warning",
-        					buttons: true,
-        					dangerMode: true,
-      					})
-      					.then((willDelete) => {
-        				if (willDelete) {
-							var f = new Date();
-							let mes=f.getMonth()+1
-							let dia=f.getDate() 
-							if(mes<10){
-    							f=f.getFullYear() + "-0"+ mes+ "-"  
-  							}else{
-    							f=f.getFullYear() + "-"+ mes+ "-" 
-  							}
-  							if(dia<10){
-    							f=f + "0"+ dia
-  							}else{
-    							f=f +dia
-  							}
-							if (f==calEvent.fecharegistro.substr(0,10)) {
-								try {
-            						fetch("http://localhost:3000/borrarturno/"+calEvent.idturno,{
-            							method:"DELETE"
-            						})  .then(res=>res.json())
-        						} catch (error) {
-            						swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-            						console.log(error)
-            					} 
-								calendar.fullCalendar('removeEvents', function (ev) {
-									return (ev._id == calEvent._id);
-								})
-							}  else{
-								const post = {
-        							turno_idestado: 4}
-    							console.log(post)
-     							try {
-        							console.log(JSON.stringify(post));
-        							fetch("http://localhost:3000/actualizarturno/"+calEvent.idturno,{
-       									method:"PUT",
-        								body: JSON.stringify(post),
-       	 								headers: {
-        									"Content-type": "application/json"
-        								}
-        							})  .then(res=>res.json())
-            						.then(data=>console.log(data))
-    							} catch (error) {
-        							swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-        							console.log(error)
-        						} 
-								calEvent.estado = 'Cancelado';
-								calEvent.className = 'label-turno-cancelado label-danger invisible';
-								calendar.fullCalendar('updateEvent', calEvent);
-							}
-						}
-					})
-					modal.modal("hide");	
+							title: "Atención",
+							text: "¿Desea Cancelar el turno " + calEvent.title + "?",
+							icon: "warning",
+							buttons: true,
+							dangerMode: true,
+						})
+							.then((willDelete) => {
+								if (willDelete) {
+									var f = new Date();
+									let mes = f.getMonth() + 1
+									let dia = f.getDate()
+									if (mes < 10) {
+										f = f.getFullYear() + "-0" + mes + "-"
+									} else {
+										f = f.getFullYear() + "-" + mes + "-"
+									}
+									if (dia < 10) {
+										f = f + "0" + dia
+									} else {
+										f = f + dia
+									}
+									if (f == calEvent.fecharegistro.substr(0, 10)) {
+										try {
+											fetch("http://localhost:3000/borrarturno/" + calEvent.idturno, {
+												method: "DELETE"
+											}).then(res => res.json())
+										} catch (error) {
+											swal("Error", "Hubo un Error al Registrar. Intente nuevamente.", "error")
+											console.log(error)
+										}
+										calendar.fullCalendar('removeEvents', function (ev) {
+											return (ev._id == calEvent._id);
+										})
+									} else {
+										const post = {
+											turno_idestado: 4
+										}
+										console.log(post)
+										try {
+											console.log(JSON.stringify(post));
+											fetch("http://localhost:3000/actualizarturno/" + calEvent.idturno, {
+												method: "PUT",
+												body: JSON.stringify(post),
+												headers: {
+													"Content-type": "application/json"
+												}
+											}).then(res => res.json())
+												.then(data => console.log(data))
+										} catch (error) {
+											swal("Error", "Hubo un Error al Registrar. Intente nuevamente.", "error")
+											console.log(error)
+										}
+										calEvent.estado = 'Cancelado';
+										calEvent.className = 'label-turno-cancelado label-danger invisible';
+										calendar.fullCalendar('updateEvent', calEvent);
+									}
+								}
+							})
+						modal.modal("hide");
 					});
 
 
@@ -995,7 +1121,7 @@
 					// $(this).css('border-color', 'red');
 
 				}
-				
+
 
 
 
@@ -1011,3 +1137,5 @@
 </body>
 
 </html>
+
+<script src="/js/pacientes/turnos/recepcionDeTurnos.js"></script>

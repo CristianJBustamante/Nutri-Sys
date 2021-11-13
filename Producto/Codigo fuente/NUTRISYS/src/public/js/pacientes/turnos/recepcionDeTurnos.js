@@ -212,22 +212,29 @@ function buscarAgendaProfesional(emp_legajo){
 			    fechahora = fechahora.substr(0,23)
 			    fechahorafin = fechahorafin.substr(0,23)
 			    var clase = "label-danger"
+                var editable
 			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
 				    clase = "label-success"
+                    editable = true
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Cancelado') {
 				    clase = "label-turno-cancelado label-danger invisible"
+                    editable = false
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Receptado') {
 				    clase = "label-yellow"
+                    editable = false
 			    }
 			    if (turnos[i].estadoturno_descripcion=='En Atención') {
 				    clase = "label-info"
+                    editable = false
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Finalizado') {
 				    clase = "label-brown"
+                    editable = false
 			    }	
 			    turno.title = titulo
+                turno.editable = editable
 			    turno.start = new Date(fechahora)
                 turno.end = new Date(fechahorafin)
 			    turno.allDay = false
@@ -349,4 +356,72 @@ function generarReservado(evento){
     console.log(legajo)
     setTimeout(50000)
     buscarAgendaProfesional(legajo)
+}
+
+// *******************************************
+
+
+function buscarNombrePaciente(titulo){
+    var nombre;
+    var hc = mostrarHC(titulo);
+
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_nombre);
+                nombre = element.pac_nombre;
+            }
+          });
+    
+    return nombre;
+
+}
+
+function buscarApellidoPaciente(titulo){
+    var apellido;
+    var hc = mostrarHC(titulo);
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_apellido);
+                apellido = element.pac_apellido;
+            }
+          });
+    
+    return apellido;
+
+}
+
+function buscarCelularPaciente(titulo){
+    var celular;
+    var hc = mostrarHC(titulo);
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_telefono1);
+                celular = element.pac_telefono1;
+            }
+          });
+    
+    return celular;
+
+}
+
+function receptarTurno(turno){
+    console.log(turno);
+    const post = {
+        turno_idestado: 2}
+    console.log(post)
+     try {
+        console.log(JSON.stringify(post));
+        fetch("http://localhost:3000/actualizarturno/"+turno.idturno,{
+        method:"PUT",
+        body: JSON.stringify(post),
+        headers: {
+        "Content-type": "application/json"
+        }
+        })  .then(res=>res.json())
+            .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+        } 
+    
 }

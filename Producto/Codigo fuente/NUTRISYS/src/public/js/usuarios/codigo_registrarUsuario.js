@@ -8,7 +8,7 @@
  var emp_legajoUltimo;
  var usu_ultimoid = 0;
  var usu_id=0
- if (modo.toLowerCase()==='usuarios/nuevousuario') {
+ if (modo.toLowerCase()==='usuarios/nuevousuario/') {
      nuevo=1;
      metodo='POST'
      ruta="http://localhost:3000/usuario"
@@ -66,7 +66,6 @@ if (nuevo == 1) {
         emp_legajoUltimo=data[0].emp_legajo
         emp_legajoUltimo=emp_legajoUltimo+1
         console.log(emp_legajoUltimo)
-        document.getElementById('usuario').value = emp_legajoUltimo;
     }
 }
 
@@ -90,6 +89,7 @@ function registrarEmpleado() {
     } 
     else {
     var sel = document.getElementById("bootstrap-duallistbox-selected-list_duallistbox_demo1[]"); 
+    
     if (sel.length>0){
         //REGISTRAR NUEVOS EMPLEADOS
         if (nuevo==1) {
@@ -265,7 +265,7 @@ function registrarEmpleado() {
                     console.log(error)
                 } 
             }
-            swal("Empleado Registrado","Empleado "+emp_legajo+" Registrado con Éxito!","success")
+            swal("Empleado Registrado","Empleado "+emp_legajoUltimo+" Registrado con Éxito!","success")
         }  
     }
     else{

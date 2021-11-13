@@ -10,6 +10,7 @@ let query = 'http://localhost:3000/profesionales'
             	.then(data => getdatos(data))
             	.catch(error => console.log(error))
         		const getdatos = (data) => {
+                    console.log(data)
                     let lista =`<option value=""></option>`
                     for (let i = 0; i<data.length; i++){
 						lista += `<option value=${data[i].emp_legajo}>${data[i].emp_apellido}, ${data[i].emp_nombre}</option>`
@@ -199,13 +200,18 @@ function buscarAgendaProfesional(emp_legajo){
             console.log(turnos)
 		    for (let i = 0; i<turnos.length; i++){
 			    var turno = {}
-			    let titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
-			    var fechahora = turnos[i].turno_fechahora
+                let titulo
+                if (turnos[i].estadoturno_descripcion == null) {
+                    titulo = "Reservado"
+                }else{
+			        titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
+			    }
+                var fechahora = turnos[i].turno_fechahora
                 var fechahorafin = turnos[i].turno_fechahorafin
                 console.log(fechahora,fechahorafin)
 			    fechahora = fechahora.substr(0,23)
 			    fechahorafin = fechahorafin.substr(0,23)
-			    var clase = "label-success"
+			    var clase = "label-danger"
 			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
 				    clase = "label-success"
 			    }
@@ -229,6 +235,7 @@ function buscarAgendaProfesional(emp_legajo){
 			    turno.estado = turnos[i].estadoturno_descripcion
 			    turno.idturno = turnos[i].turno_id
 			    turno.nrohc = turnos[i].turno_nrohc
+                turno.fecharegistro = turnos[i].turno_fecharegistro
 			    eventos.push(turno)	 
 		    }
             $('#calendar').fullCalendar('removeEvents')
@@ -264,7 +271,7 @@ function verTurnosCancelados(){
 function actualizarhoraturno(evento,revertFunc){
     swal({
         title: "Atención",
-        text: "¿Desea Confirmar la modificación del turno del Paciente " + evento.title +"?",
+        text: "¿Desea Confirmar la modificación del turno " + evento.title +"?",
         icon: "warning",
         buttons: true,
         dangerMode: true,
@@ -302,4 +309,44 @@ function actualizarhoraturno(evento,revertFunc){
             revertFunc()
         }
       });
+}
+
+function generarReservado(evento){
+    let fecha = new String(evento._start._d)
+    let horainicio = new String(evento._start._d)
+    let horafin = new String(evento._end._d)
+    fecha = fecha.substr(4,12)
+    horainicio = horainicio.substr(16,8)
+    horafin = horafin.substr(16,8)
+    
+    const post = {
+        turno_legajoempleado: legajo,
+        turno_fecha: fecha,
+        turno_horainicio: horainicio,
+        turno_horafin: horafin,
+        turno_nrohc: null,
+        turno_idtipo: 2,
+        turno_idestado: null
+    }
+    console.log(post)
+      try {
+        console.log(JSON.stringify(post));
+        fetch('http://localhost:3000/registrarturno',{
+        method:'POST',
+        body: JSON.stringify(post),
+        headers: {
+            "Content-type": "application/json"
+        }
+        }).then(res=>res.json())
+        .then(data=>console.log(data))
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        console.log(error)
+    }  
+    
+    // Codigo Pos-Back
+    swal("Turno Registrado","Se registró el Turno con Éxito!","success");
+    console.log(legajo)
+    setTimeout(50000)
+    buscarAgendaProfesional(legajo)
 }

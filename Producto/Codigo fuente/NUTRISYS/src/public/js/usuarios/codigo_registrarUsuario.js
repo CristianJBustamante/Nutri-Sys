@@ -1,26 +1,28 @@
 //Validar si es alta o modificacion
-
  const url = new String(window.location)
- let modo = url.substr(url.indexOf("usuario/"),url.length)
- var nuevo=0
+ let modo = url.substr(url.indexOf("usuarios/"),url.length)
+ var nuevo=1
  var emp_legajo=0
  var metodo=''
  var ruta=''
- let emp_legajoUltimo;
- let usu_ultimoid = 0;
- if (modo.toLowerCase()==='usuario/nuevousuario') {
+ var emp_legajoUltimo;
+ var usu_ultimoid = 0;
+ var usu_id=0
+ if (modo.toLowerCase()==='usuarios/nuevousuario') {
      nuevo=1;
      metodo='POST'
      ruta="http://localhost:3000/usuario"
  }
  else{
     nuevo=0;
-    emp_legajo = url.substr(url.indexOf("emp=")+4,url.length)
+    emp_legajo = url.substr(url.indexOf("leg=")+4,url.length)
      metodo='PUT'
-     ruta="http://localhost:3000/usuario/" + emp_legajo
+     ruta="http://localhost:3000/usuarios/" + emp_legajo
      }
      console.log(modo,nuevo,emp_legajo,ruta,metodo)
 
+
+    
 //Cargar pagina según modo
 if (nuevo==1) {
     let cabecera =''
@@ -28,23 +30,27 @@ if (nuevo==1) {
 } else {
     let cabecera =''
     cabecera += `Modificar Usuario`        
-    let query = 'http://localhost:3000/usuario/'+emp_legajo
+    let query = 'http://localhost:3000/usuarios/'+emp_legajo
     fetch(query)
         .then(response => response.json())
         .then(data => mostrarData(data))
         .catch(error => console.log(error))
     const mostrarData = (data) => {
         console.log(data)
-        document.getElementById("emp_nombre").value = data.emp_nombre
-        document.getElementById("emp_apellido").value = data.emp_apellido
-        document.getElementById("emp_nrodoc").value = data.emp_nrodoc
-        document.getElementById("emp_matricula").value = data.emp_matricula
-        document.getElementById("emp_direccion").value = data.emp_direccion
-        document.getElementById("emp_telefono1").value = data.emp_telefono1
-        document.getElementById("emp_telefono2").value = data.emp_telefono2
-        document.getElementById("usu_correo").value = data.usu_correo
+        document.getElementById("emp_nombre").value = data[0].emp_nombre
+        document.getElementById("emp_apellido").value = data[0].emp_apellido
+        document.getElementById("emp_nrodoc").value = data[0].emp_nrodoc
+        document.getElementById("emp_matricula").value = data[0].emp_matricula
+        document.getElementById("emp_direccion").value = data[0].emp_direccion
+        document.getElementById("emp_telefono1").value = data[0].emp_telefono1
+        document.getElementById("emp_telefono2").value = data[0].emp_telefono2
+        document.getElementById("usu_correo").value = data[0].usu_correo
+        usu_id = data[0].usu_id
+        console.log(usu_id)
     }
 }
+console.log(usu_id)
+
 
 //BUSCAR LEGAJO A REGISTRAR
 if (nuevo == 1) {
@@ -144,7 +150,7 @@ function registrarEmpleado() {
                 //Perfiles
             for (var i = 0; i < sel.length; i++) {
                 const post3 = {
-                    usu_id: usu_ultimoid,
+                    usu_id: emp_legajoUltimo,
                     usu_idperfil: sel[i].value,
                 }
                 console.log(post3)
@@ -189,7 +195,7 @@ function registrarEmpleado() {
 
         try {
             console.log(JSON.stringify(post));
-            fetch(ruta,{
+            fetch("http://localhost:3000/usuarios/actualizarEmpleado/"+emp_legajo,{
             method:metodo,
             body: JSON.stringify(post),
             headers: {
@@ -197,7 +203,7 @@ function registrarEmpleado() {
             }
             }).then(res=>res.json())
             .then(data=>console.log(data))
-            location.href ="/usuario/actualizarEmpleado/leg="+emp_legajo
+            //location.href ="/usuarios/actualizarEmpleado/"+emp_legajo
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
         } 
@@ -212,7 +218,7 @@ function registrarEmpleado() {
         }
         try {
             console.log(JSON.stringify(post2));
-            fetch(ruta,{
+            fetch("http://localhost:3000/usuarios/actualizarusuario/"+emp_legajo,{
             method:metodo,
             body: JSON.stringify(post2),
             headers: {
@@ -220,13 +226,13 @@ function registrarEmpleado() {
             }
             }).then(res=>res.json())
             .then(data=>console.log(data))
-            location.href ="/usuario/actualizarUsuario/usu="+usu_usuario
+            //location.href ="/usuarios/actualizarUsuario/"+usu_usuario
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
         }
 
         try {
-            fetch("http://localhost:3000/borrarusuxip/"+usu_id,{
+            fetch("http://localhost:3000/borrarusuxip/"+emp_legajo,{
             method:"DELETE"
             })  .then(res=>res.json())
         } catch (error) {
@@ -236,14 +242,14 @@ function registrarEmpleado() {
 
             for (var i = 0; i < sel.length; i++) {
                 const post3 = {
-                    usu_id: usu_ultimoid,
+                    usu_id: emp_legajo,
                     usu_idperfil: sel[i].value,
                 }
                 console.log(post3)
 
                  try {
                     console.log(JSON.stringify(post3));
-                    fetch("http://localhost:3000/usuxperfil",{
+                    fetch("http://localhost:3000/registrarUsuPerfil",{
                         method:"POST",
                         body: JSON.stringify(post3),
                         headers: {

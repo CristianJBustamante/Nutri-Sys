@@ -205,7 +205,7 @@ if (nuevo==1) {
     }  
 
     const post2 = {
-        turno_idestado: 4}
+        turno_idestado: 5}
     console.log(post2)
      try {
         console.log(JSON.stringify(post2));

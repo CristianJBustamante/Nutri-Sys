@@ -9,7 +9,8 @@ var AuthMiddleware = require("../middleware/auth")
 
 
 import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, login, logout, getlegajo, getultimolegajo, getultimoidusuario,
-  registrarEmpleado, registrarUsuarioEmpleado, registrarUsuPerfil, actualizarEmpleado, actualizarUsuPerfil, actualizarUsuario, getEmpleado} from "../controllers/usuario.controller";
+  registrarEmpleado, registrarUsuarioEmpleado, registrarUsuPerfil, actualizarEmpleado, actualizarUsuPerfil, actualizarUsuario, getEmpleado, getEmpleadoXL, getEmpleadoXD,
+  getEmpleadoXA, getEmpleadoXLAD, getEmpleadoLA, getEmpleadoLD, getEmpleadoAD, getPerfiles, getPerfilesNOSelec, getPerfilesSelec} from "../controllers/usuario.controller";
 
 //ACCESO A PAGINAS
   //login
@@ -38,24 +39,27 @@ router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
   });
 
 //REGISTRAR UN USUARIO
-router.get('/usuario/nuevoUsuario/',AuthMiddleware.isLogged, (req,res) => {
-  res.render('pacientes/abm/registrarUsuario.html',{
+router.get('/usuarios/nuevoUsuario/',AuthMiddleware.isLogged, (req,res) => {
+  res.render('usuarios/registrarUsuario.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user,
     titulo : "Nuevo Usuario"
 });
 });
 //Editar usuario
-router.get('/usuario/modificarusuario/leg=:emp_legajo',AuthMiddleware.isLogged, (req,res) => {
-  res.render('pacientes/abm/registrarUsuario.html',{
+router.get('/usuarios/modificarusuario/leg=:emp_legajo',AuthMiddleware.isLogged, (req,res) => {
+  res.render('usuarios/registrarUsuario.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user,
-    titulo : "Modificar Usuario"
+    titulo : "Nuevo Usuario"
+    
 });
 });
+
+
 //Buscar usuario
-router.get('/usuario/consultausuario/',AuthMiddleware.isLogged, (req,res) => {
-  res.render('pacientes/consultadatos/buscarEmpleado.html',{
+router.get('/usuarios/consultausuario/',AuthMiddleware.isLogged, (req,res) => {
+  res.render('usuarios/buscarEmpleado.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user
 });
@@ -63,9 +67,9 @@ router.get('/usuario/consultausuario/',AuthMiddleware.isLogged, (req,res) => {
 
 //ACCESO A DATOS
 router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
-router.get('/usuarios',getallusers)
+router.get('/usuario',getallusers)
 router.get('/datosusuario/:usu_usuario',getDatosUsuario)
-router.post('/usuario',nuevousuario)
+router.post('/usuarios',nuevousuario)
 router.post('/usuario/login', passport.authenticate('local',{
   successRedirect : '/pacientes/buscarpaciente',
   failureRedirect : '/usuarios/login',
@@ -82,8 +86,22 @@ router.get('/ultimoidusuario', getultimoidusuario)
 router.post('/registrarEmpleado', registrarEmpleado)
 router.post('/registrarUsuarioEmpleado', registrarUsuarioEmpleado)
 router.post('/registrarUsuPerfil', registrarUsuPerfil)
-router.post('/borrarusuxip/:usu_id', actualizarUsuPerfil)
-router.put('/actualizarEmpleado/:emp_legajo', actualizarEmpleado)
-router.put('/actualizarUsuario/:usu_usuario', actualizarUsuario)
-router.get('/usuario/:emp_legajo', getEmpleado)
+router.delete('/borrarusuxip/:usu_id', actualizarUsuPerfil)
+router.put('/usuarios/actualizarEmpleado/:emp_legajo', actualizarEmpleado)
+router.put('/usuarios/actualizarUsuario/:usu_usuario', actualizarUsuario)
+router.get('/usuarios/:emp_legajo', getEmpleado)
+
+  //Consultas
+  router.get('/empleado/leg=:emp_legajo',getEmpleadoXL)
+  router.get('/empleado/doc=:emp_nrodoc',getEmpleadoXD)
+  router.get('/empleado/ap=:emp_apellido', getEmpleadoXA)
+  router.get('/empleado/leg=:emp_legajo/ap=:emp_apellido/doc=:emp_nrodoc', getEmpleadoXLAD)
+  router.get('/empleado/leg=:emp_legajo/ap=:emp_apellido', getEmpleadoLA)
+  router.get('/empleado/leg=:emp_legajo/doc=:emp_nrodoc', getEmpleadoLD)
+  router.get('/empleado/ap=:emp_apellido/doc=:emp_nrodoc', getEmpleadoAD)
+
+  router.get('/perfil/', getPerfiles)
+  router.get('/perfil/:usu_id', getPerfilesSelec)
+  router.get('/noperfil/:usu_id', getPerfilesNOSelec)
+
 module.exports = router;

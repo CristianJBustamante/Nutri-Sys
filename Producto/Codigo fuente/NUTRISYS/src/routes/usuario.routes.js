@@ -87,7 +87,6 @@ router.post('/registrarEmpleado', registrarEmpleado)
 router.post('/registrarUsuarioEmpleado', registrarUsuarioEmpleado)
 router.post('/registrarUsuPerfil', registrarUsuPerfil)
 
-
 router.delete('/borrarusuxip/:usu_id', actualizarUsuPerfil)
 router.put('/usuarios/actualizarEmpleado/:emp_legajo', actualizarEmpleado)
 router.put('/usuarios/actualizarUsuario/:usu_usuario', actualizarUsuario)

@@ -91,13 +91,7 @@ Content-Type: application/json
 }
 ###
 
-PUT {{api}}/actualizarUsuPerfil/
-Content-Type: application/json
-
-{
-    "usu_id": 15,
-    "usu_idperfil": "1"
-}
+DELETE {{api}}/borrarusuxip/69730
 
 ###
 

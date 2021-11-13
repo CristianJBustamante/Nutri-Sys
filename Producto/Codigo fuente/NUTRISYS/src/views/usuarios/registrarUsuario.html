@@ -326,25 +326,48 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.html">
+						<a href="/turnos" class="dropdown-toggle">
 							<i class="menu-icon fa fa-calendar"></i>
 							<span class="menu-text"> Organizador </span>
+							<b class="arrow fa fa-angle-down"></b>
 						</a>
-
-						
+	
+						<b class="arrow"></b>
+	
+						<ul class="submenu">
+							<li class="">
+								<a href="/turnos">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Recepción de Turnos
+								</a>
+	
+								<b class="arrow"></b>
+							</li>
+	
+							<li class="">
+								<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+									<i class="menu-icon fa fa-caret-right"></i>
+									Mis Turnos
+								</a>
+	
+								<b class="arrow"></b>
+							</li>
+						</ul>
+	
+	
 					</li>
 					
 					<li class="">
-						<a href="../buscarpaciente">
+						<a href="/pacientes/buscarpaciente">
 							<i class="menu-icon fa fa-list-alt"></i>
-							<span class="menu-text"> Historia Clinica </span>
+							<span class="menu-text"> Historia Clínica </span>
 						</a>
 
 						<b class="arrow"></b>
 					</li>
 
 					<li class="">
-						<a href="index.html">
+						<a href="">
 							<i class="menu-icon fa fa-signal"></i>
 							<span class="menu-text"> Reportes </span>
 						</a>
@@ -353,9 +376,9 @@
 					</li>
 
 					<li class="active">
-						<a href="index.html">
-							<i class="menu-icon fa fa-pencil-square-o" ></i>
-							<span class="menu-text" > Adm. de Usuarios </span>
+						<a href="">
+							<i class="menu-icon fa fa-pencil-square-o"></i>
+							<span class="menu-text"> Adm. de Usuarios </span>
 						</a>
 
 						<b class="arrow"></b>
@@ -510,6 +533,10 @@
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Correo:(*)</h2>
 												<input type="email" id="usu_correo" placeholder=" ejemplo@nutrisys.com.ar " class="input__padding" style="text-align: center;"">
+											</section>
+											<section class="info__datosPersonales">
+												<h2 class="input__text">Su Usuario Para Acceder al Sistema es: </h2>
+												<input type="text" disabled class="input__padding" id="usuario" style="text-align: center;">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Contraseña(*):</h2>

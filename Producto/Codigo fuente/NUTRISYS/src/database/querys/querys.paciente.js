@@ -4,8 +4,13 @@ export const pacquerys = {
     getPaciente: "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac FROM paciente",
 
     getPacienteXHC:     "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac,"+
-                        "convert(varchar,pac_fechanacimiento,23) as pac_fnac "+
-                        "FROM paciente p left join historia_clinica h on p.pac_nrohc = h.hc_nrohc "+
+                                "convert(varchar,pac_fechanacimiento,23) as pac_fnac , isnull(hc_ocupacion,'') as ocupacion,"+
+                                "isnull(convert(varchar,case when cons_peso is null then hc_pesoactual else cons_peso end ),'') as peso,"+
+                                "isnull(convert(varchar,case when cons_talla is null then hc_talla else cons_talla end),'') as talla,"+
+                                "isnull(convert(varchar,case when cons_IMC is null then hc_BMI else cons_IMC end),'') as imc " +
+                        "FROM paciente p left join historia_clinica h on p.pac_nrohc = h.hc_nrohc " +
+                        "left join (select top 1 * from turno t inner join consulta c on t.turno_id=c.cons_idturno "+
+                        "order by t.turno_fecha desc) c on c.turno_nrohc = h.hc_nrohc "+
                         "WHERE pac_nrohc = @pac_nrohc",
 
     getPacientelikeHC:  "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac "+
@@ -35,6 +40,11 @@ export const pacquerys = {
     getPacienteAPDoc:   "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac "+
                         "FROM paciente "+
                         "WHERE pac_apellido like '%'+@pac_apellido+'%' and pac_nrodoc like @pac_nrodoc+'%'",
+
+    getpesospaciente: "select case when cons_peso is null then hc_pesoactual else cons_peso end as peso, turno_fecha "+
+                        "from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
+                                        "left join historia_clinica h on h.hc_nrohc=turno_nrohc "+
+                        "WHERE hc_nrohc = @pac_nrohc order by turno_fecha",
    
 
 //-------------------------------------------------------ABMS------------------------------------------------------

@@ -1,8 +1,59 @@
+const url = new String(window.location)
+let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
+let query = 'http://localhost:3000/paciente/'+pac_nrohc
+fetch(query)
+        .then(response => response.json())
+        .then(data => mostrarData(data))
+        .catch(error => console.log(error))
+
+//Cargar cabecera
+const mostrarData = (data) => {
+    console.log(data) 
+    let solapas=''
+    solapas=`<a class="nav__solapa"  href="/pacientes/consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a>
+    <a class="nav__solapa" href="/pacientes/consultapaciente/hc=${data.pac_nrohc}">Resumen</a>
+    <a class="nav__solapa" href="/pacientes/consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
+    <a class="nav__solapa--seleccionado" href="/pacientes/consultapacientefichas/hc=${data.pac_nrohc}">Evoluciones</a>
+    <a class="nav__solapa" href="/pacientes/consultapacienteplan/hc=${data.pac_nrohc}">Planes</a>
+    <a class="nav__solapa" href="/pacientes/consultapacientedocumentos/hc=${data.pac_nrohc}">Documentos</a>
+    <a class="nav__solapa" href="/pacientes/consultapacienteestudios/hc=${data.pac_nrohc}">Estudios</a>
+    <a class="nav__solapa--resto"></a>`        
+    document.getElementById('solapas').innerHTML = solapas  
+    let cabecera =''
+    cabecera += `<h2>Paciente: ${data.pac_apellido}, ${data.pac_nombre}</h2><h2>HC: ${data.pac_nrohc}</h2><h2>DOC.: ${data.pac_nrodoc}</h2><h2>FN: ${data.pac_fechanac}</h2>`        
+    document.getElementById('pac_datos').innerHTML = cabecera
+  
+    }
+    var parametros = [];
+    var valores = [];
+    query = 'http://localhost:3000/pesospaciente/'+pac_nrohc
+    fetch(query)
+            .then(response => response.json())
+            .then(data => mostrarpeso(data))
+            .catch(error => console.log(error))
+    
+    //Cargar cabecera
+    const mostrarpeso = (data) => {
+        console.log(data) 
+        for (let i = 0; i<data.length; i++){
+          var fecha = data[i].turno_fecha
+          fecha = fecha.substr(0,10)  
+          parametros.push(fecha)
+          valores.push(data[i].peso)
+        }
+
+
+        showResults(
+        showResults()
+        )
+      }
+
+
 document.querySelector(".addParam").addEventListener("click",addParam);
 document.querySelector(".showResults").addEventListener("click",showResults);
 
-var parametros = [];
-var valores = [];
+
+
 
 function addParam(){
     let html = document.querySelector(".container").innerHTML;

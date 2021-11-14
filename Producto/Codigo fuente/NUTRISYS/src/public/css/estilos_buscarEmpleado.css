@@ -237,8 +237,13 @@ h2{
     }
 }
 
-
-
+.td__width--L{width: 100px;}
+.td__width--C{width: 350px;}
+.td__width--A{width: 200px;}
+  
+.td__width--N{width: 200px;}
+  
+.td__width--D{width: 150px;}
 
 .tabla__resultados{
     background-color: var(--grisMedio);
@@ -363,13 +368,13 @@ input::-webkit-inner-spin-button {
 @media (min-width: 1681px) {
     .tr__width{width: 1400px;}
     
-    .td__width--HC{width: 100px;}
+    .td__width--L{width: 100px;}
+    .td__width--C{width: 100px;}
+    .td__width--A{width: 450px;}
     
-    .td__width--Ape{width: 450px;}
+    .td__width--N{width: 450px;}
     
-    .td__width--Nom{width: 450px;}
-    
-    .td__width--Doc{width: 300px;}
+    .td__width--D{width: 300px;}
 }
 
 @media (max-width: 1680px) {

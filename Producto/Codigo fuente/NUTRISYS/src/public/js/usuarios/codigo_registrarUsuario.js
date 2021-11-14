@@ -1,7 +1,7 @@
 //Validar si es alta o modificacion
  const url = new String(window.location)
  let modo = url.substr(url.indexOf("usuarios/"),url.length)
- var nuevo=1
+ var nuevo=0 //aca antes decia 1 lo cambie recien, porque asi estaba en el registrar paciente esta bien
  var emp_legajo=0
  var metodo=''
  var ruta=''
@@ -14,22 +14,24 @@
      ruta="http://localhost:3000/usuario"
  }
  else{
-    nuevo=0;
+    nuevo=0
     emp_legajo = url.substr(url.indexOf("leg=")+4,url.length)
      metodo='PUT'
      ruta="http://localhost:3000/usuarios/" + emp_legajo
      }
      console.log(modo,nuevo,emp_legajo,ruta,metodo)
 
-
     
 //Cargar pagina según modo
 if (nuevo==1) {
     let cabecera =''
-    cabecera += `Nuevo Usuario`        
+    cabecera += `Nuevo Usuario`      
+    document.getElementById('data').innerHTML = cabecera  
 } else {
     let cabecera =''
-    cabecera += `Modificar Usuario`        
+    cabecera += `Modificar Usuario`   
+    document.getElementById('data').innerHTML = cabecera
+     
     let query = 'http://localhost:3000/usuarios/'+emp_legajo
     fetch(query)
         .then(response => response.json())
@@ -47,9 +49,13 @@ if (nuevo==1) {
         document.getElementById("usu_correo").value = data[0].usu_correo
         document.getElementById("usu_clave").value = data[0].usu_clave
         document.getElementById("usu_claveC").value = data[0].usu_clave
-
+        document.getElementById("habilitar").checked = data[0].usu_hab;
+        document.getElementById("usuario").value = data[0].emp_legajo;
         usu_id = data[0].usu_id
         console.log(usu_id)
+        console.log(data[0].usu_hab)
+        console.log(data[0].emp_legajo)
+
     }
 }
 console.log(usu_id)
@@ -66,6 +72,7 @@ if (nuevo == 1) {
         emp_legajoUltimo=data[0].emp_legajo
         emp_legajoUltimo=emp_legajoUltimo+1
         console.log(emp_legajoUltimo)
+        document.getElementById('usuario').value = emp_legajoUltimo;
     }
 }
 
@@ -89,7 +96,7 @@ function registrarEmpleado() {
     } 
     else {
     var sel = document.getElementById("bootstrap-duallistbox-selected-list_duallistbox_demo1[]"); 
-    
+    document.getElementById('usuario').value = emp_legajoUltimo;
     if (sel.length>0){
         //REGISTRAR NUEVOS EMPLEADOS
         if (nuevo==1) {
@@ -101,6 +108,7 @@ function registrarEmpleado() {
             var emp_direccion =   document.getElementById("emp_direccion").value;
             var emp_telefono1 =   document.getElementById("emp_telefono1").value;
             var emp_telefono2 =   document.getElementById("emp_telefono2").value;
+
             const post = {
                 emp_nrodoc: emp_nrodoc,
                 emp_idusuario: usu_ultimoid,
@@ -127,12 +135,16 @@ function registrarEmpleado() {
                 console.log(error)
                 } 
             //Usuarios
-            var usu_clave =   document.getElementById("usu_clave").value;
-            var usu_correo =   document.getElementById("usu_correo").value;
+            var usu_clave = document.getElementById("usu_clave").value;
+            var usu_correo = document.getElementById("usu_correo").value;
+            var usu_hab = document.getElementById("habilitar").checked;
+
+
                 const post2 = {
                     usu_usuario: emp_legajoUltimo,
                     usu_clave: usu_clave,
                     usu_correo: usu_correo,
+                    usu_hab: usu_hab,
                 }
                 console.log(post2)
                     try {
@@ -214,10 +226,12 @@ function registrarEmpleado() {
         //Actualizar Usuario
         var usu_clave =   document.getElementById("usu_clave").value;
         var usu_correo =   document.getElementById("usu_correo").value;
+        var usu_hab = document.getElementById("habilitar").checked;
             
         const post2 = {
             usu_clave: usu_clave,
             usu_correo: usu_correo,
+            usu_hab : usu_hab,
         }
         try {
             console.log(JSON.stringify(post2));

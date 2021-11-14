@@ -52,9 +52,10 @@ POST {{api}}/registrarUsuarioEmpleado
 Content-Type: application/json
 
 {
-    "usu_usuario": 69716,
+    "usu_usuario": 69737,
     "usu_clave": "12345",
-    "usu_correo": ""
+    "usu_correo": "prueba@sistemas",
+    "usu_hab": 1
 }
 ###
 

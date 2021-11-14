@@ -41,11 +41,7 @@ function buscarEmpleado(){
           swal("Atención","No se encontraron Empleados","warning")
           limpiar()
         }
-        if (data.length==1) {
-          document.getElementById("emp_legajo").value = data[0].emp_legajo
-          document.getElementById("emp_apellido").value = data[0].emp_apellido+ " " +data[0].emp_nombre
-          document.getElementById("emp_nrodoc").value = data[0].emp_nrodoc
-        }
+        
         console.log(data)
         
         let body =''

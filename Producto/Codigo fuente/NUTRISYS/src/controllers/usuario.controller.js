@@ -132,15 +132,16 @@ export const registrarEmpleado = async (req,res) => {
 }
 
 export const registrarUsuarioEmpleado = async (req,res) => {
-    let { usu_usuario, usu_clave, usu_correo } = req.body;
+    let { usu_usuario, usu_clave, usu_correo, usu_hab } = req.body;
     try {
         const pool = await getConnection();
         await pool.request()
             .input('usu_usuario',sql.Int,usu_usuario)
             .input('usu_clave', sql.NVarChar,usu_clave)
             .input('usu_correo', sql.NVarChar,usu_correo)
+            .input('usu_hab', sql.Int,usu_hab)
             .query(usuquerys.registrarUsuarioEmpleado)
-        res.json({ usu_usuario, usu_clave, usu_correo})
+        res.json({ usu_usuario, usu_clave, usu_correo, usu_hab})
     } catch (error) {
         res.status(500);
         res.send(error.message);
@@ -205,7 +206,7 @@ export const actualizarEmpleado = async(req,res) => {
 }
 
 export const actualizarUsuario = async(req,res) => {
-    let { usu_clave, usu_correo } = req.body;
+    let { usu_clave, usu_correo, usu_hab } = req.body;
     const {usu_usuario} = req.params;
     try {
         const pool = await getConnection();
@@ -213,8 +214,9 @@ export const actualizarUsuario = async(req,res) => {
         .input('usu_usuario', sql.NVarChar,usu_usuario)
         .input('usu_clave', sql.NVarChar,usu_clave)
         .input('usu_correo', sql.NVarChar,usu_correo)
+        .input('usu_hab', sql.Int,usu_hab)
         .query(usuquerys.actualizarUsuario)
-        res.json({usu_usuario, usu_clave, usu_correo })
+        res.json({usu_usuario, usu_clave, usu_correo, usu_hab })
     } catch (error) {
         res.status(500);
         res.send(error.message);

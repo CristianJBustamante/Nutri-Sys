@@ -495,7 +495,7 @@
 							<div class="contenidoPagina">
 								<article class="contenido__article">
 									<section class="contenido__section" id="titulopagina"> 
-										<h2 class="titulo " id="data"><%= titulo %></h2> <!--Modo Edicion Modificar Etiqueta-->
+										<h2 class="titulo " id="data"></h2> <!--Modo Edicion Modificar Etiqueta-->
 										<input class="btn btn-white btn-primary btn__crear" id="registrar" type="button" name="Guardar" value="Guardar" onclick="registrarEmpleado()">
 									</section>
 									
@@ -506,47 +506,50 @@
 										<div class="contenido__datosPersonales">
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Nombre:(*)</h2>
-												<input type="text" id="emp_nombre" placeholder=" Ingrese Nombre " class="input__padding" style="text-align: center;"">
+												<input type="text" autocomplete="off" id="emp_nombre" placeholder=" Ingrese Nombre " class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Apellido:(*)</h2>
-												<input type="text" id="emp_apellido" placeholder=" Ingrese Apellido" class="input__padding" style="text-align: center;"">
+												<input type="text" autocomplete="off" id="emp_apellido" placeholder=" Ingrese Apellido" class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">DNI:(*)</h2>
-												<input type="number" id="emp_nrodoc" placeholder=" Ingrese Nro Documento" class="input__padding" style="text-align: center;"">
+												<input type="number" autocomplete="off" id="emp_nrodoc" placeholder=" Ingrese Nro Documento" class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Matricula:</h2>
-												<input type="number" id="emp_matricula" placeholder=" Ingrese Matricula " class="input__padding" style="text-align: center;"">
+												<input type="number" autocomplete="off" id="emp_matricula" placeholder=" Ingrese Matricula " class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Direccion:(*)</h2>
-												<input type="text" id="emp_direccion" placeholder=" Ingrese Direccion " class="input__padding" style="text-align: center;"">
+												<input type="text" autocomplete="off" id="emp_direccion" placeholder=" Ingrese Direccion " class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Telefono:(*)</h2>
-												<input type="number" id="emp_telefono1" placeholder=" Ingrese Telefono " class="input__padding" style="text-align: center;"">
+												<input type="number" autocomplete="off" id="emp_telefono1" placeholder=" Ingrese Telefono " class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Telefono Alternativo:</h2>
-												<input type="number" id="emp_telefono2" placeholder=" Ingrese Telefono Alternativo " class="input__padding" style="text-align: center;"">
+												<input type="number" autocomplete="off" id="emp_telefono2" placeholder=" Ingrese Telefono Alternativo " class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Correo:(*)</h2>
-												<input type="email" id="usu_correo" placeholder=" ejemplo@nutrisys.com.ar " class="input__padding" style="text-align: center;"">
+												<input type="email" autocomplete="off" id="usu_correo" placeholder=" ejemplo@nutrisys.com.ar " class="input__padding" style="text-align: center;"">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Su Usuario Para Acceder al Sistema es: </h2>
 												<input type="text" disabled class="input__padding" id="usuario" style="text-align: center;">
 											</section>
+												<h2 class="respuesta__pregunta--checkbox">Habilitar Usuario(*):
+													<input type="checkbox" id="habilitar" class="respuesta__pregunta--checkbox" style="display: inline;">
+												</h2>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Contraseña(*):</h2>
-												<input type="password" class="input__padding" placeholder=" Ingrese Contraseña " id="usu_clave" style="text-align: center;">
+												<input type="password" autocomplete="off" class="input__padding" placeholder=" Ingrese Contraseña " id="usu_clave" style="text-align: center;">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Confirmar Contraseña(*):</h2>
-												<input type="password" placeholder=" Ingrese Contraseña " class="input__padding" id="usu_claveC" style="text-align: center;">
+												<input type="password" autocomplete="off" placeholder=" Ingrese Contraseña " class="input__padding" id="usu_claveC" style="text-align: center;">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 style="font-weight: normal;">* Campos Obligatorios *</h2>

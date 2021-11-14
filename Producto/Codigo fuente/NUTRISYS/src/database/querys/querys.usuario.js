@@ -19,7 +19,7 @@ export const usuquerys = {
     +"emp_matricula,emp_direccion,emp_telefono1,emp_telefono2) VALUES (@emp_idusuario, @emp_nrodoc,"
     +"@emp_apellido,@emp_nombre,@emp_matricula,@emp_direccion,@emp_telefono1,@emp_telefono2)",
 
-    registrarUsuarioEmpleado: "INSERT INTO usuario(usu_usuario, usu_clave,usu_correo) VALUES (@usu_usuario,@usu_clave,@usu_correo)",
+    registrarUsuarioEmpleado: "INSERT INTO usuario(usu_usuario, usu_clave,usu_correo, usu_hab) VALUES (@usu_usuario,@usu_clave,@usu_correo, @usu_hab)",
 
     registrarUsuPerfil: "INSERT INTO usuario_perfil(usu_id,usu_idperfil) VALUES(@usu_id,@usu_idperfil)",
 //
@@ -31,12 +31,12 @@ export const usuquerys = {
     actualizarEmpleado: "UPDATE empleado SET emp_idusuario = @emp_idusuario, emp_nrodoc = @emp_nrodoc, emp_apellido = @emp_apellido"+
     ",emp_nombre = @emp_nombre, emp_matricula = @emp_matricula, emp_direccion = @emp_direccion,emp_telefono1 = @emp_telefono1"+
     ",emp_telefono2 = @emp_telefono2 WHERE emp_legajo = @emp_legajo",
-    actualizarUsuario: "UPDATE usuario SET usu_clave = @usu_clave, usu_correo = @usu_correo WHERE usu_usuario = @usu_usuario",
+    actualizarUsuario: "UPDATE usuario SET usu_clave = @usu_clave, usu_correo = @usu_correo, usu_hab = @usu_hab WHERE usu_usuario = @usu_usuario",
     getEmpleadoTodos: "select e.emp_legajo, e.emp_nrodoc, e.emp_apellido, e.emp_nombre, u.usu_correo from empleado e "
     +"join usuario u on (e.emp_legajo = u.usu_usuario) order by emp_legajo",
 
-    getEmpleado: "select e.emp_apellido, e.emp_nombre, e.emp_matricula, e.emp_nrodoc, e.emp_direccion, e.emp_telefono1, e.emp_telefono2, u.usu_correo, u.usu_clave, u.usu_id from empleado e"
-    +" join usuario u on (u.usu_usuario = e.emp_legajo) WHERE emp_legajo = @emp_legajo",
+    getEmpleado: "select e.emp_apellido, e.emp_nombre, e.emp_matricula, e.emp_nrodoc, e.emp_direccion, e.emp_telefono1, e.emp_telefono2, u.usu_correo, u.usu_clave, "
+    +"u.usu_id, u.usu_hab, e.emp_legajo from empleado e join usuario u on (u.usu_usuario = e.emp_legajo) WHERE e.emp_legajo = @emp_legajo",
 
     getUsuario: "Select * From Usuario where usu_usuario = @usu_usuario",
 

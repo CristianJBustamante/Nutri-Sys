@@ -260,6 +260,10 @@ input[type=number] { -moz-appearance:textfield; }
     float: right;
 }
 
+.respuesta__pregunta--checkbox{
+    width: 2rem;
+    height: 2rem;
+}
 
 /****************/
 /** UTILIDADES **/

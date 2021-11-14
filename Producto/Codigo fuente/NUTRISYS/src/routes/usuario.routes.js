@@ -13,10 +13,7 @@ import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, log
   getEmpleadoXA, getEmpleadoXLAD, getEmpleadoLA, getEmpleadoLD, getEmpleadoAD,getEmpleadoTodos, getPerfiles, getPerfilesNOSelec, getPerfilesSelec} from "../controllers/usuario.controller";
 
 //ACCESO A PAGINAS
-  //login
-  router.get('/usuarios/login', AuthMiddleware.isLogged2,(req,res) => {
-    res.render('usuarios/iniciarSesion.html');
-  });
+  
   //pantalla inicial
   router.get('/welcome',AuthMiddleware.isLogged ,(req,res) => {
       res.render('pantallaInicial.html',{
@@ -35,7 +32,7 @@ router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
 //ACCESO A PAGINAS
   //login
   router.get('/usuarios/login', (req,res) => {
-    res.render('usuarios/iniciarSesion.html');
+    res.render('usuarios/iniciarSesion.html', {authmessage : req.flash('authmessage')});
   });
 
 //REGISTRAR UN USUARIO
@@ -73,6 +70,7 @@ router.post('/usuarios',nuevousuario)
 router.post('/usuario/login', passport.authenticate('local',{
   successRedirect : '/pacientes/buscarpaciente',
   failureRedirect : '/usuarios/login',
+  failureFlash : true 
 
 }))
   //logout

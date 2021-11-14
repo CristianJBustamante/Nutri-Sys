@@ -3,6 +3,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
+var flash = require('connect-flash')
 require('./passport/passport')(passport);
 
 //Initializions
@@ -30,6 +31,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 //Global Variables
 

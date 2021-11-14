@@ -29,11 +29,11 @@ module.exports = function (passport) {
         function validar(data) {
             if (data.length > 0) {
                 var user = data[0];
-                if (bcrypt.compareSync(usu_clave, user.usu_clave)) {
+                if (usu_clave== user.usu_clave) {
                     return done(null, user)
                 }
             }
-            return done(null,false)
+            return done(null,false, req.flash('authmessage','Usuario o Contraseña Incorrectos'))
         }
     }
     ));

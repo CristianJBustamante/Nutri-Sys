@@ -80,23 +80,48 @@ function buscarDocPaciente(hc){
 
 }
 
-function confirmarTurno(momento,nrohc){
+function confirmarTurno(momento,nrohc, calendar){
+
     swal({
         title: "Atención",
         text: "¿Desea Confirmar el Registro del Turno: " +momento._start._d,
         icon: "warning",
-        buttons: true,
+        buttons: { 
+            cancel: "Cancelar",
+            confirmar:
+            {
+                text: "Confirmar",
+                value: "confirm",
+            },
+            
+        },
         dangerMode: true,
       })
-      .then((willDelete) => {
-        if (willDelete) {
-            generarTurno(nrohc, momento._start._d, momento._end._d)
-            
-        } 
+      .then((value) => {
+        if(value == "confirm"){
+            generarTurno(nrohc, momento._start._d, momento._end._d, calendar) 
+            calendar.fullCalendar('updateEvent', momento);
+        }  
       });
+
+    // swal({
+    //     title: "Atención",
+    //     text: "¿Desea Confirmar el Registro del Turno: " +momento._start._d,
+    //     icon: "warning",
+    //     buttons: true,
+    //     dangerMode: true,
+    //   })
+    //   .then((result, willDelete) => {
+    //     if(result.isConfirmed){
+    //         if (willDelete) {
+    //             generarTurno(nrohc, momento._start._d, momento._end._d)
+                
+    //         } 
+    //     }  
+    //   });
 }
 
-function generarTurno(hcPaciente, momentoStart, momentoEnd){
+function generarTurno(hcPaciente, momentoStart, momentoEnd, calendar){
     let fecha = new String(momentoStart)
     let horainicio = new String(momentoStart)
     let horafin = new String(momentoEnd)
@@ -131,8 +156,12 @@ function generarTurno(hcPaciente, momentoStart, momentoEnd){
         console.log(error)
     }  
     
+    calendar.fullCalendar('refetchEvents');
+    calendar.fullCalendar('rerenderEvents');
     // Codigo Pos-Back
     swal("Turno Registrado","Se registró el Turno con Éxito!","success");
+    
+    
 }
 
 function mostrarHC(title){

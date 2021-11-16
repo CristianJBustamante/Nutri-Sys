@@ -27,10 +27,15 @@ if (nuevo==1) {
     let cabecera =''
     cabecera += `Nuevo Usuario`      
     document.getElementById('data').innerHTML = cabecera  
+    let cabecera2 = `Registrar Usuario`
+    document.getElementById('data2').innerHTML = cabecera2  
+
 } else {
     let cabecera =''
     cabecera += `Modificar Usuario`   
     document.getElementById('data').innerHTML = cabecera
+    let cabecera2 = `Modificar Usuario`
+    document.getElementById('data2').innerHTML = cabecera2 
      
     let query = 'http://localhost:3000/usuarios/'+emp_legajo
     fetch(query)
@@ -186,6 +191,8 @@ function registrarEmpleado() {
                 }
             }
             swal("Empleado Registrado","Empleado "+emp_legajoUltimo+" Registrado con Éxito!","success")
+                .then((value) => {
+                        location.href ="/usuarios/consultausuario/"})
         }
         else{
 
@@ -199,7 +206,7 @@ function registrarEmpleado() {
         var emp_telefono2 =   document.getElementById("emp_telefono2").value;
         const post = {
             emp_nrodoc: emp_nrodoc,
-            emp_idusuario: usu_ultimoid,
+            emp_idusuario: usu_id,
             emp_apellido: emp_apellido,
             emp_nombre: emp_nombre,
             emp_matricula: emp_matricula,
@@ -207,7 +214,6 @@ function registrarEmpleado() {
             emp_telefono1: emp_telefono1,
             emp_telefono2: emp_telefono2,
         }
-
         try {
             console.log(JSON.stringify(post));
             fetch("http://localhost:3000/usuarios/actualizarEmpleado/"+emp_legajo,{
@@ -229,6 +235,7 @@ function registrarEmpleado() {
         var usu_hab = document.getElementById("habilitar").checked;
             
         const post2 = {
+            usu_usuario: emp_legajoUltimo,
             usu_clave: usu_clave,
             usu_correo: usu_correo,
             usu_hab : usu_hab,
@@ -279,7 +286,9 @@ function registrarEmpleado() {
                     console.log(error)
                 } 
             }
-            swal("Empleado Registrado","Empleado "+emp_legajoUltimo+" Registrado con Éxito!","success")
+            swal("Empleado Actualizado","Empleado "+emp_legajo+" Actualizado con Éxito!","success")
+                .then((value) => {
+                        location.href ="/usuarios/consultausuario/"})
         }  
     }
     else{

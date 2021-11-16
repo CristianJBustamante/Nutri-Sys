@@ -59,7 +59,7 @@ function crearEmpleado(){
 }
 
 function seleccionarEmpleado(emp_legajo) {
-    location.href ="./modificarusuario/leg="+emp_legajo
+    location.href ="/usuarios/modificarusuario/leg="+emp_legajo
 }
 
 function limpiar() {

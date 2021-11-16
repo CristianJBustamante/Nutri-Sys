@@ -715,7 +715,7 @@
 
 			/* initialize the calendar
 			-----------------------------------------------------------------*/
-
+			alert
 			var date = new Date();
 			var d = date.getDate();
 			var m = date.getMonth();
@@ -759,14 +759,18 @@
 
 				eventResize: function (event, delta, revertFunc) {
 
-					actualizarhoraturno(event, revertFunc)
-
+					if (event.idturno!=null) {
+						actualizarhoraturno(event, revertFunc)
+					}
 				},
 
 				// Movimiento de Turnos
 
 				eventDrop: function (event, delta, revertFunc, jsEvent, ui, view) {
-					actualizarhoraturno(event, revertFunc)
+					if (event.idturno!=null) {
+						actualizarhoraturno(event, revertFunc)
+					}
+					
 				},
 
 				editable: true,
@@ -1028,7 +1032,7 @@
 								modal.modal("hide");
 							}
 							else {
-								alert("Paciente no encontrado. HC o Documento inválido.");
+								swal("Paciente No Encontrado", "El paciente ingresado no es válido", "error");
 							}
 
 							// calendar.fullCalendar('updateEvent', calEvent);
@@ -1057,6 +1061,9 @@
 						})
 							.then((willDelete) => {
 								if (willDelete) {
+									if (calEvent.idturno!=null) {
+										
+									
 									var f = new Date();
 									let mes = f.getMonth() + 1
 									let dia = f.getDate()
@@ -1104,6 +1111,11 @@
 										calEvent.estado = 'Cancelado';
 										calEvent.className = 'label-turno-cancelado label-danger invisible';
 										calendar.fullCalendar('updateEvent', calEvent);
+									}
+									}else{
+										calendar.fullCalendar('removeEvents', function (ev) {
+											return (ev._id == calEvent._id);
+										})
 									}
 								}
 							})

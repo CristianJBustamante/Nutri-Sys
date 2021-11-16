@@ -674,7 +674,7 @@
 			    var clase = "label-danger"
 				var editable
 			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
-				    clase = "label-success"
+				    clase = "label-verde"
 					editable = true
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Cancelado') {
@@ -947,6 +947,7 @@
 
 					modal.find('button[data-action=delete]').on('click', function () {
 
+						alert(calEvent.fecharegistro)
 						swal({
         					title: "Atención",
         					text: "¿Desea Cancelar el turno " + calEvent.title +"?",

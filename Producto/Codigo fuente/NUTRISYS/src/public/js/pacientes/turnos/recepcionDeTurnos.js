@@ -158,6 +158,8 @@ function generarTurno(hcPaciente, momentoStart, momentoEnd, calendar){
     
     calendar.fullCalendar('refetchEvents');
     calendar.fullCalendar('rerenderEvents');
+    setTimeout(50000)
+    buscarAgendaProfesional(legajo)
     // Codigo Pos-Back
     swal("Turno Registrado","Se registró el Turno con Éxito!","success");
     
@@ -243,7 +245,7 @@ function buscarAgendaProfesional(emp_legajo){
 			    var clase = "label-danger"
                 var editable
 			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
-				    clase = "label-success"
+				    clase = "label-verde"
                     editable = true
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Cancelado') {

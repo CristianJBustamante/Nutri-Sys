@@ -23,5 +23,7 @@ nuevoturno:  "INSERT INTO turno (turno_legajoempleado,turno_fecha,turno_horainic
 
 actualizarhorafin: "UPDATE turno SET turno_fecha=@turno_fecha,turno_horainicio=@turno_horainicio, turno_horafin=@turno_horafin WHERE turno_id = @turno_id",
 
-borrarturno: "DELETE FROM turno WHERE turno_id=@turno_id"
+borrarturno: "DELETE FROM turno WHERE turno_id=@turno_id",
+
+getturnoxidturno: "SELECT * FROM turno where turno_id=@turno_id"
 }

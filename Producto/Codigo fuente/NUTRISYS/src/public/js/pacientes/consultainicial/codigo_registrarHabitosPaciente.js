@@ -5,6 +5,7 @@ var cons_idturno
 var modo
 var hab_idconsulta
 var habpac_id =0
+var legajo
 
 //DEFINIR SI ACTUALIZA O REGISTRA
 url = new String(window.location) 
@@ -40,6 +41,9 @@ fetch(qcons)
     .catch(error => console.log(error))
 const buscarconsulta = (data) => {
     console.log(data)
+    legajo = data.turno_legajoempleado
+    console.log(legajo)
+
      hab_idconsulta = data.cons_id 
      if (habpac_id==0) {
         habpac_id = data.habpac_id
@@ -127,7 +131,7 @@ function registrarhabitos() {
             }
             swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
                  .then((value) => {
-                    location.href ="/pacientes/buscarpaciente"}) 
+                    location.href ="/turnos/leg="+legajo}) 
         }else{
         //ACTUALIZAR HABITOS
         try {
@@ -163,7 +167,7 @@ function registrarhabitos() {
             }
             swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
                  .then((value) => {
-                    location.href ="/pacientes/buscarpaciente"}) 
+                    location.href ="/turnos/leg="+legajo}) 
         }  
     }else{
         swal("Atención","Debe seleccionar al menos un hábito de la grilla.","warning" )

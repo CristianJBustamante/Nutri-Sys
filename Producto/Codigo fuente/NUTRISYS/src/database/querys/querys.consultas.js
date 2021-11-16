@@ -3,7 +3,8 @@ export const consultasquerys = {
 //-------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------    
     //Consultas------------------------------------------------------------------------------------------------
-    getconsultaxturno: "SELECT * FROM consulta c LEFT JOIN habitos_paciente h on h.habpac_idconsulta=c.cons_id "+
+    getconsultaxturno: "SELECT * FROM consulta c left join turno t on t.turno_id=c.cons_idturno "+
+                        "LEFT JOIN habitos_paciente h on h.habpac_idconsulta=c.cons_id "+
                         "where cons_idturno=@cons_idturno order by cons_id desc",
     getconsultaxnrohc: "select * from turno inner join consulta on consulta.cons_idturno=turno.turno_id "+
                         "where turno.turno_nrohc=@turno_nrohc order by cons_id desc",                

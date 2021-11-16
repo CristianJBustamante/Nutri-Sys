@@ -7,7 +7,8 @@ export const pacquerys = {
                                 "convert(varchar,pac_fechanacimiento,23) as pac_fnac , isnull(hc_ocupacion,'') as ocupacion,"+
                                 "isnull(convert(varchar,case when cons_peso is null then hc_pesoactual else cons_peso end ),'') as peso,"+
                                 "isnull(convert(varchar,case when cons_talla is null then hc_talla else cons_talla end),'') as talla,"+
-                                "isnull(convert(varchar,case when cons_IMC is null then hc_BMI else cons_IMC end),'') as imc " +
+                                "isnull(convert(varchar,case when cons_IMC is null then hc_BMI else cons_IMC end),'') as imc, " +
+                                "DATEDIFF(year,pac_fechanacimiento,GETDATE()) as edad "+
                         "FROM paciente p left join historia_clinica h on p.pac_nrohc = h.hc_nrohc " +
                         "left join (select top 1 * from turno t inner join consulta c on t.turno_id=c.cons_idturno "+
                         "order by t.turno_fecha desc) c on c.turno_nrohc = h.hc_nrohc "+

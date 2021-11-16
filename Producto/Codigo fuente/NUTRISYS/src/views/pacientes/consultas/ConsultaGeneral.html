@@ -515,19 +515,19 @@
 												 <!-- ------------------------ -->
 												 <div class="seccion__class">
 													<h2 class="label__ficha"> Peso: </h2>
-													<input class="contenido__input" type="number" min="1" max="150" id="cons_peso">
+													<input class="contenido__input" type="number" min="1" max="150" id="cons_peso" onchange="calcularbmi()">
 													<label class="contenido__input--label">Kg</label>
 												  </div>
 												  <!-- ------------------------ -->
 												  <div class="seccion__class">
                                                     <h2 title="Indice de masa corporal" class="label__ficha"> IMC: </h2>
-                                                    <input class="contenido__input" type="number" min="1" max="300" id="cons_IMC">
+                                                    <input readonly class="contenido__input" type="number" min="1" max="300" id="cons_IMC">
                                                     <label class="contenido__input--label">Kg/m^2</label>
                                                   </div>
                                                          <!-- ------------------------ -->
                                                      <div class="seccion__class">
                                                         <h2 class="label__ficha"> Talla: </h2>
-                                                        <input class="contenido__input" type="number" min="10" max="500" id="cons_talla">
+                                                        <input class="contenido__input" type="number" min="10" max="500" id="cons_talla" onchange="calcularbmi()">
                                                         <label class="contenido__input--label">Cm</label>
                                                       </div>
                                                          <!-- ------------------------ -->

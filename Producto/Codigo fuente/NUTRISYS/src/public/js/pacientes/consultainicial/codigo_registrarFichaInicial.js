@@ -1,5 +1,7 @@
  var metodo=''
  var hab_idconsulta
+ var sexo
+ var edad
 //Get nrohc
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("hc=")+3,(url.indexOf("/trn="))-(url.indexOf("hc=")+3)))
@@ -29,6 +31,8 @@ const mostrarData = (data) => {
     let cabecera =''
     cabecera += `<h2>Paciente: ${data.pac_apellido}, ${data.pac_nombre}</h2><h2>HC: ${data.pac_nrohc}</h2><h2>DOC.: ${data.pac_nrodoc}</h2><h2>FN: ${data.pac_fechanac}</h2>`        
     document.getElementById('pac_datos').innerHTML = cabecera
+    sexo = data.pac_sexo
+    edad = data.edad
     }
 
 //Setear fecha actual
@@ -269,7 +273,7 @@ try {
     }
     }).then(res=>res.json())
     .then(data=>console.log(data))
-    location.href ="/consulta/actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
+    //location.href ="/consulta/actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
     console.log()
 
 } catch (error) {
@@ -326,14 +330,32 @@ function medidas() {
 function calcularbmi(){
     var peso = document.getElementById("hc_pesoactual").value;
     var talla = document.getElementById("hc_talla").value;    
+    var ajuste = document.getElementById("hc_ajuste").value;
+    alert(ajuste)
     if(peso==null || peso=='' || talla==null || talla=='') {
         document.getElementById("hc_BMI").value = ''
+        document.getElementById("hc_PBMI").value = ''
+        document.getElementById("hc_formula").value = ''
+        document.getElementById("hc_medajuste").value = ''
         return false; 
     } 
     else {
         var bmi = peso / (talla*talla)
         var pbmi = peso/bmi
+        var form 
+        var medajuste
+        if (sexo="Masculino") {
+            form= (10*peso)+(6.25*talla*100)-(5*edad)+5
+            medajuste=form*ajuste
+        }else{
+            form= (10*peso)+(6.25*talla*100)-(5*edad)-161
+            medajuste=form*ajuste
+        }
+        document.getElementById("hc_formula").value =  form;
         document.getElementById("hc_BMI").value =  bmi;
-        return document.getElementById("hc_PBMI").value =  pbmi;
+        document.getElementById("hc_PBMI").value =  pbmi;
+        return document.getElementById("hc_medajuste").value =  medajuste;
+
     }
 }
+

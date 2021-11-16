@@ -46,6 +46,21 @@ export const getagendaxlegajo = async(req,res) => {
     }
 } 
 
+//GET TURNO X ID
+export const getturnoxidturno = async(req,res) => {
+    try {
+        const {turno_id} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('turno_id', turno_id)
+            .query(turnosquerys.getturnoxidturno)
+        res.send(result.recordset[0])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
 //MODIFICAR ESTADO TURNO
 export const actualizarestadoturno = async(req,res) => {
     let {turno_idestado} = req.body;

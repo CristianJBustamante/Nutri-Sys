@@ -14,4 +14,4 @@ Content-Type: application/json
 
 ###
 
-GET {{api}}/consultanrohc/1000
+GET {{api}}/turno/92

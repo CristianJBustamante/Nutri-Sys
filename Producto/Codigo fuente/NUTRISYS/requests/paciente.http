@@ -22,7 +22,7 @@ Content-Type: application/json
 
 ###
 
-GET {{api}}/pesospaciente/1000
+GET {{api}}/paciente/1000
 ###
 
 DELETE {{api}}/pacientes/1004

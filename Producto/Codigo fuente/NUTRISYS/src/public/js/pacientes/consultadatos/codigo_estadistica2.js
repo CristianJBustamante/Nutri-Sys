@@ -14,9 +14,9 @@ const mostrarData = (data) => {
     <a class="nav__solapa" href="/pacientes/consultapaciente/hc=${data.pac_nrohc}">Resumen</a>
     <a class="nav__solapa" href="/pacientes/consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
     <a class="nav__solapa--seleccionado" href="/pacientes/consultapacientefichas/hc=${data.pac_nrohc}">Evoluciones</a>
-    <a class="nav__solapa" href="/pacientes/consultapacienteplan/hc=${data.pac_nrohc}">Planes</a>
-    <a class="nav__solapa" href="/pacientes/consultapacientedocumentos/hc=${data.pac_nrohc}">Documentos</a>
-    <a class="nav__solapa" href="/pacientes/consultapacienteestudios/hc=${data.pac_nrohc}">Estudios</a>
+    <a class="nav__solapa" href="">Planes</a>
+    <a class="nav__solapa" href="">Documentos</a>
+    <a class="nav__solapa" href="">Estudios</a>
     <a class="nav__solapa--resto"></a>`        
     document.getElementById('solapas').innerHTML = solapas  
     let cabecera =''

@@ -23,6 +23,7 @@
     color: var(--blanco);
     font-family: var(--fuenteLogo);
     padding: 1rem;
+    font-weight: bold;
 }
 
 
@@ -32,6 +33,7 @@
     align-items: center;
     gap: 1rem;
     min-width: 20%;
+    
 }
     /*color icono de sesion*/
     .ace-nav > li.light-blue > a:focus, .ace-nav > li.light-blue > a:hover, .ace-nav > li.open.light-blue > a {
@@ -39,4 +41,11 @@
     }
     .ace-nav > li.light-blue > a {
         background-color: black;
+    }
+
+    .no-skin .nav-list > li > .submenu > li:hover > a {
+        color:var(--secundario);
+    }
+    .no-skin .nav-list > li.open:hover > a, .no-skin .nav-list > li.open > a {
+        color:var(--secundario);
     }

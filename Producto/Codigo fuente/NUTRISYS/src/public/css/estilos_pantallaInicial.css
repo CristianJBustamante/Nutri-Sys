@@ -310,3 +310,10 @@ input::-webkit-inner-spin-button {
     }
 }
 
+/*color icono de sesion*/
+.ace-nav > li.light-blue > a:focus, .ace-nav > li.light-blue > a:hover, .ace-nav > li.open.light-blue > a {
+    background-color: black;
+}
+.ace-nav > li.light-blue > a {
+    background-color: black;
+}

@@ -236,7 +236,7 @@ h2{
     }
 }
 
-.td__width--L{width: 100px;}
+.td__width--L{width: 250px;}
 .td__width--C{width: 350px;}
 .td__width--A{width: 200px;}
   
@@ -334,6 +334,15 @@ input::-webkit-inner-spin-button {
     font-weight: bold;
 }
 
+/*quitar las flechas de los inputs */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+input[type=number] { -moz-appearance:textfield; }
+
+
 /** TABLA **/
 
 
@@ -368,7 +377,7 @@ input::-webkit-inner-spin-button {
     .tr__width{width: 1400px;}
     
     .td__width--L{width: 100px;}
-    .td__width--C{width: 100px;}
+    .td__width--C{width: 240px;} /*100px antes*/
     .td__width--A{width: 450px;}
     
     .td__width--N{width: 450px;}

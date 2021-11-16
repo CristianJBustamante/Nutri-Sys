@@ -86,27 +86,26 @@ h2{
 
 /** LOGO **/
 
-.logo{
-    background-color: var(--secundario);
-    display: flex;
-    justify-content:space-between;
-    gap: 1rem;
-    min-width: 20%;
+.logo__manzana{
+    width: 40px;
+    height: 40px;
 }
 
 .name_app{
-    margin: 0;
-    font-size: 4.5rem;
+    margin: 0 auto;
+    font-size: 3rem;
     color: var(--blanco);
     font-family: var(--fuenteLogo);
-    padding-right: 1rem;
+    padding: 1rem;
     font-weight: bold;
 }
 
-.logo__manzana{
-    width: 5rem;
-    height: 5rem;
-    margin: 1rem  0rem 1rem 0rem;
+.logo{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    gap: 1rem;
+    min-width: 20%;
 }
 
 

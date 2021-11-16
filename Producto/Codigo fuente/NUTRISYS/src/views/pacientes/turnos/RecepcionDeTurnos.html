@@ -372,14 +372,14 @@
 					<b class="arrow"></b>
 				</li>
 
-				<li class="">
+				<!-- <li class="">
 					<a href="">
 						<i class="menu-icon fa fa-signal"></i>
 						<span class="menu-text"> Reportes </span>
 					</a>
 
 					<b class="arrow"></b>
-				</li>
+				</li> -->
 
 				<li class="">
 					<a href="/usuarios/consultausuario">
@@ -1013,12 +1013,12 @@
 								confirmarTurno(calEvent, calEvent.title, calendar);
 								//generarTurno(calEvent.title, calEvent._start._d, calEvent._end._d);
 								//**
-								// var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title);
-								// calEvent.title = turno;
+								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title);
+								calEvent.title = turno;
 								// // calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
 								// //**
-								// calEvent.className = 'label-verde';
-								// calendar.fullCalendar('updateEvent', calEvent);
+								calEvent.className = 'label-verde';
+								calendar.fullCalendar('updateEvent', calEvent);
 								//console.log(calEvent._start._d);
 								//***
 								modal.modal("hide");

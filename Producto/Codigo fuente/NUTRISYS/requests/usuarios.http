@@ -1,6 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/permiso/69718/2
+GET {{api}}/permiso/69669/1
 
 ###
 

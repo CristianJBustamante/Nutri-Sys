@@ -3,6 +3,64 @@ var verCancelados = false;
 var pacientes
 var legajo =""
 
+//PERMISOS
+var s = (document.getElementById("user").name)
+let milegajo = s.substr(s.indexOf("leg=")+4,s.length)
+var admin
+var profesional
+var recepcionista
+console.log(milegajo)
+var url='http://localhost:3000/permiso/'+milegajo+'/1'
+fetch(url)
+        .then(response => response.json())
+        .then(data => permisoadmin(data))
+        .catch(error => console.log(error))
+
+      const permisoadmin = (data) => {
+        admin=data
+      }
+
+url='http://localhost:3000/permiso/'+milegajo+'/2'
+fetch(url)
+        .then(response => response.json())
+        .then(data => permisoprofesional(data))
+        .catch(error => console.log(error))
+      
+      const permisoprofesional = (data) => {
+          profesional=data
+      }
+
+url='http://localhost:3000/permiso/'+milegajo+'/3'
+fetch(url)
+        .then(response => response.json())
+        .then(data => permisorecepcion(data))
+        
+        .catch(error => console.log(error))
+            
+      const permisorecepcion = (data) => {
+          recepcionista=data
+          
+      }
+
+function validarpermiso(ruta,rol1,rol2) {
+  if (rol1.length>0 || rol2.length>0) {
+    location.href=ruta
+  }else{
+    swal("Acceso No Permitido", "Su rol no le permite ingresar", "error");
+    return false
+  }
+  
+}
+
+function redirigirporpermiso(ruta,rol1,rol2) {
+  if (rol1.length>0 || rol2.length>0){
+    return
+  }else{
+    location.href=ruta
+  }
+}
+setTimeout(function(){ redirigirporpermiso('/pacientes/buscarpaciente',[],recepcionista) }, 500);
+
 //Buscar profesionales
 let query = 'http://localhost:3000/profesionales'
         		fetch(query)

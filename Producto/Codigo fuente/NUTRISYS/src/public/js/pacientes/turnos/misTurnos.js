@@ -2,6 +2,64 @@
 var verCancelados = false;
 var pacientes
 
+//PERMISOS
+var s = (document.getElementById("user").name)
+let milegajo = s.substr(s.indexOf("leg=")+4,s.length)
+var admin
+var profesional
+var recepcionista
+console.log(milegajo)
+var urlp='http://localhost:3000/permiso/'+milegajo+'/1'
+fetch(urlp)
+        .then(response => response.json())
+        .then(data => permisoadmin(data))
+        .catch(error => console.log(error))
+
+      const permisoadmin = (data) => {
+        admin=data
+      }
+
+      urlp='http://localhost:3000/permiso/'+milegajo+'/2'
+fetch(urlp)
+        .then(response => response.json())
+        .then(data => permisoprofesional(data))
+        .catch(error => console.log(error))
+      
+      const permisoprofesional = (data) => {
+          profesional=data
+      }
+
+      urlp='http://localhost:3000/permiso/'+milegajo+'/3'
+fetch(urlp)
+        .then(response => response.json())
+        .then(data => permisorecepcion(data))
+        
+        .catch(error => console.log(error))
+            
+      const permisorecepcion = (data) => {
+          recepcionista=data
+          
+      }
+
+function validarpermiso(ruta,rol1,rol2) {
+  if (rol1.length>0 || rol2.length>0) {
+    location.href=ruta
+  }else{
+    swal("Acceso No Permitido", "Su rol no le permite ingresar", "error");
+    return false
+  }
+  
+}
+
+function redirigirporpermiso(ruta,rol1,rol2) {
+  if (rol1.length>0 || rol2.length>0){
+    return
+  }else{
+    location.href=ruta
+  }
+}
+setTimeout(function(){ redirigirporpermiso('/pacientes/buscarpaciente',[],profesional) }, 500);
+
 var hcs=[
     {hc:"1000", nombre:"Juan Carlos", apellido:"Altamiranda", doc:"37463213", celular:"3518132532"},
     {hc:"1001", nombre:"Pedro", apellido:"Sanchez", doc:"22321456", celular:"3512133213"},
@@ -11,7 +69,9 @@ var hcs=[
 //Get legajo profesional
 const url = new String(window.location)
 let emp_legajo = url.substr(url.indexOf("leg=")+4,url.length)
-
+if (emp_legajo!=milegajo) {
+    location.href="/turnos/leg="+milegajo
+}
 
 function verTurnosCancelados(){
    

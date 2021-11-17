@@ -52,7 +52,6 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
 		<link rel="stylesheet" href="/css/estilos_buscarEmpleado.css"> 
-		<script src="/js/usuarios/buscar_Empleado.js"></script>
 		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	</head>
 
@@ -347,7 +346,7 @@
 	
 						<ul class="submenu">
 							<li class="">
-								<a href="/turnos">
+								<a onclick="validarpermiso('/turnos',recepcionista,[])">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Recepción de Turnos
 								</a>
@@ -356,7 +355,7 @@
 							</li>
 	
 							<li class="">
-								<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+								<a id="user" onclick="validarpermiso('/turnos/leg=<%= user.usu_usuario %>',profesional,[])" name="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Mis Turnos
 								</a>
@@ -369,7 +368,7 @@
 					</li>
 					
 					<li class="">
-						<a href="/pacientes/buscarpaciente">
+						<a onclick="validarpermiso('/pacientes/buscarpaciente',recepcionista,profesional)" >
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> Historia Clínica </span>
 						</a>
@@ -387,7 +386,7 @@
 					</li> -->
 
 					<li class="active">
-						<a href="/usuarios/consultausuario">
+						<a onclick="validarpermiso('/usuarios/consultausuario',admin,[])">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> Adm. de Usuarios </span>
 						</a>
@@ -809,5 +808,6 @@
 			})
 		</script>
 	</body>
-	
+	<script src="/js/usuarios/buscar_Empleado.js"></script>
+
 </html>

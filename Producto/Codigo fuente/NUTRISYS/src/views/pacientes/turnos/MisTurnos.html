@@ -40,7 +40,6 @@
 
 	<!-- ace settings handler -->
 	<script src="/assets/js/ace-extra.min.js"></script>
-	<script src="/js/pacientes/turnos/misTurnos.js"></script>
 
 	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
@@ -342,7 +341,7 @@
 
 					<ul class="submenu">
 						<li class="">
-							<a href="http://localhost:3000/turnos">
+							<a onclick="validarpermiso('/turnos',recepcionista,[])">
 								<i class="menu-icon fa fa-caret-right"></i>
 								Recepción de Turnos
 							</a>
@@ -351,7 +350,7 @@
 						</li>
 
 						<li class="active">
-							<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+							<a id="user" onclick="validarpermiso('/turnos/leg=<%= user.usu_usuario %>',profesional,[])" name="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
 								<i class="menu-icon fa fa-caret-right"></i>
 								Mis Turnos
 							</a>
@@ -364,7 +363,7 @@
 				</li>
 
 				<li class="">
-					<a href="/pacientes/buscarpaciente">
+					<a onclick="validarpermiso('/pacientes/buscarpaciente',profesional,recepcionista)">
 						<i class="menu-icon fa fa-list-alt"></i>
 						<span class="menu-text"> Historia Clinica </span>
 					</a>
@@ -382,7 +381,7 @@
 				</li> -->
 
 				<li class="">
-					<a href="/usuarios/consultausuario">
+					<a onclick="validarpermiso('/usuarios/consultarusuario',admin,[])">
 						<i class="menu-icon fa fa-pencil-square-o"></i>
 						<span class="menu-text"> Adm. de Usuarios </span>
 					</a>
@@ -1043,5 +1042,6 @@
 
 	</script>
 </body>
+<script src="/js/pacientes/turnos/misTurnos.js"></script>
 
 </html>

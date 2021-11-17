@@ -1,6 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/usuarios
+GET {{api}}/permiso/69718/2
 
 ###
 
@@ -68,18 +68,18 @@ Content-Type: application/json
 }
 ###
 
-PUT {{api}}/usuarios/modificarusuario/69716
+PUT {{api}}/usuarios/actualizarEmpleado/69669
 Content-Type: application/json
 
 {
-    "emp_idusuario": "",
-    "emp_nrodoc": 11001100,
-    "emp_apellido": "prueba",
-    "emp_nombre": "prueba",
-    "emp_matricula": 1100,
-    "emp_direccion": "aaa 11",
-    "emp_telefono1": 111,
-    "emp_telefono2": 222
+    "emp_idusuario": 8,
+    "emp_nrodoc": "40245878",
+    "emp_apellido": "Prado",
+    "emp_nombre": "Serena",
+    "emp_matricula": "",
+    "emp_direccion": "Jujuy 543",
+    "emp_telefono1": "3516543323",
+    "emp_telefono2": ""
 }
 ###
 

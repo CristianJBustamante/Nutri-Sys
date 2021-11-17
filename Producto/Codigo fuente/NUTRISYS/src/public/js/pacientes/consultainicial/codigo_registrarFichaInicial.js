@@ -273,7 +273,7 @@ try {
     }
     }).then(res=>res.json())
     .then(data=>console.log(data))
-    //location.href ="/consulta/actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
+    location.href ="/consulta/actualizaranamnesis/hc="+pac_nrohc+"/trn="+cons_idturno
     console.log()
 
 } catch (error) {

@@ -258,34 +258,36 @@ function registrarEmpleado() {
         try {
             fetch("http://localhost:3000/borrarusuxip/"+emp_legajo,{
             method:"DELETE"
-            })  .then(res=>res.json())
+            })  .then(res=>res.json()).then(insertarperfiles())
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
             console.log(error)
             } 
-
-            for (var i = 0; i < sel.length; i++) {
-                const post3 = {
-                    usu_id: emp_legajo,
-                    usu_idperfil: sel[i].value,
+            function insertarperfiles(){
+                for (var i = 0; i < sel.length; i++) {
+                    const post3 = {
+                        usu_id: emp_legajo,
+                        usu_idperfil: sel[i].value,
+                    }
+                    console.log(post3)
+    
+                     try {
+                        console.log(JSON.stringify(post3));
+                        fetch("http://localhost:3000/registrarUsuPerfil",{
+                            method:"POST",
+                            body: JSON.stringify(post3),
+                            headers: {
+                                "Content-type": "application/json"
+                            }
+                        })  .then(res=>res.json())
+                            .then(data=>console.log(data))
+                    } catch (error) {
+                        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                        console.log(error)
+                    } 
                 }
-                console.log(post3)
-
-                 try {
-                    console.log(JSON.stringify(post3));
-                    fetch("http://localhost:3000/registrarUsuPerfil",{
-                        method:"POST",
-                        body: JSON.stringify(post3),
-                        headers: {
-                            "Content-type": "application/json"
-                        }
-                    })  .then(res=>res.json())
-                        .then(data=>console.log(data))
-                } catch (error) {
-                    swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-                    console.log(error)
-                } 
             }
+            
             swal("Empleado Actualizado","Empleado "+emp_legajo+" Actualizado con Éxito!","success")
                 .then((value) => {
                         location.href ="/usuarios/consultausuario/"})
@@ -296,6 +298,8 @@ function registrarEmpleado() {
     }
 }
 }
+
+
 
 function validarDatos(){
     var incompleto = false;

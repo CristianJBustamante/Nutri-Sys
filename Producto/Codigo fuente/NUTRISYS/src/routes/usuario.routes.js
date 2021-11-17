@@ -10,7 +10,7 @@ var AuthMiddleware = require("../middleware/auth")
 
 import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, login, logout, getlegajo, getultimolegajo, getultimoidusuario,
   registrarEmpleado, registrarUsuarioEmpleado, registrarUsuPerfil, actualizarEmpleado, actualizarUsuPerfil, actualizarUsuario, getEmpleado, getEmpleadoXL, getEmpleadoXD,
-  getEmpleadoXA, getEmpleadoXLAD, getEmpleadoLA, getEmpleadoLD, getEmpleadoAD,getEmpleadoTodos, getPerfiles, getPerfilesNOSelec, getPerfilesSelec} from "../controllers/usuario.controller";
+  getEmpleadoXA, getEmpleadoXLAD, getEmpleadoLA, getEmpleadoLD, getEmpleadoAD,getEmpleadoTodos, getPerfiles, getPerfilesNOSelec, getPerfilesSelec, getpermiso} from "../controllers/usuario.controller";
 
 //ACCESO A PAGINAS
   
@@ -99,6 +99,7 @@ router.get('/usuarios/:emp_legajo', getEmpleado)
   router.get('/empleado/leg=:emp_legajo/ap=:emp_apellido', getEmpleadoLA)
   router.get('/empleado/leg=:emp_legajo/doc=:emp_nrodoc', getEmpleadoLD)
   router.get('/empleado/ap=:emp_apellido/doc=:emp_nrodoc', getEmpleadoAD)
+  router.get('/permiso/:usu_id/:usu_idperfil', getpermiso)
 
   router.get('/perfil/', getPerfiles)
   router.get('/perfil/:usu_id', getPerfilesSelec)

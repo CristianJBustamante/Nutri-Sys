@@ -79,4 +79,8 @@ export const usuquerys = {
         "where perfil_id != 4 and p.perfil_id not in ("+
                             "select pe.perfil_id from perfil pe join usuario_perfil up on(up.usu_idperfil = p.perfil_id) inner join usuario u on u.usu_usuario=up.usu_id "+
                             "where u.usu_usuario = @usu_id and perfil_id != 4)",
+
+    getpermiso: "select p.usu_id,usu_idperfil,perfil_descripcion from usuario_perfil p inner join usuario u on u.usu_usuario=p.usu_id "+
+                                                "inner join perfil d on d.perfil_id=p.usu_idperfil "+
+                                                "where p.usu_id=@usu_id and usu_idperfil=@usu_idperfil",
 }

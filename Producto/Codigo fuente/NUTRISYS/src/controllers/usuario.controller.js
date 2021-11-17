@@ -111,6 +111,9 @@ export const getultimoidusuario = async(req,res) => {
 export const registrarEmpleado = async (req,res) => {
     let { emp_nrodoc, emp_idusuario, emp_apellido, emp_nombre, emp_matricula,
         emp_direccion,emp_telefono1,emp_telefono2} = req.body;
+
+        if (emp_telefono2==""){emp_telefono2=null}
+        if (emp_matricula==""){emp_matricula=null}
     try {
         const pool = await getConnection();
         await pool.request()
@@ -192,10 +195,10 @@ export const actualizarEmpleado = async(req,res) => {
         .input('emp_idusuario',sql.NVarChar,emp_idusuario)
         .input('emp_apellido', sql.NVarChar,emp_apellido)
         .input('emp_nombre', sql.NVarChar,emp_nombre)
-        .input('emp_matricula', sql.Numeric,emp_matricula)   
+        .input('emp_matricula', sql.NVarChar,emp_matricula)   
         .input('emp_direccion', sql.NVarChar,emp_direccion)
-        .input('emp_telefono1', sql.Numeric,emp_telefono1)   
-        .input('emp_telefono2', sql.Numeric,emp_telefono2) 
+        .input('emp_telefono1', sql.NVarChar,emp_telefono1)   
+        .input('emp_telefono2', sql.NVarChar,emp_telefono2) 
         .query(usuquerys.actualizarEmpleado)
         res.json({ emp_nrodoc, emp_idusuario, emp_apellido, emp_nombre, emp_matricula,
             emp_direccion,emp_telefono1,emp_telefono2 })
@@ -398,6 +401,23 @@ export const getPerfilesNOSelec = async(req,res) => {
         const pool = await getConnection()
         const result = await pool.request()
             .input('usu_id', usu_id).query(usuquerys.getPerfilesNOSelec)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
+//VALIDAR PERMISOS
+export const getpermiso = async(req,res) => {
+    try {
+        const {usu_id, usu_idperfil} = req.params
+        
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('usu_id', usu_id)
+            .input('usu_idperfil', usu_idperfil)
+            .query(usuquerys.getpermiso)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);

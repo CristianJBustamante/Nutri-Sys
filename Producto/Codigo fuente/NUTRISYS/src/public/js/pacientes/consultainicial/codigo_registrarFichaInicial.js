@@ -331,7 +331,6 @@ function calcularbmi(){
     var peso = document.getElementById("hc_pesoactual").value;
     var talla = document.getElementById("hc_talla").value;    
     var ajuste = document.getElementById("hc_ajuste").value;
-    alert(ajuste)
     if(peso==null || peso=='' || talla==null || talla=='') {
         document.getElementById("hc_BMI").value = ''
         document.getElementById("hc_PBMI").value = ''

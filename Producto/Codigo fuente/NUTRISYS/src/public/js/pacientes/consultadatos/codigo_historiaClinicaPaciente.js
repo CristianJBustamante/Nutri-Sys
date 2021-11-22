@@ -28,6 +28,8 @@ const mostrarData = (data) => {
     let datosnutri =''
     datosnutri += `<h3>Peso Actual: ${data.peso} Kg</h3><h3>Talla: ${data.talla} Mts</h3><h3>BMI: ${data.imc} Kg/m2</h3>`
     document.getElementById('datosnutri').innerHTML = datosnutri
+    document.getElementById('datosnutricion').value=data.hc_antecedentesnutricion
+    document.getElementById('datosconsulta').value=data.cons_observaciones
     }
     
 

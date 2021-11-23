@@ -335,7 +335,7 @@
 				************************************************************************************** -->
 
 				<ul class="nav nav-list">
-					<li class="">
+					<li class="" id="organizador">
 						<a href="/turnos" class="dropdown-toggle">
 							<i class="menu-icon fa fa-calendar"></i>
 							<span class="menu-text"> Organizador </span>
@@ -345,8 +345,8 @@
 						<b class="arrow"></b>
 	
 						<ul class="submenu">
-							<li class="">
-								<a onclick="validarpermiso('/turnos',recepcionista,[])">
+							<li class="" id="recepcion">
+								<a href="/turnos">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Recepción de Turnos
 								</a>
@@ -354,8 +354,8 @@
 								<b class="arrow"></b>
 							</li>
 	
-							<li class="">
-								<a id="user" onclick="validarpermiso('/turnos/leg=<%= user.usu_usuario %>',profesional,[])" name="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+							<li class="" id="misturnos">
+								<a id="user" href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Mis Turnos
 								</a>
@@ -367,8 +367,8 @@
 	
 					</li>
 					
-					<li class="">
-						<a onclick="validarpermiso('/pacientes/buscarpaciente',recepcionista,profesional)" >
+					<li class="" id="hc">
+						<a href="/pacientes/buscarpaciente">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> Historia Clínica </span>
 						</a>
@@ -385,8 +385,8 @@
 						<b class="arrow"></b>
 					</li> -->
 
-					<li class="active">
-						<a onclick="validarpermiso('/usuarios/consultausuario',admin,[])">
+					<li class="active" id="usuarios">
+						<a href="/usuarios/consultausuario">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> Adm. de Usuarios </span>
 						</a>

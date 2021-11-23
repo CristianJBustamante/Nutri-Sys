@@ -1,55 +1,73 @@
-
-var verCancelados = false;
-var pacientes
-var legajo =""
-
-//PERMISOS
-var s = (document.getElementById("user").name)
+//--------------------------------------------PERMISOS-----------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+var s = (document.getElementById("user").href)
 let milegajo = s.substr(s.indexOf("leg=")+4,s.length)
 var admin
 var profesional
 var recepcionista
 console.log(milegajo)
-var url='http://localhost:3000/permiso/'+milegajo+'/1'
-fetch(url)
-        .then(response => response.json())
-        .then(data => permisoadmin(data))
-        .catch(error => console.log(error))
-
-      const permisoadmin = (data) => {
-        admin=data
-      }
-
-url='http://localhost:3000/permiso/'+milegajo+'/2'
-fetch(url)
-        .then(response => response.json())
-        .then(data => permisoprofesional(data))
-        .catch(error => console.log(error))
-      
-      const permisoprofesional = (data) => {
-          profesional=data
-      }
-
-url='http://localhost:3000/permiso/'+milegajo+'/3'
-fetch(url)
-        .then(response => response.json())
-        .then(data => permisorecepcion(data))
-        
-        .catch(error => console.log(error))
-            
-      const permisorecepcion = (data) => {
-          recepcionista=data
-          
-      }
-
-function validarpermiso(ruta,rol1,rol2) {
-  if (rol1.length>0 || rol2.length>0) {
-    location.href=ruta
-  }else{
-    swal("Acceso No Permitido", "Su rol no le permite ingresar", "error");
-    return false
-  }
+var url
+buscarperfiles()
+swal({
+  text:"Ingresando...",
+  icon: "https://thumbs.gfycat.com/NecessaryEvilGuillemot-max-1mb.gif",
+  buttons: false,      
+  closeOnClickOutside: false,
+  timer: 1000,
+  //icon: "success"
+}).then((value) => {
   
+  setTimeout(function(){ 
+  redirigirporpermiso('/usuarios/consultausuario',profesional,recepcionista) 
+  redirigirporpermiso('/pacientes/buscarpaciente',[],recepcionista) 
+  if (admin.length>0) {
+  }else{
+    document.getElementById('usuarios').style="display:none"
+  }
+
+  if (profesional.length>0) {
+  }else{
+    document.getElementById('misturnos').style="display:none"
+  }
+
+  if (recepcionista.length>0) {
+  }else{
+    document.getElementById('recepcion').style="display:none"
+  }
+
+  if (recepcionista.length>0 || profesional.length>0) {   
+  }else{
+    document.getElementById('hc').style="display:none"
+  }
+}, 500)})
+
+
+function buscarperfiles() {
+  url='/permiso/'+milegajo+'/1'
+  fetch(url)
+          .then(response => response.json())
+          .then(data => permisoadmin(data))
+          .catch(error => console.log(error))
+  const permisoadmin = (data) => {
+        admin=data}
+
+  url='/permiso/'+milegajo+'/2'
+  fetch(url)
+          .then(response => response.json())
+          .then(data => permisoprofesional(data))
+          .catch(error => console.log(error))  
+  const permisoprofesional = (data) => {
+        profesional=data}
+
+  url='/permiso/'+milegajo+'/3'
+  fetch(url)
+          .then(response => response.json())
+          .then(data => permisorecepcion(data))
+          .catch(error => console.log(error))   
+  const permisorecepcion = (data) => {
+        recepcionista=data}
+return
 }
 
 function redirigirporpermiso(ruta,rol1,rol2) {
@@ -59,7 +77,14 @@ function redirigirporpermiso(ruta,rol1,rol2) {
     location.href=ruta
   }
 }
-setTimeout(function(){ redirigirporpermiso('/pacientes/buscarpaciente',[],recepcionista) }, 500);
+//-------------------------------------------FIN PERMISOS----------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+
+
+var verCancelados = false;
+var pacientes
+var legajo =""
 
 //Buscar profesionales
 let query = 'http://localhost:3000/profesionales'
@@ -216,10 +241,18 @@ function generarTurno(hcPaciente, momentoStart, momentoEnd, calendar){
     
     calendar.fullCalendar('refetchEvents');
     calendar.fullCalendar('rerenderEvents');
-    setTimeout(50000)
-    buscarAgendaProfesional(legajo)
-    // Codigo Pos-Back
-    swal("Turno Registrado","Se registró el Turno con Éxito!","success");
+
+    swal({
+        text:"Registrando...",
+        icon: "https://thumbs.gfycat.com/NecessaryEvilGuillemot-max-1mb.gif",
+        buttons: false,      
+        closeOnClickOutside: false,
+        timer: 1000,
+        //icon: "success"
+      }).then((value) => {
+            buscarAgendaProfesional(legajo)
+            swal("Turno Registrado","Se registró el Turno con Éxito!","success");
+      })
     
     
 }
@@ -441,10 +474,17 @@ function generarReservado(evento){
     }  
     
     // Codigo Pos-Back
-    swal("Turno Registrado","Se registró el Turno con Éxito!","success");
-    console.log(legajo)
-    setTimeout(50000)
-    buscarAgendaProfesional(legajo)
+    swal({
+        text:"Registrando...",
+        icon: "https://thumbs.gfycat.com/NecessaryEvilGuillemot-max-1mb.gif",
+        buttons: false,      
+        closeOnClickOutside: false,
+        timer: 1000,
+        //icon: "success"
+      }).then((value) => {
+            buscarAgendaProfesional(legajo)
+            swal("Turno Registrado","Se registró el Turno con Éxito!","success");
+      })
 }
 
 // *******************************************

@@ -54,7 +54,6 @@
     <link rel="stylesheet" href="/css/estilos_registrarPacienteNuevo.css"> 
 
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-	<script src="/js/pacientes/abm/codigo_registrarPacienteNuevo.js"></script>
 	</head>
 
 	<body class="no-skin">
@@ -339,7 +338,7 @@
 						<b class="arrow"></b>
 	
 						<ul class="submenu">
-							<li class="">
+							<li class="" id="recepcion">
 								<a href="/turnos">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Recepción de Turnos
@@ -348,8 +347,8 @@
 								<b class="arrow"></b>
 							</li>
 	
-							<li class="">
-								<a href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+							<li class="" id="misturnos">
+								<a id="user" href="/turnos/leg=<%= user.usu_usuario %>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Mis Turnos
 								</a>
@@ -361,7 +360,7 @@
 	
 					</li>
 					
-					<li class="active">
+					<li class="active" id="hc">
 						<a href="/pacientes/buscarpaciente">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> Historia Clinica </span>
@@ -379,7 +378,7 @@
 						<b class="arrow"></b>
 					</li> -->
 
-					<li class="">
+					<li class="" id="usuarios">
 						<a href="/usuarios/consultausuario">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> Adm. de Usuarios </span>
@@ -854,5 +853,6 @@
 			})
 		</script>
 	</body>
-	
+	<script src="/js/pacientes/abm/codigo_registrarPacienteNuevo.js"></script>
+
 </html>

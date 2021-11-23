@@ -1,54 +1,73 @@
-function alertar(){
-    alert("Si salio");
-}
-
-//PERMISOS
-var s = (document.getElementById("user").name)
-let legajo = s.substr(s.indexOf("leg=")+4,s.length)
+//--------------------------------------------PERMISOS-----------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------------
+var s = (document.getElementById("user").href)
+let milegajo = s.substr(s.indexOf("leg=")+4,s.length)
 var admin
 var profesional
 var recepcionista
-console.log(legajo)
-var url='http://localhost:3000/permiso/'+legajo+'/1'
-fetch(url)
-        .then(response => response.json())
-        .then(data => permisoadmin(data))
-        .catch(error => console.log(error))
-
-      const permisoadmin = (data) => {
-        admin=data
-      }
-
-url='http://localhost:3000/permiso/'+legajo+'/2'
-fetch(url)
-        .then(response => response.json())
-        .then(data => permisoprofesional(data))
-        .catch(error => console.log(error))
-      
-      const permisoprofesional = (data) => {
-          profesional=data
-      }
-
-url='http://localhost:3000/permiso/'+legajo+'/3'
-fetch(url)
-        .then(response => response.json())
-        .then(data => permisorecepcion(data))
-        
-        .catch(error => console.log(error))
-            
-      const permisorecepcion = (data) => {
-          recepcionista=data
-          
-      }
-
-function validarpermiso(ruta,rol1,rol2) {
-  if (rol1.length>0 || rol2.length>0) {
-    location.href=ruta
-  }else{
-    swal("Acceso No Permitido", "Su rol no le permite ingresar", "error");
-    return false
-  }
+console.log(milegajo)
+var urls
+buscarperfiles()
+swal({
+  text:"Ingresando...",
+  icon: "https://thumbs.gfycat.com/NecessaryEvilGuillemot-max-1mb.gif",
+  buttons: false,      
+  closeOnClickOutside: false,
+  timer: 1000,
+  //icon: "success"
+}).then((value) => {
   
+  setTimeout(function(){ 
+  redirigirporpermiso('/pacientes/buscarpaciente',[],admin) 
+  if (admin.length>0) {
+  }else{
+    document.getElementById('usuarios').style="display:none"
+  }
+
+  if (profesional.length>0) {
+  }else{
+    document.getElementById('misturnos').style="display:none"
+  }
+
+  if (recepcionista.length>0) {
+  }else{
+    document.getElementById('recepcion').style="display:none"
+  }
+
+  if (recepcionista.length>0 || profesional.length>0) {   
+  }else{
+    document.getElementById('hc').style="display:none"
+    document.getElementById('organizador').style="display:none"
+  }
+}, 500)})
+
+
+function buscarperfiles() {
+  urls='/permiso/'+milegajo+'/1'
+  fetch(urls)
+          .then(response => response.json())
+          .then(data => permisoadmin(data))
+          .catch(error => console.log(error))
+  const permisoadmin = (data) => {
+        admin=data}
+
+  urls='/permiso/'+milegajo+'/2'
+  fetch(urls)
+          .then(response => response.json())
+          .then(data => permisoprofesional(data))
+          .catch(error => console.log(error))  
+  const permisoprofesional = (data) => {
+        profesional=data}
+
+  urls='/permiso/'+milegajo+'/3'
+  fetch(urls)
+          .then(response => response.json())
+          .then(data => permisorecepcion(data))
+          .catch(error => console.log(error))   
+  const permisorecepcion = (data) => {
+        recepcionista=data}
+return
 }
 
 function redirigirporpermiso(ruta,rol1,rol2) {
@@ -58,8 +77,9 @@ function redirigirporpermiso(ruta,rol1,rol2) {
     location.href=ruta
   }
 }
-setTimeout(function(){ redirigirporpermiso('/pacientes/buscarpaciente',admin,[]) }, 500);
-
+//-------------------------------------------FIN PERMISOS----------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
 
 function buscarEmpleado(){
     let emp_legajo = document.getElementById("emp_legajo").value;

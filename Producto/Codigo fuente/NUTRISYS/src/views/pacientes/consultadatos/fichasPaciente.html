@@ -520,8 +520,33 @@
 												</form>
 												<div id="grafico"></div>
 											</div><!-- ffin div que contiene el grafico-->
-
-
+											<!------------------------------------------------------------------>
+											<h2 class="titulo__seccion"> Gráfico de Índice de masa corporal</h2>
+                        				<form id="form-param">
+                            		<div class="container">
+                               			<div>
+                                    <input type="date" class="parametroIMC" placeholder="parametroIMC"><input type="number" class="valorIMC" placeholder="valorIMC">
+                                		</div>
+                               				 <!-- <div>
+                                    		<input type="text" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
+                                				</div> -->
+                            			</div>
+                            			<div class="buttons2">
+                                	<button type="button" class="addParamIMC" >Agregar Parametro</button>
+                                	<input type="button" class=" btn btn-white btn-primary showResultsIMC" value="Graficar">
+                            			</div>
+                        			</form>
+                        				<div id="graficoIMC"></div> <!-- fin div del grafico de imc-->
+										<br>
+										<div class="referencias">
+											<h2 class="subtitulo__seccion"> Referencias </h2>
+											<p class="referencias__descrip1">Menor a 18.49: Peso bajo</p>
+											<p class="referencias__descrip2">Entre 18.50 y 24.9: Peso normal </p>
+											<p class="referencias__descrip3">Entre 25 y 29.9:Sobrepeso </p>
+											<p class="referencias__descrip4">Entre 30 y 34.9: Obesidad leve </p>
+											<p class="referencias__descrip5">Entre 35 y 39.9: Obesidad moderada</p>
+											<p class="referencias__descrip6">Mayor a 40: Obesidad severa </p>
+										</div>
 											</div> <!-- fin div contenido principal -->
 										</div>
 									</section>
@@ -799,6 +824,7 @@
 			})
 		</script>
 		<script src="/js/pacientes/consultadatos/codigo_estadistica2.js"></script>
+		<script src="/js/pacientes/consultadatos/codigo_estadisticaIMC.js"></script>
 	</body>
 	
 </html>

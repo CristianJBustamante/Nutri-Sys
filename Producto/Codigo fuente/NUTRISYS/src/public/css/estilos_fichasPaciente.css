@@ -398,10 +398,10 @@ a:hover{
 	display: flex;
 }
 
-#form-param .container {
+#form-param .containerIMC  {
     flex: 2;
 }
-#form-param .buttons {
+#form-param .buttons .buttonsIMC {
 	flex: 1;
 }
 
@@ -422,10 +422,10 @@ button:first-child {
 	background-color: #48e;
 	color: #fff
 }
-.addParam{
+.addParam,.addParamIMC{
     display: none;
 }
-#grafico{
+#grafico , #graficoIMC{
     color: var(--primario);
 }
 /*color icono de sesion*/
@@ -434,4 +434,42 @@ button:first-child {
 }
 .ace-nav > li.light-blue > a {
     background-color: #393939;
+}
+.referencias{
+    margin: 0 auto; /*centra el contenido*/
+}
+
+.subtitulo__seccion{
+    background-color: var(--grisClaro);
+    color: var(--negro);
+    font-weight: normal;
+    padding: 1rem 1rem;
+    text-align: center;
+}
+p{
+    font-size: 2rem;
+}
+.referencias__descrip1{
+    color:skyblue;
+    font-weight: 800;
+}
+.referencias__descrip2{
+    color:red;
+    font-weight: 800;
+}
+.referencias__descrip3{
+    color:steelblue;
+    font-weight: 800;
+}
+.referencias__descrip4{
+    color:saddlebrown;
+    font-weight: 800;
+}
+.referencias__descrip5{
+    color:rgb(235, 125, 143);
+    font-weight: 800;
+}
+.referencias__descrip6{
+    color:purple;
+    font-weight: 800;
 }

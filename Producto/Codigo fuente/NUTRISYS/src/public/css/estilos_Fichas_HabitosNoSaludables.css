@@ -160,6 +160,19 @@ a:hover{
 
 }
 
+.area__observaciones{
+    display: grid;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    width: 71%;
+    height: 15rem;
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: center;
+    align-content: center;
+    resize: none;
+}
+
 .contenidoPrincipal{
     display: flex;
     flex-direction: column;

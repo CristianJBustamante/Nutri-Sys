@@ -96,7 +96,7 @@ pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("h
 cons_idturno = url.substr(url.indexOf("trn=")+4,url.length)
 modo = url.substr(url.indexOf("consulta/"),url.length)
 
-if (modo.toLowerCase()==='consulta/registrarhabitos/hc='+pac_nrohc+"/trn="+cons_idturno){
+if (modo.toLowerCase()==='consulta/registrarHabitosPactado/hc='+pac_nrohc+"/trn="+cons_idturno){
     nuevo=1;
 }else{
     nuevo=0;
@@ -250,7 +250,7 @@ function registrarhabitos() {
             }
             swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
                  .then((value) => {
-                    location.href ="/consulta/registrarHabitosPactado/hc="+anms_nrohc+"/"+"trn="+cons_idturno}) 
+                    location.href ="/consulta/registrarHabitos/"+legajo}) 
         }  
     }else{
         swal("Atención","Debe seleccionar al menos un hábito de la grilla.","warning" )

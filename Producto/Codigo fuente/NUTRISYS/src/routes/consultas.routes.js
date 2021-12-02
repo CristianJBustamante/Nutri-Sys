@@ -58,6 +58,14 @@ res.render('pacientes/consultainicial/Fichas_anamnesisAlimentaria.html',{
     });
 });
 
+//Registrar Habitos Pactados
+router.get('/consulta/registrarHabitosPactado/',AuthMiddleware.isLogged , (req,res) => {
+  res.render('pacientes/consultainicial/HabitosPactados.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+  });
+});
+
 //Editar Habitos
 router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/consultainicial/Fichas_habitosNoSaludables.html',{
@@ -87,6 +95,7 @@ router.get('/consulta/registrarconsulta/hc=:habpac_nrohc/trn=:cons_idturno',Auth
   //--------------HABITOS
   router.post('/habitos', nuevohabito)
   router.get("/habitos",getHabitos)
+  //router.get("/habitosPactados/:habpac_nrohc",getHabitosPactados)
   router.get("/ultimohabito",getultimoidhabito)
 
   router.post('/cabecerahabitos', registrarHabitoPaciente)

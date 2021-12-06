@@ -473,10 +473,23 @@
                 <div>
                     <div class="contenidoPagina">
                         <article class="contenido__article">
+							<div class="fichaInicial"> <!-- Cambiar En cada Solapa -->
+								<div class="navegacion__solapas">
+									<a class="nav__solapa" href="../Plantilla/consultaFichaInicial.html">Ficha Inicial</a>
+									<a class="nav__solapa" href="../consultapaciente/0">Resumen </a>
+									<a class="nav__solapa--seleccionado" href="../Plantilla/consultaFichas.html">Fichas</a>
+									<a class="nav__solapa" href="../consultapacientefichas/0">Evoluciones</a>
+									<a class="nav__solapa" href="../consultapacienteplan/0">Planes</a>
+									<a class="nav__solapa" href="../consultapacientedocumentos/0">Documentos</a>
+									<a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
+									<a class="nav__solapa--resto"></a>
+								</div>
                             <section class="section__parametros">
                                 <div class="contenido__parametros">
-                                    <h2 class="parametro paramHC1">Fecha:</h2>
-                                    <input type="date" autocomplete="off" class="parametro__input padding__inputText paramHC2" id="" placeholder="Ingrese fecha a buscar">
+                                    <h2 class="parametro paramHC1">Fecha desde:</h2>
+                                    <input type="date" autocomplete="off" class="parametro__input padding__inputText paramHC2" id="" placeholder="Ingrese fecha desde a buscar">
+									<h2 class="parametro paramHC1">Fecha hasta:</h2>
+                                    <input type="date" autocomplete="off" class="parametro__input padding__inputText paramHC2" id="" placeholder="Ingrese fecha hasta a buscar">
                                     <input type="button" value="Buscar Consulta" class="normal parametro__input btnBuscar" onclick="buscarConsulta()"> 
                                 </div> 
                             </section>

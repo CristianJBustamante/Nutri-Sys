@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 	<head>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta charset="utf-8" />
-		<title>Nutri-sys - grafico</title>
+		<title>Nutri-sys - Estadistica</title>
 
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
@@ -36,12 +36,13 @@
 		<!-- ace settings handler -->
 		<script src="/assets/js/ace-extra.min.js"></script>
 
+        <!-- llama al scrip que hace la estadistica en si-->
+       
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		
+
 		<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
-		 <!-- llama al scrip que hace la estadistica en si-->
- 		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
-		 
 		<!--[if lte IE 8]>
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
@@ -55,9 +56,7 @@
 		<link rel="stylesheet" href="/css/normalize.css"> 
 		<link rel="preconnect" href="https://fonts.gstatic.com">
 		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
-		<link rel="stylesheet" href="/css/estilos_fichasPaciente.css"> <!-- Cambiar en cada Solapa -->
-		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+		<link rel="stylesheet" href="/css/estilos_BusquedaConsultaGeneral.css"> <!-- Cambiar en cada Solapa -->
 	</head>
 
 	<body class="no-skin">
@@ -74,11 +73,10 @@
 				</button>
 
 				<div class="navbar-header pull-left">
-					<a href="" class="navbar-brand">
+					<a href="index.html" class="navbar-brand">
 						<small>
 							<div class="logo">
-								<img class="logo__manzana " src="/assets/images/Logo Final Blanco sin texto-01.png"
-									alt="Imagen Logo">
+								<img class="logo__manzana" src="/assets/images/Logo Final Blanco sin texto-01.png" alt="Imagen Logo">
 								<h2 class="name_app">Nutri-sys</h2>
 							</div>
 						</small>
@@ -90,7 +88,7 @@
 						
 
 						<li class="purple dropdown-modal">
-							<!-- NOTIFICACIONES-->
+                            <!-- NOTIFICACIONES -->
 							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 								<span class="badge badge-important">8</span>
@@ -159,7 +157,7 @@
 						</li>
 
 						<li class="green dropdown-modal">
-							<!-- NOTIFICACIONES-->
+                            <!-- NOTIFICACIONES -->
 							<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 								<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
 								<span class="badge badge-success">5</span>
@@ -273,8 +271,8 @@
 							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
 								<img class="nav-user-photo" src="/assets/images/avatars/avatar2.png" alt="Jason's Photo" />
 								<span class="user-info">
-									<small><%= user.apellido %>,</small>
-									<%= user.nombre %>
+									<small>Apellido,</small>
+									Nombre
 								</span>
 
 								<i class="ace-icon fa fa-caret-down"></i>
@@ -298,9 +296,9 @@
 								<li class="divider"></li>
 
 								<li>
-									<a href="/usuarios/logout">">
+									<a href="#">
 										<i class="ace-icon fa fa-power-off"></i>
-										Cerrar Sesión
+										Cerrar sesión
 									</a>
 								</li>
 							</ul>
@@ -333,39 +331,16 @@
 
 				<ul class="nav nav-list">
 					<li class="">
-						<a href="index.html" class="dropdown-toggle">
+						<a href="index.html">
 							<i class="menu-icon fa fa-calendar"></i>
 							<span class="menu-text"> Organizador </span>
-							<b class="arrow fa fa-angle-down"></b>
 						</a>
-	
-						<b class="arrow"></b>
-	
-						<ul class="submenu">
-							<li class="" id="recepcion">
-								<a href="/turnos">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Recepción de Turnos
-								</a>
-	
-								<b class="arrow"></b>
-							</li>
-	
-							<li class="" id="misturnos">
-								<a id="user" href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Mis Turnos
-								</a>
-	
-								<b class="arrow"></b>
-							</li>
-						</ul>
-	
-	
+
+						
 					</li>
 					
-					<li class="active" id="hc">
-						<a href="/pacientes/buscarpaciente">
+					<li class="active">
+						<a href="../buscarpaciente">
 							<i class="menu-icon fa fa-list-alt"></i>
 							<span class="menu-text"> Historia Clinica </span>
 						</a>
@@ -373,17 +348,17 @@
 						<b class="arrow"></b>
 					</li>
 
-					<!-- <li class="">
-						<a href="">
+					<li class="">
+						<!-- <a href="index.html">
 							<i class="menu-icon fa fa-signal"></i>
 							<span class="menu-text"> Reportes </span>
-						</a>
+						</a> -->
 
 						<b class="arrow"></b>
-					</li> -->
+					</li>
 
-					<li class="" id="usuarios">
-						<a href="/usuarios/consultausuario">
+					<li class="">
+						<a href="index.html">
 							<i class="menu-icon fa fa-pencil-square-o"></i>
 							<span class="menu-text"> Adm. de Usuarios </span>
 						</a>
@@ -406,7 +381,7 @@
 								<i class="ace-icon fa fa-home home-icon"></i>
 								<a href="#">Home</a>
 							</li>
-							<li class="active">Historia Clínica</li>
+							<li class="active">Reportes</li>
 						</ul><!-- /.breadcrumb -->
 
 						
@@ -414,10 +389,9 @@
 
 					<div class="page-content">
 						<div class="ace-settings-container" id="ace-settings-container">
-							<!-- RUEDA CONFIGURACION-->
-							<!-- <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+							<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
 								<i class="ace-icon fa fa-cog bigger-130"></i>
-							</div> -->
+							</div>
 
 							<div class="ace-settings-box clearfix" id="ace-settings-box">
 								<div class="pull-left width-50">
@@ -496,53 +470,38 @@
 				**************************************************************************************
 				*********************************** PRINCIPAL*****************************************
 				************************************************************************************** -->
-
-						<div>
-							<div class="contenidoPagina">
-
-								<article class="contenido__article">
-									<section class="section__historiaClinica">
-										<div class="encabezado__datosPaciente" id="pac_datos">
-											
-										</div>
-										<div class="ficha"> <!-- Cambiar En cada Solapa -->
-											<div class="navegacion__solapas" id="solapas">
-												
-											</div >
-
-											<div class="contenido__solapa">
-												<div>
-													<h2 class="titulo__seccion">Gráfico de peso corporal del paciente</h2>
-												<form id="form-param">
-													
-													
-													
-												</form>
-												<div id="grafico"></div>
-											</div><!-- ffin div que contiene el grafico-->
-											<!------------------------------------------------------------------>
-											<h2 class="titulo__seccion"> Gráfico de Índice de masa corporal</h2>
-                        				<form id="form-param">
-                            		
-                        			</form>
-                        				<div id="graficoIMC"></div> <!-- fin div del grafico de imc-->
-										<br>
-										<div class="referencias">
-											<h2 class="subtitulo__seccion"> Referencias </h2>
-											<p class="referencias__descrip1">Menor a 18.49: Peso bajo</p>
-											<p class="referencias__descrip2">Entre 18.50 y 24.9: Peso normal </p>
-											<p class="referencias__descrip3">Entre 25 y 29.9:Sobrepeso </p>
-											<p class="referencias__descrip4">Entre 30 y 34.9: Obesidad leve </p>
-											<p class="referencias__descrip5">Entre 35 y 39.9: Obesidad moderada</p>
-											<p class="referencias__descrip6">Mayor a 40: Obesidad severa </p>
-										</div>
-											</div> <!-- fin div contenido principal -->
-										</div>
-									</section>
-								</article>
+                <div>
+                    <div class="contenidoPagina">
+                        <article class="contenido__article">
+                            <section class="section__parametros">
+                                <div class="contenido__parametros">
+                                    <h2 class="parametro paramHC1">Fecha:</h2>
+                                    <input type="date" autocomplete="off" class="parametro__input padding__inputText paramHC2" id="" placeholder="Ingrese fecha a buscar">
+                                    <input type="button" value="Buscar Consulta" class="normal parametro__input btnBuscar" onclick="buscarConsulta()"> 
+                                </div> 
+                            </section>
+                            <section class="contenido__resultados"> 
+                                <div class="tabla__resultados">
+                                    <table class="table table-hover table-fixed">
+                                        <thead>
+                                          <tr class="tr__width">
+                                            <th class="td__width--L" scope="col">Fecha</th>
+                                            <th class="td__width--A"  scope="col">Consulta</th>
+                                           
+                                          </tr>
+                                        </thead>
+                                        <tbody id="data">
+                                        </tbody>
+                                      </table>
+            
+                                </div>
+                            </section>
+                        </article>
+                    </div>
+                </div>
+                
 					
-							</div> <!-- fin div contenido de la pagina-->
-						</div> <!-- fin div que contiene todo-->
+						
 						
 					</div><!-- /.page-content -->
 				</div>
@@ -564,7 +523,7 @@
 		<!-- basic scripts -->
 
 		<!--[if !IE]> -->
-		<script src="/assets/js/jquery-2.1.4.min.js"></script>
+		<script src="assets/js/jquery-2.1.4.min.js"></script>
 
 		<!-- <![endif]-->
 
@@ -574,24 +533,24 @@
 		<script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
 		</script>
-		<script src="/assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/bootstrap.min.js"></script>
 
 		<!-- page specific plugin scripts -->
 
 		<!--[if lte IE 8]>
 		  <script src="/assets/js/excanvas.min.js"></script>
 		<![endif]-->
-		<script src="/assets/js/jquery-ui.custom.min.js"></script>
-		<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
-		<script src="/assets/js/jquery.easypiechart.min.js"></script>
-		<script src="/assets/js/jquery.sparkline.index.min.js"></script>
-		<script src="/assets/js/jquery.flot.min.js"></script>
-		<script src="/assets/js/jquery.flot.pie.min.js"></script>
-		<script src="/assets/js/jquery.flot.resize.min.js"></script>
+		<script src="assets/js/jquery-ui.custom.min.js"></script>
+		<script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+		<script src="assets/js/jquery.easypiechart.min.js"></script>
+		<script src="assets/js/jquery.sparkline.index.min.js"></script>
+		<script src="assets/js/jquery.flot.min.js"></script>
+		<script src="assets/js/jquery.flot.pie.min.js"></script>
+		<script src="assets/js/jquery.flot.resize.min.js"></script>
 
 		<!-- ace scripts -->
-		<script src="/assets/js/ace-elements.min.js"></script>
-		<script src="/assets/js/ace.min.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
 
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
@@ -812,7 +771,7 @@
 			
 			})
 		</script>
-		<script src="/js/pacientes/consultadatos/codigo_estadistica2.js"></script>
+         <script src="/js/pacientes/consultadatos/codigo_busquedaConsultaGeneral.js"></script>
 	</body>
 	
 </html>

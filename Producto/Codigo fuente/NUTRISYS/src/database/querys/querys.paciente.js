@@ -42,7 +42,8 @@ export const pacquerys = {
                         "FROM paciente "+
                         "WHERE pac_apellido like '%'+@pac_apellido+'%' and pac_nrodoc like @pac_nrodoc+'%'",
 
-    getpesospaciente: "select case when cons_peso is null then hc_pesoactual else cons_peso end as peso, turno_fecha "+
+    getpesospaciente: "select case when cons_peso is null then hc_pesoactual else cons_peso end as peso, "+
+                        "case when cons_IMC is null then hc_bmi else cons_IMC end as imc,turno_fecha "+
                         "from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
                                         "left join historia_clinica h on h.hc_nrohc=turno_nrohc "+
                         "WHERE hc_nrohc = @pac_nrohc order by turno_fecha",

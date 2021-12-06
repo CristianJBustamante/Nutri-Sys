@@ -97,7 +97,7 @@ const mostrarData = (data) => {
     <a class="nav__solapa" href="/pacientes/consultapaciente/hc=${data.pac_nrohc}">Resumen</a>
     <a class="nav__solapa" href="/pacientes/consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
     <a class="nav__solapa--seleccionado" href="/pacientes/consultapacientefichas/hc=${data.pac_nrohc}">Evoluciones</a>
-    <a class="nav__solapa" href="">Planes</a>
+    <a class="nav__solapa" href="../consultapacienteplan/hc=${data.pac_nrohc}">Consultas</a>
     <a class="nav__solapa" href="">Documentos</a>
     <a class="nav__solapa" href="">Estudios</a>
     <a class="nav__solapa--resto"></a>`        
@@ -107,8 +107,10 @@ const mostrarData = (data) => {
     document.getElementById('pac_datos').innerHTML = cabecera
   
     }
-    var parametros = [];
-    var valores = [];
+    var parametrospeso = [];
+    var valorespeso = [];
+    var valoresimc = [];
+
     query = 'http://localhost:3000/pesospaciente/'+pac_nrohc
     fetch(query)
             .then(response => response.json())
@@ -121,8 +123,9 @@ const mostrarData = (data) => {
         for (let i = 0; i<data.length; i++){
           var fecha = data[i].turno_fecha
           fecha = fecha.substr(0,10)  
-          parametros.push(fecha)
-          valores.push(data[i].peso)
+          parametrospeso.push(fecha)
+          valorespeso.push(data[i].peso)
+          valoresimc.push(data[i].imc)
         }
 
 
@@ -132,8 +135,8 @@ const mostrarData = (data) => {
       }
 
 
-document.querySelector(".addParam").addEventListener("click",addParam);
-document.querySelector(".showResults").addEventListener("click",showResults);
+//document.querySelector(".addParam").addEventListener("click",addParam);
+//document.querySelector(".showResults").addEventListener("click",showResults);
 
 
 
@@ -147,14 +150,24 @@ function addParam(){
 
 function showResults(){
     for (var i = 0; i < document.querySelectorAll('.parametro').length ; i++) {
-      parametros.push(document.querySelectorAll('.parametro')[i].value);
-      valores.push(parseInt(document.querySelectorAll(".valor")[i].value));
+      parametrospeso.push(document.querySelectorAll('.parametro')[i].value);
+      valorespeso.push(parseInt(document.querySelectorAll(".valor")[i].value));
     }
     var data = [{
-      x: parametros,
-      y: valores,
+      x: parametrospeso,
+      y: valorespeso,
       type: "linear"
       
     }];
     Plotly.newPlot("grafico",data);
+
+    data = [{
+      x: parametrospeso,
+      y: valoresimc,
+      type: "linear",
+      line: {
+        color: 'rgb(219, 64, 82)',
+        width: 3
+      }    }];
+    Plotly.newPlot("graficoIMC",data);
 }

@@ -456,33 +456,33 @@ p{
 }
 .referencias__descrip1{
     background-color: cyan;
-    font-weight: 800;
+   
     width: 3rem;
     height: 4rem;
 }
 .referencias__descrip2{
     background-color: rgb(178, 223, 89);
-    font-weight: 800;
+    /* font-weight: 800; */
     height: 4rem;
 }
 .referencias__descrip3{
     background-color: rgb(238, 238, 70);
-    font-weight: 800;
+    
     height: 4rem;
 }
 .referencias__descrip4{
     background-color: orange;
-    font-weight: 800;
+    
     height: 4rem;
 }
 .referencias__descrip5{
     background-color: rgb(250, 134, 1);
-    font-weight: 800;
+    
     height: 4rem;
 }
 .referencias__descrip6{
     background-color: rgb(230, 78, 41);
-    font-weight: 800;
+    /* font-weight: 800; */
     height: 4rem;
 }
 .tabla{

@@ -444,9 +444,9 @@ input::-webkit-inner-spin-button {
 
 .texto__libre{
     width: 100%;
-    height: 20rem;
+    height: 22.8rem;
     margin: 1rem 0;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-family: var(--fuentePrincipal);
     resize: none;
 }

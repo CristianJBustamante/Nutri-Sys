@@ -437,6 +437,9 @@ button:first-child {
 }
 .referencias{
     margin: 0 auto; /*centra el contenido*/
+    display: grid;
+    grid-template-columns: 50% 50%;
+    column-gap: 6rem;
 }
 
 .subtitulo__seccion{
@@ -448,28 +451,29 @@ button:first-child {
 }
 p{
     font-size: 2rem;
+    color: black;
 }
 .referencias__descrip1{
-    color:skyblue;
+    background-color: cyan;
     font-weight: 800;
 }
 .referencias__descrip2{
-    color:red;
+    background-color: yellowgreen;
     font-weight: 800;
 }
 .referencias__descrip3{
-    color:steelblue;
+    background-color: rgb(221, 221, 36);
     font-weight: 800;
 }
 .referencias__descrip4{
-    color:saddlebrown;
+    background-color: orange;
     font-weight: 800;
 }
 .referencias__descrip5{
-    color:rgb(235, 125, 143);
+    background-color: rgb(250, 134, 1);
     font-weight: 800;
 }
 .referencias__descrip6{
-    color:purple;
+    background-color: red;
     font-weight: 800;
 }

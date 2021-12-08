@@ -497,10 +497,9 @@
 										</div>
 										<div class="ficha"> <!-- Cambiar En cada Solapa -->
 											<div class="navegacion__solapas">
-												<a class="nav__solapa" onclick="fichainicial()">Ficha inicial</a>
-												<a class="nav__solapa"  onclick="anamnesis()">Anamnesis alimentaria</a>
-												<a class="nav__solapa">Habitos </a>
-												<a class="nav__solapa--seleccionado">Habitos Pactados </a>
+												<a class="nav__solapa" onclick="consultaGeneral()">Consulta General</a>
+												<a class="nav__solapa--seleccionado">Habitos</a>
+												<a class="nav__solapa" onclick="habitosPactados()">Habitos Pactados </a>
 												<!-- <a class="nav__solapa" onclick="medidas()" style="word-wrap: break-word;">Medidas antropométricas</a> -->
 												<a class="nav__solapa--resto"></a>
 											</div>
@@ -508,8 +507,7 @@
 											<div class="contenido__solapa">
 												<div class="seccion__anamnesis">
 													<div class="form-group">
-														<h2 class="titulo__seccion" for="duallist" title="Aqui Se Mostraran los habitos seleccionados anteriormente para seleccionar aquellos Habitos que el paciente y el profesional Pactan trabajar primero"
-                                                        >Seleccionar Habitos Pactados</h2>
+														<h2 class="titulo__seccion" for="duallist"> Seleccionar Habitos </h2>
 														<script src="/js/pacientes/consultainicial/codigo_registrarHabitosPaciente.js"></script>
 
 														<div class="col-sm-15">
@@ -518,21 +516,20 @@
         	
 																</script>
 															</select>
-                                                            <h2 class="input__text">Revision de Habitos Pactado
-											            	<input type="date" id="fechaNac__paciente" class="input__padding">
-                                                            </h2>
-															</div>
-															<div class="hr hr-16 hr-dotted"></div>
-                                                            
-															<div class="seccion__class--evaluacion">
-																<h2 class="input__text">Observaciones</h2>
-															<textarea class="area__observaciones" id="cons_observaciones" placeholder="Ingrese Cualquier Observacion Adicional"> </textarea>
-															</div>
 															
-
-															<button class="btn btn-white btn-primary boton-guardar" onclick="registrarhabitos()">Guardar</button>
+															<div class="hr hr-16 hr-dotted"></div>
+															<button class="btn btn-white btn-primary boton-nuevo" onclick="nuevoHabito()">Nuevo Habito</button>
+															<button class="btn btn-white btn-primary boton-guardar" onclick="registrarhabitos()">Siguiente</button>
+														</div>
+														<input type="text" id="nuevoHabito" class="input btn btn-white btn-primary" placeholder="Ingrese Habito" hidden=true>
+														</div>
+														
 												</div>
-												<br>
+												<div>
+													<button class="btn btn-white btn-primary boton-nuevo-novisible" hidden=true>Nuevo Habito</button>
+													<button class="btn btn-white btn-primary AñadirHabito-aceptar" id="Aceptar" onclick="añadirHabito(id)" hidden=true>Aceptar</button>
+													<button class="btn btn-white btn-primary AñadirHabito-cancelar" id="Cancelar" onclick="añadirHabito(id)" hidden=true>Cancelar</button>
+												</div>
 											</div>
 										</div>
 									</section>
@@ -665,7 +662,7 @@
 				});
 				//CARGAR HABITOS DESDE BD
 				if (nuevo==1) {
-				let queryh = 'http://localhost:3000/habitosPactados/'+ pac_nrohc
+				let queryh = 'http://localhost:3000/habitos'
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))

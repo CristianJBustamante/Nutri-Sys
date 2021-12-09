@@ -76,7 +76,7 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',Auth
   
 
 //------------------------CONSULTA GENERAL
-router.get('/consulta/registrarconsulta/',AuthMiddleware.isLogged, (req,res) => {
+router.get('/consulta/registrarconsulta/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/consultas/ConsultaGeneral.html',{
     isAuthenticated : req.isAuthenticated(),
       user : req.user

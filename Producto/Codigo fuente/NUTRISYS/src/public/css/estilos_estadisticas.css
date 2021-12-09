@@ -495,3 +495,24 @@ th{
     background-color: white;
     text-align: center;
 }
+.contenido__imc{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.subtitulo__seccion2{
+    color: var(--negro);
+    font-weight: normal;
+    padding: 1rem 1rem;
+}
+.input__imc{
+    width: 8rem;
+    margin-bottom: 3.5rem;
+    margin-top: 2rem;
+    margin-right: 30rem;
+}
+a:hover{
+    color: #000;
+    /* text-decoration: none; */
+}

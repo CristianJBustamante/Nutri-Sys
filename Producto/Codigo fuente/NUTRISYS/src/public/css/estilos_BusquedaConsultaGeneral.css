@@ -564,3 +564,7 @@ html, body{
     width: 25rem;
     margin-bottom: 0.5rem;
 }
+a:hover{
+    color: #000;
+    /* text-decoration: none; */
+}

@@ -92,6 +92,13 @@ router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged,
     user : req.user
 });
 });
+//consulta hc paciente - Consulta
+router.get('/pacientes/consultageneral/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/consultasPaciente.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+});
+});
 
 
 

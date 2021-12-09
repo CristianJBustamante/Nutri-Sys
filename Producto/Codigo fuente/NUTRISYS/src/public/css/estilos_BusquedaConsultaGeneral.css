@@ -205,6 +205,13 @@ h2{
     background-color: var(--grisClaro);
 }
 
+.encabezado__datosPaciente{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5rem;
+}
+
 .accesoRapido{
     
     display: flex;

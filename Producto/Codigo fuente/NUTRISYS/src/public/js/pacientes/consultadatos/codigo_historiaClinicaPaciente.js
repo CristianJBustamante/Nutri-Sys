@@ -96,8 +96,8 @@ const mostrarData = (data) => {
     solapas =  `<a class="resumen__solapa"  href="../consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a>
                 <a class="resumen__solapa--seleccionado" href="../consultapaciente/hc=${data.pac_nrohc}">Resumen</a>
                 <a class="resumen__solapa" href="../consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
-                <a class="resumen__solapa" href="../consultapacientefichas/hc=${data.pac_nrohc}">Evoluciones</a>
-                <a class="resumen__solapa" href="../consultapacienteplan/hc=${data.pac_nrohc}">Consultas</a>
+                <a class="resumen__solapa" href="../consultapacienteplan/hc=${data.pac_nrohc}">Evoluciones</a>
+                <a class="resumen__solapa" href="../consultapacientefichas/hc=${data.pac_nrohc}">Gráficos</a>
                 <a class="resumen__solapa" href="">Documentos</a>
                 <a class="resumen__solapa" href="">Estudios</a>
                 <a class="resumen__solapa--resto"></a>`        

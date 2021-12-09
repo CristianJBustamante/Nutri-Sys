@@ -110,6 +110,45 @@ const mostrarData = (data) => {
     var parametrospeso = [];
     var valorespeso = [];
     var valoresimc = [];
+    var imcolor
+
+    query = 'http://localhost:3000/ultimoimc/'+pac_nrohc
+      fetch(query)
+              .then(response => response.json())
+              .then(data => colorimc(data))
+              .catch(error => console.log(error))
+      
+      //Cargar cabecera
+      const colorimc = (data) => {
+        console.log(data)
+        let imc=parseFloat(data[0].imc)
+        console.log(imc)
+        //peso bajo
+        if (imc<18.49) {
+          imcolor='rgb(0, 255, 255)' 
+        }
+        //peso normal
+        if (imc>18.49 && imc<25) {
+          imcolor='rgb(178, 223, 89)' 
+        }
+        //sobrepeso
+        if (imc>24.99 && imc<30) {
+          imcolor='rgb(238, 238, 70)' 
+        }
+        //obesidad leve
+        if (imc>29.99 && imc<35) {
+          imcolor='rgb(255, 165, 0)' 
+        }
+        //obesidad moderada
+        if (imc>34.99 && imc<40) {
+          imcolor='rgb(250, 134, 1)' 
+        }
+        //obesidad severa
+        if (imc>40) {
+          imcolor='rgb(230, 78, 41)' 
+        }
+        
+      }
 
     query = 'http://localhost:3000/pesospaciente/'+pac_nrohc
     fetch(query)
@@ -134,7 +173,8 @@ const mostrarData = (data) => {
         )
       }
 
-
+      
+      
 //document.querySelector(".addParam").addEventListener("click",addParam);
 //document.querySelector(".showResults").addEventListener("click",showResults);
 
@@ -166,7 +206,7 @@ function showResults(){
       y: valoresimc,
       type: "linear",
       line: {
-        color: 'rgb(219, 64, 82)',
+        color: imcolor,
         width: 3
       }    }];
     Plotly.newPlot("graficoIMC",data);

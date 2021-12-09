@@ -47,6 +47,11 @@ export const pacquerys = {
                         "from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
                                         "left join historia_clinica h on h.hc_nrohc=turno_nrohc "+
                         "WHERE hc_nrohc = @pac_nrohc order by turno_fecha",
+    
+    getultimoimc: "select top 1 case when cons_IMC is null then hc_bmi else cons_IMC end as imc,turno_fecha "+
+                        "from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
+                                        "left join historia_clinica h on h.hc_nrohc=turno_nrohc "+
+                        "WHERE hc_nrohc = @pac_nrohc order by turno_fecha desc",
    
 
 //-------------------------------------------------------ABMS------------------------------------------------------

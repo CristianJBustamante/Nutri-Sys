@@ -10,6 +10,12 @@
 
     --fuentePrincipal: 'Open Sans', cursive;
     --fuenteLogo: 'Amatic SC', cursive;
+
+}
+
+h3{
+    font-size: 2rem;
+    font-weight: bold;
 }
 
 .th-fila{
@@ -28,6 +34,7 @@
 
 .cta{
     color: black;
+    max-width: 12rem;
 }
 
 input, textarea{
@@ -79,3 +86,16 @@ input, textarea{
     margin-right: 10px;
 }
 
+.encabezado__datosPaciente{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: var(--grisMedio);
+    width: 100%;
+    margin: 1rem 0rem;
+}
+
+.pieDePagina{
+    padding-top: 10rem;
+}

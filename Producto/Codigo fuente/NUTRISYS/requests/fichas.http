@@ -47,4 +47,4 @@ Content-Type: application/json
 
 ###
 
-GET {{api}}/idultimohabpac
+PUT {{api}}/registrarhabitopactado/0/1

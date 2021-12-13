@@ -499,7 +499,7 @@
 											<div class="navegacion__solapas">
 												<a class="nav__solapa" onclick="fichainicial()">Ficha inicial</a>
 												<a class="nav__solapa"  onclick="anamnesis()">Anamnesis alimentaria</a>
-												<a class="nav__solapa">Habitos </a>
+												<a class="nav__solapa" onclick="habitos()">Habitos </a>
 												<a class="nav__solapa--seleccionado">Habitos Pactados </a>
 												<!-- <a class="nav__solapa" onclick="medidas()" style="word-wrap: break-word;">Medidas antropométricas</a> -->
 												<a class="nav__solapa--resto"></a>
@@ -510,7 +510,6 @@
 													<div class="form-group">
 														<h2 class="titulo__seccion" for="duallist" title="Aqui Se Mostraran los habitos seleccionados anteriormente para seleccionar aquellos Habitos que el paciente y el profesional Pactan trabajar primero"
                                                         >Seleccionar Habitos Pactados</h2>
-														<script src="/js/pacientes/consultainicial/codigo_registrarHabitosPaciente.js"></script>
 
 														<div class="col-sm-15">
 															<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">												
@@ -519,7 +518,7 @@
 																</script>
 															</select>
                                                             <h2 class="input__text">Revision de Habitos Pactado
-											            	<input type="date" id="fechaNac__paciente" class="input__padding">
+											            	<input type="date" id="fechapacto" class="input__padding">
                                                             </h2>
 															</div>
 															<div class="hr hr-16 hr-dotted"></div>
@@ -665,12 +664,13 @@
 				});
 				//CARGAR HABITOS DESDE BD
 				if (nuevo==1) {
-				let queryh = 'http://localhost:3000/habitosPactados/'+ pac_nrohc
+					let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
             	.catch(error => console.log(error))
         		const cargarhabitos = (hab) => {
+					console.log(pac_nrohc)
             	let op=''
             	for (let i = 0; i<hab.length; i++){
                 	op+=`<option value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
@@ -705,5 +705,7 @@
 			}
 			});
 		</script>
+		<script src="/js/pacientes/consultainicial/codigo_registrarHabitoPactado.js"></script>
+
 	</body>
 </html>

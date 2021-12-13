@@ -6,7 +6,7 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid} from "../controllers/consultas.controller";
+import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid, registrarhabitostrabajados, registrarcabecerahpac} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -66,6 +66,14 @@ router.get('/consulta/registrarHabitosPactado/hc=:anms_nrohc/trn=:cons_idturno',
   });
 });
 
+//Actualizar habitos pactados
+router.get('/consulta/actualizarHabitosPactado/hc=:anms_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged , (req,res) => {
+  res.render('pacientes/consultainicial/HabitosPactados.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+  });
+});
+
 //Editar Habitos
 router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/consultainicial/Fichas_habitosNoSaludables.html',{
@@ -113,6 +121,10 @@ router.get('/consulta/registrarconsultahabitos/hc=:habpac_nrohc/trn=:cons_idturn
   router.put('/actualizarHabitos/:hab_id', actualizarHabitos)
   router.put('/actualizarcabecerahabito/:habpac_id', actualizarHabitoPaciente)
   router.delete('/borrardetallehabito/:habpac_id', actualizarDetalleHabito)
+  router.put('/registrarhabitopactado/:dhabpac_id/:dhabpac_habito', registrarhabitostrabajados)
+  router.put('/cabecerahabpactado/:habpac_id', registrarcabecerahpac)
+
+
 
   router.get("/ultimoshabitos/:habpac_nrohc",getultimoshabitos)
   router.get("/primeroshabitos/:habpac_nrohc",getprimeroshabitos)

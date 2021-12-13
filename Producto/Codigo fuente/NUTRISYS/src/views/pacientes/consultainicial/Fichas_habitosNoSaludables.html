@@ -500,7 +500,7 @@
 												<a class="nav__solapa" onclick="fichainicial()">Ficha inicial</a>
 												<a class="nav__solapa"  onclick="anamnesis()">Anamnesis alimentaria</a>
 												<a class="nav__solapa--seleccionado">Habitos </a>
-												<a class="nav__solapa">Habitos Pactados </a>
+												<a class="nav__solapa" onclick="pacto()">Habitos Pactados </a>
 												<!-- <a class="nav__solapa" onclick="medidas()" style="word-wrap: break-word;">Medidas antropométricas</a> -->
 												<a class="nav__solapa--resto"></a>
 											</div>
@@ -663,18 +663,30 @@
 				});
 				//CARGAR HABITOS DESDE BD
 				if (nuevo==1) {
-				let queryh = 'http://localhost:3000/habitos'
+					let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
             	.catch(error => console.log(error))
         		const cargarhabitos = (hab) => {
+					console.log(pac_nrohc)
             	let op=''
+            	for (let i = 0; i<hab.length; i++){
+                	op+=`<option selected="selected" value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
+            		}
+				
+				let queryh = 'http://localhost:3000/noultimoshabitos/'+ pac_nrohc
+        		fetch(queryh)
+            	.then(response => response.json())
+            	.then(hab => cargarhabitos(hab))
+            	.catch(error => console.log(error))
+        		const cargarhabitos = (hab) => {
             	for (let i = 0; i<hab.length; i++){
                 	op+=`<option value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
             		}
+
             	document.getElementById("duallist").innerHTML=op
-				demo1.bootstrapDualListbox('refresh')}
+				demo1.bootstrapDualListbox('refresh')}}
 			}else{
 				let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
         		fetch(queryh)

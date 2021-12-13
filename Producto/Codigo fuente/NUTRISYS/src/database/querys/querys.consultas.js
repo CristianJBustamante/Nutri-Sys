@@ -179,6 +179,12 @@ export const consultasquerys = {
                         "where habpac_nrohc=@habpac_nrohc and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
                                                                 "where habpac_nrohc=@habpac_nrohc)",
 
+    getultimoshabitostrabajados: "select hab_id,hab_descripcion "+
+                                    "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
+                                    "inner join habito h on h.hab_id=dhabpac_idhabito "+
+                                    "where dh.dhabpac_trabajando=1 and habpac_nrohc=@habpac_nrohc and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
+                                                                           "where habpac_nrohc=@habpac_nrohc)",                                                            
+
     getprimeroshabitos: "select hab_id,hab_descripcion "+
                         "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
                         "inner join habito h on h.hab_id=dhabpac_idhabito "+
@@ -192,9 +198,18 @@ export const consultasquerys = {
                                                 "select hab_id from habitos_paciente hp "+
                                                 "inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id"+
                                                 " inner join habito h on h.hab_id=dhabpac_idhabito "+
-                                                "where habpac_nrohc=1000 and "+
+                                                "where habpac_nrohc=@habpac_nrohc and "+
                                                     "dhabpac_id=(select max(habpac_id) from habitos_paciente "+
-                                                                 "where habpac_nrohc=1000))",
+                                                                 "where habpac_nrohc=@habpac_nrohc))",
+
+    getnoultimoshabitostrabajados: "select hab_id, hab_descripcion from habito "+
+                                    "where hab_id not in ("+
+                                                "select hab_id from habitos_paciente hp "+
+                                                "inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id"+
+                                                " inner join habito h on h.hab_id=dhabpac_idhabito "+
+                                                "where dh.dhabpac_trabajando=1 and habpac_nrohc=@habpac_nrohc and "+
+                                                    "dhabpac_id=(select max(habpac_id) from habitos_paciente "+
+                                                                 "where habpac_nrohc=@habpac_nrohc))",
 
     //Altas-----------------------------------------------------------------------------------------------------
     registrarHabitos: "INSERT INTO habito (hab_descripcion) VALUES (@hab_descripcion)",
@@ -216,6 +231,11 @@ export const consultasquerys = {
     actualizarHabitoPaciente:"UPDATE habitos_paciente SET habpac_fecharegistro = @getDate(),"+
     "habpac_observaciones = @habpac_observaciones, habpac_idconsulta = @habpac_idconsulta WHERE "+
     "habpac_nrohc = @habpac_nrohc AND habpac_id= @habpac_id",
+
+    registrarhabitopactado: "UPDATE detalle_habitos SET dhabpac_trabajando=1 WHERE dhabpac_id = @dhabpac_id and dhabpac_idhabito=@dhabpac_habito",
+
+    registrarcabecerahpac:"UPDATE habitos_paciente SET habpac_fechatope = @habpac_fechatope,"+
+    "habpac_observaciones = @habpac_observaciones WHERE habpac_id = @habpac_id",
     
 
 }

@@ -214,7 +214,7 @@ function registrarhabitos() {
             }
             swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
                  .then((value) => {
-                    location.href ="/turnos/leg="+legajo}) 
+                    location.href ="/consulta/registrarHabitosPactado/hc="+pac_nrohc+"/"+"trn="+cons_idturno})
         }else{
         //ACTUALIZAR HABITOS
         try {
@@ -250,7 +250,7 @@ function registrarhabitos() {
             }
             swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
                  .then((value) => {
-                    location.href ="/consulta/registrarHabitosPactado/hc="+anms_nrohc+"/"+"trn="+cons_idturno}) 
+                    location.href ="/consulta/registrarHabitosPactado/hc="+pac_nrohc+"/"+"trn="+cons_idturno}) 
         }  
     }else{
         swal("Atención","Debe seleccionar al menos un hábito de la grilla.","warning" )
@@ -358,17 +358,12 @@ function anamnesis() {
       });
     
 }
-function medidas() {
-    swal({
-        title: "Atención",
-        text: "Si avanza a Medidas Antropométricas, no se guardarán los datos seleccionados",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            //location.href ="../actualizarhabitos/hc="+pac_nrohc
-        } 
-      });
+function pacto() {
+    if (nuevo==1) {
+        swal("Atención","Debe Completar el Registro de Hábitos para determinar los que serán trabajados","error")
+        return false
+    }else{
+        location.href ="/consulta/registrarHabitosPactado/hc="+pac_nrohc+"/trn="+cons_idturno
+    }
+    
 }

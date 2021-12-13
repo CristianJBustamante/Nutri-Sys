@@ -700,6 +700,39 @@ export const getFichaInicialXHC = async(req,res) => {
         }
     }
 
+    export const registrarhabitostrabajados = async(req,res) => {
+        const {dhabpac_id,dhabpac_habito} = req.params;
+        try {
+            const pool = await getConnection();
+            await pool.request()
+            .input('dhabpac_id',sql.Int,dhabpac_id)
+            .input('dhabpac_habito', sql.Int,dhabpac_habito)
+            .query(consultasquerys.registrarhabitopactado)
+            res.json({  dhabpac_id,dhabpac_habito})
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    }
+
+    export const registrarcabecerahpac = async(req,res) => {
+        let {habpac_fechatope, habpac_observaciones  } = req.body;
+        const {habpac_id} = req.params;
+        try {
+            const pool = await getConnection();
+            await pool.request()
+            .input('habpac_id', sql.Int,habpac_id)
+            .input('habpac_fechatope', sql.Date,habpac_fechatope)
+            .input('habpac_observaciones', sql.NVarChar,habpac_observaciones)
+    
+            .query(consultasquerys.registrarcabecerahpac)
+            res.json({  habpac_fechatope,habpac_observaciones})
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    }
+
     export const actualizarHabitoPaciente = async(req,res) => {
         let {habpac_fecharegistro, habpac_observaciones  } = req.body;
         const {hab_id} = req.params;

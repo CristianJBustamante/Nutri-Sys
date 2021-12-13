@@ -435,7 +435,7 @@ input[type=number] { -moz-appearance:textfield; }
 @media (min-width: 1681px) {
     .tr__width{width: 1400px;}
     
-    .td__width--L{width: 100px;}
+    .td__width--L{width: 240px;} /*100 px antes*/
     .td__width--C{width: 240px;} /*100px antes*/
     .td__width--A{width: 450px;}
     

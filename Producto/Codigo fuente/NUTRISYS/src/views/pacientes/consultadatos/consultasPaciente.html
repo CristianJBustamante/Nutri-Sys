@@ -502,14 +502,7 @@
 										</div>
 										<div class="planes"> <!-- Cambiar En cada Solapa -->
 											<div class="navegacion__solapas" id="solapas">
-												<a class="nav__solapa"  href="../consultapacientefichainicial/0">Ficha Inicial</a>
-												<a class="nav__solapa" href="../consultapaciente/0">Resumen</a>
-												<a class="nav__solapa" href="../consultapacienteevolucion/0">Hábitos</a>
-												<a class="nav__solapa" href="../consultapacientefichas/0">Reportes</a>
-												<a class="nav__solapa--seleccionado" href="../consultapacienteplan/0">Evoluciones</a>
-												<a class="nav__solapa" href="../consultapacientedocumentos/0">Documentos</a>
-												<a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
-												<a class="nav__solapa--resto"></a>
+												
 											</div>
 											<div class="contenido__solapa">
 												<div class="Consulta__general">
@@ -523,21 +516,21 @@
 														 <div class=" seccion__class seccion__class--cc">
 															
 															<h2 title="Circunferencia de cintura" class="label__ficha"> C.C: </h2>
-															<input class="contenido__input contenido__input--cc" type="number" id="cons_CCM">
+															<input readonly class="contenido__input contenido__input--cc" type="number" id="cons_CCM">
 															<label class="contenido__input--label contenido__imputcc" title="Marcada">Cm(M)</label>
 														
-															<input class="contenido__input contenido__input--cc" type="number" id="cons_CCU">
+															<input readonly class="contenido__input contenido__input--cc" type="number" id="cons_CCU">
 															<label class="contenido__input--label contenido__imputcc" title="Umbilical">Cm(U)</label>
 														
 														
-															<input class="contenido__input contenido__input--cc" type="number" id="cons_CCP">
+															<input readonly class="contenido__input contenido__input--cc" type="number" id="cons_CCP">
 															<label class="contenido__input--label contenido__imputcc" title="Prominente">Cm(P)</label>
 														
 													</div>
 													 <!-- ------------------------ -->
 													 <div class="seccion__class">
 														<h2 class="label__ficha"> Peso: </h2>
-														<input class="contenido__input" type="number" min="1" max="150" id="cons_peso" onchange="calcularbmi()">
+														<input readonly class="contenido__input" type="number" min="1" max="150" id="cons_peso" onchange="calcularbmi()">
 														<label class="contenido__input--label">Kg</label>
 													  </div>
 													  <!-- ------------------------ -->
@@ -549,7 +542,7 @@
 															 <!-- ------------------------ -->
 														 <div class="seccion__class">
 															<h2 class="label__ficha"> Talla: </h2>
-															<input class="contenido__input" type="number" min="10" max="500" id="cons_talla" onchange="calcularbmi()">
+															<input readonly class="contenido__input" type="number" min="10" max="500" id="cons_talla" onchange="calcularbmi()">
 															<label class="contenido__input--label">Mts</label>
 														  </div>
 															 <!-- ------------------------ -->
@@ -558,26 +551,26 @@
 														
 														 <div class="seccion__class">
 															<h2 title="Grasa corporal" class="label__ficha"> G.C:  </h2>
-															<input class="contenido__input" type="number" min="0" max="100" id="cons_GC">
+															<input readonly class="contenido__input" type="number" min="0" max="100" id="cons_GC">
 															<label class="contenido__input--label">%</label>
 														  </div>
 														   <!-- ------------------------ -->
 														   <div class="seccion__class">
 															<h2 class="label__ficha" title="Masa muscular"> M.M: </h2>
-															<input class="contenido__input" type="number" min="0" max="100" title="" id="cons_M">
+															<input readonly class="contenido__input" type="number" min="0" max="100" title="" id="cons_M">
 															<label class="contenido__input--label">%</label>
 														  </div>
 														   <!-- ------------------------ -->
 														 <div class="seccion__class">
 															<h2 title="Grasa visceral" class="label__ficha"> G.V: </h2>
-															<input class="contenido__input" type="number" min="1" max="100" id="cons_GV">
+															<input readonly class="contenido__input" type="number" min="1" max="100" id="cons_GV">
 															<label class="contenido__input--label">%</label>
 														  </div>
 														   <!-- ------------------------ -->
 														
 														 <div class="seccion__class">
 															<h2 title="Peso con bioimpedancia" class="label__ficha"> PBI: </h2>
-															<input class="contenido__input" type="number" min="1" max="150" id="cons_PBI">
+															<input readonly class="contenido__input" type="number" min="1" max="150" id="cons_PBI">
 															<label class="contenido__input--label">Kg</label>
 														  </div>
 														   <!-- ------------------------ -->
@@ -585,12 +578,10 @@
 														
 														<div class="seccion__class--evaluacion">
 															<h2 class="label__ficha--evaluacion" title="Alimentación, Neat, Entrenamiendo, Estado emocional"> Evolución</h2>
-															<textarea class="area__observaciones" id="cons_observaciones" placeholder="Alimentación,Neat,Entrenamiendo,Estado emocional"> </textarea>
+															<textarea readonly class="area__observaciones" id="cons_observaciones" placeholder="Alimentación,Neat,Entrenamiendo,Estado emocional"> </textarea>
 														</div><!--fin div evaluacion-->
 															
-															<div class="boton__guardar">
-																<input class="btn btn-white btn-primary boton__guardar--boton" type="button" type="submit" value="Guardar" onclick="registrarPaciente()">
-															</div>
+															
 												  </div> <!-- fin div de la consulta general-->
 											</div>
 										</div>

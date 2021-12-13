@@ -6,7 +6,7 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc} from "../controllers/consultas.controller";
+import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -122,6 +122,7 @@ router.get('/consulta/registrarconsultahabitos/hc=:habpac_nrohc/trn=:cons_idturn
   router.post('/consulta', registrarconsulta)
   router.post('/nuevaconsulta', registrarconsulta2)
   router.get('/consulta/:cons_idturno', getconsultaxturno)
+  router.get('/consultapaciente/:cons_id', getconsultaxid)
   router.get('/consultanrohc/:turno_nrohc', getconsultaxnrohc)
 
  //Consultas

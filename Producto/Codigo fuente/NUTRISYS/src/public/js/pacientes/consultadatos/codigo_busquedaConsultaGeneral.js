@@ -82,7 +82,7 @@ function redirigirporpermiso(ruta,rol1,rol2) {
 
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
-let query = 'http://localhost:3000/paciente/'+pac_nrohc
+let query = '/paciente/'+pac_nrohc
 fetch(query)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -93,8 +93,8 @@ const mostrarData = (data) => {
     let solapas=''
     solapas += `<a class="nav__solapa"  href="../consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a>
                 <a class="nav__solapa" href="../consultapaciente/hc=${data.pac_nrohc}">Resumen </a>
-                <a class="nav__solapa--seleccionado" href="../consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
-                <a class="nav__solapa" href="../consultapacienteplan/hc=${data.pac_nrohc}">Evoluciones</a>
+                <a class="nav__solapa" href="../consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
+                <a class="nav__solapa--seleccionado" href="../consultapacienteplan/hc=${data.pac_nrohc}">Evoluciones</a>
                 <a class="nav__solapa" href="../consultapacientefichas/hc=${data.pac_nrohc}">Gráficos</a>
                 <a class="nav__solapa" href="">Documentos</a>
                 <a class="nav__solapa" href="">Estudios</a>
@@ -104,3 +104,71 @@ const mostrarData = (data) => {
     cabecera += `<h2>Paciente: ${data.pac_apellido}, ${data.pac_nombre}</h2><h2>HC: ${data.pac_nrohc}</h2><h2>DOC.: ${data.pac_nrodoc}</h2><h2>FN: ${data.pac_fechanac}</h2>`        
     document.getElementById('pac_datos').innerHTML = cabecera
     }
+
+var consultas
+fetch('/consultaspaciente/'+pac_nrohc)
+        .then(response => response.json())
+        .then(data => buscarconsultas(data))
+        .catch(error => console.log(error))
+
+const buscarconsultas = (data) => {
+  consultas=data
+}
+
+function buscarConsulta() {
+  let fechadesde= document.getElementById("fechadesde").value
+  let fechahasta= document.getElementById("fechahasta").value
+  if (fechadesde!="" && fechahasta!="" && fechahasta<fechadesde) {
+        fechadesde= document.getElementById("fechahasta").value
+        fechahasta= document.getElementById("fechadesde").value
+        document.getElementById("fechahasta").value = fechahasta
+        document.getElementById("fechadesde").value = fechadesde
+  }
+
+  if( fechadesde == "" &&  fechahasta == "") {
+    let body =''
+        for (let i = 0; i<consultas.length; i++){
+          console.log(fechahasta,consultas[i].fecha)
+          body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id},${consultas[i].pac_nrohc})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+        }
+        document.getElementById('data').innerHTML = body
+  }
+
+  if (fechadesde == "" &&  fechahasta != "") {
+    let body =''
+    for (let i = 0; i<consultas.length; i++){
+      if(consultas[i].turno_fecha<=fechahasta){
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+
+  }
+
+  if (fechadesde != "" &&  fechahasta == "") {
+    let body =''
+    for (let i = 0; i<consultas.length; i++){
+      if(consultas[i].turno_fecha>=fechadesde){
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+
+  }
+
+  if (fechadesde != "" &&  fechahasta != "") {
+    let body =''
+    for (let i = 0; i<consultas.length; i++){
+      if(consultas[i].turno_fecha>=fechadesde && consultas[i].turno_fecha<=fechahasta){
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+
+  }
+
+}
+
+function seleccionarconsulta(id,nrohc) {
+  location.href ="/pacientes/consultageneral/cns="+id+"/hc="+pac_nrohc
+}

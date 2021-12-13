@@ -17,6 +17,19 @@ import {getConnection,sql,consultasquerys} from "../database";
         }
     } 
 
+    export const getconsultaxid = async(req,res) => {
+        try {
+            const {cons_id} = req.params
+            const pool = await getConnection()
+            const result = await pool.request()
+                .input('cons_id', cons_id).query(consultasquerys.getconsultaxid)
+            res.send(result.recordset[0])
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    } 
+
     export const getconsultaxnrohc = async(req,res) => {
         try {
             const {turno_nrohc} = req.params

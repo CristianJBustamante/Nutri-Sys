@@ -177,6 +177,20 @@ export const getultimoimc = async(req,res) => {
     }
 }
 
+//CONSULTAS PACIENTE
+export const getconsultaspaciente = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc).query(pacquerys.getconsultaspaciente)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 //PACIENTE X APELLIDO
 export const getPacienteXap = async(req,res) => {
     try {

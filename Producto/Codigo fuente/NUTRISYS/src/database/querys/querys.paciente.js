@@ -52,6 +52,9 @@ export const pacquerys = {
                         "from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
                                         "left join historia_clinica h on h.hc_nrohc=turno_nrohc "+
                         "WHERE hc_nrohc = @pac_nrohc order by turno_fecha desc",
+
+    getconsultaspaciente: "select convert(nvarchar,turno_fecha,103) as fecha,*  from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
+                            "where turno_nrohc = @pac_nrohc and cons_observaciones <> 'Consulta Inicial'",
    
 
 //-------------------------------------------------------ABMS------------------------------------------------------

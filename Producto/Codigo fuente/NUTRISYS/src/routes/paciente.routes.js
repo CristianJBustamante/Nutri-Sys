@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
-import {actualizarPaciente, eliminarPaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, getpesospaciente, getultimoimc, nuevoPaciente} from "../controllers/paciente.controller";
+import {actualizarPaciente, eliminarPaciente, getconsultaspaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, getpesospaciente, getultimoimc, nuevoPaciente} from "../controllers/paciente.controller";
 
 
 //router.get('/nuevopaciente',(req,res) => {
@@ -93,7 +93,7 @@ router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged,
 });
 });
 //consulta hc paciente - Consulta
-router.get('/pacientes/consultageneral/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+router.get('/pacientes/consultageneral/cns=:cons_id/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/consultadatos/consultasPaciente.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user
@@ -113,6 +113,7 @@ router.get('/pacientes', getPacientes)
 router.get('/paciente/:pac_nrohc', getPacienteXHC)
 router.get('/pesospaciente/:pac_nrohc', getpesospaciente)
 router.get('/ultimoimc/:pac_nrohc', getultimoimc)
+router.get('/consultaspaciente/:pac_nrohc', getconsultaspaciente)
 router.get('/pacientes/hc=:pac_nrohc',getPacienteLikeHC)
 router.get('/pacientes/doc=:pac_nrodoc',getPacienteLikeDoc)
 router.get('/pacientes/ap=:pac_apellido', getPacienteXap)

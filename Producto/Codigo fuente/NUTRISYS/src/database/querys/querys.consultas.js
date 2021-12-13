@@ -7,7 +7,9 @@ export const consultasquerys = {
                         "LEFT JOIN habitos_paciente h on h.habpac_idconsulta=c.cons_id "+
                         "where cons_idturno=@cons_idturno order by cons_id desc",
     getconsultaxnrohc: "select * from turno inner join consulta on consulta.cons_idturno=turno.turno_id "+
-                        "where turno.turno_nrohc=@turno_nrohc order by cons_id desc",                
+                        "where turno.turno_nrohc=@turno_nrohc order by cons_id desc",    
+                        
+    getconsultaxid: "select * from consulta where cons_id=@cons_id",
     //Altas----------------------------------------------------------------------------------------------------
     registrarconsulta: "INSERT INTO consulta(cons_idturno,cons_observaciones) "+
                         "VALUES (@cons_idturno,@cons_observaciones)",

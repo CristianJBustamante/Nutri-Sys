@@ -80,7 +80,7 @@ router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged,
   });
  //consulta hc paciente - Gráficos
   router.get('/pacientes/consultapacientefichas/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
-    res.render('pacientes/consultadatos/fichasPaciente.html',{
+    res.render('pacientes/consultadatos/graficosPaciente.html',{
       isAuthenticated : req.isAuthenticated(),
       user : req.user
   });

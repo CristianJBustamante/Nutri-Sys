@@ -123,6 +123,7 @@ const mostrarData = (data) => {
         console.log(data)
         let imc=parseFloat(data[0].imc)
         console.log(imc)
+        document.getElementById('ultimoimc').value = imc
         //peso bajo
         if (imc<18.49) {
           imcolor='rgb(0, 255, 255)' 

@@ -48,8 +48,8 @@ h1{
 
 
 .boton-iniciarSesion{
-    margin-top: 4%; 
-    margin-bottom: 5%; 
+    margin-top: -6%; 
+    margin-bottom: 7%; 
     color: var(--primario);
     margin-left: 14%;
     background-color: var(--primario);
@@ -64,6 +64,7 @@ h1{
 }
 .formulario-sesion{
     margin-right: -25%;
+    margin-top: 2rem;
 }
 a{
     font-size: 15px;

@@ -195,13 +195,14 @@ function showResults(){
       valorespeso.push(parseInt(document.querySelectorAll(".valor")[i].value));
     }
     var data = [{
-      x: parametrospeso,
-      y: valorespeso,
+      x: parametrospeso, 
+      y: valorespeso, 
       type: "linear"
+      
       
     }];
     Plotly.newPlot("grafico",data);
-
+    
     data = [{
       x: parametrospeso,
       y: valoresimc,

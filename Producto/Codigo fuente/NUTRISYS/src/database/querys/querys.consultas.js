@@ -177,7 +177,8 @@ export const consultasquerys = {
                         "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
                         "inner join habito h on h.hab_id=dhabpac_idhabito "+
                         "where habpac_nrohc=@habpac_nrohc and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
-                                                                "where habpac_nrohc=@habpac_nrohc)",
+                                                                "where habpac_nrohc=@habpac_nrohc)"
+                                                                +"order by hab_descripcion",
 
     getultimoshabitostrabajados: "select hab_id,hab_descripcion "+
                                     "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
@@ -189,7 +190,8 @@ export const consultasquerys = {
                         "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
                         "inner join habito h on h.hab_id=dhabpac_idhabito "+
                         "where habpac_nrohc=@habpac_nrohc and dhabpac_id=(select min(habpac_id) from habitos_paciente "+
-                                                                          "where habpac_nrohc=@habpac_nrohc)",
+                                                                          "where habpac_nrohc=@habpac_nrohc)"
+                                                                          + " order by hab_descripcion",
 
     
     
@@ -200,7 +202,8 @@ export const consultasquerys = {
                                                 " inner join habito h on h.hab_id=dhabpac_idhabito "+
                                                 "where habpac_nrohc=@habpac_nrohc and "+
                                                     "dhabpac_id=(select max(habpac_id) from habitos_paciente "+
-                                                                 "where habpac_nrohc=@habpac_nrohc))",
+                                                                 "where habpac_nrohc=@habpac_nrohc))"
+                                                                 +"order by hab_descripcion",
 
     getnoultimoshabitostrabajados: "select hab_id, hab_descripcion from habito "+
                                     "where hab_id not in ("+

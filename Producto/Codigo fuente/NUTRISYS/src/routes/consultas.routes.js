@@ -98,6 +98,13 @@ router.get('/consulta/registrarconsultahabitos/hc=:habpac_nrohc/trn=:cons_idturn
       });
 });
 
+router.get('/consulta/registrarconsultahabitospactados/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultas/ConsultaGeneralHabitosPactados.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
+
 //--------------------------------------ACCESO A DATOS----------------------------------------------
   //-------------FICHA INICIAL
   router.post('/registrarfichainicial', registrarfichainicial)

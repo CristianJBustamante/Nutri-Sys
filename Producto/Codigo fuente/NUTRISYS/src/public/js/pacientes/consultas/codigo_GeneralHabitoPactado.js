@@ -81,12 +81,6 @@ function redirigirporpermiso(ruta,rol1,rol2) {
 //-----------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
-//-------------------------------------------NAVEGABILIDAD----------------------------------------------------------
-
-
-//-------------------------------------------FIN NAVEGABILIDAD----------------------------------------------------------
-
-
 var nuevo
 var pac_nrohc
 var url
@@ -102,11 +96,12 @@ pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("h
 cons_idturno = url.substr(url.indexOf("trn=")+4,url.length)
 modo = url.substr(url.indexOf("consulta/"),url.length)
 
-if (modo.toLowerCase()==='consulta/registrarconsultahabitos/hc='+pac_nrohc+"/trn="+cons_idturno){
+if (modo=='consulta/registrarconsultahabitospactados/hc='+pac_nrohc+"/trn="+cons_idturno){
     nuevo=1;
 }else{
     nuevo=0;
 }
+console.log(nuevo)
 //-----------------------------------------------------------------------------------------------------------------------------
 //BUSCAR DATOS DEL PACIENTE
 let query = 'http://localhost:3000/paciente/'+pac_nrohc
@@ -118,7 +113,7 @@ const mostrarData = (data) => {
     console.log(data)   
     let cabecera =''
     cabecera += `<h2>Paciente: ${data.pac_apellido}, ${data.pac_nombre}</h2><h2>HC: ${data.pac_nrohc}</h2><h2>DOC.: ${data.pac_nrodoc}</h2><h2>FN: ${data.pac_fechanac}</h2>`        
-    document.getElementById('pac_datos').innerHTML = cabecera
+    //document.getElementById('pac_datos').innerHTML = cabecera
     }
 
 //------------------------------------------------------------------------------------------------------------------------------
@@ -155,7 +150,7 @@ fetch(query)
     .catch(error => console.log(error))
 const registrardetalle = (pachab) => {
 console.log(pachab)
-habpac_id = pachab.habpac_id +1
+habpac_id = pachab.habpac_id
 console.log(habpac_id)
 }}
 
@@ -171,155 +166,50 @@ function registrarhabitos() {
     var sel = document.getElementById("bootstrap-duallistbox-selected-list_duallistbox_demo1[]"); 
     if (sel.length>0){
         //REGISTRAR NUEVOS HABITOS
-        if (nuevo==1) {
-            //Cabecera Habitos
-            const post = {
-                habpac_nrohc: pac_nrohc,
-                habpac_observaciones: '',
-                habpac_idconsulta: hab_idconsulta
+        if (nuevo==1) { 
+            //Cabecera
+            const pacto = {
+                habpac_fechatope: document.getElementById('fechapacto').value,
+                habpac_observaciones: document.getElementById('cons_observaciones').value
             }
-            console.log(post)
-             try {
-                console.log(JSON.stringify(post));
-                fetch("http://localhost:3000/cabecerahabitos",{
-                method:"POST",
-                body: JSON.stringify(post),
-                headers: {
-                "Content-type": "application/json"
-                }
-                })  .then(res=>res.json())
-                    .then(data=>console.log(data))
-            } catch (error) {
-                swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-                console.log(error)
-                } 
-            
-            //Detalle Habitos
-            for (var i = 0; i < sel.length; i++) {
-                const post = {
-                    dhabpac_id: habpac_id,
-                    dhabpac_idhabito: sel[i].value,
-                    dhabpac_observaciones: sel[i].text 
-                }
-                console.log(post)
-
-                 try {
-                    console.log(JSON.stringify(post));
-                    fetch("http://localhost:3000/detallehabitos",{
-                        method:"POST",
-                        body: JSON.stringify(post),
-                        headers: {
-                            "Content-type": "application/json"
-                        }
-                    })  .then(res=>res.json())
-                        .then(data=>console.log(data))
-                } catch (error) {
-                    swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-                    console.log(error)
-                } 
-            }
-            swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
-                 .then((value) => {
-                    location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/"+"trn="+cons_idturno}) 
-        }else{
-        //ACTUALIZAR HABITOS
-        try {
-            fetch("http://localhost:3000/borrardetallehabito/"+habpac_id,{
-            method:"DELETE"
-            })  .then(res=>res.json())
-        } catch (error) {
-            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-            console.log(error)
-            } 
-            for (var i = 0; i < sel.length; i++) {
-                const post = {
-                    dhabpac_id: habpac_id,
-                    dhabpac_idhabito: sel[i].value,
-                    dhabpac_observaciones: sel[i].text 
-                }
-                console.log(post)
-
-                 try {
-                    console.log(JSON.stringify(post));
-                    fetch("http://localhost:3000/detallehabitos",{
-                        method:"POST",
-                        body: JSON.stringify(post),
-                        headers: {
-                            "Content-type": "application/json"
-                        }
-                    })  .then(res=>res.json())
-                        .then(data=>console.log(data))
-                } catch (error) {
-                    swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-                    console.log(error)
-                } 
-            }
-            swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
-                 .then((value) => {
-                    location.href ="/consulta/registrarconsultahabitospactados/hc="+anms_nrohc+"/"+"trn="+cons_idturno}) 
-        }  
-    }else{
-        swal("Atención","Debe seleccionar al menos un hábito de la grilla.","warning" )
-    }
-}
-
-//------------------------------------------------------------------------------------------------------------------------------
-//REGISTRAR NUEVO HABITO
-function nuevoHabito(){
-    document.getElementById('nuevoHabito').hidden = false;
-    document.getElementById('Aceptar').hidden = false;
-    document.getElementById('Cancelar').hidden = false;
-}
-function añadirHabito(id){
-    console.log(id)
-    if (id == 'Aceptar')
-    {
-        console.log(id)
-
-        if (document.getElementById('nuevoHabito').value=='') {
-            swal("Atención","Debe ingresar un nuevo Habito.","warning" )
-        }else{
-            let quhab = 'http://localhost:3000/ultimohabito'
-            fetch(quhab)
-                .then(response => response.json())
-                .then(data => ultimohabito(data))
-                .catch(error => console.log(error))
-            const ultimohabito = (data) => {
-            console.log(data)
-            id_hab=data.id_hab+1
-            let habito = document.getElementById('nuevoHabito').value
-            console.log(habito)
-            const nuevohabito = {
-                hab_descripcion: habito
-            }
+            console.log(pacto)
             try {
-                console.log(JSON.stringify(nuevohabito));
-                fetch("http://localhost:3000/habitos",{
-                method:"POST",
-                body: JSON.stringify(nuevohabito),
+                fetch("/cabecerahabpactado/"+habpac_id,{
+                method:"PUT",
+                body: JSON.stringify(pacto),
                 headers: {
                     "Content-type": "application/json"
                 }
                 }).then(res=>res.json())
                 .then(data=>console.log(data))        
+                
             } catch (error) {
                 swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                    console.log(error)
             }
-            document.getElementById('nuevoHabito').value = '';
-            document.getElementById('nuevoHabito').hidden = true;
-            document.getElementById('Aceptar').hidden = true;
-            document.getElementById('Cancelar').hidden = true;
-            console.log(habito)
-            agregaritem(habito,id_hab)
-        }}
-    }else   {
-        document.getElementById('nuevoHabito').value = '';
-        document.getElementById('nuevoHabito').hidden = true;
-        document.getElementById('Aceptar').hidden = true;
-        document.getElementById('Cancelar').hidden = true;
-    }  
+            
+            
+            //Detalle Habitos
+            for (var i = 0; i < sel.length; i++) {
+                
+                 try {
+                     fetch("http://localhost:3000/registrarhabitopactado/"+habpac_id+"/"+sel[i].value,{
+                         method:"PUT"
+                     })  .then(res=>res.json())
+                         .then(data=>console.log(data))
+                } catch (error) {
+                    swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                    console.log(error)
+                } 
+            }
+             swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
+                  .then((value) => {
+                     location.href ="/turnos/leg="+legajo}) 
+        }
+    }
 }
 
+//------------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------
 //AGREGAR ITEM A GRILLA
 function agregaritem(hab,idhab){
@@ -334,41 +224,33 @@ function agregaritem(hab,idhab){
 }
 
 //------------------------------------------------------------------------------------------------------------------------------
-//PASAR PESTAÑAS
+//--------------------------------------------Navegabilidad--------------------------------------------------------
+function habitos() {
+  swal({
+      title: "Atención",
+      text: "Si avanza a Habitos, no se guardarán los datos seleccionados",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+          location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+      } 
+    }); 
+}
+
 function consultaGeneral() {
-    swal({
-        title: "Atención",
-        text: "Si avanza a Consulta General, no se guardarán los datos seleccionados",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            location.href ="/consulta/registrarconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
-        } 
-      }); 
-  }
-  function habitosPactados() {
-    swal({
-        title: "Atención",
-        text: "Si avanza a Habitos Pactados, no se guardarán los datos seleccionados",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/trn="+cons_idturno
-        } 
-      }); 
-  }
-function pacto() {
-    if (nuevo==1) {
-        swal("Atención","Debe Completar el Registro de Hábitos para determinar los que serán trabajados","error")
-        return false
-    }else{
-        location.href ="/consulta/registrarHabitosPactado/hc="+pac_nrohc+"/trn="+cons_idturno
-    }
-    
+  swal({
+      title: "Atención",
+      text: "Si avanza a Consulta General, no se guardarán los datos seleccionados",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+          location.href ="/consulta/registrarconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
+      } 
+    }); 
 }

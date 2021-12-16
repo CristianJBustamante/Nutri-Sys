@@ -498,8 +498,8 @@
 										<div class="ficha"> <!-- Cambiar En cada Solapa -->
 											<div class="navegacion__solapas">
 												<a class="nav__solapa" onclick="consultaGeneral()">Consulta General</a>
-												<a class="nav__solapa--seleccionado">Habitos</a>
-												<a class="nav__solapa" onclick="habitosPactados()">Habitos Pactados </a>
+												<a class="nav__solapa" onclick="habitos()">Habitos</a>
+												<a class="nav__solapa--seleccionado" >Habitos Pactados </a>
 												<!-- <a class="nav__solapa" onclick="medidas()" style="word-wrap: break-word;">Medidas antropométricas</a> -->
 												<a class="nav__solapa--resto"></a>
 											</div>
@@ -507,8 +507,8 @@
 											<div class="contenido__solapa">
 												<div class="seccion__anamnesis">
 													<div class="form-group">
-														<h2 class="titulo__seccion" for="duallist"> Seleccionar Habitos </h2>
-														<script src="/js/pacientes/consultas/codigo_GeneralHabitos.js"></script>
+														<h2 class="titulo__seccion" for="duallist" title="Aqui Se Mostraran los habitos seleccionados anteriormente para seleccionar aquellos Habitos que el paciente y el profesional Pactan trabajar primero"
+                                                        >Seleccionar Habitos Pactados</h2>
 
 														<div class="col-sm-15">
 															<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">												
@@ -516,20 +516,21 @@
         	
 																</script>
 															</select>
-															
+                                                            <h2 class="input__text">Revision de Habitos Pactado
+											            	<input type="date" id="fechapacto" class="input__padding">
+                                                            </h2>
+															</div>
 															<div class="hr hr-16 hr-dotted"></div>
-															<button class="btn btn-white btn-primary boton-nuevo" onclick="nuevoHabito()">Nuevo Habito</button>
-															<button class="btn btn-white btn-primary boton-guardar" onclick="registrarhabitos()">Siguiente</button>
-														</div>
-														<input type="text" id="nuevoHabito" class="input btn btn-white btn-primary" placeholder="Ingrese Habito" hidden=true>
-														</div>
-														
+                                                            
+															<div class="seccion__class--evaluacion">
+																<h2 class="input__text">Observaciones</h2>
+															<textarea class="area__observaciones" id="cons_observaciones" placeholder="Ingrese Cualquier Observacion Adicional"> </textarea>
+															</div>
+															
+
+															<button class="btn btn-white btn-primary boton-guardar" onclick="registrarhabitos()">Guardar</button>
 												</div>
-												<div>
-													<button class="btn btn-white btn-primary boton-nuevo-novisible" hidden=true>Nuevo Habito</button>
-													<button class="btn btn-white btn-primary AñadirHabito-aceptar" id="Aceptar" onclick="añadirHabito(id)" hidden=true>Aceptar</button>
-													<button class="btn btn-white btn-primary AñadirHabito-cancelar" id="Cancelar" onclick="añadirHabito(id)" hidden=true>Cancelar</button>
-												</div>
+												<br>
 											</div>
 										</div>
 									</section>
@@ -662,7 +663,7 @@
 				});
 				//CARGAR HABITOS DESDE BD
 				if (nuevo==1) {
-				let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
+					let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
@@ -671,23 +672,14 @@
 					console.log(pac_nrohc)
             	let op=''
             	for (let i = 0; i<hab.length; i++){
-                	op+=`<option selected="selected" value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
-            		}
-				
-				let queryh = 'http://localhost:3000/noultimoshabitos/'+ pac_nrohc
-        		fetch(queryh)
-            	.then(response => response.json())
-            	.then(hab => cargarhabitos(hab))
-            	.catch(error => console.log(error))
-        		const cargarhabitos = (hab) => {
-            	for (let i = 0; i<hab.length; i++){
                 	op+=`<option value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
             		}
-
             	document.getElementById("duallist").innerHTML=op
-				demo1.bootstrapDualListbox('refresh')}}
+				demo1.bootstrapDualListbox('refresh')}
 			}
 			});
 		</script>
+		<script src="/js/pacientes/consultas/codigo_GeneralHabitoPactado.js"></script>
+
 	</body>
 </html>

@@ -81,6 +81,38 @@ function redirigirporpermiso(ruta,rol1,rol2) {
 //-----------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
+//--------------------------------------------Navegabilidad--------------------------------------------------------
+function habitos() {
+  swal({
+      title: "Atención",
+      text: "Si avanza a Habitos, no se guardarán los datos seleccionados",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+          location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+      } 
+    }); 
+}
+
+function habitosPactados() {
+  swal({
+      title: "Atención",
+      text: "Si avanza a Habitos Pactados, no se guardarán los datos seleccionados",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+          location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/trn="+cons_idturno
+      } 
+    }); 
+}
+
+//--------------------------------------------Fin Navegabilidad--------------------------------------------------------
 var metodo=''
 //Get nrohc
 const url = new String(window.location)
@@ -195,7 +227,7 @@ const mostrarData = (data) => {
             
                 swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
                     .then((value) => {
-                            location.href ="/turnos/leg="+legajo})
+                            location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno})
           
     
         } catch (error) {

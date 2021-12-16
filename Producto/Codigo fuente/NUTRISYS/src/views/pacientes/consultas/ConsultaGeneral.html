@@ -26,6 +26,7 @@
 		<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
 		<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
 		<link rel="stylesheet" href="/assets/css/estilo_plantilla.css" />
+		<link rel="stylesheet" href="/css/estilos_Fichas_FichaInicial.css"> <!-- Cambiar en cada Solapa -->
 
 		<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -498,17 +499,14 @@
 										<div class="encabezado__datosPaciente" id="pac_datos">
 											
 										</div>
-									<!-- <div class="fichaInicial"> 
+									<div class="fichaInicial"> 
 											<div class="navegacion__solapas">
-												<a class="nav__solapa" href="../Plantilla/consultaFichaInicial.html">Ficha Inicial</a>
-												<a class="nav__solapa" href="../consultapaciente/0">Resumen </a>
-												<a class="nav__solapa--seleccionado" href="../Plantilla/consultaFichas.html">Fichas</a>
-												<a class="nav__solapa" href="../consultapacientefichas/0">Evoluciones</a>
-												<a class="nav__solapa" href="../consultapacienteplan/0">Planes</a>
-												<a class="nav__solapa" href="../consultapacientedocumentos/0">Documentos</a>
-												<a class="nav__solapa" href="../consultapacienteestudios/0">Estudios</a>
+												<a class="nav__solapa--seleccionado">Consulta General</a>
+												<a class="nav__solapa"  onclick="habitos()">Habitos</a>
+												<a class="nav__solapa" onclick="habitosPactados()">Habitos Pactados</a>
+												<!-- <a class="nav__solapa" onclick="medidas()">Medidas antropométricas</a> -->
 												<a class="nav__solapa--resto"></a>
-											</div> fin div de las solapas -->
+											</div>
                                             
                                             <!-- aqui tiene que ir el contenido de la pagina-->
                                             <div>
@@ -589,7 +587,7 @@
                                                     </div><!--fin div evaluacion-->
                                                         
                                                         <div class="boton__guardar">
-                                                            <input class="btn btn-white btn-primary boton__guardar--boton" type="button" type="submit" value="Guardar" onclick="registrarPaciente()">
+                                                            <input class="btn btn-white btn-primary boton__guardar--boton" type="button" type="submit" value="Siguiente" onclick="registrarPaciente()">
                                                         </div>
                                               </div> <!-- fin div de la consulta general-->
 

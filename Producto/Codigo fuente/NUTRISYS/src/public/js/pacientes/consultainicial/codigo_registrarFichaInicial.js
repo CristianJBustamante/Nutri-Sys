@@ -392,8 +392,7 @@ function habitos() {
         if (willDelete) {
             location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
         } 
-      });
-    
+      }); 
 }
 function medidas() {
     swal({

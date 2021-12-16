@@ -171,6 +171,13 @@ a:hover{
     resize: none;
 }
 
+.titulos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .contenidoPrincipal{
     display: flex;
     flex-direction: column;

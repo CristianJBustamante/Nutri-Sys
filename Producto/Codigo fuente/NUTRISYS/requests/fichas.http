@@ -13,13 +13,12 @@ Content-Type: application/json
 
 ###
 
-POST {{api}}/cabecerahabitos
+PUT {{api}}/cabecerahabpactado/44
 Content-Type: application/json
 
 {
-    "habpac_nrohc": 1000,
-    "habpac_observaciones": "",
-    "habpac_idconsulta": 1
+    "habpac_fechatope": "01/01/2021",
+    "habpac_observaciones": "obs"
     
 }
 

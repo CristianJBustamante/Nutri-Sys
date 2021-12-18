@@ -74,3 +74,7 @@ function traerDatosComida(){
         tbxDescripcion.value = comidaDatos.lastChild.innerText;
     }
 }
+
+function registrarPlan(){
+    alert("Plan registrado correctamente!.");
+}

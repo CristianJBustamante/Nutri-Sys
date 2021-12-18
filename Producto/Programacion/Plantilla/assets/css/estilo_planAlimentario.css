@@ -94,8 +94,10 @@ input, textarea{
     background-color: var(--grisMedio);
     width: 100%;
     margin: 1rem 0rem;
+    padding: 0 1rem;
 }
 
 .pieDePagina{
     padding-top: 10rem;
 }
+

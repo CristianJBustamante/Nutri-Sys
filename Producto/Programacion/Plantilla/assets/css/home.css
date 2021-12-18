@@ -1,0 +1,36 @@
+/** Header **/
+.header_bienvenida {
+    background-image: url(../images/que-es-nutricion-y-su-importancia-para-una-vida-saludable.jpg);
+}
+.header_bienvenida {
+    height: 20rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    
+
+}
+.header__texto {
+   text-align: center;
+   color: black;
+   margin-top: 5rem;
+   align-items: center;
+    
+}
+
+.saludo_bienvenida{
+    padding-top: 4rem;
+    padding-left: 2rem;
+    font-weight: bold;
+}
+
+.contenedor_home{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+

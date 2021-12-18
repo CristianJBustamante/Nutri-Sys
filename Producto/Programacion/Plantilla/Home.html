@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -27,7 +27,7 @@
 	<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
 	<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
 	<link rel="stylesheet" href="assets/css/estilo_plantilla.css" />
-	<link rel="stylesheet" href="assets/css/estilo_planAlimentario.css" />
+	<link rel="stylesheet" href="assets/css/home.css" />
 
 	<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -76,10 +76,10 @@
 
 
 					<li class="purple dropdown-modal">
-						<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 							<i class="ace-icon fa fa-bell icon-animated-bell"></i>
 							<span class="badge badge-important">8</span>
-						</a> -->
+						</a>
 
 						<ul
 							class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
@@ -145,10 +145,10 @@
 					</li>
 
 					<li class="green dropdown-modal">
-						<!-- <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 							<i class="ace-icon fa fa-envelope icon-animated-vertical"></i>
 							<span class="badge badge-success">5</span>
-						</a> -->
+						</a>
 
 						<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
 							<li class="dropdown-header">
@@ -160,7 +160,7 @@
 								<ul class="dropdown-menu dropdown-navbar">
 									<li>
 										<a href="#" class="clearfix">
-											<img src="assets/images/avatars/avatar2.png" class="msg-photo"
+											<img src="assets/images/avatars/avatar.png" class="msg-photo"
 												alt="Alex's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -375,7 +375,6 @@
 							<i class="ace-icon fa fa-home home-icon"></i>
 							<a href="#">Home</a>
 						</li>
-						<li class="active">Historia Clínica</li>
 					</ul><!-- /.breadcrumb -->
 
 
@@ -457,14 +456,14 @@
 						</div><!-- /.ace-settings-box -->
 					</div><!-- /.ace-settings-container -->
 
-					<div class="page-header">
+					<!-- <div class="page-header">
 						<h1>
-							Plan Alimentario
+							Home
 							<small>
 								<i class="ace-icon fa fa-angle-double-right"></i>
 							</small>
 						</h1>
-					</div><!-- /.page-header -->
+					</div> -->
 
 
 					<!-- *********************************************************************************
@@ -473,148 +472,28 @@
 				*********************************** PRINCIPAL*****************************************
 				************************************************************************************** -->
 
-					<div class="section-tabla">
-						<div class="tabla__resultados">
-								<div class="encabezado__datosPaciente" id="pac_datos">
-									<h2>Paciente: Gonzalez, Eugenio</h2>
-									<h2>HC: 709543</h2>
-									<h2>DOC.: 23465973</h2>
-									<h2>FN: 05/06/1975</h2>
-								</div>
-								<table class="table table-fixed">
-									<thead>
-										<tr class="tr__width">
-											<th class="" scope="col"></th>
-											<th class="" scope="col">Lunes</th>
-											<th class="" scope="col">Martes</th>
-											<th class="" scope="col">Miercoles</th>
-											<th class="" scope="col">Jueves</th>
-											<th class="" scope="col">Viernes</th>
-											<th class="" scope="col">Sábado</th>
-											<th class="" scope="col">Domingo</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td class="th-fila" scope="row">Desayuno</td>
-											<td class="th-hover cta" id="comida1" onclick="comidaAEditar('comida1')">
-											</td>
-											<td class="th-hover cta" id="comida2" onclick="comidaAEditar('comida2')">
-											</td>
-											<td class="th-hover cta" id="comida3" onclick="comidaAEditar('comida3')">
-											</td>
-											<td class="th-hover cta" id="comida4" onclick="comidaAEditar('comida4')">
-											</td>
-											<td class="th-hover cta" id="comida5" onclick="comidaAEditar('comida5')">
-											</td>
-											<td class="th-hover cta" id="comida6" onclick="comidaAEditar('comida6')">
-											</td>
-											<td class="th-hover cta" id="comida7" onclick="comidaAEditar('comida7')">
-											</td>
-										</tr>
-										<tr>
-											<td class="th-fila" scope="row">Colación</td>
-											<td class="th-hover cta" id="comida8" onclick="comidaAEditar('comida8')">
-											</td>
-											<td class="th-hover cta" id="comida9" onclick="comidaAEditar('comida9')">
-											</td>
-											<td class="th-hover cta" id="comida10" onclick="comidaAEditar('comida10')">
-											</td>
-											<td class="th-hover cta" id="comida11" onclick="comidaAEditar('comida11')">
-											</td>
-											<td class="th-hover cta" id="comida12" onclick="comidaAEditar('comida12')">
-											</td>
-											<td class="th-hover cta" id="comida13" onclick="comidaAEditar('comida13')">
-											</td>
-											<td class="th-hover cta" id="comida14" onclick="comidaAEditar('comida14')">
-											</td>
-										</tr>
-										<tr>
-											<td class="th-fila" scope="row">Almuerzo</td>
-											<td class="th-hover cta" id="comida15" onclick="comidaAEditar('comida15')">
-											</td>
-											<td class="th-hover cta" id="comida16" onclick="comidaAEditar('comida16')">
-											</td>
-											<td class="th-hover cta" id="comida17" onclick="comidaAEditar('comida17')">
-											</td>
-											<td class="th-hover cta" id="comida18" onclick="comidaAEditar('comida18')">
-											</td>
-											<td class="th-hover cta" id="comida19" onclick="comidaAEditar('comida19')">
-											</td>
-											<td class="th-hover cta" id="comida20" onclick="comidaAEditar('comida20')">
-											</td>
-											<td class="th-hover cta" id="comida21" onclick="comidaAEditar('comida21')">
-											</td>
-										</tr>
-										<tr>
-											<td class="th-fila" scope="row">Merienda</td>
-											<td class="th-hover cta" id="comida22" onclick="comidaAEditar('comida22')">
-											</td>
-											<td class="th-hover cta" id="comida23" onclick="comidaAEditar('comida23')">
-											</td>
-											<td class="th-hover cta" id="comida24" onclick="comidaAEditar('comida24')">
-											</td>
-											<td class="th-hover cta" id="comida25" onclick="comidaAEditar('comida25')">
-											</td>
-											<td class="th-hover cta" id="comida26" onclick="comidaAEditar('comida26')">
-											</td>
-											<td class="th-hover cta" id="comida27" onclick="comidaAEditar('comida27')">
-											</td>
-											<td class="th-hover cta" id="comida28" onclick="comidaAEditar('comida28')">
-											</td>
-										</tr>
-										<tr>
-											<td class="th-fila" scope="row">Cena</td>
-											<td class="th-hover cta" id="comida29" onclick="comidaAEditar('comida29')">
-											</td>
-											<td class="th-hover cta" id="comida30" onclick="comidaAEditar('comida30')">
-											</td>
-											<td class="th-hover cta" id="comida31" onclick="comidaAEditar('comida31')">
-											</td>
-											<td class="th-hover cta" id="comida32" onclick="comidaAEditar('comida32')">
-											</td>
-											<td class="th-hover cta" id="comida33" onclick="comidaAEditar('comida33')">
-											</td>
-											<td class="th-hover cta" id="comida34" onclick="comidaAEditar('comida34')">
-											</td>
-											<td class="th-hover cta" id="comida35" onclick="comidaAEditar('comida35')">
-											</td>
-										</tr>
-									</tbody>
-								</table>
-						</div>
-
-
-						<div style="display: flex; justify-content: right;">
-							<input type=" button" value="Guardar" class="btn btn-white btn-primary btn__crear" style="max-width: 20rem;" onclick="registrarPlan()" id="botonModo">
-						</div>
-						
-
-						<!-- ***** -->
-						<!-- MODAL -->
-						<!-- ***** -->
-						<div class="modales-container">
-							<div class="modales modales-close">
-								<!-- <form action=""> -->
-								<div>
-									<h2>Título</h2>
-									<input type="text" id="tituloComida">
-									<h2>Descripción</h2>
-									<textarea name="" id="descripcionComida" cols="30" rows="10"
-										style="height: 15rem; resize: none;"></textarea>
-								</div>
-								<div class="btnsubmit">
-									<button id="btnGuardar" type="" class="btn btn-sm btn-success cerrar"
-										style="margin: 1rem 0rem;" onclick="guardarComida()"><i
-											class="ace-icon fa fa-check"></i> Guardar</button>
-								</div>
-								<!-- </form> -->
-								<div class="modal-footer">
-									<button type="button" class="btn btn-sm cerrar"><i class="ace-icon fa fa-times"></i>
-										Cerrar</button>
+					<div class="section-contenido">
+						<!-- <div class="video">
+							<div class="overlay">
+								<div class="contenedor contenido-video">
+									<h2 class="bienvenida">
+										Bienvenido
+										<span class="span_bienvenida">Buenas noches!</span>
+									</h2>
 								</div>
 							</div>
+							<img class="imagen_bienvenida" src="./assets/images/692acc0c724549f4d7f660afd21c80f3937e6d64.jpeg" alt="logo">
+						</div> -->
 
+						<div class="header_bienvenida">
+							<div class="header__texto">
+								<h2 class="saludo_bienvenida" id="saludo_bienvenida"></h2>
+							</div>
+						</div>
+						<div class="contenedor_home">
+							<div class="home_texto">
+								<h2>Bienvenido/a a Nutri-Sys</h2>
+							</div>
 						</div>
 					</div>
 
@@ -662,7 +541,7 @@
 	<script src="assets/js/jquery.flot.min.js"></script>
 	<script src="assets/js/jquery.flot.pie.min.js"></script>
 	<script src="assets/js/jquery.flot.resize.min.js"></script>
-	<script src="assets/js/planAlimentario.js"></script>
+	<script src="assets/js/home.js"></script>
 	<!-- ace scripts -->
 	<script src="assets/js/ace-elements.min.js"></script>
 	<script src="assets/js/ace.min.js"></script>

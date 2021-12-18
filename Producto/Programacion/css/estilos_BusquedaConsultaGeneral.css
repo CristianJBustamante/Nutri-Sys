@@ -237,7 +237,7 @@ h2{
 }
 
 .td__width--L{width: 250px;}
-.td__width--C{width: 350px;}
+.td__width--C{width: 250px;}
 .td__width--A{width: 200px;}
   
 .td__width--N{width: 200px;}
@@ -377,8 +377,8 @@ input[type=number] { -moz-appearance:textfield; }
     .tr__width{width: 1400px;}
     
     .td__width--L{width: 100px;}
-    .td__width--C{width: 240px;} /*100px antes*/
-    .td__width--A{width: 450px;}
+    .td__width--C{width: 200px;} /*100px antes*/
+    .td__width--A{width: 300px;}
     
     .td__width--N{width: 450px;}
     

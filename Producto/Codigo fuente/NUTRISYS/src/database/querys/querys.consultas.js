@@ -9,7 +9,22 @@ export const consultasquerys = {
     getconsultaxnrohc: "select * from turno inner join consulta on consulta.cons_idturno=turno.turno_id "+
                         "where turno.turno_nrohc=@turno_nrohc order by cons_id desc",    
                         
-    getconsultaxid: "select * from consulta where cons_id=@cons_id",
+    getconsultaxid: "select cons_id,cons_idturno,cons_observaciones,"+
+        "case when cons_edad is null then year(turno_fecha)-year(pac_fechanacimiento) else cons_edad end as cons_edad,"+
+        "case when cons_peso is null then hc_pesoactual else cons_peso end as cons_peso,"+
+        "case when cons_talla is null then hc_talla else cons_talla end as cons_talla,"+
+        "case when cons_IMC is null then hc_BMI else cons_IMC end as cons_IMC,"+
+        "case when cons_CCM is null then hc_CC1 else cons_CCM end as cons_CCM,"+
+        "case when cons_CCU is null then hc_CC2 else cons_CCU end as cons_CCU,"+
+        "case when cons_CCP is null then hc_CC3 else cons_CCP end as cons_CCP,"+
+        "case when cons_GC is null then hc_GC else cons_GC end as cons_GC,"+
+        "case when cons_GV is null then hc_GV else cons_GV end as cons_GV,"+
+        "case when cons_M is null then hc_MM else cons_M end as cons_M,"+
+        "case when cons_PBI is null then hc_PBI else cons_PBI end as cons_PBI "+
+        "from consulta inner join turno on turno_id=cons_idturno "+
+        "inner join historia_clinica on turno_nrohc=hc_nrohc "+
+        "inner join paciente on pac_nrohc=hc_nrohc "+
+        "where cons_id=@cons_id",
     //Altas----------------------------------------------------------------------------------------------------
     registrarconsulta: "INSERT INTO consulta(cons_idturno,cons_observaciones) "+
                         "VALUES (@cons_idturno,@cons_observaciones)",

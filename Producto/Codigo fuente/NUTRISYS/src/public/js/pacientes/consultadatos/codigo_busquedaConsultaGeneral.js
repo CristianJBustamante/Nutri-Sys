@@ -129,7 +129,7 @@ function buscarConsulta() {
     let body =''
         for (let i = 0; i<consultas.length; i++){
           console.log(fechahasta,consultas[i].fecha)
-          body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id},${consultas[i].pac_nrohc})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+          body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
         }
         document.getElementById('data').innerHTML = body
   }
@@ -138,7 +138,7 @@ function buscarConsulta() {
     let body =''
     for (let i = 0; i<consultas.length; i++){
       if(consultas[i].turno_fecha<=fechahasta){
-        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
       }
     }
     document.getElementById('data').innerHTML = body
@@ -149,7 +149,7 @@ function buscarConsulta() {
     let body =''
     for (let i = 0; i<consultas.length; i++){
       if(consultas[i].turno_fecha>=fechadesde){
-        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
       }
     }
     document.getElementById('data').innerHTML = body
@@ -160,7 +160,7 @@ function buscarConsulta() {
     let body =''
     for (let i = 0; i<consultas.length; i++){
       if(consultas[i].turno_fecha>=fechadesde && consultas[i].turno_fecha<=fechahasta){
-        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td><td class="td__width--A" >${consultas[i].cons_observaciones}</td></tr>`
       }
     }
     document.getElementById('data').innerHTML = body
@@ -169,6 +169,6 @@ function buscarConsulta() {
 
 }
 
-function seleccionarconsulta(id,nrohc) {
+function seleccionarconsulta(id) {
   location.href ="/pacientes/consultageneral/cns="+id+"/hc="+pac_nrohc
 }

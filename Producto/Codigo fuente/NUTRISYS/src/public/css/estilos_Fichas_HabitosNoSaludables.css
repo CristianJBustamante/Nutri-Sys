@@ -582,6 +582,8 @@ input::-webkit-inner-spin-button {
     width: 15rem;
     text-align: center;
     margin-right: 5%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
 
 }
 

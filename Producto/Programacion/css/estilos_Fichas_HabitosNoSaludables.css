@@ -9,30 +9,27 @@
     --grisOscuro: #acadac;
     --verdeBtonHover: #3abe33;
 
-    --fuentePrincipal: 'Amatic+SC', cursive;
+    --fuentePrincipal: 'Open Sans', cursive;
     --fuenteLogo: 'Amatic SC', cursive;
 }
 
 html{
     box-sizing: border-box;
     font-size: 62.5%;
-   
+    /*Solucion Corte*/
+    height: 100%;
 }
 
 
-html, body{
-    width:100%;
-    margin: 0;
-    /*display: flex;*/
 
-  }
+
     /*** Responsivo ***/
 
     @media (min-width: 700px) {
    
-        body{
+        /* body{
         display: flex;
-       }   
+       }    */
     
       }
     
@@ -56,16 +53,19 @@ h1{
 
 h2{
     color: var(--negro);
-    font-family: var(--fuentePrincipal);
     font-size: 2rem;
+    margin-top: 1rem;
 } 
 
-/* h3{
+h3{
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-size: 1.5rem;
-} */
-
+}
+a:hover{
+    color:var(--negro);
+    cursor: pointer;
+}
 
 .flex-imageItem{
     width: 10rem;
@@ -86,38 +86,30 @@ h2{
 .aside{
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
-.aside__background{
-    display: flex;
-    flex-direction: column;
-    min-width: 22rem;
-    height: 100%;
-    width: 22rem;
-}
+
 /** LOGO **/
 
-.logo{
-    background-color: var(--secundario);
-    display: flex;
-    justify-content:space-between;
-    gap: 1rem;
-    min-width: 20%;
+.logo__manzana{
+    width: 40px;
+    height: 40px;
 }
 
 .name_app{
-    margin: 0;
-    font-size: 4.5rem;
+    margin: 0 auto;
+    font-size: 3rem;
     color: var(--blanco);
     font-family: var(--fuenteLogo);
-    padding-right: 1rem;
+    padding: 1rem;
     font-weight: bold;
 }
 
-.logo__manzana{
-    width: 8rem;
-    height: 8rem;
-    margin: 1rem  0rem 1rem 1rem;
+.logo{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    gap: 1rem;
+    min-width: 20%;
 }
 
 /** MENU **/
@@ -157,6 +149,35 @@ h2{
 /** CONTENIDO PRINCIPAL **/
 /*************************/
 
+.seccion__titulo{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+    background-color: var(--primario);
+    padding-left: 4rem ;
+    margin-bottom: 1rem;
+
+}
+
+.area__observaciones{
+    display: grid;
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+    width: 100%;
+    height: 15rem;
+    align-items: center;
+    align-content: center;
+    resize: none;
+}
+
+.titulos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
 .contenidoPrincipal{
     display: flex;
     flex-direction: column;
@@ -169,30 +190,254 @@ h2{
     display: flex;
     background-color: white;
     align-items: center;
-    justify-content:space-around;
+    justify-content:space-between;
     width: 100%;
+}
+
+.menuIcon{
+    display: flex;
+    align-items: flex-start;
+    padding-left: 2rem ;
+}
+
+.notifYUsuario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-around;
+    gap: 2rem;
+    margin-right: 2rem;
 }
 
 .contenidoPagina{
     display: flex;
     flex-direction: column;
 }
-/** ARTICLE **/
-.contenido__section{
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--grisMedio);
-    margin-left: 3rem;
-    margin-top: 3rem;
-    /*width: 120rem;*/
-    padding: 0 5rem;
+
+/***********************/
+/**** CUESTIONARIOS ****/
+/***********************/
+
+.carne__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,3fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
 }
-.section__historiaClinica{
+
+.pregunta__cuestionario{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.label__pregunta{
+    width: 50%;
+}
+
+.label__pregunta--desarrolo{
+    width: 20%;
+}
+
+.textarea{
+    resize: none;
+    width: 100%;
+    height: 8rem;
+    margin: 1rem 0rem;
+    font-size: 2rem;
+}
+
+
+
+.respuesta__pregunta--checkbox{
+    width: 2rem;
+    height: 2rem;
+}
+
+.section__fichas{
     display: flex;
     flex-direction: column;
     background-color: var(--grisMedio);
     margin: 2rem;
 }
+
+.lacteos__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.huevos__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.vegetales__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.panificacion__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.bebidas__cuestionario{
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.azucar__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.aceite__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.grasas__cuestionario{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.sal__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.alcohol__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.comidas__cuestionario{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 0rem 4rem 0rem 4rem;
+}
+
+.decoracion__pregunta{
+    border: solid;
+    border-color: var(--grisMedio);
+    margin: 0rem 1rem 1rem 0rem;
+    background-color: var(--grisClaro);
+    justify-content: center;
+}
+
+.pregunta__desarrollo{
+    padding: 0rem 4rem;
+}
+
+.otros__allcolumns1-3{
+    grid-column: 1/3;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    gap: 2rem;
+}
+
+
+.otros__allcolumns1-4{
+    grid-column: 1/4;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    gap: 2rem;
+}
+
+
+.boton__siguiente{
+    justify-content: flex-end;
+}
+
+/* Correcciones */
+
+#div-55{grid-column: 1/2; grid-row: 3/4;}
+
+.subtitulo__sub{
+    border: solid 0.5rem ;
+    border-color: var(--grisOscuro);
+}
+
+.crn__salsa{
+    grid-column: 1/3;
+}
+
+.textarea__sal{
+    height: 3rem;
+}
+
+.bebidas__cantidades{
+    height: 3rem;
+    width: 60%;
+    font-size: 2rem;
+}
+
+@media (max-width: 1140px) {
+
+ .carne__cuestionario, .panificacion__cuestionario, 
+.aceite__cuestionario, .grasas__cuestionario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.otros__allcolumns1-4{
+    grid-column: 1/3;
+    padding: 0.5rem 4rem 0.5rem 4rem;
+}
+
+/* Ajustes Ubicacion */
+
+#div-3{grid-column: 2/3; grid-row: 2/3;}
+#div-11{grid-column: 1/2; grid-row: 2/3;}
+#div-4{grid-column: 1/2; grid-row: 3/4;}
+#div-12{grid-column: 1/2; grid-row: 4/5;}
+#div-5{grid-column: 2/3; grid-row: 3/4;}
+#div-6{grid-column: 2/3; grid-row: 4/5;}
+#div-7{grid-column: 1/2; grid-row: 5/6;}
+#div-8{grid-column: 2/3; grid-row: 5/6;}
+#div-9{grid-column: 2/3; grid-row: 6/7;} /*Pescado Mar*/
+#div-10{grid-column: 1/2; grid-row: 7/8;} /*Cerdo*/
+#div-13{grid-column: 1/2; grid-row: 8/9;}
+#div-14{grid-column: 2/3; grid-row: 8/9;}
+#div-15{grid-column: 2/3; grid-row: 9/10;}
+
+
+#div-55{grid-column: 1/2; grid-row: 2/3;}
+#div-49{grid-column: 2/3; grid-row: 2/3;}
+#div-50{grid-column: 1/2; grid-row: 3/4;}
+#div-51{grid-column: 2/3; grid-row: 3/4;}
+#div-52{grid-column: 2/3; grid-row: 4/5;}
+#div-53{grid-column: 2/3; grid-row: 5/6;}
+#div-54{grid-column: 2/3; grid-row: 6/7;} 
+#div-56{grid-column: 1/2; grid-row: 7/8;}
+#div-57{grid-column: 2/3; grid-row: 7/8;}
+#div-58{grid-column: 2/3; grid-row: 8/9;}
+#div-59{grid-column: 1/3; grid-row: 9/10;}
+
+
+}
+
+
+/******FIN*******/
+/* CUESTIONARIOS */
+/****************/
 
 .encabezado__datosPaciente{
     display: flex;
@@ -201,20 +446,20 @@ h2{
     margin: 0 5rem;
 }
 
-.evoluciones{
+.ficha{
     display: flex;
     flex-direction: column;
     margin: 0 2rem;
 }
 
 .navegacion__solapas{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     
 }
 
 .nav__solapa{
-    width: 10%;
+    /* width: 27%; */
     border: black 0.3rem;
     border-style: solid;
     text-align: center;
@@ -226,24 +471,29 @@ h2{
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
-    background-color: var(--grisOscuro);
+
+    /* background-color: var(--grisOscuro); */
+
 }
 
 .nav__solapa--seleccionado{
-    width: 10%;
+    /* width: 26%; */
     border: var(--negro) 0.3rem;
     border-style: solid solid none solid;
-    text-align: center;
-    border-radius: 10px 10px 0px 0px;
-    padding: 2rem;
+    /* text-align: center;
+    border-radius: 10px 10px 0px 0px; */
+
+
+    padding: 1rem;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: var(--negro);
     font-family: var(--fuentePrincipal);
     font-weight: bold;
 }
+
 .nav__solapa--resto{
-    width: 61%;
+    /* width: 20%; */
     border: var(--negro) 0.3rem;
     border-style: none none solid none;
 }
@@ -251,13 +501,12 @@ h2{
 .contenido__solapa{
     border: var(--negro) 0.3rem;
     border-style: none solid solid solid;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    padding: 1rem;
-    height: auto; 
-}
 
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+}
 
 
 /****************/
@@ -280,30 +529,66 @@ h2{
     height: 5rem;
     margin: 1rem  auto;
 }
-.input__text{
-    width: 35%;
-    margin-right: 1rem;
-    padding-top: 0.5rem;
-    
-}
-.table{
-    font-size: 2rem ;
-}
-/* .padding__inputText{
+
+.padding__inputText{
     font-size: 2rem;
     font-family: var(--fuentePrincipal);
-} */
+}
 
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.input__padding{
-    margin: 1rem;
-    width: 50%;
+.input{
+    text-align: left;
+    float: left;
+    margin-left: -2%; /* 2*/
+    width: 35rem;
+    height: 4rem;
+}
+
+.AñadirHabito-aceptar{
+    float: left;
+    margin-top: 1rem;
+    margin-left: 5%
+}
+.AñadirHabito-cancelar{
+    float: left;
+    margin-top: 1rem;
+    margin-left: 2%;
+}
+
+.boton-nuevo{
+    float: left;
+    color: black;
     font-size: 2rem;
-    font-family: var(--fuentePrincipal);
-    height: 5rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-right: 5%;
+}
+
+.boton-nuevo-novisible{
+    float: left;
+    display: inline;
+    visibility: hidden;
+}
+
+.boton-guardar{
+    float: right;
+    color: black;
+    font-size: 2rem;
+    height: 4rem;
+    width: 15rem;
+    text-align: center;
+    margin-right: 5%;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+
+}
+
+.boton:hover{
+    background-color:var(--verdeBtonHover);
 }
 
 /** TEXTO **/
@@ -313,7 +598,6 @@ input::-webkit-inner-spin-button {
     color: var(--grisOscuro);
     font-size: 3rem;
 }
-
 .subtitulo{
     font-weight: bold;
     text-decoration: var(--negro);
@@ -326,149 +610,32 @@ input::-webkit-inner-spin-button {
     font-weight: bold;
 }
 
-/*************/
-/** AJUSTES **/
-/*************/
-
-@media (max-width: 900px) {
-    .input__text{
-        width: 40%;
-        margin-right: 3rem;
-    }
-}
-
-@media (max-width: 699px) {
-    .logo{
-        justify-content:center;
-    }
-    .name_app{
-        margin: auto 0;
-    }
-
-    .input__text{
-        width: 80%;
-        margin-right: 3rem;
-    }
-}
-
-/** Ajuestes - Acceso rápido **/
-
-.menuIcon{
-    display: flex;
-    align-items: flex-start;
-    padding-left: 2rem ;
-}
-
-.nombreModulo{
-    display: flex;
-    align-items: center;
-    padding-left: 2rem ;
-}
-
-.notifYUsuario{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-around;
-    gap: 2rem;
-    margin-right: 2rem;
-}
-
-html, body{
-    height: 100%;
-}
-
-/** HÁBITOS NO SALUDABLES*/
-.titulo__solapa{
-text-align: left;
-background-color: var(--primario);
-padding: 1rem;
-}
-
-.tabla__resultados{
-padding-top: 2rem;
-margin-top: 1rem;
-font-family: var(--fuentePrincipal);
-font-size: 2rem;
-
-}
-.seleccion__input{
-    transform: scale(2);
-    -ms-transform: scale(2);
-    -webkit-transform: scale(2);
-    padding: 5px;
-    margin:2rem;
-}
-.contenido__check{
-    border: solid var(--secundario);
-}
-.scrolltable{
-    height: 600px;
-    overflow: scroll;
-}
-/* para que no salga el azul en los enlaces*/
-a:hover{
-color: black;
-}
-
-.boton{
-    font-family: var(--fuentePrincipal);
-    background-color: rgb(180, 180, 180);
-    color: black;
-    font-size: 2rem;
-    height: 4rem;
-    width: 15rem;
-    text-align: center;
-    margin-top: 5rem;
-    margin-bottom: 2rem;
-    float: right;
-    margin-right: 5%;
-    margin-left: 6rem;
-}
-.contenido__solapa{
-    display: grid;
-    grid-template-columns: 60% 40%;
-    column-gap: 2rem;
-}
-.contenedor__botones{
-    display: flex;
-    flex-direction: column;
-}
-/* *HOVER* */
-.boton:hover{background-color: var(--grisOscuro);}
-.boton__guardar:hover{background-color: var(--verdeBtonHover);}
-.imagen__modificar:hover{
-    -webkit-transform:scale(1.3);
-    -moz-transform:scale(1.3);
-    -ms-transform:scale(1.3);
-    -o-transform:scale(1.3);
-    transform:scale(1.3);}
-
-/*******************/
-
-.tabla__seleccionados{
-    margin-top: 5rem;
-}
-.boton__guardar{
-    font-family: var(--fuentePrincipal);
+.titulo__seccion{
+    /* margin-block-start: 0.3rem;
+    margin-block-end: 0.3rem; */
     background-color: var(--primario);
-    color: black;
-    font-size: 2rem;
-    height: 4rem;
-    width: 15rem;
-    text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    float: right;
-    margin-right: 5%;
+    color: var(--negro);
+    font-weight: normal;
+    padding: 1rem 1rem;
+    width: 49%;
 }
-.imagen__modificar{
-    margin-top: 1rem;
+
+.camposAVerificar{
+    background-color: var(--grisOscuro);
 }
-.contenedor__guardar{
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    margin-top: 50rem;
-    margin-right: 3rem;
+
+.democlass{
+    background-color: var(--grisClaro);
+}
+
+.selected{
+    background-color: red;
+}
+
+/*color icono de sesion*/
+.ace-nav > li.light-blue > a:focus, .ace-nav > li.light-blue > a:hover, .ace-nav > li.open.light-blue > a {
+    background-color: #393939;
+}
+.ace-nav > li.light-blue > a {
+    background-color: #393939;
 }

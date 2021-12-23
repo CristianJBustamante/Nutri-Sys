@@ -248,17 +248,17 @@ h2{
     max-width: 100%;
     min-width: 500px;
     align-items: center;
+   
 }
 
 @media (min-width: 1360px) {
     .contenido__parametros{
         display: grid;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: 4fr 1fr;
         grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
         background-color: var(--grisMedio);
         margin: 2rem;
-        padding: 1rem;
-        gap: 1rem;
+        /* padding: 1rem; */
     }
 }
 
@@ -277,6 +277,12 @@ h2{
             grid-row: 5/6;
             grid-column: 2/3;
         }
+        .btnNuevo{
+            grid-row: 5/6;
+            grid-column: 3/3;
+
+        }
+        
     }
 }
 
@@ -290,9 +296,14 @@ h2{
         gap: 1rem;
     }
 
-    .btnBuscar{
+    .btnBuscar {
         grid-row: 9/10;
     }
+    .btnNuevo{
+        grid-row: 10/11;
+        
+    }
+
 }
 
 .td__width--L{width: 250px;}
@@ -568,3 +579,22 @@ a:hover{
     color: #000;
     /* text-decoration: none; */
 }
+/* boton nuevo plan*/
+.normal{
+    font-size: 2rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+.botones{
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+    padding-bottom: -1rem;
+}
+.btnBuscar{
+    margin-top: 2rem;
+}
+
+
+

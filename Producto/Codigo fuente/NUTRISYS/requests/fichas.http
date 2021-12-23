@@ -46,4 +46,4 @@ Content-Type: application/json
 
 ###
 
-PUT {{api}}/registrarhabitopactado/0/1
+get {{api}}/consultapaciente/68

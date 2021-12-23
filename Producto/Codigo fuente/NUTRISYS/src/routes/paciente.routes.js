@@ -79,20 +79,36 @@ router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged,
   });
   });
  //consulta hc paciente - Gráficos
-  router.get('/pacientes/consultapacientefichas/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  router.get('/pacientes/graficospaciente/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
     res.render('pacientes/consultadatos/graficosPaciente.html',{
       isAuthenticated : req.isAuthenticated(),
       user : req.user
   });
   });
  //consulta hc paciente - Consulta
- router.get('/pacientes/consultapacienteplan/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+ router.get('/pacientes/buscarconsultaspaciente/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/consultadatos/BusquedaConsultaGeneral.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user
 });
 });
 //consulta hc paciente - Consulta
+router.get('/pacientes/consultageneral/cns=:cons_id/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/consultasPaciente.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+});
+});
+
+//consulta hc paciente - Buscar Planes
+router.get('/pacientes/buscarplanes/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/BusquedaPlanAlimenticio.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+});
+});
+
+//consulta hc paciente - Planes
 router.get('/pacientes/consultageneral/cns=:cons_id/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/consultadatos/consultasPaciente.html',{
     isAuthenticated : req.isAuthenticated(),

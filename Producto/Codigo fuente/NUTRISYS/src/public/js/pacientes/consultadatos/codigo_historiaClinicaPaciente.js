@@ -93,12 +93,12 @@ fetch(query)
 const mostrarData = (data) => {
     console.log(data) 
     let solapas=''
-    solapas =  `<a class="resumen__solapa"  href="../consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a>
-                <a class="resumen__solapa--seleccionado" href="../consultapaciente/hc=${data.pac_nrohc}">Resumen</a>
-                <a class="resumen__solapa" href="../consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
-                <a class="resumen__solapa" href="../consultapacienteplan/hc=${data.pac_nrohc}">Evoluciones</a>
-                <a class="resumen__solapa" href="../consultapacientefichas/hc=${data.pac_nrohc}">Gráficos</a>
-                <a class="resumen__solapa" href="">Documentos</a>
+    solapas =  `<a class="resumen__solapa"  href="/pacientes/consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a>
+                <a class="resumen__solapa--seleccionado" href="/pacientes/consultapaciente/hc=${data.pac_nrohc}">Resumen</a>
+                <a class="resumen__solapa" href="/pacientes/consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
+                <a class="resumen__solapa" href="/pacientes/buscarconsultaspaciente/hc=${data.pac_nrohc}">Evoluciones</a>
+                <a class="resumen__solapa" href="/pacientes/graficospaciente/hc=${data.pac_nrohc}">Gráficos</a>
+                <a class="resumen__solapa" href="/pacientes/buscarplanes/hc=${data.pac_nrohc}">Planes</a>
                 <a class="resumen__solapa" href="">Estudios</a>
                 <a class="resumen__solapa--resto"></a>`        
     document.getElementById('solapas').innerHTML = solapas  

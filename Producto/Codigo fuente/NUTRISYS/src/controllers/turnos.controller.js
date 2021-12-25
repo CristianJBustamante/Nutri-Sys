@@ -46,6 +46,10 @@ export const getagendaxlegajo = async(req,res) => {
     }
 } 
 
+//GET AGENDA X HC PACIENTE
+
+
+
 //GET TURNO X ID
 export const getturnoxidturno = async(req,res) => {
     try {

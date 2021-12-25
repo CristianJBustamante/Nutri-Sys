@@ -5577,6 +5577,15 @@ button.btn:active {
 .btn.btn-app>.badge-light, .btn.btn-app>.label-light {
     color: #888;
 }
+
+.badge-verde, .badge.badge-verde, .label-verde, .label.label-verde {
+    background-color: #00aa00;
+}
+
+.badge-brown, .badge.badge-brown, .label-brown, .label.label-brown {
+    background-color: #98906E;
+}
+
 .btn.btn-app>.label {
     padding: 1px 6px 3px;
     font-size: 13px;

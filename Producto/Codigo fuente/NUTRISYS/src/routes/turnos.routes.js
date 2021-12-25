@@ -24,6 +24,7 @@ router.get('/turnos',AuthMiddleware.isLogged, (req,res) => {
   });
 });
 
+
 //ACCESO A DATOS
 router.get("/turnosempleado/:turno_legajoempleado",getturnosxlegajo)
 router.get("/turno/:turno_id",getturnoxidturno)

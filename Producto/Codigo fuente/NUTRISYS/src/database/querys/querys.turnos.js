@@ -25,5 +25,8 @@ actualizarhorafin: "UPDATE turno SET turno_fecha=@turno_fecha,turno_horainicio=@
 
 borrarturno: "DELETE FROM turno WHERE turno_id=@turno_id",
 
-getturnoxidturno: "SELECT * FROM turno where turno_id=@turno_id"
+getturnoxidturno: "SELECT * FROM turno where turno_id=@turno_id",
+
+getturnoxhc: "SELECT * FROM turno where turno_nrohc=@turno_nrohc"
+
 }

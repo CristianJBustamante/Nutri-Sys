@@ -498,7 +498,7 @@
 								<article class="contenido__article">
 									<section class="contenido__section" id="titulopagina"> 
 										<h2 class="titulo " id="data">Paciente tanto</h2> <!--Modo Edicion Modificar Etiqueta-->
-										<input class="btn btn-white btn-primary btn__crear" id="registrar" type="button" name="Guardar" value="Guardar" onclick="registrarEmpleado()">
+										<input class="btn btn-white btn-primary btn__crear" id="registrar" type="button" name="Guardar" value="Guardar" onclick="registrarUsuarioPaciente()">
 									</section>
 									
 									<section class="contenido__section--datosPersonales"> 
@@ -508,7 +508,7 @@
 										<div class="contenido__datosPersonales">
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Su correo electronico actual es:</h2>
-												<input type="text" disabled=true id="emp_nombre" class="input__padding" >
+												<input type="text" disabled=true id="usu_correo" class="input__padding" >
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Contraseña(*):</h2>
@@ -688,6 +688,8 @@
 		});
 		
 	</script>
+	<script src="/js/usuarios/codigo_registrarUsuarioPaciente.js"></script>
+
 	</body>
 	
 </html>

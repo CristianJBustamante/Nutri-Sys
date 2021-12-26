@@ -97,3 +97,7 @@ DELETE {{api}}/borrarusuxip/69730
 ###
 
 GET {{api}}/noperfil/69669
+
+###
+
+GET {{api}}/usuarios/registrarUsuarioPaciente/1037

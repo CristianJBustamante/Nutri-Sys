@@ -46,7 +46,20 @@ export const getagendaxlegajo = async(req,res) => {
     }
 } 
 
-//GET AGENDA X HC PACIENTE
+//GET TURNOS X HC
+export const getturnosxhc = async(req,res) => {
+    try {
+        const {turno_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('turno_nrohc', turno_nrohc)
+            .query(turnosquerys.getturnoxhc)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
 
 
 

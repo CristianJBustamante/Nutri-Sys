@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
-import {actualizarestadoturno, actualizarhoraturno, borrarturno, getagendaxlegajo, getprofesionales, getturnosxlegajo, getturnoxidturno, nuevoTurno} from "../controllers/turnos.controller";
+import {actualizarestadoturno, actualizarhoraturno, borrarturno, getagendaxlegajo, getprofesionales, getturnosxhc, getturnosxlegajo, getturnoxidturno, nuevoTurno} from "../controllers/turnos.controller";
 
 //ACCESO A PAGINAS
 //MIS TURNOS
@@ -25,7 +25,7 @@ router.get('/turnos',AuthMiddleware.isLogged, (req,res) => {
 });
 
 //RECEP MIS TURNOS PACIENTE
-router.get('/turnospaciente/leg=:pac_nrohc/',AuthMiddleware.isLogged, (req,res) => {
+router.get('/turnospaciente/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/turnos/MisTurnosPaciente.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user
@@ -34,6 +34,8 @@ router.get('/turnospaciente/leg=:pac_nrohc/',AuthMiddleware.isLogged, (req,res) 
 
 //ACCESO A DATOS
 router.get("/turnosempleado/:turno_legajoempleado",getturnosxlegajo)
+router.get("/turnospaciente/:turno_nrohc",getturnosxhc)
+
 router.get("/turno/:turno_id",getturnoxidturno)
 router.get("/profesionales",getprofesionales)
 router.get("/agendaempleado/:agen_legajoempleado",getagendaxlegajo)

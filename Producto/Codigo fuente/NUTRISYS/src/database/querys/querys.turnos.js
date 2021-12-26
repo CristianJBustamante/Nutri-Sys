@@ -27,6 +27,12 @@ borrarturno: "DELETE FROM turno WHERE turno_id=@turno_id",
 
 getturnoxidturno: "SELECT * FROM turno where turno_id=@turno_id",
 
-getturnoxhc: "SELECT * FROM turno where turno_nrohc=@turno_nrohc"
+getturnoxhc: "select convert(datetime,turno_fecha)+convert(datetime,turno_horainicio) as turno_fechahora, "+
+"convert(datetime,turno_fecha)+convert(datetime,turno_horafin) as turno_fechahorafin,"+
+ "* from turno t inner join empleado e on t.turno_legajoempleado=e.emp_legajo "+
+                "inner join tipo_turno tt on t.turno_idtipo=tt.tipoturno_id "+
+                "left join paciente p on t.turno_nrohc=p.pac_nrohc "+
+                "left join estado_turno et on t.turno_idestado=et.estadoturno_id "+
+                "where turno_nrohc = @turno_nrohc",
 
 }

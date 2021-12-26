@@ -650,7 +650,7 @@
 			var eventos = []
 			var agen = []
 
-			let query = 'http://localhost:3000/turnosempleado/'+emp_legajo
+			let query = 'http://localhost:3000/turnospaciente/'+turno_nrohc
         fetch(query)
             .then(response => response.json())
             .then(turnos => cargarturnos(turnos))
@@ -704,24 +704,7 @@
                 turno.fecharegistro = turnos[i].turno_fecharegistro
 			    eventos.push(turno)	 
 		    }
-					let query = 'http://localhost:3000/agendaempleado/'+emp_legajo
-        		fetch(query)
-            	.then(response => response.json())
-            	.then(agenda => cargaragenda(agenda))
-            	.catch(error => console.log(error))
-        		const cargaragenda = (agenda) => {
-					 for (let i = 0; i<agenda.length; i++){
-						var dia = {}
-						var horainicio=agenda[i].agen_horainicio
-						var horafin = agenda[i].agen_horafin
-						horainicio=horainicio.substr(11,5)
-						horafin=horafin.substr(11,5)
-					 	dia.start = horainicio
-					 	dia.end = horafin
-					 	dia.dow = [agenda[i].agen_diasemana]
-					 	agen.push(dia)	 
-					 }
-					console.log(agen)
+					
 			var calendar = $('#calendar').fullCalendar({
 				//isRTL: true,
 				//firstDay: 1,// >> change first day of week 
@@ -1035,13 +1018,13 @@
 
 
 
-		}
+		
 		}
 		})
 
 
 	</script>
 </body>
-<script src="/js/pacientes/turnos/misTurnos.js"></script>
+<script src="/js/pacientes/turnos/misTurnosPaciente.js"></script>
 
 </html>

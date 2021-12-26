@@ -20,6 +20,20 @@ export const getUsuario = async(req,res) => {
     }
 } 
 
+export const getUsuarioPaciente = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc)
+            .query(usuquerys.getUsuarioPaciente)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 
+
 //TRAER TODOS LOS USUARIOS
 export const getallusers = async(req,res) => {
     try {

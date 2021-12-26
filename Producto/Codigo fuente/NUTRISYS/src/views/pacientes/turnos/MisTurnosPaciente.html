@@ -663,7 +663,8 @@
                 if (turnos[i].estadoturno_descripcion == null) {
                     titulo = "Reservado"
                 }else{
-			        titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
+			        titulo = "Lic. " + turnos[i].emp_apellido + " " + turnos[i].emp_nombre 
+			        // titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
 			    }
                 var fechahora = turnos[i].turno_fechahora
                 var fechahorafin = turnos[i].turno_fechahorafin
@@ -674,7 +675,7 @@
 				var editable
 			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
 				    clase = "label-verde"
-					editable = true
+					editable = false
 			    }
 			    if (turnos[i].estadoturno_descripcion=='Cancelado') {
 				    clase = "label-turno-cancelado label-danger invisible"
@@ -702,6 +703,10 @@
 			    turno.idturno = turnos[i].turno_id
 			    turno.nrohc = turnos[i].turno_nrohc
                 turno.fecharegistro = turnos[i].turno_fecharegistro
+				turno.horario = turnos[i].turno_fechahora
+				turno.apeprofesional = turnos[i].emp_apellido
+				turno.nomprofesional = turnos[i].emp_nombre
+				turno.profesional = turnos[i].emp_apellido + " " + turnos[i].emp_nombre
 			    eventos.push(turno)	 
 		    }
 					
@@ -778,7 +783,6 @@
 					// console.log('Event: ' + calEvent._end._d);
 					//display a modal
 
-					if (calEvent.estado == 'Confirmado') {
 						var modal =
 							'<div class="modal fade">\
 			  <div class="modal-dialog">\
@@ -786,52 +790,15 @@
 				 <div class="modal-body">\
 				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
 				   <form class="no-margin">\
-					<label>HC Paciente: &nbsp;</label>\
-						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
-					  <label>Doc Paciente: &nbsp;</label>\
-						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+						<label style="font-weight: bold;">Profesional: &nbsp;</label>\
+						<label> ' +calEvent.profesional + ' &nbsp;</label>\
 						<br>\
-						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
-						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
+						<label style="font-weight: bold;">Servicio: &nbsp;</label>\
+						<label>  Nutrición  &nbsp;</label>\
 						<br>\
-						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
-						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
+						<label style="font-weight: bold;">Horario: &nbsp;</label>\
+						<label> ' + buscarHorarioTurno(calEvent.horario) + ' &nbsp;</label>\
 						<br>\
-						<label style="font-weight: bold;">Celular: &nbsp;</label>\
-						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
-						<div align="right"><button id="btnReceptar" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-right: 2rem"><i class="ace-icon fa fa-list"></i> Receptar</button>\</div>\
-				   </form>\
-				 </div>\
-				 <div class="modal-footer">\
-					<button type="button" class="btn btn-sm btn-danger" data-action="delete"><i class="ace-icon fa fa-trash-o"></i> Cancelar Turno</button>\
-					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
-				 </div>\
-			  </div>\
-			 </div>\
-			</div>';
-					}
-					else if (calEvent.estado == 'Receptado') {
-						var modal =
-							'<div class="modal fade">\
-			  <div class="modal-dialog">\
-			   <div class="modal-content">\
-				 <div class="modal-body">\
-				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
-				   <form class="no-margin">\
-					  <label>HC Paciente: &nbsp;</label>\
-						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
-					  <label>Doc Paciente: &nbsp;</label>\
-						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
-					 	<button id="btnAtender" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-list"></i> Atender</button>\
-						<br>\
-						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
-						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
-						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Celular: &nbsp;</label>\
-						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
 				   </form>\
 				 </div>\
 				 <div class="modal-footer">\
@@ -840,67 +807,7 @@
 			  </div>\
 			 </div>\
 			</div>';
-					}
-					else if (calEvent.estado == 'Cancelado') {
-						var modal =
-							'<div class="modal fade">\
-			  <div class="modal-dialog">\
-			   <div class="modal-content">\
-				 <div class="modal-body">\
-				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
-				   <form class="no-margin">\
-					<label>HC Paciente: &nbsp;</label>\
-						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
-					  <label>Doc Paciente: &nbsp;</label>\
-						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
-						<br>\
-						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
-						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
-						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Celular: &nbsp;</label>\
-						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
-				   </form>\
-				 </div>\
-				 <div class="modal-footer">\
-					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
-				 </div>\
-			  </div>\
-			 </div>\
-			</div>';
-					}
-					else if (calEvent.estado == 'Finalizado') {
-						var modal =
-							'<div class="modal fade">\
-			  <div class="modal-dialog">\
-			   <div class="modal-content">\
-				 <div class="modal-body">\
-				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
-				   <form class="no-margin">\
-					<label>HC Paciente: &nbsp;</label>\
-						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
-					  <label>Doc Paciente: &nbsp;</label>\
-						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
-						<br>\
-						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
-						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
-						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Celular: &nbsp;</label>\
-						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
-				   </form>\
-				 </div>\
-				 <div class="modal-footer">\
-					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
-				 </div>\
-			  </div>\
-			 </div>\
-			</div>';
-					}
+					
 
 
 					var modal = $(modal).appendTo('body');

@@ -202,16 +202,9 @@ function buscarDocPaciente(hc){
 
 }
 
-function confirmarTurno(momento){
 
-    var result = confirm("Desea confirmar turno: " + momento + " ?.");
-    return result;
-}
 
-function generarTurno(hcPaciente, momentoStart, momentoEnd){
-    // Codigo Pos-Back
-    alert("El turno se generó correctamente");
-}
+
 
 function mostrarHC(title){
     var hc = title.split(" - ");
@@ -234,15 +227,16 @@ function mostrarDoc(title){
     
 }
 
-function validarDoc(doc){
-    var docs=["37463213","22321456","29384732"];
-    if(docs.includes(doc)){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
+// REVISAR SI SE PUEDE SACAR
+// function validarDoc(doc){
+//     var docs=["37463213","22321456","29384732"];
+//     if(docs.includes(doc)){
+//         return true;
+//     }
+//     else{
+//         return false;
+//     }
+// }
 
 function buscarHCPorDoc(doc){
 
@@ -258,82 +252,12 @@ function buscarHCPorDoc(doc){
     return hc;
 }
 
-function receptarTurno(turno){
-    console.log(turno);
-    const post = {
-        turno_idestado: 2}
-    console.log(post)
-     try {
-        console.log(JSON.stringify(post));
-        fetch("http://localhost:3000/actualizarturno/"+turno.idturno,{
-        method:"PUT",
-        body: JSON.stringify(post),
-        headers: {
-        "Content-type": "application/json"
-        }
-        })  .then(res=>res.json())
-            .then(data=>console.log(data))
-    } catch (error) {
-        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-        console.log(error)
-        } 
-    
+
+
+function buscarHorarioTurno(horario){
+    var horarioCorto = horario.substr(11,18);
+    return horarioCorto.substr(0,8);
 }
 
-function atenderPaciente(turno){
-    console.log(turno);
-    const post = {
-        turno_idestado: 3}
-    console.log(post)
-     try {
-        console.log(JSON.stringify(post));
-        fetch("http://localhost:3000/actualizarturno/"+turno.idturno,{
-        method:"PUT",
-        body: JSON.stringify(post),
-        headers: {
-        "Content-type": "application/json"
-        }
-        })  .then(res=>res.json())
-            .then(data=>console.log(data))
-    } catch (error) {
-        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-        console.log(error)
-        } 
-        console.log(turno.nrohc)
-         let query = 'http://localhost:3000/consultanrohc/'+turno.nrohc
-         fetch(query)
-         .then(response => response.json())
-         .then(consultas => consulta(consultas))
-         .catch(error => console.log(error))
-         const consulta = (consultas) => {
-             console.log(consultas)
-             if (consultas.length>0) {
-                 location.href = 'http://localhost:3000/consulta/registrarconsulta/hc='+turno.nrohc+'/trn='+turno.idturno
-             }else{
-                 location.href = '/consulta/registrarFichaInicial/hc='+turno.nrohc+'/trn='+turno.idturno
-             }
-         }
-    
-}
 
-function cancelarTurno(turno){
-    console.log(turno);
-    const post = {
-        turno_idestado: 4}
-    console.log(post)
-     try {
-        console.log(JSON.stringify(post));
-        fetch("http://localhost:3000/actualizarturno/"+turno.idturno,{
-        method:"PUT",
-        body: JSON.stringify(post),
-        headers: {
-        "Content-type": "application/json"
-        }
-        })  .then(res=>res.json())
-            .then(data=>console.log(data))
-    } catch (error) {
-        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-        console.log(error)
-        } 
-    
-}
+

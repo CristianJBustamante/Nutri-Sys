@@ -62,6 +62,14 @@ router.get('/usuarios/consultausuario/',AuthMiddleware.isLogged, (req,res) => {
 });
 });
 
+//Registrar usuario Paciente
+router.get('/usuarios/registrarUsuarioPaciente',AuthMiddleware.isLogged, (req,res) => {
+  res.render('usuarios/registrarUsuarioPaciente.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+});
+});
+
 //ACCESO A DATOS
 router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
 router.get('/usuario',getallusers)

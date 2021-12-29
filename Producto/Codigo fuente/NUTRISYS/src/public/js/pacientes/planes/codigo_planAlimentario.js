@@ -90,22 +90,90 @@ fetch(query)
 
 const mostrarData = (data) => {
     console.log(data) 
-    let solapas=''
-    solapas += `<a class="nav__solapa"  href="/pacientes/consultapacientefichainicial/hc=${data.pac_nrohc}">Ficha Inicial</a>
-                <a class="nav__solapa" href="/pacientes/consultapaciente/hc=${data.pac_nrohc}">Resumen </a>
-                <a class="nav__solapa" href="/pacientes/consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
-                <a class="nav__solapa" href="/pacientes/buscarconsultaspaciente/hc=${data.pac_nrohc}">Evoluciones</a>
-                <a class="nav__solapa" href="/pacientes/graficospaciente/hc=${data.pac_nrohc}">Gráficos</a>
-                <a class="nav__solapa--seleccionado" href="">Planes</a>
-                <a class="nav__solapa" href="">Estudios</a>
-                <a class="nav__solapa--resto"></a>`
     let cabecera =''
-    document.getElementById('solapas').innerHTML = solapas
     cabecera += `<h2>Paciente: ${data.pac_apellido}, ${data.pac_nombre}</h2><h2>HC: ${data.pac_nrohc}</h2><h2>DOC.: ${data.pac_nrodoc}</h2><h2>FN: ${data.pac_fechanac}</h2>`        
     document.getElementById('pac_datos').innerHTML = cabecera
     }
 
 
-function nuevoplan() {
-  location.href ="/pacientes/nuevoplanalimentario/hc="+pac_nrohc
+
+var comida;
+var titulo;
+var descripcion;
+
+let cerrar = document.querySelectorAll(".cerrar");
+let abrir = document.querySelectorAll(".cta");
+let modal = document.querySelectorAll(".modales")[0];
+let modalC = document.querySelectorAll(".modales-container")[0];
+
+abrir.forEach(item =>{
+    item.addEventListener("click", function(e){
+        e.preventDefault();
+        modalC.style.opacity = "1";
+        modalC.style.visibility = "visible";
+        modal.classList.toggle("modales-close");
+        traerDatosComida();
+})
+})
+
+cerrar.forEach(item =>{
+    item.addEventListener("click", function(e){
+        modal.classList.toggle("modales-close");
+        setTimeout(function(){
+            modalC.style.opacity = "0";
+            modalC.style.visibility = "hidden";
+        }, 900);
+})
+})
+
+window.addEventListener("click", function(e){
+    if(e.target == modalC){
+        modal.classList.toggle("modales-close");
+    setTimeout(function(){
+        modalC.style.opacity = "0";
+        modalC.style.visibility = "hidden";
+    }, 900);
+    }
+})
+
+function comidaAEditar(comidaEditar){
+    comida = comidaEditar;
+}
+
+function guardarComida(){
+    // console.log(document.getElementById("tituloComida").value);
+    // var nodo = "<h2>" + document.getElementById("tituloComida").value + "</h2>";
+    // console.log(nodo);
+    // document.getElementById(comida).appendChild(nodo);
+    // document.getElementById(comida).innerHTML = nodo;
+
+    var capa = document.getElementById(comida);
+    var tituloComida = document.createElement("h3");
+    var descripcionComida = document.createElement("h3");
+    tituloComida.innerHTML = document.getElementById("tituloComida").value;
+    descripcionComida.innerHTML = document.getElementById("descripcionComida").value;
+    descripcionComida.style.display = "none";
+    capa.innerHTML = "";
+    capa.appendChild(tituloComida);
+    capa.appendChild(descripcionComida);
+}
+
+function traerDatosComida(){
+    var comidaDatos = document.getElementById(comida);
+    var tbxTitulo = document.getElementById("tituloComida");
+    var tbxDescripcion = document.getElementById("descripcionComida");
+    tbxTitulo.value="";
+    tbxDescripcion.value="";
+    // console.log(comidaDatos.firstChild.innerText);
+    // console.log(comidaDatos.lastChild.innerText);
+    if(comidaDatos.firstChild.innerText != undefined){
+        tbxTitulo.value = comidaDatos.firstChild.innerText;
+    }
+    if(comidaDatos.lastChild.innerText != undefined){
+        tbxDescripcion.value = comidaDatos.lastChild.innerText;
+    }
+}
+
+function registrarPlan(){
+    alert("Plan registrado correctamente!.");
 }

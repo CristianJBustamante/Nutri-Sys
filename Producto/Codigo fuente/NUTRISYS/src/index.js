@@ -40,6 +40,7 @@ app.use(require('./routes/consultas.routes'));
 app.use(require('./routes/paciente.routes'));
 app.use(require('./routes/usuario.routes'));
 app.use(require('./routes/turnos.routes'));
+app.use(require('./routes/planes.routes'));
 //Static Files
 app.use(express.static(path.join(__dirname,'public')));
 app.use((req, res, next) => {

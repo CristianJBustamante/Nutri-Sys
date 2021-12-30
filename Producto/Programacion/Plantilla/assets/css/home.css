@@ -21,7 +21,7 @@
 }
 
 .saludo_bienvenida{
-    padding-top: 4rem;
+    padding-top: 1rem;
     padding-left: 2rem;
     font-weight: bold;
 }
@@ -33,5 +33,10 @@
     height: 100%;
     align-items: center;
     justify-content: center;
+    background-color: lightgray;
+    margin-top: 1rem;
+    padding-bottom: 2rem;
+    padding-top: 3rem;
+
 }
 

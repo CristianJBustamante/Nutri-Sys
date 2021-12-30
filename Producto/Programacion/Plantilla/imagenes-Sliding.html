@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/estilo_Slideimagenes.css">
+</head>
+<body>
+    <section class="seccion-imagen">
+        <div class="slider">
+            <div class="slide">
+                <input type="radio" name="radio-btn" id="radio1">
+                <input type="radio" name="radio-btn" id="radio2">
+                <input type="radio" name="radio-btn" id="radio3">
+                <input type="radio" name="radio-btn" id="radio4">
+                <div class="st-imagen first">
+                    <img src="../Plantilla/assets/images/frase1.webp" alt="">
+                </div>
+                <div class="st-imagen">
+                    <img src="../Plantilla/assets/images/frase2.webp" alt="">
+                </div>
+                <div class="st-imagen">
+                    <img src="../Plantilla/assets/images/frase3.webp" alt="">
+                </div>
+                <div class="st-imagen">
+                    <img src="../Plantilla/assets/images/frase4.webp" alt="">
+                </div>
+                <div class="nav-auto-slider">
+                    <div class="a-b1"></div>
+                    <div class="a-b2"></div>
+                    <div class="a-b3"></div>
+                    <div class="a-b4"></div>
+                </div>
+            </div>
+            <div class="nav-m">
+                <label for="radio1" class="m-btn"></label>
+                <label for="radio2" class="m-btn"></label>
+                <label for="radio3" class="m-btn"></label>
+                <label for="radio4" class="m-btn"></label>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        var counter=1;
+        setInterval(function(){
+            document.getElementById('radio' + counter).checked=true;
+            counter++;
+            if(counter > 4){
+                counter=1;
+            }
+        },5000);
+
+    </script>
+</body>
+</html>

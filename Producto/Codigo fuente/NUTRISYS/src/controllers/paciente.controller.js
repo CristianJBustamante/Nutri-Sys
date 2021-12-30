@@ -1,5 +1,4 @@
 import {getConnection,sql,pacquerys} from "../database";
-import {transporter} from "../database";
 
 //----------------------------------------------REGISTRAR----------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------
@@ -21,9 +20,9 @@ export const nuevoPaciente = async (req,res) => {
     if (pac_telefono2==null){pac_telefono2=''}
     if (pac_direccion==null){pac_direccion=''}
     if (pac_mutual2==null){pac_mutual2=''}
-    if (pac_barrio==null){pac_barrio=''}    
+    if (pac_barrio==null){pac_barrio=''}
 
-    try {        
+    try {
         const pool = await getConnection();
         await pool.request()
             .input('pac_tipodoc',sql.NVarChar,pac_tipodoc)
@@ -45,23 +44,7 @@ export const nuevoPaciente = async (req,res) => {
     } catch (error) {
         res.status(500);
         res.send(error.message);
-    }   
-}
-
-//notificacion
-export const notificacion = async (req,res) => {
-    try {        
-        await transporter.sendMail({
-            from: '"Registro Paciente" <martinmolina1379@gmail.com>', // sender address
-            to: pac_correo, // list of receivers
-            subject: "Registro Paciente", // Subject line
-            html: `<b>Por favor ingrese al siguiente link para generar su usuario</b>"
-            <a href="http://localhost:3000/usuarios/login"></a>`,
-            });
-    } catch (error) {
-        res.status(500);
-        res.send(error.message);
-    }   
+    }         
 }
 
 //----------------------------------------------ACTUALIZAR---------------------------------------------------------------

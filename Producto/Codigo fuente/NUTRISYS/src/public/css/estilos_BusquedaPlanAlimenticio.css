@@ -224,6 +224,7 @@ h2{
 .contenidoPagina{
     display: flex;
     flex-direction: column;
+    background-color: var(--grisClaro);
 }
 
 /** ARTICLE **/

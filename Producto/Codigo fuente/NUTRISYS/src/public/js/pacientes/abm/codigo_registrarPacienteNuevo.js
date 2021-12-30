@@ -210,7 +210,11 @@ function registrarPaciente(){
         }
         }).then(res=>res.json())
         .then(data=>console.log(data))
-        console.log(nuevo)
+        console.log(nuevo)        
+
+    } catch (error) {
+        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+    }
         if (nuevo==1) {
             swal("Paciente Registrado","Paciente Registrado con Éxito!","success")
                 .then((value) => {
@@ -221,16 +225,8 @@ function registrarPaciente(){
             swal("Paciente Actualizado","Paciente "+pac_nrohc+" Actualizado con Éxito!","success")
                 .then((value) => {
                         location.href ="../buscarpaciente"})
-        }    
-
-    } catch (error) {
-        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        }   
     }
-    
-     
-      
-    }
-    
 }
 
 function validarDatos(){

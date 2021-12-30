@@ -191,7 +191,7 @@ function registrarUsuarioPaciente() {
                     } 
                 swal("Usuario Registrado","Usuario "+usu_correo+" Registrado con Éxito!","success")
                 .then((value) => {
-                        location.href ="/turnospaciente/hc="+pac_nrohc})
+                        location.href ="http://localhost:3000/usuarios/login"})
         }
 }
 }

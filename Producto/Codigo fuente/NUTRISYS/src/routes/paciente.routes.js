@@ -51,12 +51,12 @@ router.get('/pacientes/modificarpaciente/hc=:pac_nrohc',AuthMiddleware.isLogged,
   });
   });
   //consulta hc paciente - Estudios
-  router.get('/pacientes/consultapacienteestudios/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
-    res.render('pacientes/consultadatos/estudiosPaciente.html',{
-      isAuthenticated : req.isAuthenticated(),
-      user : req.user
-  });
-  });
+  // router.get('/pacientes/consultapacienteestudios/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  //   res.render('pacientes/consultadatos/estudiosPaciente.html',{
+  //     isAuthenticated : req.isAuthenticated(),
+  //     user : req.user
+  // });
+  // });
   //consulta hc paciente - Habitos
   router.get('/pacientes/consultapacientehabitos/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
     res.render('pacientes/consultadatos/habitosPaciente.html',{

@@ -205,7 +205,7 @@ a:hover{
 }
 
 .nav__solapa{
-    width: 10%;
+    width: 15%;
     border: black 0.3rem;
     border-style: solid;
     text-align: center;
@@ -223,7 +223,7 @@ a:hover{
 }
 
 .nav__solapa--seleccionado{
-    width: 10%;
+    width: 13%;
     border: var(--negro) 0.3rem;
     border-style: solid solid none solid;
     text-align: center;

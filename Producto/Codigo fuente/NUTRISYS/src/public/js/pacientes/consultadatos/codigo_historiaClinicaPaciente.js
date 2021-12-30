@@ -99,7 +99,6 @@ const mostrarData = (data) => {
                 <a class="resumen__solapa" href="/pacientes/buscarconsultaspaciente/hc=${data.pac_nrohc}">Evoluciones</a>
                 <a class="resumen__solapa" href="/pacientes/graficospaciente/hc=${data.pac_nrohc}">Gráficos</a>
                 <a class="resumen__solapa" href="/pacientes/buscarplanes/hc=${data.pac_nrohc}">Planes</a>
-                <a class="resumen__solapa" href="">Estudios</a>
                 <a class="resumen__solapa--resto"></a>`        
     document.getElementById('solapas').innerHTML = solapas  
     let cabecera =''

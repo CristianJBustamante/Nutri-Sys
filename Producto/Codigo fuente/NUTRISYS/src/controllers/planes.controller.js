@@ -76,3 +76,18 @@ export const novigentes = async (req,res) => {
         res.send(error.message);
     }         
 }
+
+//BUSCAR PLANES X PACIENTE 
+export const buscarplanes = async(req,res) => {
+    const {plan_nrohc} = req.params;
+    try {
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('plan_nrohc',sql.Int,plan_nrohc)
+            .query(planesquerys.buscarplanes)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+} 

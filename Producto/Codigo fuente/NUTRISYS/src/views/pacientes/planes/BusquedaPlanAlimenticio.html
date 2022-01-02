@@ -354,7 +354,7 @@
 							</li>
 	
 							<li class="" id="misturnos">
-								<a id="user" href="http://localhost:3000/turnos/leg=<%= user.usu_usuario %>">
+								<a id="user" href="/turnos/leg=<%= user.usu_usuario %>">
 									<i class="menu-icon fa fa-caret-right"></i>
 									Mis Turnos
 								</a>
@@ -514,7 +514,7 @@
 									<h2 class="parametro paramHC1">Fecha hasta:</h2>
                                     <input type="date" autocomplete="off" class="parametro__input padding__inputText paramHC2" id="fechahasta" placeholder="Ingrese fecha hasta a buscar">
 									<div class="botones">
-                                    <input type="button" value="Buscar Plan alimenticio" class="normal parametro__input btnBuscar" onclick="buscarConsulta()"> 
+                                    <input type="button" value="Buscar Plan alimenticio" class="normal parametro__input btnBuscar" onclick="buscarplanes()"> 
 									<input type="button" value="Nuevo Plan" class="normal parametro__input btnNuevo" onclick="nuevoplan()">
 									</div>
                                 </div> 
@@ -524,9 +524,9 @@
                                     <table class="table table-hover table-fixed">
                                         <thead>
                                           <tr class="tr__width">
-                                            <th class="td__width--L" scope="col">N° Plan</th>
+                                            <th class="td__width--L" scope="col">Plan Vigente</th>
                                             <th class="td__width--C"  scope="col">Fecha</th>
-											<th class="td__width--A"  scope="col">Observación</th>
+											<th class="td__width--A"  scope="col">Profesional</th>
                                           </tr>
                                         </thead>
                                         <tbody id="data">
@@ -811,7 +811,7 @@
 			})
 		</script>
         <!-- agregar scrip para la busqueda de los planes-->
-		 <script src="/js/pacientes/consultadatos/codigo_busquedaPlanes.js"></script>
+		 <script src="/js/pacientes/planes/codigo_busquedaPlanes.js"></script>
 
 	</body>
 	

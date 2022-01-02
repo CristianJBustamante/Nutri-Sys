@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth");
-const { registrarplan, registrardetplan, getultimoplan, novigentes } = require('../controllers/planes.controller');
+const { registrarplan, registrardetplan, getultimoplan, novigentes, buscarplanes } = require('../controllers/planes.controller');
 
 //ACCESO A PÁGINAS
   //Registrar plan
@@ -40,5 +40,7 @@ router.put('/planesnovigentes/:plan_nrohc', novigentes)
 
 
 router.get("/ultimoplan",getultimoplan)
+router.get("/buscarplanes/:plan_nrohc",buscarplanes)
+
 
 module.exports = router;

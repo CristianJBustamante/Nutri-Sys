@@ -104,7 +104,69 @@ const mostrarData = (data) => {
     document.getElementById('pac_datos').innerHTML = cabecera
     }
 
+var planes
+fetch('/buscarplanes/'+pac_nrohc)
+        .then(response => response.json())
+        .then(data => buscarplanespaciente(data))
+        .catch(error => console.log(error))
+
+const buscarplanespaciente = (data) => {
+  planes=data
+}
 
 function nuevoplan() {
   location.href ="/pacientes/nuevoplanalimentario/hc="+pac_nrohc
+}
+
+function buscarplanes() {
+  let fechadesde= document.getElementById("fechadesde").value
+  let fechahasta= document.getElementById("fechahasta").value
+  if (fechadesde!="" && fechahasta!="" && fechahasta<fechadesde) {
+        fechadesde= document.getElementById("fechahasta").value
+        fechahasta= document.getElementById("fechadesde").value
+        document.getElementById("fechahasta").value = fechahasta
+        document.getElementById("fechadesde").value = fechadesde
+  }
+
+  if( fechadesde == "" &&  fechahasta == "") {
+    let body =''
+        for (let i = 0; i<planes.length; i++){
+          body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+        }
+        document.getElementById('data').innerHTML = body
+  }
+
+  if (fechadesde == "" &&  fechahasta != "") {
+    let body =''
+    for (let i = 0; i<planes.length; i++){
+      if(planes[i].plan_fechacreacion<=fechahasta){
+        body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+
+  }
+
+  if (fechadesde != "" &&  fechahasta == "") {
+    let body =''
+    for (let i = 0; i<planes.length; i++){
+      if(planes[i].plan_fechacreacion>=fechadesde){
+        body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+
+  }
+
+  if (fechadesde != "" &&  fechahasta != "") {
+    let body =''
+    for (let i = 0; i<planes.length; i++){
+      if(planes[i].plan_fechacreacion>=fechadesde && planes[i].plan_fechacreacion<=fechahasta){
+        body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+
+  }
+
 }

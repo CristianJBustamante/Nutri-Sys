@@ -333,22 +333,6 @@ function registrarPlan(){
     }
   })
   
-
-   
 }
-
-  
-  
-    
-      
-    
-  
-
-  
-
-  // for (let i = 1; i<36; i++){
-  // }
-
-  //   
 
 

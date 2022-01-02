@@ -1,7 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/permiso/69669/1
-
+GET {{api}}/buscarplanes/1037
 ###
 
 POST {{api}}/nuevoplanalimentario

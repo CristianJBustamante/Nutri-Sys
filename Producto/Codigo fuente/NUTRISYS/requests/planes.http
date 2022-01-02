@@ -1,0 +1,37 @@
+ @api = http://localhost:3000
+
+GET {{api}}/permiso/69669/1
+
+###
+
+POST {{api}}/nuevoplanalimentario
+Content-Type: application/json
+
+{
+    "plan_id": 1,
+    "plan_nrohc": 1037,
+    "plan_legajoprofesional": 69669,
+    "plan_vigente": 1
+}
+
+###
+
+POST {{api}}/nuevodetplanalimentario
+Content-Type: application/json
+
+{
+    "dplan_id": 1,
+    "dplan_detalle": 3,
+    "dplan_titulo": "Desayuno",
+    "dplan_descripcion": "desayuno"
+}
+
+###
+
+put {{api}}/planesnovigentes/1037
+Content-Type: application/json
+
+{
+    "plan_id": 2
+}
+

@@ -95,6 +95,15 @@ const mostrarData = (data) => {
     document.getElementById('pac_datos').innerHTML = cabecera
     }
 
+//BUSCAR ID ULTIMO PLAN
+let idultimoplan
+fetch("/ultimoplan")
+          .then(response => response.json())
+          .then(data => ultimoplan(data))
+          .catch(error => console.log(error))
+  const ultimoplan = (data) => {
+        idultimoplan=data.plan_id
+        console.log(idultimoplan)}
 
 
 var comida;
@@ -175,5 +184,171 @@ function traerDatosComida(){
 }
 
 function registrarPlan(){
-    alert("Plan registrado correctamente!.");
+  let vigente = 0
+  swal({
+    title: "Atención",
+    text: "Se registrará el Plan Alimentario para el Paciente "+ pac_nrohc + ", ¿Desea que sea el Plan Vigente?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      vigente=1
+      //No vigentes
+      const v = {
+        plan_id: idultimoplan+1
+      }
+      try {
+        fetch("/planesnovigentes/"+pac_nrohc,{
+          method:"PUT",
+          body: JSON.stringify(v),
+          headers: {
+            "Content-type": "application/json"
+          }
+        }).then(res=>res.json())
+          .then(data=>console.log(data))        
+    
+      } catch (error) {
+          swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+          console.log(error)
+        }
+
+      //Insertar Cabecera
+      const plan = {
+        plan_id: idultimoplan+1,
+        plan_nrohc: pac_nrohc,
+        plan_legajoprofesional: milegajo,
+        plan_vigente: vigente
+      }
+      console.log(plan)
+      try {
+        fetch("/nuevoplanalimentario",{
+          method:"POST",
+          body: JSON.stringify(plan),
+          headers: {
+            "Content-type": "application/json"
+          }
+        }).then(res=>res.json())
+          .then(data=>console.log(data))        
+    
+      } catch (error) {
+          swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+          console.log(error)
+        }
+      //Insertar Detalle
+      for (let i = 1; i<36; i++){
+        let titulo=''
+        let descripcion=''
+        var comidaDatos = document.getElementById('comida'+i);
+        if(comidaDatos.firstChild.innerText != undefined){
+          titulo = comidaDatos.firstChild.innerText;
+        } 
+        if(comidaDatos.lastChild.innerText != undefined){
+          descripcion = comidaDatos.lastChild.innerText;
+        }
+        const detplan = {
+          dplan_id: idultimoplan+1,
+          dplan_detalle: 'comida'+i,
+          dplan_titulo: titulo,
+          dplan_descripcion: descripcion
+        }  
+        try {
+          fetch("/nuevodetplanalimentario",{
+            method:"POST",
+            body: JSON.stringify(detplan),
+            headers: {
+              "Content-type": "application/json"
+            }
+          }).then(res=>res.json())
+            .then(data=>console.log(data))        
+      
+        } catch (error) {
+            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+            console.log(error)
+          }
+      }
+      swal("Plan Registrado","Se registró el Plan Vigente del Paciente "+pac_nrohc,"success")
+                .then((value) => {
+                        location.href ="/pacientes/buscarplanes/hc="+pac_nrohc
+                      })
+
+    }else{
+      //Insertar Cabecera
+      const plan = {
+        plan_id: idultimoplan+1,
+        plan_nrohc: pac_nrohc,
+        plan_legajoprofesional: milegajo,
+        plan_vigente: vigente
+      }
+      try {
+        fetch("/nuevoplanalimentario",{
+          method:"POST",
+          body: JSON.stringify(plan),
+          headers: {
+            "Content-type": "application/json"
+          }
+        }).then(res=>res.json())
+          .then(data=>console.log(data))        
+    
+      } catch (error) {
+          swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+          console.log(error)
+        }
+      //Insertar Detalle
+      for (let i = 1; i<36; i++){
+        let titulo=''
+        let descripcion=''
+        var comidaDatos = document.getElementById('comida'+i);
+        if(comidaDatos.firstChild.innerText != undefined){
+          titulo = comidaDatos.firstChild.innerText;
+        } 
+        if(comidaDatos.lastChild.innerText != undefined){
+          descripcion = comidaDatos.lastChild.innerText;
+        }
+        const detplan = {
+          dplan_id: idultimoplan+1,
+          dplan_detalle: 'comida'+i,
+          dplan_titulo: titulo,
+          dplan_descripcion: descripcion
+        }  
+        try {
+          fetch("/nuevodetplanalimentario",{
+            method:"POST",
+            body: JSON.stringify(detplan),
+            headers: {
+              "Content-type": "application/json"
+            }
+          }).then(res=>res.json())
+            .then(data=>console.log(data))        
+      
+        } catch (error) {
+            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+            console.log(error)
+          }
+      }
+      swal("Plan Registrado","Se registró el Plan No Vigente del Paciente "+pac_nrohc,"success")
+                .then((value) => {
+                        location.href ="/pacientes/buscarplanes/hc="+pac_nrohc
+                      })
+    }
+  })
+  
+
+   
 }
+
+  
+  
+    
+      
+    
+  
+
+  
+
+  // for (let i = 1; i<36; i++){
+  // }
+
+  //   
+
+

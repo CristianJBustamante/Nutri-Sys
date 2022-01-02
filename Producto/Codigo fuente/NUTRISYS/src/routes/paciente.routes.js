@@ -100,21 +100,7 @@ router.get('/pacientes/consultageneral/cns=:cons_id/hc=:pac_nrohc',AuthMiddlewar
 });
 });
 
-//consulta hc paciente - Buscar Planes
-router.get('/pacientes/buscarplanes/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
-  res.render('pacientes/consultadatos/BusquedaPlanAlimenticio.html',{
-    isAuthenticated : req.isAuthenticated(),
-    user : req.user
-});
-});
 
-//consulta hc paciente - Planes
-router.get('/pacientes/consultageneral/cns=:cons_id/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
-  res.render('pacientes/consultadatos/consultasPaciente.html',{
-    isAuthenticated : req.isAuthenticated(),
-    user : req.user
-});
-});
 
 
 

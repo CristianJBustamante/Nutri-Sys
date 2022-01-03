@@ -17,6 +17,11 @@ h3{
     font-size: 2rem;
     font-weight: bold;
 }
+h2{
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-size: 2rem;
+}
 
 .th-fila{
     background-color: var(--grisMedio);
@@ -104,6 +109,12 @@ input, textarea{
     width: 100%;
     margin: 1rem 0rem;
     padding: 0 1rem;
+/* 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 5rem; */
+    
 }
 
 .pieDePagina{
@@ -138,6 +149,7 @@ input, textarea{
     border-style: solid solid none solid;
     text-align: center;
     border-radius: 10px 10px 0px 0px;
+    background-color: var(--grisMedio);
 
 
     padding: 1rem;
@@ -156,9 +168,14 @@ input, textarea{
 .contenido__solapa{
     border: var(--negro) 0.3rem;
     border-style: none solid solid solid;
-
     display: flex;
     flex-direction: column;
-
     padding: 1rem;
+    background-color: var(--grisMedio);
+}
+a:hover{
+    color: black;
+}
+.tabla__resultados{
+    background-color: var(--grisMedio);
 }

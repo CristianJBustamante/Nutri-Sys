@@ -91,3 +91,53 @@ export const buscarplanes = async(req,res) => {
         res.send(error.message);
     }
 } 
+
+export const getplanxid = async(req,res) => {
+    const {dplan_id} = req.params;
+    try {
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('dplan_id',sql.Int,dplan_id)
+            .query(planesquerys.getplanxid)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
+//MODIFICAR PLAN
+export const modificarplan = async (req,res) => {
+    let {  dplan_detalle,dplan_titulo,dplan_descripcion } = req.body;
+    const {dplan_id} = req.params;
+
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('dplan_id',sql.Int,dplan_id)
+            .input('dplan_detalle',sql.NVarChar,dplan_detalle)
+            .input('dplan_titulo',sql.NVarChar,dplan_titulo)
+            .input('dplan_descripcion',sql.NVarChar,dplan_descripcion)
+            .query(planesquerys.modificarplan)
+        res.json({ dplan_id,dplan_detalle,dplan_titulo,dplan_descripcion})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
+
+//PLAN VIGENTE
+export const vigentes = async (req,res) => {
+    const {plan_id} = req.body;
+
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('plan_id',sql.Int,plan_id)
+            .query(planesquerys.vigentes)
+        res.json({ plan_id})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}

@@ -96,7 +96,7 @@ const mostrarData = (data) => {
                 <a class="nav__solapa" href="/pacientes/consultapacientehabitos/hc=${data.pac_nrohc}">Hábitos</a>
                 <a class="nav__solapa" href="/pacientes/buscarconsultaspaciente/hc=${data.pac_nrohc}">Evoluciones</a>
                 <a class="nav__solapa" href="/pacientes/graficospaciente/hc=${data.pac_nrohc}">Gráficos</a>
-                <a class="nav__solapa--seleccionado" href="">Planes</a>
+                <a class="nav__solapa--seleccionado" href="/pacientes/buscarplanes/hc=${data.pac_nrohc}">Planes</a>
                 <a class="nav__solapa--resto"></a>`
     let cabecera =''
     document.getElementById('solapas').innerHTML = solapas
@@ -131,7 +131,7 @@ function buscarplanes() {
   if( fechadesde == "" &&  fechahasta == "") {
     let body =''
         for (let i = 0; i<planes.length; i++){
-          body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+          body += `<tr onclick="seleccionarplan(${planes[i].plan_id})"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
         }
         document.getElementById('data').innerHTML = body
   }
@@ -140,7 +140,7 @@ function buscarplanes() {
     let body =''
     for (let i = 0; i<planes.length; i++){
       if(planes[i].plan_fechacreacion<=fechahasta){
-        body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+        body += `<tr onclick="seleccionarplan(${planes[i].plan_id})"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
       }
     }
     document.getElementById('data').innerHTML = body
@@ -151,7 +151,7 @@ function buscarplanes() {
     let body =''
     for (let i = 0; i<planes.length; i++){
       if(planes[i].plan_fechacreacion>=fechadesde){
-        body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+        body += `<tr onclick="seleccionarplan(${planes[i].plan_id})"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
       }
     }
     document.getElementById('data').innerHTML = body
@@ -162,11 +162,15 @@ function buscarplanes() {
     let body =''
     for (let i = 0; i<planes.length; i++){
       if(planes[i].plan_fechacreacion>=fechadesde && planes[i].plan_fechacreacion<=fechahasta){
-        body += `<tr onclick="seleccionarconsulta()"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
+        body += `<tr onclick="seleccionarplan(${planes[i].plan_id})"><td class="td__width--L" scope="row">${planes[i].vigente}</td><td class="td__width--C" >${planes[i].fecha}</td><td class="td__width--A" >${planes[i].emp_apellido}, ${planes[i].emp_nombre}</td></tr>`
       }
     }
     document.getElementById('data').innerHTML = body
 
   }
 
+}
+
+function seleccionarplan(id) {
+  location.href ="/pacientes/planAlimentario/plan="+id+"/hc="+pac_nrohc
 }

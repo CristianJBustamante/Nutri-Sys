@@ -8,11 +8,17 @@ export const planesquerys = {
 
     buscarultimoplan:  "SELECT TOP 1 * FROM plan_alimentario ORDER BY plan_id desc",     
     
-    novigentes:  "update plan_alimentario set plan_vigente=0 where plan_nrohc=@plan_nrohc and convert(int,plan_id)<convert(int,@plan_id)",
+    novigentes:  "update plan_alimentario set plan_vigente=0 where plan_nrohc=@plan_nrohc and convert(int,plan_id)<>convert(int,@plan_id)",
 
     buscarplanes:  "select *, case when plan_vigente=1 then 'SI' else 'NO' end as vigente,"+
                     "convert(nvarchar,plan_fechacreacion,103) as fecha from plan_alimentario "+
 	                "inner join paciente on pac_nrohc=plan_nrohc inner join empleado on plan_legajoprofesional=emp_legajo "+
 	                "where plan_nrohc = @plan_nrohc", 
+
+    getplanxid: "select * from detalle_plan where dplan_id=@dplan_id",
+
+    modificarplan: "UPDATE detalle_plan set dplan_titulo=@dplan_titulo, dplan_descripcion=@dplan_descripcion where dplan_id=@dplan_id and dplan_detalle=@dplan_detalle",
+
+    vigentes:  "update plan_alimentario set plan_vigente=1 where plan_id=@plan_id",
 
 }

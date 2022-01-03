@@ -1,6 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/buscarplanes/1037
+GET {{api}}/plan/2
 ###
 
 POST {{api}}/nuevoplanalimentario
@@ -27,7 +27,7 @@ Content-Type: application/json
 
 ###
 
-put {{api}}/planesnovigentes/1037
+put {{api}}/planvigente
 Content-Type: application/json
 
 {

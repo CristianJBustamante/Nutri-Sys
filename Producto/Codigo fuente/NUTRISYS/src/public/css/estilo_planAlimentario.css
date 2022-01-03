@@ -109,4 +109,56 @@ input, textarea{
 .pieDePagina{
     padding-top: 10rem;
 }
+.navegacion__solapas{
+    display: flex;
+    flex-direction: row;
+    
+}
+.nav__solapa{
+    width: 20%;
+    border: black 0.3rem;
+    border-style: solid;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
 
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+
+    background-color: var(--grisOscuro);
+
+}
+
+.nav__solapa--seleccionado{
+    width: 20%;
+    border: var(--negro) 0.3rem;
+    border-style: solid solid none solid;
+    text-align: center;
+    border-radius: 10px 10px 0px 0px;
+
+
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-weight: bold;
+}
+
+.nav__solapa--resto{
+    width: 20%;
+    border: var(--negro) 0.3rem;
+    border-style: none none solid none;
+}
+.contenido__solapa{
+    border: var(--negro) 0.3rem;
+    border-style: none solid solid solid;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1rem;
+}

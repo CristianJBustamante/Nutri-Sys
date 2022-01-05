@@ -1,0 +1,303 @@
+:root{
+    --blanco:#ffff;
+    --negro:#0000;
+    --gris: #e1e1e1;
+    --primario: #00d500;
+    --secundario2: #00aa00;
+    --grisClaro: #f0f3f4;
+    --grisMedio: #e5e5e5;
+    --grisOscuro: #acadac;
+
+    --fuentePrincipal: 'Open Sans', cursive;
+    --fuenteLogo: 'Amatic SC', cursive;
+}
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /*1rem=10px*/
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+body{
+    font-family: var(--fuentePrincipal);
+    font-size: 1.6rem;
+    line-height: 3;
+}
+
+/*globales*/
+
+.contenedor{
+    max-width: 120rem;
+    width: 90%;
+    /* width: min(90%,120rem); */
+    margin: 0 auto;
+    font-family: var(--fuentePrincipal);
+}
+.contenedor2{
+    max-width: 50srem;
+    width: 90%;
+    /* width: min(90%,120rem); */
+    margin: 0 auto;
+    font-family: var(--fuentePrincipal);
+}
+.texto{
+    font-family: var(--fuentePrincipal);
+    font-size: 2.4rem;
+    text-align: center;
+}
+
+a{ text-decoration: none;}
+h1,h2,h3,h4{font-family: var(--fuentePrincipal);
+    line-height:2.2rem; }
+    @media(max-width:480px){
+        h1,h2,h3,h4{
+            line-height: 4.2rem;
+        }
+    }
+    h1{ font-size: 4.8rem;}
+h2{ font-size: 4rem;}
+h3{ font-size: 3.2rem;}
+h4{ font-size: 2.8rem;}
+
+img{ max-width: 100%;}
+
+.no-margin{ margin: 0;}
+.no-padding{padding: 0;}
+.centrar-texto{
+text-align: center;
+font-size: 4rem;
+font-weight: 800;}
+
+/*header*/
+.header{
+    background-image: url(../img/foto\ nutricion\ para\ portal1.webp);
+    height: 60rem;
+    background-size: cover; /*toma todo el espacio disponible*/
+    background-repeat: no-repeat;
+    background-position: center center; /*se centra verticalmente y horizontalmente 
+     dependiendo de que posicion queramos que muestre(bottom,top,left,rigth,center)*/
+}
+.logo__manzana{
+    width: 8rem;
+    height: 8rem;
+    margin: 1rem  0rem 1rem 4rem;
+}
+
+.header__texto{
+    text-align: center;
+    color:var(--blanco);
+    margin-top: 5rem;
+    font-family: var(--fuentePrincipal);
+    font-weight: 800;
+    font-size: 2rem;
+
+}
+@media(min-width:768px){
+    .header__texto{
+        margin-top: 15rem;
+        
+    }
+}
+@media(min-width:768px){
+    .barra{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: -4rem;
+        /* padding-top: 2rem; */
+    }
+}
+.barra{padding-top: 4rem;}
+.logo{
+ color:var(--blanco);
+ display: flex;
+ justify-content: space-between;
+ 
+}
+.logo__nombre{
+    margin-top: 4rem;
+    margin-left: 1rem;
+    font-family: var(--fuenteLogo);
+    font-size: 3rem;
+    color: var(--blanco);
+    }
+    .logo__nombre2{
+        margin-top: 4rem;
+        margin-left: 1rem;
+        font-family: var(--fuenteLogo);
+        font-size: 5rem;
+        color: var(--blanco);
+        }
+    .logo__bold{
+    font-weight: 700;
+    }
+    .navegacion__enlace{
+        display: block; /*los elementos se ponen uno debajo del otro*/
+        text-align: center;
+        font-size: 1.8rem;
+        color:var(--blanco);
+        font-family: var(--fuentePrincipal);
+        background-color: black;
+        padding: 0 1rem 0 1rem;
+        border-radius: 1rem;
+    }
+    .navegacion__enlace2{
+        display: block; /*los elementos se ponen uno debajo del otro*/
+        text-align: center;
+        font-size: 1.8rem;
+        color:var(--blanco);
+        font-family: var(--fuentePrincipal);
+        padding: 0 1rem 0 1rem;
+    }
+    .navegacion__enlace:hover{
+        font-weight: 700;
+    }
+    .navegacion__enlace2:hover{
+        font-weight: 700;
+    }
+    @media(min-width:768px){
+        .navegacion{
+           display: flex;
+           gap: 2rem;
+        }
+    }
+    
+    @media(min-width:768px){
+        .contenido-principal{
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            column-gap: 4rem;
+        }
+    }
+    
+    .entrada{
+        border-bottom:1px solid  var(--gris);
+        margin-bottom: 2rem;
+    
+    }
+    .entrada:last-of-type{
+        /*selecciona el ultimo elemento que tenga la clase entrada*/
+        border: none;
+        margin-bottom: 0;
+    }
+    .boton:hover{
+        cursor: pointer;
+    }
+    .boton--primario{
+        background-color:black;
+    }
+    @media(min-width:768px){
+        .boton{
+            display: inline-block; /* toma el espacio que quieras, pero en caso de querer
+            aplicar un margin o un width lo respeta*/
+             /* display: inline;los inline son inmunes al margin y width */
+    
+        }
+    }
+    
+    .boton--secundario{
+        background-color: var(--primario);
+    }
+    .cursos{
+        list-style: none;
+    }
+    .widget-curso__label{
+        font-family: var(--fuenteHeading);
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    .widget-curso__info{
+    font-weight: 400;
+    font-size: 2rem;
+    }
+    .widget-curso{
+        border-bottom: 1ox solid var(--gris);
+        margin-bottom: 2rem;
+    }
+    .widget-curso:last-of-type{
+        border: none;
+        margin-bottom:0;
+    }
+    .footer{
+        background-color: var(--secundario2);
+        padding: 1rem 0;
+        margin-top: 10rem;
+
+    }
+    
+    /*sobre nosotros*/
+    @media(min-width:768px){
+        .sobre-nosotros{
+            display: flex;
+            justify-content: space-between;
+    
+        }
+        .sobre-nosotros__texto,
+        .sobre-nosotros__imagen{
+           flex-basis: calc(50% - 1rem); 
+        
+        }
+    }
+    /*cursos*/
+    .curso{
+        padding: 3rem 0;
+        border-bottom: 1px solid var(--gris);
+    }
+    @media(min-width:768px){
+        .curso{
+            display: grid;
+            grid-template-columns: 33.3% 66.7%; /* o 1fr 2fr*/
+            column-gap: 2rem;
+        }
+    
+    }
+    .curso:last-of-type{
+        border:none;
+    }
+    
+    .curso__label{
+        font-family: var(--fuenteHeading);
+        font-weight: 700;
+        font-size: 2rem;
+    }
+    .curso__info{
+    font-weight: 400;
+    font-size: 2rem;
+    }
+    .curso{
+        border-bottom: 1ox solid var(--gris);
+        margin-bottom: 2rem;
+    }
+    
+    /*contacto*/
+    .contacto-bg{
+        background-image: url(./img/contacto.jpg);
+        height: 40rem;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .formulario{
+    background-color:var(--blanco);
+    margin: -5rem auto 0 auto;
+    width: 95%;
+    padding: 5rem;
+    }
+    .campo{
+        display: flex;
+        margin-bottom: 2rem;
+        gap: 2rem;
+    
+    }
+    .campo__label{
+        flex: 0 0 9rem;
+        text-align: right;
+        padding-right: 2rem;
+    }
+    .campo__field{
+        flex: 1;
+        border: 1px solid var(--gris);
+        
+    }
+    .campo__field--textarea{
+    height: 20rem;
+    }

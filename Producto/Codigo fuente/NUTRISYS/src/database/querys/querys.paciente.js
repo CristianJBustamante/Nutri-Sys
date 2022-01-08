@@ -56,7 +56,14 @@ export const pacquerys = {
     getconsultaspaciente: "select ROW_NUMBER() OVER(order by (select 1)) as row_number,"+
                             "convert(nvarchar,turno_fecha,103) as fecha,*  "+
                             "from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
-                            "where turno_nrohc = @pac_nrohc",
+                            "where turno_nrohc = @pac_nrohc"+
+                            "order by turno_fecha",
+                            
+    getconsultaspacienteHabitos: "select ROW_NUMBER() OVER(order by (select 1)) as row_number, convert(nvarchar,turno_fecha,103) as fecha,consulta.cons_id"+
+    " from consulta inner join turno on consulta.cons_idturno=turno.turno_id"+
+    " join habitos_paciente on habitos_paciente.habpac_idconsulta = consulta.cons_id"+
+    " where turno_nrohc = @pac_nrohc"+
+    " group by turno_fecha,consulta.cons_id",
    
 
 //-------------------------------------------------------ABMS------------------------------------------------------

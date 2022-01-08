@@ -80,10 +80,9 @@ function redirigirporpermiso(ruta,rol1,rol2) {
 //-----------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
-
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
-let query = 'http://localhost:3000/paciente/'+pac_nrohc
+let query = '/paciente/'+pac_nrohc
 fetch(query)
         .then(response => response.json())
         .then(data => mostrarData(data))
@@ -137,3 +136,68 @@ const cargarultimoshabitos = (data) => {
         option.text = hab;
         $select.appendChild(option);       
     }
+
+//Consultar Habitos Por Fecha
+var consultas
+fetch('/consultapacientehabitos/'+pac_nrohc)
+        .then(response => response.json())
+        .then(data => buscarconsultas(data))
+        .catch(error => console.log(error))
+
+const buscarconsultas = (data) => {
+  consultas=data
+}
+
+function buscarConsulta() {
+  let fechadesde= document.getElementById("fechadesde").value
+  let fechahasta= document.getElementById("fechahasta").value
+  if (fechadesde!="" && fechahasta!="" && fechahasta<fechadesde) {
+        fechadesde= document.getElementById("fechahasta").value
+        fechahasta= document.getElementById("fechadesde").value
+        document.getElementById("fechahasta").value = fechahasta
+        document.getElementById("fechadesde").value = fechadesde
+  }
+
+  if( fechadesde == "" &&  fechahasta == "") {
+    let body =''
+        for (let i = 0; i<consultas.length; i++){
+          console.log(fechahasta,consultas[i].fecha)
+          body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td></tr>`
+        }
+        document.getElementById('data').innerHTML = body
+  }
+
+  if (fechadesde == "" &&  fechahasta != "") {
+    let body =''
+    for (let i = 0; i<consultas.length; i++){
+      if(consultas[i].turno_fecha<=fechahasta){
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+  }
+
+  if (fechadesde != "" &&  fechahasta == "") {
+    let body =''
+    for (let i = 0; i<consultas.length; i++){
+      if(consultas[i].turno_fecha>=fechadesde){
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+  }
+
+  if (fechadesde != "" &&  fechahasta != "") {
+    let body =''
+    for (let i = 0; i<consultas.length; i++){
+      if(consultas[i].turno_fecha>=fechadesde && consultas[i].turno_fecha<=fechahasta){
+        body += `<tr onclick="seleccionarconsulta(${consultas[i].cons_id})"><td class="td__width--L" scope="row">${consultas[i].row_number}</td><td class="td__width--C" >${consultas[i].fecha}</td></tr>`
+      }
+    }
+    document.getElementById('data').innerHTML = body
+  }
+}
+
+function seleccionarconsulta(id) {
+  location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+id
+}

@@ -29,6 +29,7 @@ header{
     position: fixed;
     background-color: rgb(0, 0, 0);
     left: 0.7rem;
+    transition: 0.7s;
     /* max-width: 120rem; */
     width: 99.2%;
     /* width: min(90%,120rem); */
@@ -52,6 +53,7 @@ header{
 }
 header.abajo{
     background-color: var(--secundario2);
+    
 }
 .texto{
     font-family: var(--fuentePrincipal);
@@ -244,6 +246,7 @@ border-radius: 2rem;}
         background-color: var(--secundario2);
         padding: 1rem 0;
         margin-top: 10rem;
+        
 
     }
     
@@ -293,7 +296,7 @@ border-radius: 2rem;}
     
     /*contacto*/
     .contacto-bg{
-        background-image: url(./img/contacto.jpg);
+        /* background-image: url(./img/contacto.jpg); */
         height: 40rem;
         background-size: cover;
         background-repeat: no-repeat;
@@ -323,3 +326,44 @@ border-radius: 2rem;}
     .campo__field--textarea{
     height: 20rem;
     }
+    .horizontal > .innerDiv {
+        width: max-content;
+        padding: 6rem 100%;
+    }
+   .animate__backInLeft{
+       animation-duration: 4s;
+       text-align: center;
+   }
+   .animate__backInRight{
+    animation-duration: 4s;
+   }
+   .animate__pulse{
+    animation-duration: 4s;
+   }
+   .imagen{
+    width: 10rem;
+    height: 10rem;
+    margin-bottom: 1rem;
+   }
+
+   .animado{
+       opacity: 0; /* para que no se vea*/
+       transition: all 0.5s;
+   }
+   .contenedorPrincipal{
+       display: grid;
+       grid-template-columns: 50% 50%;
+      margin: 0rem -45rem -1rem 3rem;
+   }
+   .profesional{
+       display: grid;
+       grid-template-columns: 20% 20%;
+       margin-top: 1rem;
+   }
+   .texto{
+       font-size: 2rem;
+   }
+   .imagen:hover{
+    width: 12rem;
+    height: 12rem;
+   }

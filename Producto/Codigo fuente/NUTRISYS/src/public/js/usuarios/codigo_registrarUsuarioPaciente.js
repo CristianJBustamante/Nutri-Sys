@@ -151,7 +151,7 @@ function registrarUsuarioPaciente() {
         return false;
     } 
     else {
-    //REGISTRAR NUEVOS EMPLEADOS
+    //REGISTRAR Usuario Paciente
         if (nuevo==1) {
             //Usuarios
             var usu_clave = document.getElementById("usu_clave").value;

@@ -236,13 +236,13 @@ h2{
     }
 }
 
-.td__width--L{width: 100px;}
-.td__width--C{width: 350px;}
-.td__width--A{width: 200px;}
+.td__width--L{width: 100px;text-align: center;}
+.td__width--C{width: 350px;text-align: center;}
+.td__width--A{width: 200px;text-align: center;}
   
-.td__width--N{width: 200px;}
+.td__width--N{width: 200px;text-align: center;}
   
-.td__width--D{width: 200px;}
+.td__width--D{width: 200px;text-align: center;}
 
 .tabla__resultados{
     background-color: var(--grisMedio);

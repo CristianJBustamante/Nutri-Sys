@@ -99,7 +99,6 @@ font-weight: 800;}
     height: 6rem;
     margin: -2rem  0rem 2rem 9rem; /*antes tenia 4 rem*/ /*antes 1 0 1 10*/
 }
-
 .header__texto{
     text-align: center;
     color:var(--blanco);
@@ -331,15 +330,15 @@ border-radius: 2rem;}
         padding: 6rem 100%;
     }
    .animate__backInLeft{
-       animation-duration: 4s;
+       animation-duration: 5s;
        text-align: center;
    }
    .animate__backInRight{
-    animation-duration: 4s;
+    animation-duration: 5s;
    }
-   .animate__pulse{
-    animation-duration: 4s;
-   }
+   /* .animate__pulse{
+    animation-duration: 5s;
+   } */
    .imagen{
     width: 10rem;
     height: 10rem;
@@ -362,6 +361,13 @@ border-radius: 2rem;}
    }
    .texto{
        font-size: 2rem;
+   }
+   .texto2{
+       font-family: var(--fuenteLogo);
+       font-size: 2.5rem;
+   }
+   .texto2:hover{
+       font-size: 3rem;
    }
    .imagen:hover{
     width: 12rem;

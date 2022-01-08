@@ -105,6 +105,15 @@ router.get('/consulta/registrarconsultahabitospactados/hc=:habpac_nrohc/trn=:con
       });
 });
 
+
+//MI PROGRESO
+router.get('/consulta/miprogreso/',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/MiProgreso.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
+
 //--------------------------------------ACCESO A DATOS----------------------------------------------
   //-------------FICHA INICIAL
   router.post('/registrarfichainicial', registrarfichainicial)

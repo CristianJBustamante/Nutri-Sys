@@ -121,12 +121,6 @@ font-weight: 800;}
         justify-content: space-between;
         align-items: center;
         margin-left: -4rem;
-        /* position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        transition: 0.7s; */
-        /* padding-top: 2rem; */
     }
 }
 .barra{padding-top: 3rem;
@@ -174,6 +168,7 @@ border-radius: 2rem;}
     }
     .navegacion__enlace:hover{
         font-weight: 700;
+        font-size: 2rem;
     }
     .navegacion__enlace2:hover{
         font-weight: 700;
@@ -356,7 +351,7 @@ border-radius: 2rem;}
    }
    .profesional{
        display: grid;
-       grid-template-columns: 20% 20%;
+       grid-template-columns: 20% 15%;
        margin-top: 1rem;
    }
    .texto{
@@ -372,4 +367,70 @@ border-radius: 2rem;}
    .imagen:hover{
     width: 12rem;
     height: 12rem;
+   }
+   .navegacion__enlace:hover{
+    font-weight: 700;
+    font-size: 2rem;
+}
+   @media(max-width:980px){
+    .logo__nombre2{ padding-right: 23rem;
+    width: 30%; }
+    .logo__manzana{ margin-left: 5rem;}
+    .navegacion__enlace{margin-left: 2rem;}
+    .animado{
+        opacity: 1; /* para que no se vea*/
+        transition: all 0.5s;
+    }
+    .profesional{
+        margin-left: -6rem;
+        margin-right: 11rem;
+    }
+    .imagen{
+        width: 8rem;
+        height: 8rem;
+    }
+   }
+   @media(max-width:766px){
+    .logo__nombre2{
+        padding-right: 54rem;
+        width: 30%;
+    }
+    .logo__manzana{
+        margin-left: 5rem;
+    }
+    .navegacion__enlace{
+        margin-left: 2rem;
+    }
+    .animado{
+        opacity: 1; /* para que no se vea*/
+        transition: all 0.5s;
+    }
+    .profesional{
+        margin-left: 3rem;
+    }
+   }
+   @media(max-width:766px){
+    .navegacion__enlace{
+        margin-top: -7rem;
+        margin-left: 28rem;
+    }
+    .no-margin{
+        font-size: 2rem;
+        margin-top: 8rem;
+    }
+    .contenedorPrincipal{
+        display: flex;
+        flex-direction: column;
+    }
+    .navegacion__enlace:hover{
+        font-weight: 400;
+        font-size: 1.8rem;
+    }
+    .animado{
+        opacity: 1; /* para que no se vea*/
+        transition: all 0.5s;
+    }
+    .profesional{
+        margin-left: 5rem;
+    }
    }

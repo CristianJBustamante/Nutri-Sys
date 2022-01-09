@@ -21,4 +21,7 @@ export const planesquerys = {
 
     vigentes:  "update plan_alimentario set plan_vigente=1 where plan_id=@plan_id",
 
+    getplanvigente: "select * from plan_alimentario inner join detalle_plan on plan_id=dplan_id "+
+                    "where plan_vigente=1 and plan_nrohc=@plan_nrohc",
+
 }

@@ -141,3 +141,18 @@ export const vigentes = async (req,res) => {
         res.send(error.message);
     }         
 }
+
+//GET PLAN VIGENTE PACIENTE
+export const getplanvigentepaciente = async(req,res) => {
+    const {plan_nrohc} = req.params;
+    try {
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('plan_nrohc',sql.Int,plan_nrohc)
+            .query(planesquerys.getplanvigente)
+        res.send(result.recordset)
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}

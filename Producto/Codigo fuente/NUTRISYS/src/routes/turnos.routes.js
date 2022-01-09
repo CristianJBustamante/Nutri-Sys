@@ -25,7 +25,7 @@ router.get('/turnos',AuthMiddleware.isLogged, (req,res) => {
 });
 
 //RECEP MIS TURNOS PACIENTE
-router.get('/turnospaciente/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+router.get('/misturnos/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/turnos/MisTurnosPaciente.html',{
     isAuthenticated : req.isAuthenticated(),
     user : req.user

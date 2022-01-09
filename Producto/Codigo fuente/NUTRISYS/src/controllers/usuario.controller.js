@@ -90,7 +90,7 @@ export const getDatosUsuario = async(req,res) => {
 //logout
 export function logout(req, res, next) {
     req.logout();
-    res.redirect('/usuarios/login')
+    res.redirect('/')
 }
 
 //CONSULTAS E INSERTS PARA NUEVO EMPLEADO/USUARIO

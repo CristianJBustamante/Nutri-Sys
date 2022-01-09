@@ -16,11 +16,19 @@ import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, log
 //ACCESO A PAGINAS
   
   //pantalla inicial
-  router.get('/welcome',AuthMiddleware.isLogged ,(req,res) => {
-      res.render('pantallaInicial.html',{
+  router.get('/Home',AuthMiddleware.isLogged ,(req,res) => {
+    if (req.user.emp_legajo == null) {
+      res.render('HomePacientes.html',{
+        isAuthenticated : req.isAuthenticated(),
+        user : req.user
+    }); }else{
+      res.render('HomeEmpleados.html',{
         isAuthenticated : req.isAuthenticated(),
         user : req.user
     }); 
+    }
+      
+      
   });
 
 
@@ -31,8 +39,13 @@ router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
 
 
 //ACCESO A PAGINAS
+  //portal
+  router.get('/', (req,res) => {
+    res.render('portalNutrisys.html', {authmessage : req.flash('authmessage')});
+  });
+
   //login
-  router.get('/usuarios/login', (req,res) => {
+  router.get('/login', (req,res) => {
     res.render('usuarios/iniciarSesion.html', {authmessage : req.flash('authmessage')});
   });
 
@@ -79,8 +92,8 @@ router.get('/usuario',getallusers)
 router.get('/datosusuario/:usu_usuario',getDatosUsuario)
 router.post('/usuarios',nuevousuario)
 router.post('/usuario/login', passport.authenticate('local',{
-  successRedirect : '/pacientes/buscarpaciente',
-  failureRedirect : '/usuarios/login',
+  successRedirect : '/home',
+  failureRedirect : '/login',
   failureFlash : true 
 
 }))

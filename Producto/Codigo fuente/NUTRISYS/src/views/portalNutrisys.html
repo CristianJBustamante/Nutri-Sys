@@ -1,0 +1,103 @@
+<html>
+    <body>
+        <html lang="es">
+ <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Portal - Nutrisys</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/estilos.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+        <!-- fuentes-->
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">  
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+        <link  rel="stylesheet" href="/css/estilos_portalNutrisys.css">
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    </head>
+
+    <header>
+        <div class="barra">
+            <a class="logo" href="#">
+                <img class="logo__manzana"src="../img/Logo Final Verde sin texto-01.png" alt="logo manzana">
+                <h1 class="logo__nombre2">Nutrisys</span></h1>
+            </a>
+            <nav class="navegacion">
+                <a href="/login" class="navegacion__enlace">Iniciar sesión</a>
+            </nav>
+        </div>
+    </header>
+    <!-- ---------------------------------------------------------------------------------------------------------- -->
+    <div class="header">
+        <div class="header__texto">
+            <h2 class="no-margin animate__animated animate__pulse">Un sistema pensado para nutricionistas</h2>
+            <p  class="no-margin animate__animated animate__pulse">Gestioná tus turnos, historia clínica y mucho más en un solo lugar</p>
+        </div>
+    </div>
+    <!-- ------------------------------------------------------------------------------------------------------------- -->
+    <main class="contenedor">
+        <p class="texto">  Nutrisys es un sistema web orientado a la nutrición, cuyo principal 
+             objetivo es agilizar el trabajo y la atención a los profesionales de nutrición, 
+             con seguimientos mas controlados hacia los pacientes y una mejor organización de sus turnos. 
+            Y brindarles a los pacientes una mejor retroalimentación sobre sus consultas.</p>
+            <div class="animado">
+            <h2 class="animate__animated animate__backInLeft">¿Que ofrecemos?</h2>
+            <div class="contenedorPrincipal">
+                <div class="profesional">
+                    <img class="imagen animate__animated animate__backInLeft" src="/img/registro paciente.png">
+                    <h3 class="texto texto2 animate__animated animate__backInRight">Registro de pacientes</h3>
+                    <img class="imagen animate__animated animate__backInLeft" src="/img/evolucion del paciente.png">
+                    <h3 class="texto texto2 animate__animated animate__backInRight">Evolución del paciente en tiempo real</h3>
+                    <!-- <img class="imagen animate__animated animate__backInLeft" src="/img/salidas de informacion.png">
+                    <h3 class="texto texto2 animate__animated animate__backInRight">Salidas de información</h3> -->
+                    <!-- <img class="imagen animate__animated animate__backInLeft" src="/img/gestion de usuarios.png">
+                    <h3 class="texto texto2 animate__animated animate__backInRight">Gestión de empleados</h3> -->
+                    <!-- <img class="imagen animate__animated animate__backInLeft" src="/img/permisos y roles a usuarios.png">
+                    <h3 class="texto texto2 animate__animated animate__backInRight" >Permisos y roles a los diferentes usuarios</h3> -->
+                </div>
+                <div class="profesional">
+                    <img class="imagen animate__animated animate__backInLeft" src="/img/gestion de turnos.png">
+                    <h3 class="texto texto2 animate__animated animate__backInRight">Gestión de turnos</h3>
+                    <img class="imagen animate__animated animate__backInLeft" src="/img/autogesiton.png">
+                    <h3 class="texto texto2 animate__animated animate__backInRight">Consulta de turnos e historia clìnica del paciente</h3>
+                   
+                </div>
+            </div>
+        
+    </main>
+    <!-- ------------------------------------------------------------------------------------------------------------- -->
+    <footer class="footer">
+        <div class="contenedor2">
+                    <h1 class="logo__nombre centrar-texto">Nutrisys - Todos los derechos reservados</h1>
+            
+        </div>
+</footer>
+<script type="text/javaScript">
+    window.addEventListener("scroll",function () {
+    var header =document.querySelector("header");
+    header.classList.toggle("abajo",window.scrollY>0);
+    })
+    </script>
+<!-------------------------------------------->
+<script>
+    let animado = document.querySelectorAll(".animado");
+    function mostrarScroll(){
+        let scrollTop = document.documentElement.scrollTop;
+        for(var i=0;i<animado.length;i++){
+            let alturaAnimado=animado[i].offsetTop;
+            if(alturaAnimado - 841.1 <scrollTop){
+                animado[i].style.opacity=1;
+            }
+        }
+    }
+    window.addEventListener('scroll',mostrarScroll);
+    </script>
+    <!-- ------------------------------------------->
+    </body>
+	<script src="/js/codigo_portal.js"></script>
+</html>

@@ -4,9 +4,9 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 	<meta charset="utf-8" />
-	<title>Organizador</title>
+	<title>Nutri-sys - Plan Alimentario</title>
 
-	<meta name="description" content="with draggable and editable events" />
+	<meta name="description" content="overview &amp; stats" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
 
 	<!-- bootstrap & fontawesome -->
@@ -14,14 +14,9 @@
 	<link rel="stylesheet" href="/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
 	<!-- page specific plugin styles -->
-	<link rel="stylesheet" href="/assets/css/jquery-ui.custom.min.css" />
-	<link rel="stylesheet" href="/assets/css/fullcalendar.min.css" />
 
 	<!-- text fonts -->
 	<link rel="stylesheet" href="/assets/css/fonts.googleapis.com.css" />
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet"> 
 
 	<!-- ace styles -->
 	<link rel="stylesheet" href="/assets/css/ace.min.css" class="ace-main-stylesheet" id="main-ace-style" />
@@ -31,6 +26,8 @@
 		<![endif]-->
 	<link rel="stylesheet" href="/assets/css/ace-skins.min.css" />
 	<link rel="stylesheet" href="/assets/css/ace-rtl.min.css" />
+	<link rel="stylesheet" href="/assets/css/estilo_plantilla.css" />
+	<link rel="stylesheet" href="/assets/css/estilo_MiPlanAlimentario.css" />
 
 	<!--[if lte IE 9]>
 		  <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
@@ -47,11 +44,14 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
+		<link rel="stylesheet" href="/css/normalize.css"> 
+		<link rel="preconnect" href="https://fonts.gstatic.com">
 
-	<link rel="stylesheet" href="/assets/css/estilo_plantilla.css" />
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-</head>
+		<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">   
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+	</head>
 
 <body class="no-skin">
 	<div id="navbar" class="navbar navbar-default          ace-save-state">
@@ -167,7 +167,7 @@
 								<ul class="dropdown-menu dropdown-navbar">
 									<li>
 										<a href="#" class="clearfix">
-											<img src="/assets/images/avatars/avatar.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar2.png" class="msg-photo"
 												alt="Alex's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -268,10 +268,10 @@
 
 					<li class="light-blue dropdown-modal">
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-							<img class="nav-user-photo" src="/assets/images/avatars/avatar2.png" alt="Jason's Photo" />
+							<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
 							<span class="user-info">
 								<small><%= user.apellido %>,</small>
-								<%= user.nombre %>
+									<%= user.nombre %>
 							</span>
 
 							<i class="ace-icon fa fa-caret-down"></i>
@@ -282,7 +282,7 @@
 							<li>
 								<a href="#">
 									<i class="ace-icon fa fa-cog"></i>
-									Condiguración
+									Configuración
 								</a>
 							</li>
 
@@ -296,9 +296,9 @@
 							<li class="divider"></li>
 
 							<li>
-								<a href="/usuarios/logout">
+								<a href="#">
 									<i class="ace-icon fa fa-power-off"></i>
-									Cerrar sesión
+									Cerrar Sesión
 								</a>
 							</li>
 						</ul>
@@ -324,31 +324,31 @@
 
 
 			<!-- *********************************************************************************
-	**************************************************************************************
-	************************************ MENU LATERAL ************************************
-	**************************************************************************************
-	************************************************************************************** -->
+				**************************************************************************************
+				************************************ MENU LATERAL ************************************
+				**************************************************************************************
+				************************************************************************************** -->
 
-	<ul class="nav nav-list">
-		<li class="active">
-			<a id="user" href="/misturnos/hc=<%= user.usu_nrohc %>">
-				<i class="menu-icon fa fa-calendar"></i>
-				<span class="menu-text"> Mis Turnos </span>
-			</a>
+			<ul class="nav nav-list">
+				<li class="">
+					<a id="user" href="/misturnos/hc=<%= user.usu_nrohc %>">
+						<i class="menu-icon fa fa-calendar"></i>
+						<span class="menu-text"> Mis Turnos </span>
+					</a>
 
 
-		</li>
+				</li>
 
-		<li class="">
-			<a href="/miPlanAlimentario/hc=<%= user.usu_nrohc %>">
-				<i class="menu-icon fa fa-list-alt"></i>
-				<span class="menu-text"> Mi Plan Alimentario </span>
-			</a>
+				<li class="active">
+					<a href="/miPlanAlimentario/hc=<%= user.usu_nrohc %>">
+						<i class="menu-icon fa fa-list-alt"></i>
+						<span class="menu-text"> Mi Plan Alimentario </span>
+					</a>
 
-			<b class="arrow"></b>
-		</li>
+					<b class="arrow"></b>
+				</li>
 
-	</ul><!-- /.nav-list -->
+			</ul><!-- /.nav-list -->
 
 			<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
 				<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
@@ -364,26 +364,17 @@
 							<i class="ace-icon fa fa-home home-icon"></i>
 							<a href="#">Home</a>
 						</li>
-						<li class="active"></li>
+						<li class="active">Mis Planes</li>
 					</ul><!-- /.breadcrumb -->
 
-					<div class="nav-search" id="nav-search">
-						<!-- <form class="form-search">
-							<span class="input-icon">
-								<input type="text" placeholder="Search ..." class="nav-search-input"
-									id="nav-search-input" autocomplete="off" />
-								<i class="ace-icon fa fa-search nav-search-icon"></i>
-							</span>
-						</form> -->
-					</div><!-- /.nav-search -->
+
 				</div>
 
 				<div class="page-content">
 					<div class="ace-settings-container" id="ace-settings-container">
-						<!-- RUEDA CONFIGURACION-->
-						<!-- <div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
+						<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
 							<i class="ace-icon fa fa-cog bigger-130"></i>
-						</div> -->
+						</div>
 
 						<div class="ace-settings-box clearfix" id="ace-settings-box">
 							<div class="pull-left width-50">
@@ -457,73 +448,148 @@
 
 					<div class="page-header">
 						<h1>
-							Mis Turnos
+							Plan Alimentario
 							<small>
 								<i class="ace-icon fa fa-angle-double-right"></i>
 							</small>
 						</h1>
 					</div><!-- /.page-header -->
 
-					<div class="row">
-						<div class="col-xs-12">
-							<!-- PAGE CONTENT BEGINS -->
 
+					<!-- *********************************************************************************
+				*********************************** CONTENIDO ****************************************
+				**************************************************************************************
+				*********************************** PRINCIPAL*****************************************
+				************************************************************************************** -->
 
-							<div class="row">
-								<div class="col-sm-9">
-									<div class="space"></div>
-
-									<div id="calendar"></div>
+					<div class="section-tabla">
+						<div class="tabla__resultados">
+								<table class="table table-fixed">
+									<thead>
+										<tr class="tr__width">
+											<th class="" scope="col"></th>
+											<th class="" scope="col">Lunes</th>
+											<th class="" scope="col">Martes</th>
+											<th class="" scope="col">Miercoles</th>
+											<th class="" scope="col">Jueves</th>
+											<th class="" scope="col">Viernes</th>
+											<th class="" scope="col">Sábado</th>
+											<th class="" scope="col">Domingo</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="th-fila" scope="row">Desayuno</td>
+											<td class="th-hover cta" id="comida1" onclick="comidaAEditar('comida1')">
+											</td>
+											<td class="th-hover cta" id="comida2" onclick="comidaAEditar('comida2')">
+											</td>
+											<td class="th-hover cta" id="comida3" onclick="comidaAEditar('comida3')">
+											</td>
+											<td class="th-hover cta" id="comida4" onclick="comidaAEditar('comida4')">
+											</td>
+											<td class="th-hover cta" id="comida5" onclick="comidaAEditar('comida5')">
+											</td>
+											<td class="th-hover cta" id="comida6" onclick="comidaAEditar('comida6')">
+											</td>
+											<td class="th-hover cta" id="comida7" onclick="comidaAEditar('comida7')">
+											</td>
+										</tr>
+										<tr>
+											<td class="th-fila" scope="row">Colación</td>
+											<td class="th-hover cta" id="comida8" onclick="comidaAEditar('comida8')">
+											</td>
+											<td class="th-hover cta" id="comida9" onclick="comidaAEditar('comida9')">
+											</td>
+											<td class="th-hover cta" id="comida10" onclick="comidaAEditar('comida10')">
+											</td>
+											<td class="th-hover cta" id="comida11" onclick="comidaAEditar('comida11')">
+											</td>
+											<td class="th-hover cta" id="comida12" onclick="comidaAEditar('comida12')">
+											</td>
+											<td class="th-hover cta" id="comida13" onclick="comidaAEditar('comida13')">
+											</td>
+											<td class="th-hover cta" id="comida14" onclick="comidaAEditar('comida14')">
+											</td>
+										</tr>
+										<tr>
+											<td class="th-fila" scope="row">Almuerzo</td>
+											<td class="th-hover cta" id="comida15" onclick="comidaAEditar('comida15')">
+											</td>
+											<td class="th-hover cta" id="comida16" onclick="comidaAEditar('comida16')">
+											</td>
+											<td class="th-hover cta" id="comida17" onclick="comidaAEditar('comida17')">
+											</td>
+											<td class="th-hover cta" id="comida18" onclick="comidaAEditar('comida18')">
+											</td>
+											<td class="th-hover cta" id="comida19" onclick="comidaAEditar('comida19')">
+											</td>
+											<td class="th-hover cta" id="comida20" onclick="comidaAEditar('comida20')">
+											</td>
+											<td class="th-hover cta" id="comida21" onclick="comidaAEditar('comida21')">
+											</td>
+										</tr>
+										<tr>
+											<td class="th-fila" scope="row">Merienda</td>
+											<td class="th-hover cta" id="comida22" onclick="comidaAEditar('comida22')">
+											</td>
+											<td class="th-hover cta" id="comida23" onclick="comidaAEditar('comida23')">
+											</td>
+											<td class="th-hover cta" id="comida24" onclick="comidaAEditar('comida24')">
+											</td>
+											<td class="th-hover cta" id="comida25" onclick="comidaAEditar('comida25')">
+											</td>
+											<td class="th-hover cta" id="comida26" onclick="comidaAEditar('comida26')">
+											</td>
+											<td class="th-hover cta" id="comida27" onclick="comidaAEditar('comida27')">
+											</td>
+											<td class="th-hover cta" id="comida28" onclick="comidaAEditar('comida28')">
+											</td>
+										</tr>
+										<tr>
+											<td class="th-fila" scope="row">Cena</td>
+											<td class="th-hover cta" id="comida29" onclick="comidaAEditar('comida29')">
+											</td>
+											<td class="th-hover cta" id="comida30" onclick="comidaAEditar('comida30')">
+											</td>
+											<td class="th-hover cta" id="comida31" onclick="comidaAEditar('comida31')">
+											</td>
+											<td class="th-hover cta" id="comida32" onclick="comidaAEditar('comida32')">
+											</td>
+											<td class="th-hover cta" id="comida33" onclick="comidaAEditar('comida33')">
+											</td>
+											<td class="th-hover cta" id="comida34" onclick="comidaAEditar('comida34')">
+											</td>
+											<td class="th-hover cta" id="comida35" onclick="comidaAEditar('comida35')">
+											</td>
+										</tr>
+									</tbody>
+								</table>
+						</div>
+						
+						<!-- ***** -->
+						<!-- MODAL -->
+						<!-- ***** -->
+						<div class="modales-container">
+							<div class="modales modales-close">
+								<!-- <form action=""> -->
+								<div>
+									<h2>Título</h2>
+									<input type="text" id="tituloComida" readonly>
+									<h2>Descripción</h2>
+									<textarea name="" id="descripcionComida" cols="30" rows="10"
+										style="height: 15rem; resize: none;" readonly></textarea>
 								</div>
-
-								<div class="col-sm-3">
-									<div class="widget-box transparent">
-										<div class="widget-header">
-											<h4>Referencias</h4>
-										</div>
-
-										<div class="widget-body">
-											<div class="widget-main no-padding">
-												<div id="external-events">
-													<div class="label-verde" data-class="label-verde"
-														style="padding: 1rem; margin: 1rem 0;">
-														Confirmado
-													</div>
-													<div class="label-yellow" data-class="label-yellow"
-														style="padding: 1rem; margin: 1rem 0;">
-														Receptado
-													</div>
-													<div class="label-info" data-class="label-info"
-														style="padding: 1rem; margin: 1rem 0;">
-														En Atención
-													</div>
-													<div class="label-brown" data-class="label-yellow"
-														style="padding: 1rem; margin: 1rem 0;">
-														Finalizado
-													</div>
-													<div id="referenciaCancelado" class="label-danger"
-														data-class="label-danger" style="padding: 1rem; margin: 1rem 0;"
-														hidden=true>
-														Cancelado
-													</div>
-													<label>
-														<input type="checkbox" class="ace ace-checkbox" id="drop-remove"
-															onchange="verTurnosCancelados()" />
-														<span class="lbl"> Ver turnos cancelados</span>
-													</label>
-												</div>
-											</div>
-										</div>
-									</div>
+								<!-- </form> -->
+								<div class="modal-footer">
+									<button type="button" class="btn btn-sm cerrar"><i class="ace-icon fa fa-times"></i>
+										Cerrar</button>
 								</div>
-
-
-
 							</div>
 
-							<!-- PAGE CONTENT ENDS -->
-						</div><!-- /.col -->
-					</div><!-- /.row -->
+						</div>
+					</div>
+
 				</div><!-- /.page-content -->
 			</div>
 		</div><!-- /.main-content -->
@@ -531,8 +597,7 @@
 		<div class="footer">
 			<div class="footer-inner">
 				<div class="footer-content">
-					<span class="bigger-120">
-					</span>
+
 				</div>
 			</div>
 		</div>
@@ -558,12 +623,18 @@
 	<script src="/assets/js/bootstrap.min.js"></script>
 
 	<!-- page specific plugin scripts -->
+
+	<!--[if lte IE 8]>
+		  <script src="assets/js/excanvas.min.js"></script>
+		<![endif]-->
 	<script src="/assets/js/jquery-ui.custom.min.js"></script>
 	<script src="/assets/js/jquery.ui.touch-punch.min.js"></script>
-	<script src="/assets/js/moment.min.js"></script>
-	<script src="/assets/js/fullcalendar.min.js"></script>
-	<script src="/assets/js/bootbox.js"></script>
-
+	<script src="/assets/js/jquery.easypiechart.min.js"></script>
+	<script src="/assets/js/jquery.sparkline.index.min.js"></script>
+	<script src="/assets/js/jquery.flot.min.js"></script>
+	<script src="/assets/js/jquery.flot.pie.min.js"></script>
+	<script src="/assets/js/jquery.flot.resize.min.js"></script>
+	<script src="/js/pacientes/planes/MiplanAlimentario.js"></script>
 	<!-- ace scripts -->
 	<script src="/assets/js/ace-elements.min.js"></script>
 	<script src="/assets/js/ace.min.js"></script>
@@ -571,326 +642,222 @@
 	<!-- inline scripts related to this page -->
 	<script type="text/javascript">
 		jQuery(function ($) {
-	
-
-			/* initialize the external events
-				-----------------------------------------------------------------*/
-
-			$('#external-events div.external-event').each(function () {
-
-				// create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
-				// it doesn't need to have a start or end
-				var eventObject = {
-					title: $.trim($(this).text()) // use the element's text as the event title
-				};
-
-				// store the Event Object in the DOM element so we can get to it later
-				$(this).data('eventObject', eventObject);
-
-				// make the event draggable using jQuery UI
-				$(this).draggable({
-					zIndex: 999,
-					revert: true,      // will cause the event to go back to its
-					revertDuration: 0  //  original position after the drag
+			$('.easy-pie-chart.percentage').each(function () {
+				var $box = $(this).closest('.infobox');
+				var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
+				var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
+				var size = parseInt($(this).data('size')) || 50;
+				$(this).easyPieChart({
+					barColor: barColor,
+					trackColor: trackColor,
+					scaleColor: false,
+					lineCap: 'butt',
+					lineWidth: parseInt(size / 10),
+					animate: ace.vars['old_ie'] ? false : 1000,
+					size: size
 				});
+			})
 
+			$('.sparkline').each(function () {
+				var $box = $(this).closest('.infobox');
+				var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
+				$(this).sparkline('html',
+					{
+						tagValuesAttribute: 'data-values',
+						type: 'bar',
+						barColor: barColor,
+						chartRangeMin: $(this).data('min') || 0
+					});
 			});
 
 
+			//flot chart resize plugin, somehow manipulates default browser resize event to optimize it!
+			//but sometimes it brings up errors with normal resize event handlers
+			$.resize.throttleWindow = false;
 
-
-			/* initialize the calendar
-			-----------------------------------------------------------------*/
-
-			var date = new Date();
-			var d = date.getDate();
-			var m = date.getMonth();
-			var y = date.getFullYear();
-			var eventos = []
-			var agen = []
-
-			let query = '/turnospaciente/'+turno_nrohc
-        fetch(query)
-            .then(response => response.json())
-            .then(turnos => cargarturnos(turnos))
-            .catch(error => console.log(error))
-        const cargarturnos = (turnos) => {
-            console.log(turnos)
-		    for (let i = 0; i<turnos.length; i++){
-			    var turno = {}
-                let titulo
-                if (turnos[i].estadoturno_descripcion == null) {
-                    titulo = "Reservado"
-                }else{
-			        titulo = "Lic. " + turnos[i].emp_apellido + " " + turnos[i].emp_nombre 
-			        // titulo = turnos[i].turno_nrohc + " - " + turnos[i].pac_nombre + " " + turnos[i].pac_apellido + " - " + turnos[i].pac_nrodoc
-			    }
-                var fechahora = turnos[i].turno_fechahora
-                var fechahorafin = turnos[i].turno_fechahorafin
-                console.log(fechahora,fechahorafin)
-			    fechahora = fechahora.substr(0,23)
-			    fechahorafin = fechahorafin.substr(0,23)
-			    var clase = "label-danger"
-				var editable
-			    if (turnos[i].estadoturno_descripcion=='Confirmado') {
-				    clase = "label-verde"
-					editable = false
-			    }
-			    if (turnos[i].estadoturno_descripcion=='Cancelado') {
-				    clase = "label-turno-cancelado label-danger invisible"
-					editable = false
-			    }
-			    if (turnos[i].estadoturno_descripcion=='Receptado') {
-				    clase = "label-yellow"
-					editable = false
-			    }
-			    if (turnos[i].estadoturno_descripcion=='En Atención') {
-				    clase = "label-info"
-					editable = false
-			    }
-			    if (turnos[i].estadoturno_descripcion=='Finalizado') {
-				    clase = "label-brown"
-					editable = false
-			    }	
-			    turno.title = titulo
-				turno.editable = editable
-			    turno.start = new Date(fechahora)
-                turno.end = new Date(fechahorafin)
-			    turno.allDay = false
-			    turno.className = clase
-			    turno.estado = turnos[i].estadoturno_descripcion
-			    turno.idturno = turnos[i].turno_id
-			    turno.nrohc = turnos[i].turno_nrohc
-                turno.fecharegistro = turnos[i].turno_fecharegistro
-				turno.horario = turnos[i].turno_fechahora
-				turno.apeprofesional = turnos[i].emp_apellido
-				turno.nomprofesional = turnos[i].emp_nombre
-				turno.profesional = turnos[i].emp_apellido + " " + turnos[i].emp_nombre
-			    eventos.push(turno)	 
-		    }
-					
-			var calendar = $('#calendar').fullCalendar({
-				//isRTL: true,
-				//firstDay: 1,// >> change first day of week 
-
-				buttonHtml: {
-					prev: '<i class="ace-icon fa fa-chevron-left"></i>',
-					next: '<i class="ace-icon fa fa-chevron-right"></i>'
-				},
-
-				header: {
-					left: 'prev,next today',
-					center: 'title',
-					right: 'month,agendaWeek,agendaDay'
-				},
-
-				// Va a al día seleccionado
-				dayClick: function (date, jsEvent, view) {
-					var dia = date.format();
-					console.log(date.format());
-					$('#calendar').fullCalendar('gotoDate', date.format());
-					$('#calendar').fullCalendar('changeView', 'agendaDay');
-				}
-				,
-				events: eventos
-				,
-
-				businessHours: {
-					start: '8:00', // hora inicial
-					end: '22:00', // hora final
-					dow: [1, 2, 3, 4, 5] // dias de semana, 0=Domingo
-				},
-
-				editable: false,
-				droppable: false, // this allows things to be dropped onto the calendar !!!
-				drop: function (date) { // this function is called when something is dropped
-
-					// retrieve the dropped element's stored Event Object
-					var originalEventObject = $(this).data('eventObject');
-					var $extraEventClass = $(this).attr('data-class');
-
-
-					// we need to copy it, so that multiple events don't have a reference to the same object
-					var copiedEventObject = $.extend({}, originalEventObject);
-
-					// assign it the date that was reported
-					copiedEventObject.start = date;
-					copiedEventObject.end = date;
-
-					copiedEventObject.allDay = false;
-					if ($extraEventClass) copiedEventObject['className'] = [$extraEventClass];
-
-					// render the event on the calendar
-					// the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
-					$('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
-					// is the "remove after drop" checkbox checked?
-					if ($('#drop-remove').is(':checked')) {
-						// if so, remove the element from the "Draggable Events" list
-						$(this).remove();
+			var placeholder = $('#piechart-placeholder').css({ 'width': '90%', 'min-height': '150px' });
+			var data = [
+				{ label: "social networks", data: 38.7, color: "#68BC31" },
+				{ label: "search engines", data: 24.5, color: "#2091CF" },
+				{ label: "ad campaigns", data: 8.2, color: "#AF4E96" },
+				{ label: "direct traffic", data: 18.6, color: "#DA5430" },
+				{ label: "other", data: 10, color: "#FEE074" }
+			]
+			function drawPieChart(placeholder, data, position) {
+				$.plot(placeholder, data, {
+					series: {
+						pie: {
+							show: true,
+							tilt: 0.8,
+							highlight: {
+								opacity: 0.25
+							},
+							stroke: {
+								color: '#fff',
+								width: 2
+							},
+							startAngle: 2
+						}
+					},
+					legend: {
+						show: true,
+						position: position || "ne",
+						labelBoxBorderColor: null,
+						margin: [-30, 15]
 					}
+					,
+					grid: {
+						hoverable: true,
+						clickable: true
+					}
+				})
+			}
+			drawPieChart(placeholder, data);
 
-				}
-				,
-				selectable: true,
-				selectHelper: true,
-
-				eventClick: function (calEvent, jsEvent, view) {
-
-
-					// console.log('Event: ' + calEvent._start._d);
-					// console.log('Event: ' + calEvent._end._d);
-					//display a modal
-
-						var modal =
-							'<div class="modal fade">\
-			  <div class="modal-dialog">\
-			   <div class="modal-content">\
-				 <div class="modal-body">\
-				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
-				   <form class="no-margin">\
-						<label style="font-weight: bold;">Profesional: &nbsp;</label>\
-						<label> ' +calEvent.profesional + ' &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Servicio: &nbsp;</label>\
-						<label>  Nutrición  &nbsp;</label>\
-						<br>\
-						<label style="font-weight: bold;">Horario: &nbsp;</label>\
-						<label> ' + buscarHorarioTurno(calEvent.horario) + ' &nbsp;</label>\
-						<br>\
-				   </form>\
-				 </div>\
-				 <div class="modal-footer">\
-					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
-				 </div>\
-			  </div>\
-			 </div>\
-			</div>';
-					
+			/**
+			we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
+			so that's not needed actually.
+			*/
+			placeholder.data('chart', data);
+			placeholder.data('draw', drawPieChart);
 
 
-					var modal = $(modal).appendTo('body');
-					modal.find('form').on('submit', function (ev) {
-						ev.preventDefault();
+			//pie chart tooltip example
+			var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
+			var previousPoint = null;
 
-						if (calEvent.estado == 'Confirmado') {
-							calEvent.estado = 'Receptado';
-							receptarTurno(calEvent);
-							calEvent.className = 'label-yellow';
-							calEvent.editable = false;
-							calendar.fullCalendar('updateEvent', calEvent);
-							modal.modal("hide");
-						}
-						else if (calEvent.estado == 'Receptado') {
-							calEvent.estado = 'En Atención';
-							calEvent.className = 'label-info';
-							calEvent.editable = false;
-							calendar.fullCalendar('updateEvent', calEvent);
-							modal.modal("hide");
-							atenderPaciente(calEvent);
-							//$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc='+calEvent.nrohc+'/trn='+calEvent.idturno);
-						}
-
-					});
-
-					modal.find('button[data-action=delete]').on('click', function () {
-
-						alert(calEvent.fecharegistro)
-						swal({
-        					title: "Atención",
-        					text: "¿Desea Cancelar el turno " + calEvent.title +"?",
-        					icon: "warning",
-        					buttons: true,
-        					dangerMode: true,
-      					})
-      					.then((willDelete) => {
-        				if (willDelete) {
-							var f = new Date();
-							let mes=f.getMonth()+1
-							let dia=f.getDate() 
-							if(mes<10){
-    							f=f.getFullYear() + "-0"+ mes+ "-"  
-  							}else{
-    							f=f.getFullYear() + "-"+ mes+ "-" 
-  							}
-  							if(dia<10){
-    							f=f + "0"+ dia
-  							}else{
-    							f=f +dia
-  							}
-							if (f==calEvent.fecharegistro.substr(0,10)) {
-								try {
-            						fetch("http://localhost:3000/borrarturno/"+calEvent.idturno,{
-            							method:"DELETE"
-            						})  .then(res=>res.json())
-        						} catch (error) {
-            						swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-            						console.log(error)
-            					} 
-								calendar.fullCalendar('removeEvents', function (ev) {
-									return (ev._id == calEvent._id);
-								})
-							}  else{
-								const post = {
-        							turno_idestado: 4}
-    							console.log(post)
-     							try {
-        							console.log(JSON.stringify(post));
-        							fetch("http://localhost:3000/actualizarturno/"+calEvent.idturno,{
-       									method:"PUT",
-        								body: JSON.stringify(post),
-       	 								headers: {
-        									"Content-type": "application/json"
-        								}
-        							})  .then(res=>res.json())
-            						.then(data=>console.log(data))
-    							} catch (error) {
-        							swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-        							console.log(error)
-        						} 
-								calEvent.estado = 'Cancelado';
-								calEvent.className = 'label-turno-cancelado label-danger invisible';
-								calendar.fullCalendar('updateEvent', calEvent);
-							}
-						}
-					})
-					modal.modal("hide");	
-
-					});
-
-
-					modal.modal('show').on('hidden', function () {
-						modal.remove();
-					});
-
-					// var hc = $(this).find("input[type=text]").val();
-					// hc.addEventListener('keyup'),(event)=>{
-					// 	var inputText = event.path
-					// }
-
-					//console.log(calEvent.id);
-					//console.log(jsEvent);
-					//console.log(view);
-
-					// change the border color just for fun
-					// $(this).css('border-color', 'red');
-
+			placeholder.on('plothover', function (event, pos, item) {
+				if (item) {
+					if (previousPoint != item.seriesIndex) {
+						previousPoint = item.seriesIndex;
+						var tip = item.series['label'] + " : " + item.series['percent'] + '%';
+						$tooltip.show().children(0).text(tip);
+					}
+					$tooltip.css({ top: pos.pageY + 10, left: pos.pageX + 10 });
+				} else {
+					$tooltip.hide();
+					previousPoint = null;
 				}
 
+			});
 
-
-
+			/////////////////////////////////////
+			$(document).one('ajaxloadstart.page', function (e) {
+				$tooltip.remove();
 			});
 
 
 
-		
-		}
+
+			var d1 = [];
+			for (var i = 0; i < Math.PI * 2; i += 0.5) {
+				d1.push([i, Math.sin(i)]);
+			}
+
+			var d2 = [];
+			for (var i = 0; i < Math.PI * 2; i += 0.5) {
+				d2.push([i, Math.cos(i)]);
+			}
+
+			var d3 = [];
+			for (var i = 0; i < Math.PI * 2; i += 0.2) {
+				d3.push([i, Math.tan(i)]);
+			}
+
+
+			var sales_charts = $('#sales-charts').css({ 'width': '100%', 'height': '220px' });
+			$.plot("#sales-charts", [
+				{ label: "Domains", data: d1 },
+				{ label: "Hosting", data: d2 },
+				{ label: "Services", data: d3 }
+			], {
+				hoverable: true,
+				shadowSize: 0,
+				series: {
+					lines: { show: true },
+					points: { show: true }
+				},
+				xaxis: {
+					tickLength: 0
+				},
+				yaxis: {
+					ticks: 10,
+					min: -2,
+					max: 2,
+					tickDecimals: 3
+				},
+				grid: {
+					backgroundColor: { colors: ["#fff", "#fff"] },
+					borderWidth: 1,
+					borderColor: '#555'
+				}
+			});
+
+
+			$('#recent-box [data-rel="tooltip"]').tooltip({ placement: tooltip_placement });
+			function tooltip_placement(context, source) {
+				var $source = $(source);
+				var $parent = $source.closest('.tab-content')
+				var off1 = $parent.offset();
+				var w1 = $parent.width();
+
+				var off2 = $source.offset();
+				//var w2 = $source.width();
+
+				if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
+				return 'left';
+			}
+
+
+			$('.dialogs,.comments').ace_scroll({
+				size: 300
+			});
+
+
+			//Android's default browser somehow is confused when tapping on label which will lead to dragging the task
+			//so disable dragging when clicking on label
+			var agent = navigator.userAgent.toLowerCase();
+			if (ace.vars['touch'] && ace.vars['android']) {
+				$('#tasks').on('touchstart', function (e) {
+					var li = $(e.target).closest('#tasks li');
+					if (li.length == 0) return;
+					var label = li.find('label.inline').get(0);
+					if (label == e.target || $.contains(label, e.target)) e.stopImmediatePropagation();
+				});
+			}
+
+			$('#tasks').sortable({
+				opacity: 0.8,
+				revert: true,
+				forceHelperSize: true,
+				placeholder: 'draggable-placeholder',
+				forcePlaceholderSize: true,
+				tolerance: 'pointer',
+				stop: function (event, ui) {
+					//just for Chrome!!!! so that dropdowns on items don't appear below other items after being moved
+					$(ui.item).css('z-index', 'auto');
+				}
+			}
+			);
+			$('#tasks').disableSelection();
+			$('#tasks input:checkbox').removeAttr('checked').on('click', function () {
+				if (this.checked) $(this).closest('li').addClass('selected');
+				else $(this).closest('li').removeClass('selected');
+			});
+
+
+			//show the dropdowns on top or bottom depending on window height and menu position
+			$('#task-tab .dropdown-hover').on('mouseenter', function (e) {
+				var offset = $(this).offset();
+
+				var $w = $(window)
+				if (offset.top > $w.scrollTop() + $w.innerHeight() - 100)
+					$(this).addClass('dropup');
+				else $(this).removeClass('dropup');
+			});
+
 		})
-
-
 	</script>
 </body>
-<script src="/js/pacientes/turnos/misTurnosPaciente.js"></script>
 
 </html>

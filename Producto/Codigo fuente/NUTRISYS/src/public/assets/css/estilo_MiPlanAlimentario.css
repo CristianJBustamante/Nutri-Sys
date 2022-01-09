@@ -1,0 +1,112 @@
+:root{
+
+    --primario: #00d500;
+    --secundario: #00aa00;
+    --blanco: #fff;
+    --negro: #000;
+    --grisClaro: #f0f3f4;
+    --grisMedio: #e5e5e5;
+    --grisOscuro: #acadac;
+
+    --fuentePrincipal: 'Open Sans', cursive;
+    --fuenteLogo: 'Amatic SC', cursive;
+
+}
+
+h3{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.th-fila{
+    background-color: var(--grisMedio);
+    height: 100px;
+    width: 20px;
+}
+
+@media (min-height: 900px) {
+    .th-fila{
+        background-color: var(--grisMedio);
+        height: 130px;
+        width: 20px;
+    }
+}
+
+
+.th-hover{
+    background-color: var(--grisClaro);
+}
+
+.th-hover:hover{
+    background-color: lightgray;
+}
+
+.cta{
+    color: black;
+    max-width: 12rem;
+}
+
+input, textarea{
+    width: 90%;
+}
+
+
+.modales-container{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.modales{
+    width: 40%;
+    height: 50%;
+    background: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position: relative;
+    transition: 1s;
+    transform: translateY(0%);
+    /* border-radius: 10px; */
+}
+
+.cerrar{
+    color: #fff;
+}
+
+.modales-close{
+    transform: translateY(-200%);
+}
+
+.btnsubmit{
+    display: flex;
+    justify-content: right;
+    margin-right: 10px;
+}
+
+.encabezado__datosPaciente{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: var(--grisMedio);
+    width: 100%;
+    margin: 1rem 0rem;
+    padding: 0 1rem;
+}
+
+.pieDePagina{
+    padding-top: 10rem;
+}
+

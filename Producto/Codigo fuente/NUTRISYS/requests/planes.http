@@ -1,6 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/plan/2
+GET {{api}}/planvigentepaciente/1037
 ###
 
 POST {{api}}/nuevoplanalimentario

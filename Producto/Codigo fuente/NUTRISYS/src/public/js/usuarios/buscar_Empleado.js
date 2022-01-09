@@ -134,7 +134,7 @@ function buscarEmpleado(){
 
 
 function crearEmpleado(){
-    location.href ="./nuevousuario/"
+    location.href ="/usuarios/nuevousuario/"
 }
 
 function seleccionarEmpleado(emp_legajo) {

@@ -188,6 +188,7 @@ h2{
     max-width: 100%;
     min-width: 500px;
     align-items: center;
+    border-color: #307ECC;
 }
 
 @media (min-width: 1360px) {
@@ -494,4 +495,14 @@ html, body{
 }
 .ace-nav > li.light-blue > a {
     background-color: #393939;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+
+
+.contenido__resultados{
+    margin: 0rem 1rem;
 }

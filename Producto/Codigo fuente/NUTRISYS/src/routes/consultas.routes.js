@@ -105,6 +105,29 @@ router.get('/consulta/registrarconsultahabitospactados/hc=:habpac_nrohc/trn=:con
       });
 });
 
+//CONSULTA HABITOS
+router.get('/consulta/consultaHabitos/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/consultaHabitos.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
+
+//CONSULTA de HABITOS PACTADOS
+router.get('/consultadatos/consultaHabitosPactados/hc=:pac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/consulta_HabitosPactados.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
+
+//CONSULTA de la CONSULTA GENERAL
+router.get('/consultadatos/consultaGeneral/hc=:pac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/ConsultaGeneral.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
 
 //MI PROGRESO
 router.get('/consulta/miprogreso',AuthMiddleware.isLogged, (req,res) => {

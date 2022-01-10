@@ -338,39 +338,8 @@ function agregaritem(hab,idhab){
 //------------------------------------------------------------------------------------------------------------------------------
 //PASAR PESTAÑAS
 function consultaGeneral() {
-    swal({
-        title: "Atención",
-        text: "Si avanza a Consulta General, no se guardarán los datos seleccionados",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            location.href ="/consulta/registrarconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
-        } 
-      }); 
+    location.href ="/consultadatos/consultaGeneral/hc="+pac_nrohc+"/trn="+cons_idturno
   }
   function habitosPactados() {
-    swal({
-        title: "Atención",
-        text: "Si avanza a Habitos Pactados, no se guardarán los datos seleccionados",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/trn="+cons_idturno
-        } 
-      }); 
+    location.href ="/consultadatos/consultaHabitosPactados/hc="+pac_nrohc+"/trn="+cons_idturno
   }
-function pacto() {
-    if (nuevo==1) {
-        swal("Atención","Debe Completar el Registro de Hábitos para determinar los que serán trabajados","error")
-        return false
-    }else{
-        location.href ="/consulta/registrarHabitosPactado/hc="+pac_nrohc+"/trn="+cons_idturno
-    }
-    
-}

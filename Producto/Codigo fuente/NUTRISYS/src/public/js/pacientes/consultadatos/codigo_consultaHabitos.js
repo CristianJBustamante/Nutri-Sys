@@ -104,38 +104,7 @@ const mostrarData = (data) => {
     document.getElementById('pac_datos').innerHTML = cabecera
     }
 
-//Agregar datos a las grillas
-let primeros = 'http://localhost:3000/primeroshabitos/'+pac_nrohc
-fetch(primeros)
-        .then(response => response.json())
-        .then(data => cargarprimeroshabitos(data))
-        .catch(error => console.log(error))
 
-const cargarprimeroshabitos = (data) => {
-    console.log(data)
-    for (let i = 0; i<data.length; i++){
-        agregaritem(data[i].hab_descripcion,data[i].hab_id,"#primeros")    
-    }}
-let ultimos = 'http://localhost:3000/ultimoshabitos/'+pac_nrohc
-fetch(ultimos)
-            .then(response => response.json())
-            .then(data => cargarultimoshabitos(data))
-            .catch(error => console.log(error))
-    
-const cargarultimoshabitos = (data) => {
-        console.log(data)
-        for (let i = 0; i<data.length; i++){
-            agregaritem(data[i].hab_descripcion,data[i].hab_id,"#ultimos")    
-        }}
-
-
-    function agregaritem(hab,idhab,grilla){
-        const $select = document.querySelector(grilla);
-        const option = document.createElement('option');
-        option.value = idhab
-        option.text = hab;
-        $select.appendChild(option);       
-    }
 
 //Consultar Habitos Por Fecha
 var consultas
@@ -146,6 +115,7 @@ fetch('/consultapacientehabitos/'+pac_nrohc)
 
 const buscarconsultas = (data) => {
   consultas=data
+  console.log(consultas)
 }
 
 function buscarConsulta() {
@@ -199,5 +169,5 @@ function buscarConsulta() {
 }
 
 function seleccionarconsulta(id) {
-  location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+id
+  location.href ="/consulta/consultaHabitos/hc="+pac_nrohc+"/trn="+id
 }

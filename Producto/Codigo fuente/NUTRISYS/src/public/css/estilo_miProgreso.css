@@ -63,6 +63,13 @@
     width: 100%;
 }
 
+.panel__graficoPeso{
+  background-color: lightgrey;
+}
+
+.panel__graficobmi{
+  background-color: lightgrey;
+}
 
 
 /* Grafico de Progreso */

@@ -52,7 +52,9 @@ header{
     font-family: var(--fuentePrincipal);
 }
 header.abajo{
-    background-color: var(--secundario2);
+    background-color: gray
+    
+    
     
 }
 .texto{
@@ -353,6 +355,7 @@ border-radius: 2rem;}
        display: grid;
        grid-template-columns: 20% 15%;
        margin-top: 1rem;
+
    }
    .texto{
        font-size: 2rem;
@@ -360,18 +363,21 @@ border-radius: 2rem;}
    .texto2{
        font-family: var(--fuenteLogo);
        font-size: 2.5rem;
+       width: 125%;
    }
-   .texto2:hover{
+   /* .texto2:hover{
        font-size: 3rem;
    }
    .imagen:hover{
     width: 12rem;
     height: 12rem;
-   }
+   } */
    .navegacion__enlace:hover{
     font-weight: 700;
     font-size: 2rem;
 }
+
+/* -----------------------------------------*/
    @media(max-width:980px){
     .logo__nombre2{ padding-right: 23rem;
     width: 30%; }

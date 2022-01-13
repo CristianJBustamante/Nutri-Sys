@@ -112,6 +112,7 @@ fetch('/consultaspaciente/'+pac_nrohc)
 
 const buscarconsultas = (data) => {
   consultas=data
+  console.log(consultas)
 }
 
 function buscarConsulta() {

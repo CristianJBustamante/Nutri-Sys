@@ -6,7 +6,7 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid, registrarhabitostrabajados, registrarcabecerahpac} from "../controllers/consultas.controller";
+import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid, registrarhabitostrabajados, registrarcabecerahpac,gethabitopactado} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -160,6 +160,8 @@ router.get('/consulta/miprogreso',AuthMiddleware.isLogged, (req,res) => {
   router.get("/ultimoshabitos/:habpac_nrohc",getultimoshabitos)
   router.get("/primeroshabitos/:habpac_nrohc",getprimeroshabitos)
   router.get("/noultimoshabitos/:habpac_nrohc",getnoultimoshabitos)
+  router.get("/habitopactado/:habpac_nrohc",gethabitopactado)
+
 
     //--------------CONSULTA
   router.post('/consulta', registrarconsulta)

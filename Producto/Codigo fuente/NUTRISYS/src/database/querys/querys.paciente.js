@@ -54,10 +54,10 @@ export const pacquerys = {
                         "WHERE hc_nrohc = @pac_nrohc order by turno_fecha desc",
 
     getconsultaspaciente: "select ROW_NUMBER() OVER(order by (select 1)) as row_number,"+
-                            "convert(nvarchar,turno_fecha,103) as fecha,*  "+
-                            "from consulta inner join turno on consulta.cons_idturno=turno.turno_id "+
-                            "where turno_nrohc = @pac_nrohc"+
-                            "order by turno_fecha",
+    " convert(nvarchar,turno_fecha,103) as fecha,*"+
+    " from consulta inner join turno on consulta.cons_idturno=turno.turno_id"+
+    " where turno_nrohc = @pac_nrohc"+
+    " order by turno_fecha",
                             
     getconsultaspacienteHabitos: "select ROW_NUMBER() OVER(order by (select 1)) as row_number, convert(nvarchar,turno_fecha,103) as fecha,consulta.cons_id,convert(date,turno_fecha) as turno_fecha"+
     " from consulta inner join turno on consulta.cons_idturno=turno.turno_id"+

@@ -117,29 +117,7 @@ const mostrarData = (data) => {
     }
 
 //------------------------------------------------------------------------------------------------------------------------------
-//BUSCAR ID CONSULTA
-let qcons = 'http://localhost:3000/consulta/'+cons_idturno
-fetch(qcons)
-    .then(response => response.json())
-    .then(data => buscarconsulta(data))
-    .catch(error => console.log(error))
-const buscarconsulta = (data) => {
-    console.log(data)
-    legajo = data.turno_legajoempleado
-    console.log(legajo)
 
-     hab_idconsulta = data.cons_id 
-     if (habpac_id==0) {
-        habpac_id = data.habpac_id
-     }
-     console.log(hab_idconsulta,habpac_id)
-     if (nuevo==0 && habpac_id == null) {
-         //location.href ="/consulta/registrarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
-     }
-     /* if (nuevo==1 && habpac_id != null) {
-        location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
-    } */ 
-}
 //------------------------------------------------------------------------------------------------------------------------------
 //BUSCAR ID HABITO PARA REGISTRAR
 if (nuevo==1) {

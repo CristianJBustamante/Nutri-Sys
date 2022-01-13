@@ -510,7 +510,7 @@
 												<div class="seccion__anamnesis">
 													<div class="form-group">
 														<h2 class="titulo__seccion" for="duallist" title="Aqui Se Mostraran los habitos seleccionados anteriormente para seleccionar aquellos Habitos que el paciente y el profesional Pactan trabajar primero"
-                                                        >Seleccionar Habitos Pactados</h2>
+                                                        >Consulta Habitos Pactados</h2>
 
 														<div class="col-sm-15">
 															<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">												
@@ -662,7 +662,7 @@
 				});
 				//CARGAR HABITOS DESDE BD
 				if (nuevo==0) {
-					let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
+				let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
@@ -670,11 +670,28 @@
         		const cargarhabitos = (hab) => {
 					console.log(pac_nrohc)
             	let op=''
+				let fecha='2022-01-01'
+				let ob=''
             	for (let i = 0; i<hab.length; i++){
                 	op+=`<option disabled value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
             		}
+				
+				let queryh = 'http://localhost:3000/habitopactado/'+ pac_nrohc
+        		fetch(queryh)
+            	.then(response => response.json())
+            	.then(hab => cargarhabitos(hab))
+            	.catch(error => console.log(error))
+        		const cargarhabitos = (hab) => {
+            	for (let i = 0; i<hab.length; i++){
+                	op+=`<option disabled selected="selected" value=${hab[i].hab_id}>${hab[i].dhabpac_observaciones}</option>`
+					ob = hab[i].habpac_observaciones;
+            		}
+					console.log(hab)
+				
             	document.getElementById("duallist").innerHTML=op
-				demo1.bootstrapDualListbox('refresh')}
+            	document.getElementById("cons_observaciones").innerHTML=ob
+            	document.getElementById("fechapacto").value=hab[0].fechapacto
+				demo1.bootstrapDualListbox('refresh')}}
 			}
 			});
 		</script>

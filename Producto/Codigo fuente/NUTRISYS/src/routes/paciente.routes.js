@@ -100,7 +100,13 @@ router.get('/pacientes/consultageneral/cns=:cons_id/hc=:pac_nrohc',AuthMiddlewar
 });
 });
 
-
+// MI PROGRESO
+router.get('/miprogreso/hc=:pac_nrohc',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultadatos/MiProgreso.html',{
+    isAuthenticated : req.isAuthenticated(),
+    user : req.user
+});
+});
 
 
 

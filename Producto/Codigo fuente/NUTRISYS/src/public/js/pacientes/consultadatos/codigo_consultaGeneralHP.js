@@ -225,10 +225,21 @@ function agregaritem(hab,idhab){
 
 //------------------------------------------------------------------------------------------------------------------------------
 //--------------------------------------------Navegabilidad--------------------------------------------------------
-function habitos() {
-  location.href ="/consulta/consultaHabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+function fichaInicial() {
+  location.href ="/pacientes/consultapacientefichainicial/hc="+pac_nrohc
 }
-
-function consultaGeneral() {
-  location.href ="/consultadatos/consultaGeneral/hc="+pac_nrohc+"/trn="+cons_idturno
+function resumen() {
+  location.href ="/pacientes/consultapaciente/hc="+pac_nrohc
+}
+function habitos() {
+  location.href ="/pacientes/consultapacientehabitos/hc="+pac_nrohc
+}
+function evolucion() {
+  location.href ="/pacientes/buscarconsultaspaciente/hc="+pac_nrohc
+}
+function graficos() {
+  location.href ="/pacientes/graficospaciente/hc="+pac_nrohc
+}
+function planes() {
+  location.href ="/pacientes/buscarplanes/hc="+pac_nrohc
 }

@@ -13,6 +13,10 @@
 	<link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
 
+	 <!-- llama al scrip que hace la estadistica en si-->
+       
+	 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 	<!-- page specific plugin styles -->
 
 	<!-- text fonts -->
@@ -179,7 +183,7 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="/assets/images/avatars/avatar3.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar2.png" class="msg-photo"
 												alt="Susan's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -197,7 +201,7 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="/assets/images/avatars/avatar4.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar2.png" class="msg-photo"
 												alt="Bob's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -233,7 +237,7 @@
 
 									<li>
 										<a href="#" class="clearfix">
-											<img src="/assets/images/avatars/avatar5.png" class="msg-photo"
+											<img src="/assets/images/avatars/avatar2.png" class="msg-photo"
 												alt="Fred's Avatar" />
 											<span class="msg-body">
 												<span class="msg-title">
@@ -262,7 +266,7 @@
 
 					<li class="light-blue dropdown-modal">
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-							<img class="nav-user-photo" src="/assets/images/avatars/user.jpg" alt="Jason's Photo" />
+							<img class="nav-user-photo" src="/assets/images/avatars/avatar2.jpg" alt="Jason's Photo" />
 							<span class="user-info">
 								<small>Apellido,</small>
 								Nombre
@@ -276,14 +280,14 @@
 							<li>
 								<a href="#">
 									<i class="ace-icon fa fa-cog"></i>
-									Settings
+									Configuración
 								</a>
 							</li>
 
 							<li>
 								<a href="profile.html">
 									<i class="ace-icon fa fa-user"></i>
-									Profile
+									Perfil
 								</a>
 							</li>
 
@@ -292,7 +296,7 @@
 							<li>
 								<a href="#">
 									<i class="ace-icon fa fa-power-off"></i>
-									Logout
+									Cerrar sesión
 								</a>
 							</li>
 						</ul>
@@ -559,13 +563,47 @@
 
 
 						</div>
-						<div class="panel__graficoPeso">
-							<h2 class="panel__title">Gráfico de Descenso de Peso</h2>
-							<!-- <div id="grafico"></div> -->
-						</div>
-						<div class="panel__graficobmi">
+						<div class="contenido__principal">
+							<h2 class="titulo__seccion"> Gráfico de evolución del peso del paciente</h2>
+                        	<form id="form-param">
+                            <div class="container">
+                                <div>
+                                    <input type="date" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
+                                </div>
+                                <!-- <div>
+                                    <input type="text" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
+                                </div> -->
+                            </div>
+                            <div class="buttons">
+                                <button type="button" class="addParam" >Agregar Parametro2</button>
+                                <input type="button" class=" btn btn-white btn-primary showResults" value="Graficar">
+                            </div>
+                        </form>
+                        <div id="grafico"></div>
+						
+						
+					</div><!-- /.page-content -->
+						<div class="contenido__principal">
 							<h2 class="panel__title">Gráfico de Índice de Masa Corporal</h2>
-							<!-- <div id="graficoIMC"></div>  -->
+							<div id="graficoIMC">
+								<form id="form-param2">
+									<div class="container2">
+										<div>
+											<input type="date" class="parametro2" placeholder="parametro2"><input type="number" class="valor2" placeholder="valor2">
+										</div>
+										<!-- <div>
+											<input type="text" class="parametro" placeholder="parametro"><input type="number" class="valor" placeholder="valor">
+										</div> -->
+									</div>
+									<div class="buttons2">
+										<button type="button" class="addParam2" >Agregar Parametro2</button>
+										<input type="button" class=" btn btn-white btn-primary showResults2" value="Graficar2">
+									</div>
+								</form>
+								<div id="grafico2"></div>
+							</div> 
+
+
 							<!-- fin div del grafico de imc-->
 						</div>
 					</div>
@@ -838,5 +876,5 @@
 	</script>
 </body>
 <script src="/js/miProgreso.js"></script>
-
+<!-- <script src="../public\js\pacientes\consultadatos\codigo_miprogreso.js"></script> -->
 </html>

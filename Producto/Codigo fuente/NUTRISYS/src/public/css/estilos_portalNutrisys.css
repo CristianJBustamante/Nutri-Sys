@@ -30,11 +30,10 @@ header{
     background-color: rgb(0, 0, 0);
     left: 0.7rem;
     transition: 0.7s;
-    /* max-width: 120rem; */
     width: 99.2%;
-    /* width: min(90%,120rem); */
     margin: 0 auto;
     font-family: var(--fuentePrincipal);
+    
 }
 .contenedor{
     max-width: 120rem;
@@ -52,7 +51,9 @@ header{
     font-family: var(--fuentePrincipal);
 }
 header.abajo{
-    background-color: gray
+    background-color: gray;
+    
+
     
     
     

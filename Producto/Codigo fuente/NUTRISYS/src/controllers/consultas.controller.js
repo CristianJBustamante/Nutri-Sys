@@ -563,10 +563,12 @@ export const getFichaInicialXHC = async(req,res) => {
     
     export const getultimoshabitos = async(req,res) => {
         try {
-            const {habpac_nrohc} = req.params
+            const {habpac_nrohc, cons_idturno} = req.params
             const pool = await getConnection()
             const result = await pool.request()
-                .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.getultimoshabitos)
+                .input('habpac_nrohc', habpac_nrohc)
+                .input('cons_idturno', cons_idturno)
+                .query(consultasquerys.getultimoshabitos)
             res.send(result.recordset)
         } catch (error) {
             res.status(500);
@@ -602,10 +604,12 @@ export const getFichaInicialXHC = async(req,res) => {
 
     export const gethabitopactado = async(req,res) => {
         try {
-            const {habpac_nrohc} = req.params
+            const {habpac_nrohc, cons_idturno} = req.params
             const pool = await getConnection()
             const result = await pool.request()
-                .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.gethabitopactado)
+                .input('habpac_nrohc', habpac_nrohc)
+                .input('cons_idturno', cons_idturno)
+                .query(consultasquerys.gethabitopactado)
             res.send(result.recordset)
         } catch (error) {
             res.status(500);

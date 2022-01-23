@@ -509,16 +509,17 @@
 											<div class="contenido__solapa">
 												<div class="seccion__anamnesis">
 													<div class="form-group">
-														<h2 class="titulo__seccion" for="duallist" title="Aqui Se Mostraran los habitos seleccionados anteriormente para seleccionar aquellos Habitos que el paciente y el profesional Pactan trabajar primero"
-                                                        >Consulta Habitos Pactados</h2>
-
+														<h2 class="titulo__seccion" title="Aqui Se Mostraran los habitos seleccionados anteriormente para seleccionar aquellos Habitos que el paciente y el profesional Pactan trabajar primero"
+                                                        >Habitos Registrados</h2>
+														<h2 class="titulo__seccion2" title="Aqui Se Mostraran los habitos seleccionados anteriormente para seleccionar aquellos Habitos que el paciente y el profesional Pactan trabajar primero"
+                                                        >Habitos A Trabajar</h2>
 														<div class="col-sm-15">
 															<select multiple="multiple" size="10" name="duallistbox_demo1[]" id="duallist">												
 																<script>				
         	
 																</script>
 															</select>
-                                                            <h2 class="input__text">Revision de Habitos Pactado
+                                                            <h2 class="input__text">Revision de Habitos a Trabajar
 											            	<input type="date" id="fechapacto" class="input__padding" disabled>
                                                             </h2>
 															</div>
@@ -662,7 +663,7 @@
 				});
 				//CARGAR HABITOS DESDE BD
 				if (nuevo==0) {
-				let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
+				let queryh = 'http://localhost:3000/ultimoshabitos/hc='+ pac_nrohc +'/trn='+ cons_idturno
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
@@ -676,7 +677,7 @@
                 	op+=`<option disabled value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
             		}
 				
-				let queryh = 'http://localhost:3000/habitopactado/'+ pac_nrohc
+				let queryh = 'http://localhost:3000/habitopactado/hc='+ pac_nrohc +'/trn='+ cons_idturno
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))

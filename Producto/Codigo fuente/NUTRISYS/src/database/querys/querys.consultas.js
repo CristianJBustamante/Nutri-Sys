@@ -191,7 +191,7 @@ export const consultasquerys = {
     getultimoshabitos: "select hab_id,hab_descripcion "+
                         "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
                         "inner join habito h on h.hab_id=dhabpac_idhabito "+
-                        "where habpac_nrohc=@habpac_nrohc and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
+                        "where habpac_nrohc=@habpac_nrohc and hp.habpac_idconsulta= @cons_idturno and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
                                                                 "where habpac_nrohc=@habpac_nrohc)"
                                                                 +"order by hab_descripcion",
 
@@ -230,7 +230,7 @@ export const consultasquerys = {
                                                                  "where habpac_nrohc=@habpac_nrohc))",
     
     gethabitopactado:"select convert(varchar,hp.habpac_fechatope,23) as fechapacto,hp.habpac_observaciones, dh.dhabpac_observaciones from habitos_paciente hp"+
-    " join detalle_habitos dh on (hp.habpac_id = dh.dhabpac_id) where hp.habpac_nrohc =@habpac_nrohc and dh.dhabpac_trabajando = 1",
+    " join detalle_habitos dh on (hp.habpac_id = dh.dhabpac_id) where hp.habpac_nrohc =@habpac_nrohc and habpac_idconsulta = @cons_idturno and dh.dhabpac_trabajando = 1",
 
     //Altas-----------------------------------------------------------------------------------------------------
     registrarHabitos: "INSERT INTO habito (hab_descripcion) VALUES (@hab_descripcion)",

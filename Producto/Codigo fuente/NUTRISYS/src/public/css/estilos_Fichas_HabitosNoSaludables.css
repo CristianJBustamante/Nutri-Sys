@@ -611,13 +611,22 @@ input::-webkit-inner-spin-button {
 }
 
 .titulo__seccion{
-    /* margin-block-start: 0.3rem;
-    margin-block-end: 0.3rem; */
     background-color: var(--primario);
     color: var(--negro);
     font-weight: normal;
     padding: 1rem 1rem;
     width: 49%;
+    float: left;
+    text-align: center;
+}
+.titulo__seccion2{
+    background-color: var(--primario);
+    color: var(--negro);
+    font-weight: normal;
+    padding: 1rem 1rem;
+    width: 49%;
+    float: right;
+    text-align: center;
 }
 
 .camposAVerificar{

@@ -157,10 +157,10 @@ router.get('/consulta/miprogreso',AuthMiddleware.isLogged, (req,res) => {
 
 
 
-  router.get("/ultimoshabitos/:habpac_nrohc",getultimoshabitos)
+  router.get("/ultimoshabitos/hc=:habpac_nrohc/trn=:cons_idturno",getultimoshabitos)
   router.get("/primeroshabitos/:habpac_nrohc",getprimeroshabitos)
   router.get("/noultimoshabitos/:habpac_nrohc",getnoultimoshabitos)
-  router.get("/habitopactado/:habpac_nrohc",gethabitopactado)
+  router.get("/habitopactado/hc=:habpac_nrohc/trn=:cons_idturno",gethabitopactado)
 
 
     //--------------CONSULTA

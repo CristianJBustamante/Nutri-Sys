@@ -81,6 +81,8 @@ function redirigirporpermiso(ruta,rol1,rol2) {
 //-----------------------------------------------------------------------------------------------------------------
 
 
+
+
 //Validar si es alta o modificacion
 
 const url = new String(window.location)
@@ -92,15 +94,27 @@ var ruta=''
 if (modo=="pacientes/nuevopaciente/") {
     nuevo=1;
     metodo='POST'
-    ruta="http://localhost:3000/pacientes"
+    ruta="/pacientes"
 }
 else{
     nuevo=0;
     pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
     metodo='PUT'
-    ruta="http://localhost:3000/pacientes/" +pac_nrohc
+    ruta="/pacientes/" +pac_nrohc
     }
     console.log(modo,nuevo,pac_nrohc,ruta,metodo)
+
+//buscar ultimo legajo +1
+let numerohc
+fetch('/ultimahc')
+        .then(response => response.json())
+        .then(data => traerultimohc(data))
+        .catch(error => console.log(error))
+    const traerultimohc = (data) => {
+        numerohc = data[0].pac_nrohc + 1
+    }
+    
+
 
 //Cargar pagina según modo
 if (nuevo==1) {
@@ -169,8 +183,7 @@ function calcularEdad(){
 function registrarPaciente(){
     if (validarDatos() == false) {
         return false;
-    } 
-    else {
+    } else {   
     var tipodoc = document.getElementById("tipodocumento__paciente").value;
     var nrodoc = document.getElementById("documento__paciente").value;
     var apellido =  document.getElementById("apellido__paciente").value;
@@ -200,43 +213,71 @@ function registrarPaciente(){
         pac_direccion: direccion,
         pac_barrio: barrio
     }
-    try {
-        console.log(JSON.stringify(post));
-        fetch(ruta,{
-        method:metodo,
-        body: JSON.stringify(post),
-        headers: {
-            "Content-type": "application/json"
-        }
-        }).then(res=>res.json())
-        .then(data=>console.log(data))
-        console.log(nuevo)
-        if (nuevo==1) {
-            swal("Paciente Registrado","Paciente Registrado con Éxito!","success")
-                .then((value) => {
-                        location.href ="../buscarpaciente"
-                    })
-        }
-        else {
-            swal("Paciente Actualizado","Paciente "+pac_nrohc+" Actualizado con Éxito!","success")
-                .then((value) => {
-                        location.href ="../buscarpaciente"})
-        }    
+    if (nuevo == 1) {
+        swal({
+            title: "Atención",
+            text: "Al registrar el paciente, se enviará un Mensaje de Texto al Número: " + document.getElementById("celular__paciente").value + ". Confirme que es correcto.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+          }).then((willDelete) => {
+            if (willDelete) {
+                try {
+                    fetch(ruta,{
+                        method:metodo,
+                        body: JSON.stringify(post),
+                        headers: {
+                            "Content-type": "application/json"
+                        }
+                    }).then(res=>res.json())
+                    .then(data=>console.log(data))
 
-    } catch (error) {
-        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                    fetch('/send-sms',{
+                        method:"POST",
+                        body: JSON.stringify(
+                            {
+                                "mensaje": "Bienvenido a NUTRISYS. Para crear su cuenta, ingrese al link: http://localhost:3000/usuarios/registrarusuariopaciente/hc="+numerohc,
+                                "telefono": telefono1
+                            }
+                        ),
+                        headers:{
+                                "Content-type": "application/json"
+                                }
+                    }).then(res=>res.json())
+                    .then(data=>console.log(data))
+                    swal("Paciente Registrado","¡Paciente Registrado con Éxito! Número HC:"+numerohc,"success")
+                    .then((value) => {
+                        location.href ="/pacientes/buscarpaciente"
+                        })
+                } catch (error) {
+                    swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                }
+            }         
+        });
+    }else{
+        try {
+            fetch(ruta,{
+                method:metodo,
+                body: JSON.stringify(post),
+                headers: {
+                    "Content-type": "application/json"
+                }
+            }).then(res=>res.json())
+            .then(data=>console.log(data))
+            swal("Paciente Actualizado","Paciente "+pac_nrohc+" Actualizado con Éxito!","success")
+            .then((value) => {location.href ="/pacientes/buscarpaciente"})
+
+        } catch (error) {
+            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+        }
     }
-    
-     
-      
-    }
-    
-}
+}}
 
 function validarDatos(){
     var incompleto = false;
     var correccion = "Datos incompletos o inválidos: " + "\n";
     var correo= document.getElementById("correo__paciente").value;
+    var celular= document.getElementById("celular__paciente").value;
 
     if(document.getElementById("documento__paciente").value == "")
     {
@@ -266,7 +307,7 @@ function validarDatos(){
         correccion = correccion + "*Nombre" + "\n"
         incompleto = true;
     }
-    if(document.getElementById("celular__paciente").value == "")
+    if(document.getElementById("celular__paciente").value == "" || !(celular.startsWith('+54')) || celular.length!=13)
     {
         correccion = correccion + "*Celular" + "\n"
         incompleto = true;

@@ -4,14 +4,12 @@ GET {{api}}/permiso/69669/1
 
 ###
 
-POST {{api}}/usuario
+POST {{api}}/send-sms
 Content-Type: application/json
 
 {
-    "usu_usuario": 67404,
-    "usu_clave": "12345",
-    "usu_idperfil": "1",
-    "usu_correo": ""
+    "mensaje": "mensaje",
+    "telefono": "+543516793348"
 }
 
 ###

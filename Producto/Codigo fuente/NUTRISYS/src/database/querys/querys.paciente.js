@@ -1,6 +1,8 @@
 export const pacquerys = {
 //--------------------------------------------------CONSULTAS------------------------------------------------------
 
+    getultimahc: "select top 1 pac_nrohc from paciente order by pac_nrohc desc"   , 
+
     getPaciente: "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac FROM paciente",
 
     getPacienteXHC:     "SELECT *,convert(varchar,pac_fechanacimiento,103) as pac_fechanac,"+

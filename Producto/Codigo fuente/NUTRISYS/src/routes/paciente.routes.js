@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
-import {actualizarPaciente, eliminarPaciente, getconsultaspaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, getpesospaciente, getultimoimc, nuevoPaciente, getconsultaspacienteHabitos} from "../controllers/paciente.controller";
+import {actualizarPaciente, eliminarPaciente, getconsultaspaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, getpesospaciente, getultimoimc, nuevoPaciente, getconsultaspacienteHabitos, getultimahc} from "../controllers/paciente.controller";
 
 
 //router.get('/nuevopaciente',(req,res) => {
@@ -117,6 +117,7 @@ router.delete('/paciente/:pac_nrohc', eliminarPaciente)
 router.put('/pacientes/:pac_nrohc', actualizarPaciente)
 
   //Consultas
+router.get('/ultimahc', getultimahc)
 router.get('/pacientes', getPacientes)
 router.get('/paciente/:pac_nrohc', getPacienteXHC)
 router.get('/pesospaciente/:pac_nrohc', getpesospaciente)

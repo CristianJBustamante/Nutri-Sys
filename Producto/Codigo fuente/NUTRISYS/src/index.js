@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const session = require('express-session');
 const passport = require('passport');
 var flash = require('connect-flash')
+const morgan = require('morgan')
 require('./passport/passport')(passport);
 
 //Initializions
@@ -32,6 +33,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
+//app.use(morgan('dev'));
 
 //Global Variables
 
@@ -41,6 +43,8 @@ app.use(require('./routes/paciente.routes'));
 app.use(require('./routes/usuario.routes'));
 app.use(require('./routes/turnos.routes'));
 app.use(require('./routes/planes.routes'));
+app.use(require('./routes/sms.routes'));
+
 //Static Files
 app.use(express.static(path.join(__dirname,'public')));
 app.use((req, res, next) => {

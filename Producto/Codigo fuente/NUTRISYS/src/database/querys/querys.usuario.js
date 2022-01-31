@@ -3,7 +3,7 @@ export const usuquerys = {
     "case when emp_nombre is null then pac_nombre else emp_nombre end as nombre,* from usuario left join empleado "+
     "on emp_legajo=usu_legajo left join paciente on usu_nrohc=pac_nrohc where usu_usuario=@usu_usuario and usu_clave=@usu_clave",
 
-    getUsuarioPaciente:"SELECT * FROM paciente where pac_nrohc = @pac_nrohc",
+    getUsuarioPaciente:"SELECT * FROM paciente left join usuario on usu_correo=pac_correo where pac_nrohc = @pac_nrohc ",
     getusuarios: "select * from usuario",
 
     getdatosusuario: "select case when emp_apellido is null then pac_apellido else emp_apellido end as apellido, "+
@@ -83,4 +83,8 @@ export const usuquerys = {
     getpermiso: "select p.usu_id,usu_idperfil,perfil_descripcion from usuario_perfil p inner join usuario u on u.usu_usuario=p.usu_id "+
                                                 "inner join perfil d on d.perfil_id=p.usu_idperfil "+
                                                 "where p.usu_id=@usu_id and usu_idperfil=@usu_idperfil",
+
+
+    nuevousuariopac: "INSERT INTO usuario(usu_usuario, usu_clave,usu_correo, usu_hab, usu_nrohc) VALUES (@usu_usuario,@usu_clave,@usu_correo, @usu_hab, @usu_nrohc)",
+
 }

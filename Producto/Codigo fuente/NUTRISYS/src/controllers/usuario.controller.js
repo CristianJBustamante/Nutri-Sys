@@ -153,12 +153,30 @@ export const registrarUsuarioEmpleado = async (req,res) => {
     try {
         const pool = await getConnection();
         await pool.request()
-            .input('usu_usuario',sql.Int,usu_usuario)
+            .input('usu_usuario',sql.NVarChar,usu_usuario)
             .input('usu_clave', sql.NVarChar,usu_clave)
             .input('usu_correo', sql.NVarChar,usu_correo)
             .input('usu_hab', sql.Int,usu_hab)
             .query(usuquerys.registrarUsuarioEmpleado)
         res.json({ usu_usuario, usu_clave, usu_correo, usu_hab})
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }         
+}
+
+export const nuevousuariopac = async (req,res) => {
+    let { usu_usuario, usu_clave, usu_correo, usu_hab, usu_nrohc } = req.body;
+    try {
+        const pool = await getConnection();
+        await pool.request()
+            .input('usu_usuario',sql.NVarChar,usu_usuario)
+            .input('usu_clave', sql.NVarChar,usu_clave)
+            .input('usu_correo', sql.NVarChar,usu_correo)
+            .input('usu_hab', sql.Int,usu_hab)
+            .input('usu_nrohc', sql.Int,usu_nrohc)
+            .query(usuquerys.nuevousuariopac)
+        res.json({ usu_usuario, usu_clave, usu_correo, usu_hab, usu_nrohc})
     } catch (error) {
         res.status(500);
         res.send(error.message);

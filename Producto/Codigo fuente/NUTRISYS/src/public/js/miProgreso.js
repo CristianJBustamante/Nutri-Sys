@@ -1,4 +1,3 @@
-
 evaluarProgreso();
 
 /**** Grafico de Progreso ****/
@@ -28,14 +27,20 @@ function evaluarProgreso(){
 
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
+var s = (document.getElementById("user").href)
+let mihc = s.substr(s.indexOf("hc=")+3,s.length)
+if (pac_nrohc!=mihc) {  
+    location.href = '/miprogreso/hc='+mihc
+}
 console.log(pac_nrohc)
+console.log(mihc)
 
 let nuevo = 0;
 let cabecera=''
 let cabecera2=''
 
 if (nuevo==0) {
-  let queryh = 'http://localhost:3000/ultimoshabitos/'+ pac_nrohc
+  let queryh = 'http://localhost:3000/ultimoshabitospaciente/'+ pac_nrohc
       fetch(queryh)
         .then(response => response.json())
         .then(hab => cargarhabitos(hab))
@@ -48,8 +53,8 @@ if (nuevo==0) {
         }
         console.log(hab)
 
-  let queryh = 'http://localhost:3000/habitopactado/'+ pac_nrohc
-      fetch(queryh)
+  let queryhp = 'http://localhost:3000/habitopactadopaciente/'+ pac_nrohc
+      fetch(queryhp)
         .then(response => response.json())
         .then(hab => cargarhabitos(hab))
         .catch(error => console.log(error))
@@ -59,6 +64,15 @@ if (nuevo==0) {
           document.getElementById('habitoP').innerHTML = cabecera2
           }
   }}
+}
+
+//Nagegabilidad//
+function consultarMiPlan() {
+  location.href ="/miPlanAlimentario/hc="+pac_nrohc
+}
+
+function consultarMisTurnos() {
+  location.href ="/misturnos/hc="+pac_nrohc
 }
 
 document.querySelector(".addParam").addEventListener("click",addParam);

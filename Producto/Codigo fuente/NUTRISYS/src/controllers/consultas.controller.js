@@ -575,7 +575,20 @@ export const getFichaInicialXHC = async(req,res) => {
             res.send(error.message);
         }
     } 
-    
+    //Mi Progreso
+    export const getultimoshabitospaciente = async(req,res) => {
+        try {
+            const {habpac_nrohc} = req.params
+            const pool = await getConnection()
+            const result = await pool.request()
+                .input('habpac_nrohc', habpac_nrohc).query(consultasquerys.getultimoshabitospaciente)
+            res.send(result.recordset)
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    } 
+    //
     export const getprimeroshabitos = async(req,res) => {
         try {
             const {habpac_nrohc} = req.params
@@ -616,8 +629,21 @@ export const getFichaInicialXHC = async(req,res) => {
             res.send(error.message);
         }
     } 
-
-    
+    //MiProgreso
+    export const gethabitopactadopaciente = async(req,res) => {
+        try {
+            const {habpac_nrohc} = req.params
+            const pool = await getConnection()
+            const result = await pool.request()
+                .input('habpac_nrohc', habpac_nrohc)
+                .query(consultasquerys.gethabitopactadopaciente)
+            res.send(result.recordset)
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    } 
+    //
 
     //Altas----------------------------------------------------------------------------------------------------
     export const nuevohabito = async (req,res) => {

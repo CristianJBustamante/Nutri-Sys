@@ -266,7 +266,6 @@
 
 					<li class="light-blue dropdown-modal">
 						<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-							<img class="nav-user-photo" src="/assets/images/avatars/avatar2.jpg" alt="Jason's Photo" />
 							<span class="user-info">
 								<small>Apellido,</small>
 								Nombre
@@ -329,7 +328,7 @@
 
 			<ul class="nav nav-list">
 				<li class="">
-					<a href="index.html">
+					<a id="user" href="/misturnos/hc=<%= user.pac_nrohc %>">
 						<i class="menu-icon fa fa-calendar"></i>
 						<span class="menu-text"> Mis Turnos </span>
 					</a>
@@ -338,7 +337,7 @@
 				</li>
 
 				<li class="">
-					<a href="index.html">
+					<a href="/miPlanAlimentario/hc=<%= user.pac_nrohc %>">
 						<i class="menu-icon fa fa-list-alt"></i>
 						<span class="menu-text"> Mi Plan Alimentario </span>
 					</a>
@@ -347,7 +346,7 @@
 				</li>
 
 				<li class="active">
-					<a href="index.html">
+					<a href="/miprogreso/hc=<%= user.pac_nrohc %>">
 						<i class="menu-icon fa fa-list-alt"></i>
 						<span class="menu-text"> Mi Progreso </span>
 					</a>

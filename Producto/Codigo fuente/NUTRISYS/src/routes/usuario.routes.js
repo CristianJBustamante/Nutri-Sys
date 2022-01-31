@@ -11,7 +11,7 @@ var AuthMiddleware = require("../middleware/auth")
 import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, login, logout, getlegajo, getultimolegajo, getultimoidusuario,
   registrarEmpleado, registrarUsuarioEmpleado, registrarUsuPerfil, actualizarEmpleado, actualizarUsuPerfil, actualizarUsuario, getEmpleado, getEmpleadoXL, getEmpleadoXD,
   getEmpleadoXA, getEmpleadoXLAD, getEmpleadoLA, getEmpleadoLD, getEmpleadoAD,getEmpleadoTodos, getPerfiles, getPerfilesNOSelec, getPerfilesSelec, getpermiso,
-  getUsuarioPaciente} from "../controllers/usuario.controller";
+  getUsuarioPaciente,nuevousuariopac} from "../controllers/usuario.controller";
 
 //ACCESO A PAGINAS
   
@@ -77,16 +77,12 @@ router.get('/usuarios/consultausuario/',AuthMiddleware.isLogged, (req,res) => {
 });
 
 //Registrar usuario Paciente
-router.get('/usuarios/registrarUsuarioPaciente/hc=:pac_nroch',AuthMiddleware.isLogged, (req,res) => {
-  res.render('usuarios/registrarUsuarioPaciente.html',{
-    isAuthenticated : req.isAuthenticated(),
-    user : req.user
-});
-});
+router.get('/nuevousuario/hc=:pac_nroch', (req,res) => {
+  res.render('usuarios/registrarUsuarioPaciente.html')});
 
 //ACCESO A DATOS
 router.get('/usuario/:usu_usuario/:usu_clave', getUsuario)
-router.get('/usuarios/registrarUsuarioPaciente/:pac_nrohc/', getUsuarioPaciente)
+router.get('/buscardatospaciente/:pac_nrohc/', getUsuarioPaciente)
 
 router.get('/usuario',getallusers)
 router.get('/datosusuario/:usu_usuario',getDatosUsuario)
@@ -107,6 +103,8 @@ router.get('/ultimolegajo', getultimolegajo)
 router.get('/ultimoidusuario', getultimoidusuario)
 router.post('/registrarEmpleado', registrarEmpleado)
 router.post('/registrarUsuarioEmpleado', registrarUsuarioEmpleado)
+router.post('/nuevousuariopac', nuevousuariopac)
+
 
 router.post('/registrarUsuPerfil', registrarUsuPerfil)
 

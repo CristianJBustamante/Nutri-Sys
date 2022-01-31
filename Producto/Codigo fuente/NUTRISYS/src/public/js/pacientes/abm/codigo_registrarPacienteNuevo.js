@@ -236,7 +236,7 @@ function registrarPaciente(){
                         method:"POST",
                         body: JSON.stringify(
                             {
-                                "mensaje": "Bienvenido a NUTRISYS. Para crear su cuenta, ingrese al link: http://localhost:3000/usuarios/registrarusuariopaciente/hc="+numerohc,
+                                "mensaje": "Bienvenido a NUTRISYS. Para crear su cuenta, ingrese al link: http://localhost:3000/nuevousuario/hc="+numerohc,
                                 "telefono": telefono1
                             }
                         ),

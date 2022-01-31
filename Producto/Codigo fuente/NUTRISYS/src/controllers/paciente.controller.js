@@ -123,6 +123,18 @@ export const eliminarPaciente = async(req,res) => {
 //-----------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------
 
+//ULTIMO LEGAJO
+export const getultimahc = async (req,res) => {  
+    try {
+        const pool = await getConnection();
+        const result = await pool.request().query(pacquerys.getultimahc);
+        res.json(result.recordset);
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+};
+
 //PACIENTES
 export const getPacientes = async (req,res) => {  
     try {

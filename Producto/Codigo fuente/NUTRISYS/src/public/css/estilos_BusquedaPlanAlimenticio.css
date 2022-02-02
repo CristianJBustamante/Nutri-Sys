@@ -597,5 +597,11 @@ a:hover{
     margin-top: 2rem;
 }
 
+.col-xs-12 {
+    width: 100%;
+}
 
+.contenido__resultados{
+    margin: 0rem 1rem;
+}
 

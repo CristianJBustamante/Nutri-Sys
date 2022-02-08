@@ -577,10 +577,10 @@ export const getFichaInicialXHC = async(req,res) => {
 
     export const getultimoshabitosconsulta = async(req,res) => {
         try {
-            const {habpac_nrohc, cons_idturno} = req.params
+            const {pac_nrohc, cons_idturno} = req.params
             const pool = await getConnection()
             const result = await pool.request()
-                .input('habpac_nrohc', habpac_nrohc)
+                .input('pac_nrohc', pac_nrohc)
                 .input('cons_idturno', cons_idturno)
                 .query(consultasquerys.getultimoshabitosconsulta)
             res.send(result.recordset)

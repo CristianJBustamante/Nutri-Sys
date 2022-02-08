@@ -194,11 +194,12 @@ export const consultasquerys = {
                         "where habpac_nrohc=@habpac_nrohc and dhabpac_id=(select max(habpac_id) from habitos_paciente "+
                                                                 "where habpac_nrohc=@habpac_nrohc)"
                                                                 +"order by hab_descripcion",
-    getultimoshabitosconsulta: "select * "+
+    getultimoshabitosconsulta: "select hab_id,hab_descripcion "+
     "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
     "inner join habito h on h.hab_id=dhabpac_idhabito "+
-    "where hp.habpac_nrohc=@habpac_nrohc and hp.habpac_idconsulta= @cons_idturno and dh.dhabpac_id=(select max(hab.habpac_id) from habitos_paciente hab "+
-                                                "where hab.habpac_nrohc=@habpac_nrohc) "+
+    "where hp.habpac_nrohc=@pac_nrohc and hp.habpac_idconsulta= @cons_idturno and dh.dhabpac_id=(select max(hab.habpac_id) "+
+    "from habitos_paciente hab "+
+                                                "where hab.habpac_nrohc=@pac_nrohc) "+
                                                 "order by hab_descripcion",                                                            
     //MiProgreso
     getultimoshabitospaciente: "select hab_id,hab_descripcion "+

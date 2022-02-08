@@ -20,7 +20,7 @@ controller.oninput = () => {
 
 function evaluarProgreso(){
   var progreso = document.getElementById('barra__progreso');
-  progreso.value = "60";
+  progreso.value = "75";
   progreso.disabled = true;
 
 }

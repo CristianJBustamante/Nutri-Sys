@@ -518,15 +518,15 @@
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Documento(*):</h2>
-												<input type="number" id="documento__paciente" placeholder=" Ingrese su Documento" class="input__padding">
+												<input type="text" maxlength="8"  id="documento__paciente" placeholder=" Ingrese su Documento" class="input__padding" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Nombre/s:(*)</h2>
-												<input type="text" id="nombre__paciente" placeholder=" Ingrese su Nombre" class="input__padding">
+												<input type="text" maxlength="40" id="nombre__paciente" placeholder=" Ingrese su Nombre" class="input__padding">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Apellido/s:(*)</h2>
-												<input type="text" id="apellido__paciente" placeholder=" Ingrese su Apellido" class="input__padding">
+												<input type="text" maxlength="40" id="apellido__paciente" placeholder=" Ingrese su Apellido" class="input__padding">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Fecha Nacimiento:(*)</h2>
@@ -539,7 +539,7 @@
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Sexo(*):</h2>
 												<select name="select" id="sexo__paciente" class="input__padding">
-													<option disabled selected >--Seleccione sexo--</option>
+													<option disabled selected>--Seleccione sexo--</option>
 													<option class="input__padding" value="Masculino">Masculino</option>
 													<option class="input__padding" value="Femenino">Femenino</option>
 												</select>
@@ -549,31 +549,31 @@
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Dirección(*):</h2>
-												<input type="text" class="input__padding" placeholder=" Calle y Numero" id="direccion__paciente">
+												<input type="text" maxlength="40" class="input__padding" placeholder=" Calle y Numero" id="direccion__paciente">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Barrio(*):</h2>
-												<input type="text" class="input__padding" placeholder=" Ingrese su Barrio" id="barrio__paciente">
+												<input type="text" maxlength="40" class="input__padding" placeholder=" Ingrese su Barrio" id="barrio__paciente">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Celular:(*)</h2>
-												<input type="text" id="celular__paciente" placeholder=" Ej: +543514747474" class="input__padding" value="+54">
+												<input type="text" maxlength="13" id="celular__paciente" placeholder=" Ej: +543514747474" class="input__padding" value="+54" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Teléfono:</h2>
-												<input type="number" id="telefono__paciente" placeholder=" Opcional" class="input__padding">
+												<input type="text" maxlength="10" id="telefono__paciente" placeholder=" Opcional" class="input__padding" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Correo:(*)</h2>
-												<input type="email" id="correo__paciente" placeholder=" ejemplo@nutrisys.com.ar" class="input__padding">
+												<input type="email" maxlength="40" id="correo__paciente" placeholder=" ejemplo@nutrisys.com.ar" class="input__padding">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Mutual(*):</h2>
-												<input type="text" class="input__padding" placeholder=" Sin Mutual (Particular)" id="mutual__paciente">
+												<input type="text" maxlength="40" class="input__padding" placeholder=" Sin Mutual (Particular)" id="mutual__paciente">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Otra Mutual:</h2>
-												<input type="text" placeholder=" Opcional" class="input__padding" id="mutual__paciente2">
+												<input type="text" maxlength="40" placeholder=" Opcional" class="input__padding" id="mutual__paciente2">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 style="font-weight: normal;">* Campos Obligatorios *</h2>

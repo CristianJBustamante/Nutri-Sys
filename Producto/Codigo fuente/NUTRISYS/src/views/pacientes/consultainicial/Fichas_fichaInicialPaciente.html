@@ -514,56 +514,56 @@
 										</div>
 											<div class="seccion__class">
 											<h2 class="label__ficha"> Fecha actual: </h2>
-												<input required class="contenido__input contenido__fecha" type="date" id="fechaactual">
+												<input required class="contenido__input contenido__fecha" type="date" id="fechaactual" disabled>
 											</div>
 		
 											<div class="seccion__class">
 											<h2 class="label__ficha">Diag. médico:</h2>
-											<input class="contenido__input" type="text"  title="Ingrese el diagnóstico médico si corresponde" id="hc_diagnostico">
+											<input class="contenido__input" type="text"  title="Ingrese el diagnóstico médico si corresponde" id="hc_diagnostico" maxlength="200">
 											</div>
 		
 											<div class="seccion__class">
 											<h2 class="label__ficha">Antecedentes:</h2>
-											<input class="contenido__input" type="text" title="Ingrese los antecedentes médicos si corresponde" id="hc_antecedentes">
+											<input class="contenido__input" type="text" title="Ingrese los antecedentes médicos si corresponde" id="hc_antecedentes" maxlength="200">
 											</div>
 		
 											<div class="formulario__laboratorios"> <!-- laboratorios-->
 												<h2 class="titulo__seccion--lab">Laboratorios</h2>
 												<div class="seccion__class">
 													<h2 class="label__ficha" >Fecha:</h2>
-													<input class="contenido__input contenido__fecha" type="date" id="hc_fechalaboratorios">
+													<input class="contenido__input contenido__fecha" type="date" id="hc_fechalaboratorios" onchange="validarFecha()">
 												</div>
 		
 												<div class="seccion__observaciones">
 													<h2 class="label__ficha">Datos de laboratorio:</h2>
-													<textarea class="area__observaciones" id="hc_laboratorios"> </textarea>
+													<textarea class="area__observaciones" id="hc_laboratorios" maxlength="500"> </textarea>
 												</div>
 		
 											</div>
 											<div class="seccion__class">
 												<h2 class="label__ficha">Medicación:</h2>
-												<textarea required class="contenido__input" id="hc_medicacion"></textarea>
+												<textarea required class="contenido__input" id="hc_medicacion" maxlength="200"></textarea>
 											</div>
 		
 											<div class="seccion__class">
 												<h2 class="label__ficha">Actividad física:</h2>
-												<textarea required class="contenido__input" id="hc_actividadfisica"></textarea>
+												<textarea required class="contenido__input" id="hc_actividadfisica" maxlength="100"></textarea>
 											</div>
 		
 											<div class="seccion__class">
 												<h2 class="label__ficha">Tarea o ocupación:</h2>
-												<input required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion">
+												<input required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion" maxlength="100">
 											</div>
 		
 											<div class="seccion__class">
 												<h2 class="label__ficha">Antecedentes nutricionales anteriores:</h2>
-												<textarea class="contenido__input" id="hc_antecedentesnutricion"></textarea>
+												<textarea class="contenido__input" id="hc_antecedentesnutricion" maxlength="200"></textarea>
 											</div>
 		
 											<div class="seccion__class ">
 												<h2 class="label__ficha">¿A que edad empezó su primera dieta?</h2>
-												<input required class="contenido__input contenido__edad" type="number" min="1" title="edad" id="hc_edaddieta">
-												<textarea class="contenido__input--edad" title="Algun dato adicional" id="hc_dieta"></textarea>
+												<input required class="contenido__input contenido__edad" type="text" min="1" title="edad" id="hc_edaddieta" maxlength="2" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
+												<textarea class="contenido__input--edad" title="Algun dato adicional" id="hc_dieta" maxlength="100"></textarea>
 											</div>
 		
 										</div>
@@ -577,36 +577,36 @@
 															<div class="tabla__antro--class">
 																
 																	<h2 class="tabla__antro--contenido" title="Peso actual(Kg)">P.A: </h2>
-																	<input class="input__valor" type="number"  min="1" max="150" placeholder="Kg" id="hc_pesoactual" step="0.01" onchange="calcularbmi()">
+																	<input class="input__valor" type="text"  min="1" max="150" placeholder="Kg" id="hc_pesoactual" step="0.01" onchange="calcularbmi()" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																	
 																
 																
 																	<h2 class="tabla__antro--contenido" title="Talla(mts)">Talla: </h2>
-																	<input class="input__valor" type="number" min="1" max="300" placeholder="mts" id="hc_talla" step="0.01" onchange="calcularbmi()">
+																	<input class="input__valor" type="text" min="1" max="300" placeholder="mts" id="hc_talla" step="0.01" onchange="calcularbmi()" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																	
 																
 																
 																	<h2 class="tabla__antro--contenido" title="Indice de masa corporal(kg/ms^2)">I.M.C: </h2>
-																	<input readonly class="input__valor" type="number" min="1" max="500" placeholder="kg/ms^2" id="hc_BMI" step="0.01">
+																	<input readonly class="input__valor" type="text" min="1" max="500" placeholder="kg/ms^2" id="hc_BMI" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																	
 																
 																
 																	<h2 class="tabla__antro--contenido" title="Peso habitual(Kg)">P.H: </h2>
-																	<input class="input__valor" type="number" min="1" max="150" placeholder="Kg"  id="hc_PH" step="0.01">
+																	<input class="input__valor" type="text" min="1" max="150" placeholder="Kg"  id="hc_PH" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 								
 																	<h2 class="tabla__antro--contenido" title="Peso deseado(Kg)">P.D: </h2>
-																	<input class="input__valor" type="number" min="1" max="150"  placeholder="Kg" id="hc_PD" step="0.01">
+																	<input class="input__valor" type="text" min="1" max="150"  placeholder="Kg" id="hc_PD" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																	
 
 																<div class="tabla__antro--class">
 																	<h2 class="tabla__antro--contenido" title="(Peso/Indice de masa corporal)(kg)">P/I.M.C: </h2>
-																	<input readonly class="input__valor" type="number" min="1" max="150"  placeholder="Kg" id="hc_PBMI" step="0.01">
+																	<input readonly class="input__valor" type="text" min="1" max="150"  placeholder="Kg" id="hc_PBMI" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																	
 																</div>
 																<div class="tabla__antro--class">
 																	<h2 class="tabla__antro--contenido" title="Peso mínimo(Kg)">P.min:</h2>
 																	<div class="input__valoresPeso">
-																		<input class="input__valor--peso" type="number" min="1" max="150" placeholder="Kg" id="hc_Pmin" step="0.01">
+																		<input class="input__valor--peso" type="text" min="1" max="150" placeholder="Kg" id="hc_Pmin" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																		
 																		<br>
 																		<input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmincuando">
@@ -615,7 +615,7 @@
 																	<div class="tabla__antro--class">
 																		<h2 class="tabla__antro--contenido" title="Peso máximo(Kg)">P.máx: </h2>
 																		<div class="input__valoresPeso">
-																			<input class="input__valor--peso" type="number" min="1" max="150" placeholder="Kg" id="hc_Pmax" step="0.01">
+																			<input class="input__valor--peso" type="text" min="1" max="150" placeholder="Kg" id="hc_Pmax" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																			
 																			<br>
 																			<input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmaxcuando">
@@ -625,36 +625,36 @@
 															 <div class="tabla__antro--class">
 																<h2 class="tabla__antro--contenido--cc" title="Circinferencia de cintura(%)">C.C:</h2>
 																<div class="input__valoresDiametro" id="hc_CC1" step="0.01">
-																<input class="input__valor--diametro" type="number" min="0" max="200" placeholder="Cm(Marcada)">
+																<input class="input__valor--diametro" type="text" min="0" max="200" placeholder="Cm(Marcada)" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																<br>
 																
-																<input class="input__valor--diametro" type="number" min="0" max="200"  placeholder="Cm(Umbilical)" id="hc_CC2" step="0.01">
+																<input class="input__valor--diametro" type="text" min="0" max="200"  placeholder="Cm(Umbilical)" id="hc_CC2" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																<br>
 																
-																<input class="input__valor--diametro" type="number" min="0" max="200"  placeholder="Cm(Prominente)" id="hc_CC3" step="0.01">
+																<input class="input__valor--diametro" type="text" min="0" max="200"  placeholder="Cm(Prominente)" id="hc_CC3" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																
 																</div> 
 																<div class="tabla__antro--class">
 																	<h2 class="tabla__antro--contenido" title="Grasa corporal(%)">G.C: </h2>
-																<input type="number" class="input__valor"  min="0" max="100"  placeholder="%" id="hc_GC" step="0.01">
+																<input type="text" class="input__valor"  min="0" max="100"  placeholder="%" id="hc_GC" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																
 																</div> <!--div de los valores del diametro-->
 			
 																<div class="tabla__antro--class">
 																	<h2 class="tabla__antro--contenido" title="Grasa visceral(%)">G.V: </h2>
-																<input type="number" class="input__valor" min="0" max="100"  placeholder="%" id="hc_GV" step="0.01">
+																<input type="text" class="input__valor" min="0" max="100"  placeholder="%" id="hc_GV" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																
 																</div>
 			
 																<div class="tabla__antro--class">
 																	<h2 class="tabla__antro--contenido" title="Masa muscular(%)"> M.M: </h2>
-																<input class="input__valor" type="number" min="0" max="100"  placeholder="%" id="hc_MM" step="0.01">
+																<input class="input__valor" type="text" min="0" max="100"  placeholder="%" id="hc_MM" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																
 																</div>
 			
 																<div class="tabla__antro--class">
 																	<h2 class="tabla__antro--contenido" title="Peso con bioimpedancia(Kg)">P.B.I: </h2>
-																<input class="input__valor" type="number"min="1" max="300" placeholder="Kg" id="hc_PBI" step="0.01">
+																<input class="input__valor" type="text"min="1" max="300" placeholder="Kg" id="hc_PBI" step="0.01" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 																
 																</div>
 															</div>

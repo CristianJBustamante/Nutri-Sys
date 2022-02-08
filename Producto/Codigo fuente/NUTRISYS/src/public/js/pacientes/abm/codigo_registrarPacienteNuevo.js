@@ -278,16 +278,29 @@ function validarDatos(){
     var correccion = "Datos incompletos o inválidos: " + "\n";
     var correo= document.getElementById("correo__paciente").value;
     var celular= document.getElementById("celular__paciente").value;
+    var documento= document.getElementById("documento__paciente").value;
 
-    if(document.getElementById("documento__paciente").value == "")
+    if(document.getElementById("documento__paciente").value == "" || documento.length!=8)
     {
         correccion = correccion + "*Documento" + "\n"
         incompleto = true;
     }
-
-    if(document.getElementById("mutual__paciente").value == "")
+    
+    if(document.getElementById("nombre__paciente").value == "")
     {
-        correccion = correccion + "*Mutual" + "\n"
+        correccion = correccion + "*Nombre" + "\n"
+        incompleto = true;
+    }
+
+    if(document.getElementById("apellido__paciente").value == "")
+    {
+        correccion = correccion + "*Apellido" + "\n"
+        incompleto = true;
+    }
+
+    if(document.getElementById("fechaNac__paciente").value == "")
+    {
+        correccion = correccion + "*Fecha Nacimiento" + "\n"
         incompleto = true;
     }
 
@@ -297,38 +310,34 @@ function validarDatos(){
         incompleto = true;
     }
 
-    if(document.getElementById("apellido__paciente").value == "")
+    if(document.getElementById("barrio__paciente").value == "")
     {
-        correccion = correccion + "*Apellido" + "\n"
+        correccion = correccion + "*Barrio" + "\n"
         incompleto = true;
     }
-    if(document.getElementById("nombre__paciente").value == "")
-    {
-        correccion = correccion + "*Nombre" + "\n"
-        incompleto = true;
-    }
+
     if(document.getElementById("celular__paciente").value == "" || !(celular.startsWith('+54')) || celular.length!=13)
     {
         correccion = correccion + "*Celular" + "\n"
         incompleto = true;
     }
+
     if(document.getElementById("correo__paciente").value == "" || !(correo.includes("@")))
     {
         correccion = correccion + "*Correo" + "\n"
         incompleto = true;
     }
-    if(document.getElementById("fechaNac__paciente").value == "")
+
+    if(document.getElementById("mutual__paciente").value == "")
     {
-        correccion = correccion + "*Fecha Nacimiento" + "\n"
+        correccion = correccion + "*Mutual" + "\n"
         incompleto = true;
     }
-
+    
     if(incompleto == true){
         swal("Atención",correccion,"warning" );
         return false;
     }
     else{
-        
     }
-    
 }

@@ -101,6 +101,7 @@ if (modo.toLowerCase()==='consulta/registrarhabitos/hc='+pac_nrohc+"/trn="+cons_
 }else{
     nuevo=0;
 }
+console.log('Estado: '+nuevo)
 //-----------------------------------------------------------------------------------------------------------------------------
 //BUSCAR DATOS DEL PACIENTE
 let query = 'http://localhost:3000/paciente/'+pac_nrohc

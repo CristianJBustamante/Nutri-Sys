@@ -187,6 +187,16 @@ const mostrarData = (data) => {
 
 
 //Validar campos
+function validarFecha(){
+  var userinput = document.getElementById("hc_fechalaboratorios").value;
+  var dob = new Date(userinput);
+  if(userinput==null || userinput=='' || dob.getTime() >= Date.now()) {
+    alert("Coloque una fecha de laboratorio correcta");  
+    document.getElementById("hc_fechalaboratorios").value='';
+    return false; 
+  } 
+}
+
 function validarDatos(){
   var incompleto = false;
   var correccion = "Datos incompletos o inválidos: " + "\n";

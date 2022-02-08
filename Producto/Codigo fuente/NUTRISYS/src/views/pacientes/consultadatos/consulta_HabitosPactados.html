@@ -662,23 +662,22 @@
 					$('.multiselect').multiselect('destroy');
 				});
 				//CARGAR HABITOS DESDE BD
-				if (nuevo==0) {
-				let queryh = 'http://localhost:3000/ultimoshabitos/hc='+ pac_nrohc +'/trn='+ cons_idturno
+				if (nuevo==1) {
+				let queryh = 'http://localhost:3000/ultimoshabitosconsulta/hc='+pac_nrohc+'/trn='+cons_idturno
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
             	.catch(error => console.log(error))
         		const cargarhabitos = (hab) => {
-					console.log(pac_nrohc)
-            	let op=''
+            	for (let i = 0; i<hab.length; i++){
+                	op+=`<option value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
+            		}
+					console.log(hab)
+				let op=''
 				let fecha='2022-01-01'
 				let ob=''
-            	for (let i = 0; i<hab.length; i++){
-                	op+=`<option disabled value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
-            		}
-				
-				let queryh = 'http://localhost:3000/habitopactado/hc='+ pac_nrohc +'/trn='+ cons_idturno
-        		fetch(queryh)
+				let queryh2 = 'http://localhost:3000/habitopactado/hc='+ pac_nrohc +'/trn='+ cons_idturno
+        		fetch(queryh2)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
             	.catch(error => console.log(error))

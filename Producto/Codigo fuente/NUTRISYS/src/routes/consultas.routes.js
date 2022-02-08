@@ -7,7 +7,7 @@ var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
 import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid, registrarhabitostrabajados,
-   registrarcabecerahpac,gethabitopactado, getultimoshabitospaciente, gethabitopactadopaciente} from "../controllers/consultas.controller";
+   registrarcabecerahpac,gethabitopactado,getultimoshabitosconsulta, getultimoshabitospaciente,gethabitopactadoconsulta, gethabitopactadopaciente} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -158,13 +158,15 @@ router.get('/consulta/miprogreso',AuthMiddleware.isLogged, (req,res) => {
 
 
 
-  router.get("/ultimoshabitos/hc=:habpac_nrohc/trn=:cons_idturno",getultimoshabitos)
+  router.get("/ultimoshabitos/:habpac_nrohc",getultimoshabitos)
+  router.get("/ultimoshabitosconsulta/hc=:pac_nrohc/trn=:cons_idturno", getultimoshabitosconsulta)
   //Habitos Mi Progreso
   router.get("/ultimoshabitospaciente/:habpac_nrohc",getultimoshabitospaciente)
   //
   router.get("/primeroshabitos/:habpac_nrohc",getprimeroshabitos)
   router.get("/noultimoshabitos/:habpac_nrohc",getnoultimoshabitos)
   router.get("/habitopactado/hc=:habpac_nrohc/trn=:cons_idturno",gethabitopactado)
+  
   //Habitos Mi Progreso
   router.get("/habitopactadopaciente/:habpac_nrohc",gethabitopactadopaciente)
   //

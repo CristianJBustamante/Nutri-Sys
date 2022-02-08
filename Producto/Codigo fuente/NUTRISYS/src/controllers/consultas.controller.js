@@ -563,11 +563,10 @@ export const getFichaInicialXHC = async(req,res) => {
     
     export const getultimoshabitos = async(req,res) => {
         try {
-            const {habpac_nrohc, cons_idturno} = req.params
+            const {habpac_nrohc} = req.params
             const pool = await getConnection()
             const result = await pool.request()
                 .input('habpac_nrohc', habpac_nrohc)
-                .input('cons_idturno', cons_idturno)
                 .query(consultasquerys.getultimoshabitos)
             res.send(result.recordset)
         } catch (error) {
@@ -575,6 +574,22 @@ export const getFichaInicialXHC = async(req,res) => {
             res.send(error.message);
         }
     } 
+
+    export const getultimoshabitosconsulta = async(req,res) => {
+        try {
+            const {habpac_nrohc, cons_idturno} = req.params
+            const pool = await getConnection()
+            const result = await pool.request()
+                .input('habpac_nrohc', habpac_nrohc)
+                .input('cons_idturno', cons_idturno)
+                .query(consultasquerys.getultimoshabitosconsulta)
+            res.send(result.recordset)
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    } 
+
     //Mi Progreso
     export const getultimoshabitospaciente = async(req,res) => {
         try {
@@ -629,6 +644,7 @@ export const getFichaInicialXHC = async(req,res) => {
             res.send(error.message);
         }
     } 
+    
     //MiProgreso
     export const gethabitopactadopaciente = async(req,res) => {
         try {

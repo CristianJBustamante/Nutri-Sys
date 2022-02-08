@@ -25,6 +25,9 @@ Content-Type: application/json
 GET {{api}}/paciente/1000
 ###
 
+GET {{api}}/ultimoshabitosconsulta/hc=1076/trn=145
+###
+
 DELETE {{api}}/pacientes/1004
 
 ###

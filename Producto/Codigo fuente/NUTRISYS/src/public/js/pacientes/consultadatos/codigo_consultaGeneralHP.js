@@ -95,13 +95,15 @@ url = new String(window.location)
 pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("hc=")+3,(url.indexOf("/trn="))-(url.indexOf("hc=")+3)))
 cons_idturno = url.substr(url.indexOf("trn=")+4,url.length)
 modo = url.substr(url.indexOf("consulta/"),url.length)
-
-if (modo=='consulta/registrarconsultahabitospactados/hc='+pac_nrohc+"/trn="+cons_idturno){
+console.log('Url='+url)
+if (modo=='consulta/consultaHabitos/hc='+pac_nrohc+"/trn="+cons_idturno){
     nuevo=1;
 }else{
     nuevo=0;
 }
-console.log(nuevo)
+console.log('Estado: '+nuevo)
+console.log('Turno: '+cons_idturno)
+
 //-----------------------------------------------------------------------------------------------------------------------------
 //BUSCAR DATOS DEL PACIENTE
 let query = 'http://localhost:3000/paciente/'+pac_nrohc

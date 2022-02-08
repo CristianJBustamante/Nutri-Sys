@@ -521,33 +521,33 @@
 													 <div class=" seccion__class seccion__class--cc">
                                                         
 														<h2 title="Circunferencia de cintura" class="label__ficha"> C.C: </h2>
-														<input class="contenido__input contenido__input--cc" type="number" id="cons_CCM">
+														<input class="contenido__input contenido__input--cc" type="text" id="cons_CCM" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 														<label class="contenido__input--label contenido__imputcc" title="Marcada">Cm(M)</label>
 													
-														<input class="contenido__input contenido__input--cc" type="number" id="cons_CCU">
+														<input class="contenido__input contenido__input--cc" type="text" id="cons_CCU" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 														<label class="contenido__input--label contenido__imputcc" title="Umbilical">Cm(U)</label>
 													
 													
-														<input class="contenido__input contenido__input--cc" type="number" id="cons_CCP">
+														<input class="contenido__input contenido__input--cc" type="text" id="cons_CCP" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 														<label class="contenido__input--label contenido__imputcc" title="Prominente">Cm(P)</label>
 													
 												</div>
 												 <!-- ------------------------ -->
 												 <div class="seccion__class">
 													<h2 class="label__ficha"> Peso: </h2>
-													<input class="contenido__input" type="number" min="1" max="150" id="cons_peso" onchange="calcularbmi()">
+													<input class="contenido__input" type="text"  min="1" max="150" id="cons_peso" onchange="calcularbmi()" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 													<label class="contenido__input--label">Kg</label>
 												  </div>
 												  <!-- ------------------------ -->
 												  <div class="seccion__class">
                                                     <h2 title="Indice de masa corporal" class="label__ficha"> I.M.C: </h2>
-                                                    <input readonly class="contenido__input" type="number" min="1" max="300" id="cons_IMC">
+                                                    <input readonly class="contenido__input" type="text" min="1" max="300" id="cons_IMC" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
                                                     <label class="contenido__input--label">Kg/m^2</label>
                                                   </div>
                                                          <!-- ------------------------ -->
                                                      <div class="seccion__class">
                                                         <h2 class="label__ficha"> Talla: </h2>
-                                                        <input class="contenido__input" type="number" min="10" max="500" id="cons_talla" onchange="calcularbmi()">
+                                                        <input class="contenido__input" type="text" min="10" max="500" id="cons_talla" onchange="calcularbmi()" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
                                                         <label class="contenido__input--label">Mts</label>
                                                       </div>
                                                          <!-- ------------------------ -->
@@ -556,26 +556,26 @@
                                                     
                                                      <div class="seccion__class">
                                                         <h2 title="Grasa corporal" class="label__ficha"> G.C:  </h2>
-                                                        <input class="contenido__input" type="number" min="0" max="100" id="cons_GC">
+                                                        <input class="contenido__input" type="text" min="0" max="100" id="cons_GC" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
                                                         <label class="contenido__input--label">%</label>
                                                       </div>
                                                        <!-- ------------------------ -->
 													   <div class="seccion__class">
                                                         <h2 class="label__ficha" title="Masa muscular"> M.M: </h2>
-                                                        <input class="contenido__input" type="number" min="0" max="100" title="" id="cons_M">
+                                                        <input class="contenido__input" type="text" min="0" max="100" title="" id="cons_M" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
                                                         <label class="contenido__input--label">%</label>
                                                       </div>
                                                        <!-- ------------------------ -->
                                                      <div class="seccion__class">
                                                         <h2 title="Grasa visceral" class="label__ficha"> G.V: </h2>
-                                                        <input class="contenido__input" type="number" min="1" max="100" id="cons_GV">
+                                                        <input class="contenido__input" type="text" min="1" max="100" id="cons_GV" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
                                                         <label class="contenido__input--label">%</label>
                                                       </div>
                                                        <!-- ------------------------ -->
                                                     
                                                      <div class="seccion__class">
                                                         <h2 title="Peso con bioimpedancia" class="label__ficha"> PBI: </h2>
-                                                        <input class="contenido__input" type="number" min="1" max="150" id="cons_PBI">
+                                                        <input class="contenido__input" type="text" min="1" max="150" id="cons_PBI" maxlength="3" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
                                                         <label class="contenido__input--label">Kg</label>
                                                       </div>
                                                        <!-- ------------------------ -->
@@ -583,7 +583,7 @@
                                                     
                                                     <div class="seccion__class--evaluacion">
                                                         <h2 class="label__ficha--evaluacion" title="Alimentación, Neat, Entrenamiendo, Estado emocional"> Evolución</h2>
-                                                        <textarea class="area__observaciones" id="cons_observaciones" placeholder="Alimentación,Neat,Entrenamiendo,Estado emocional"> </textarea>
+                                                        <textarea class="area__observaciones" id="cons_observaciones" placeholder="Alimentación,Neat,Entrenamiendo,Estado emocional" maxlength="500"> </textarea>
                                                     </div><!--fin div evaluacion-->
                                                         
                                                         <div class="boton__guardar">

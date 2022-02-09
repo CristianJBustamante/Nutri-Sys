@@ -342,7 +342,7 @@ export const getEmpleadoLA = async(req,res) => {
         const result = await pool.request()
             .input('emp_legajo', emp_legajo)
             .input('emp_apellido', emp_apellido)
-            .query(usuquerys.getEmpleadoLA)
+            .query(usuquerys.getEmpleadoXLA)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);
@@ -374,7 +374,7 @@ export const getEmpleadoLD = async(req,res) => {
         const result = await pool.request()
             .input('emp_legajo', emp_legajo)
             .input('emp_nrodoc', emp_nrodoc)
-            .query(usuquerys.getEmpleadoLD)
+            .query(usuquerys.getEmpleadoXLD)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);
@@ -391,7 +391,7 @@ export const getEmpleadoAD = async(req,res) => {
         const result = await pool.request()
             .input('emp_apellido', emp_apellido)
             .input('emp_nrodoc', emp_nrodoc)
-            .query(usuquerys.getEmpleadoAD)
+            .query(usuquerys.getEmpleadoXAD)
         res.send(result.recordset)
     } catch (error) {
         res.status(500);

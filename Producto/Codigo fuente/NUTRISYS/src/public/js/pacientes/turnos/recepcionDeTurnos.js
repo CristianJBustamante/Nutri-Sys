@@ -483,7 +483,7 @@ function generarReservado(evento){
         //icon: "success"
       }).then((value) => {
             buscarAgendaProfesional(legajo)
-            swal("Turno Registrado","Se registró el Turno con Éxito!","success");
+            swal("Reservado Registrado","Se Reservo con Éxito!","success");
       })
 }
 

@@ -100,6 +100,7 @@ function buscarEmpleado(){
     }
     if (emp_legajo!='' & emp_nrodoc!='' & emp_apellido!='')  {
       url=url+'leg='+emp_legajo+'/ap='+emp_apellido+'/doc='+emp_nrodoc;
+      console.log('URL: '+url)
     }
     if (emp_legajo!='' & emp_nrodoc!='' & emp_apellido=='')  {
       url=url+'leg='+emp_legajo+'/doc='+emp_nrodoc;
@@ -108,7 +109,8 @@ function buscarEmpleado(){
       url=url+'leg='+emp_legajo+'/ap='+emp_apellido;
     }
     if (emp_legajo=='' & emp_nrodoc!='' & emp_apellido!='')  {
-      url=url+'/ap='+emp_apellido+'/doc='+emp_nrodoc;
+      url=url+'ap='+emp_apellido+'/doc='+emp_nrodoc;
+      console.log('URL: '+url)
     }
       fetch(url)
         .then(response => response.json())

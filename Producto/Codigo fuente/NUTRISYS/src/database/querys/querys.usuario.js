@@ -53,7 +53,7 @@ export const usuquerys = {
     +"left join usuario u on (convert(nvarchar,e.emp_legajo) = u.usu_usuario) "+
                         " WHERE e.emp_legajo = @emp_legajo"+
                         " and e.emp_apellido like '%'+@emp_apellido+'%' "+
-                        " and e.emp_nrodoc = @pac_nrodoc",
+                        " and e.emp_nrodoc = @emp_nrodoc",
 
     getEmpleadoXLA:    "select e.emp_legajo, e.emp_nrodoc, e.emp_apellido, e.emp_nombre, u.usu_correo from empleado e "
     +"left join usuario u on (convert(nvarchar,e.emp_legajo) = u.usu_usuario) "+
@@ -63,12 +63,12 @@ export const usuquerys = {
     getEmpleadoXLD:   "select e.emp_legajo, e.emp_nrodoc, e.emp_apellido, e.emp_nombre, u.usu_correo from empleado e "
     +"left join usuario u on (convert(nvarchar,e.emp_legajo) = u.usu_usuario) "+
                         " WHERE e.emp_legajo = @emp_legajo"+
-                        " and e.emp_nrodoc = @pac_nrodoc",
+                        " and e.emp_nrodoc = @emp_nrodoc",
 
     getEmpleadoXAD:   "select e.emp_legajo, e.emp_nrodoc, e.emp_apellido, e.emp_nombre, u.usu_correo from empleado e "
     +"left join usuario u on (convert(nvarchar,e.emp_legajo) = u.usu_usuario) "+
                         " WHERE e.emp_apellido like '%'+@emp_apellido+'%'"+
-                        " and e.emp_nrodoc = @pac_nrodoc",
+                        " and e.emp_nrodoc = @emp_nrodoc",
 
     getPerfiles: "select * from  perfil where perfil_id != 4",
 

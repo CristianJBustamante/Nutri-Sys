@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="carne__titulo">
+        <h2 class="titulo__seccion--lab">Antropometría</h2>
+        <div class="tabla__antro" >
+            <div class="flex__antro">
+                <div class="grid__antro">
+                    <h2 class="tabla__antro--contenido" title="Peso actual(Kg)" >P.A: </h2>
+                    <input readonly class="input__valor" type="number"  min="1" id="hc_pesoactual" title="Peso actual" step="0.01">
+                    <!-- <label class="tabla__antro--contenidoMedida"> kg</label> -->
+                    <h2 class="tabla__antro--contenido" title="Talla(mts)">Talla: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_talla" step="0.01">
+                    <!-- <label class="tabla__antro--contenidoMedida"> mts</label> -->
+                    <h2 class="tabla__antro--contenido" title="Indice de masa corporal(kg/ms^2)">I.M.C: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_BMI" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg/ms^2</h2>  -->
+                    <h2 class="tabla__antro--contenido" title="Peso habitual(Kg)">P.H: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_PH" step="0.01">
+                     <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2>  -->
+                     <h2 class="tabla__antro--contenido" title="Peso deseado(Kg)">P.D: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_PD" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Peso /Indice de masa corporal(Kg)">P/B.M.I: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_PBMI" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
+                    </div>
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Peso mínimo(Kg)">P.min: </h2>
+                        <div class="input__valoresPeso">
+                            <input readonly class="input__valor--peso" type="number" min="0" id="hc_Pmin" step="0.01">
+                            <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                            <br>
+                            <input readonly class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmincuando">
+                        </div> <!-- contiene los inputs-->
+                        </div>
+                        <div class="tabla__antro--class">
+                            <h2 class="tabla__antro--contenido" title="Peso máximo(Kg)">P.máx: </h2>
+                            <div class="input__valoresPeso">
+                                <input readonly class=" input__valor--peso" type="number" min="0" id="hc_Pmax" step="0.01">
+                                <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                                <br>
+                                <input readonly class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmaxcuando">
+                            </div> 
+                        </div> 
+                </div>
+
+            </div>
+
+        </div>
+        
+        
+    </div>
+
+
+
+
+
+
+
+    <!-- ACTUAL -->
+
+    <div class="carne__titulo">
+        <h2 class="titulo__seccion--lab">Antropometría</h2>
+            <div class="tabla__antro" >
+            
+                <div class="tabla__antro--class" >
+                    <h2 class="tabla__antro--contenido" title="Peso actual(Kg)" >P.A: </h2>
+                    <input readonly class="input__valor" type="number"  min="1" id="hc_pesoactual" title="Peso actual" step="0.01">
+                    <!-- <label class="tabla__antro--contenidoMedida"> kg</label> -->
+                    <h2 class="tabla__antro--contenido" title="Talla(mts)">Talla: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_talla" step="0.01">
+                    <!-- <label class="tabla__antro--contenidoMedida"> mts</label> -->
+                    <h2 class="tabla__antro--contenido" title="Indice de masa corporal(kg/ms^2)">I.M.C: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_BMI" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg/ms^2</h2>  -->
+                    <h2 class="tabla__antro--contenido" title="Peso habitual(Kg)">P.H: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_PH" step="0.01">
+                     <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2>  -->
+                     <h2 class="tabla__antro--contenido" title="Peso deseado(Kg)">P.D: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_PD" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Peso /Indice de masa corporal(Kg)">P/B.M.I: </h2>
+                    <input readonly class="input__valor" type="number" min="1" id="hc_PBMI" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
+                    </div>
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Peso mínimo(Kg)">P.min: </h2>
+                        <div class="input__valoresPeso">
+                            <input readonly class="input__valor--peso" type="number" min="0" id="hc_Pmin" step="0.01">
+                            <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                            <br>
+                            <input readonly class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmincuando">
+                            </div> <!-- contiene los inputs-->
+                        </div>
+                        <div class="tabla__antro--class">
+                            <h2 class="tabla__antro--contenido" title="Peso máximo(Kg)">P.máx: </h2>
+                            <div class="input__valoresPeso">
+                                <input readonly class=" input__valor--peso" type="number" min="0" id="hc_Pmax" step="0.01">
+                                <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                                <br>
+                                <input readonly class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmaxcuando">
+                                </div> 
+                            </div> 
+                </div>
+                 <div class="tabla__antro--class">
+                    <h2 class="tabla__antro--contenido--cc" title="Circinferencia de cintura(%)">C.C:</h2>
+                    <div class="input__valoresDiametro" id="hc_CC1" step="0.01">
+                    <input readonly class="input__valor--diametro" type="number" min="0" title="Cm(Marcada)">
+                    <br>
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> cm(M)</h2> -->
+                    <input readonly class="input__valor--diametro" type="number" min="0" id="hc_CC2" step="0.01" title="Cm(Umbilical)" >
+                    <br>
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> cm(U)</h2> -->
+                    <input readonly class="input__valor--diametro" type="number" min="0" id="hc_CC3" step="0.01" title="Cm(Prominente)">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> cm(P)</h2> -->
+                    </div> 
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Grasa corporal">G.C: </h2>
+                    <input readonly type="number" class="input__valor"  min="1" id="hc_GC" step="0.01" >
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
+                    </div>
+
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Grasa visceral">G.V: </h2>
+                    <input readonly type="number" class="input__valor" id="hc_GV" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
+                    </div>
+
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Masa muscular"> M.M: </h2>
+                    <input readonly class="input__valor" type="number" id="hc_MM" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> %</h2> -->
+                    </div>
+
+                    <div class="tabla__antro--class">
+                        <h2 class="tabla__antro--contenido" title="Peso con bioimpedancia">P.B.I: </h2>
+                    <input readonly class="input__valor" type="number"min="0" id="hc_PBI" step="0.01">
+                    <!-- <h2 class="tabla__antro--contenidoMedida"> Kg</h2> -->
+                    </div>
+                </div>
+                
+                <br> 
+            <div class="tabla__antro--class">
+                <h2 class="tabla__antro--contenido-2">Ajuste por actividad:</h2>
+                <select readonly class="input__valor-3" id="hc_ajuste">
+                <option value=1-2>1.2</option>
+                <option value=1-3>1.3</option>
+                <option value=1-5>1.5</option>
+                </select>
+            <br>
+                <input readonly type="number" class="input__valor-4" id="hc_medajuste" step="0.01"> 
+            </div>
+            <div class="tabla__antro--class">
+                <h2 class="tabla__antro--contenido-2">Formula met.Basal:</h2>
+                <input readonly type="number" class="input__valor-2" title="peso/talla/edad/sexo" id="hc_formula" step="0.01">
+                <!-- <label>Kcal/día</label> -->
+        </div>
+        </div>
+        </div>
+
+        <!-- titulo consulta de medidas antropométricas-->
+
+
+        <div class="carne__titulo">
+            <h2 class="titulo__seccion">Antropometría</h2>
+                <div class="tabla__antro" >
+                    <div class="flex__antro">
+                        <div class="tabla__antro--class">
+                                <h2 class="tabla__antro--contenido" title="Peso actual(Kg)">P.A: </h2>
+                                <input class="input__valor" type="text"  min="1" max="150" placeholder="Kg" id="hc_pesoactual" step="0.01" onchange="calcularbmi()" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                                
+                                <h2 class="tabla__antro--contenido" title="Talla(mts)">Talla: </h2>
+                                <input class="input__valor" type="text" min="1" max="300" placeholder="mts" id="hc_talla" step="0.01" onchange="calcularbmi()" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                                
+                                <h2 class="tabla__antro--contenido" title="Indice de masa corporal(kg/ms^2)">I.M.C: </h2>
+                                <input readonly class="input__valor" type="text" min="1" max="500" placeholder="kg/ms^2" id="hc_BMI" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                                
+                                <h2 class="tabla__antro--contenido" title="Peso habitual(Kg)">P.H: </h2>
+                                <input class="input__valor" type="text" min="1" max="150" placeholder="Kg"  id="hc_PH" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+
+                                <h2 class="tabla__antro--contenido" title="Peso deseado(Kg)">P.D: </h2>
+                                <input class="input__valor" type="text" min="1" max="150"  placeholder="Kg" id="hc_PD" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                                
+
+                            <div class="tabla__antro--class">
+                                <h2 class="tabla__antro--contenido" title="(Peso/Indice de masa corporal)(kg)">P/I.M.C: </h2>
+                                <input readonly class="input__valor" type="text" min="1" max="150"  placeholder="Kg" id="hc_PBMI" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                                
+                            </div>
+                            <div class="tabla__antro--class">
+                                <h2 class="tabla__antro--contenido" title="Peso mínimo(Kg)">P.min:</h2>
+                                <div class="input__valoresPeso">
+                                    <input class="input__valor--peso" type="text" min="1" max="150" placeholder="Kg" id="hc_Pmin" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                                    
+                                    <br>
+                                    <input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmincuando">
+                                </div> <!-- contiene los inputs-->
+                                </div>
+                                <div class="tabla__antro--class">
+                                    <h2 class="tabla__antro--contenido" title="Peso máximo(Kg)">P.máx: </h2>
+                                    <div class="input__valoresPeso">
+                                        <input class="input__valor--peso" type="text" min="1" max="150" placeholder="Kg" id="hc_Pmax" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                                        
+                                        <br>
+                                        <input class="input__valor--peso2" type="text" title="¿cuando?" id="hc_Pmaxcuando">
+                                    </div> 
+                                </div> 
+                        </div>
+                         <div class="tabla__antro--class">
+                            <h2 class="tabla__antro--contenido--cc" title="Circinferencia de cintura(%)">C.C:</h2>
+                            <div class="input__valoresDiametro" id="hc_CC1" step="0.01">
+                            <input class="input__valor--diametro" type="text" min="0" max="200" placeholder="Cm(Marcada)" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                            <br>
+                            
+                            <input class="input__valor--diametro" type="text" min="0" max="200"  placeholder="Cm(Umbilical)" id="hc_CC2" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                            <br>
+                            
+                            <input class="input__valor--diametro" type="text" min="0" max="200"  placeholder="Cm(Prominente)" id="hc_CC3" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                            
+                            </div> 
+                            <div class="tabla__antro--class">
+                                <h2 class="tabla__antro--contenido" title="Grasa corporal(%)">G.C: </h2>
+                            <input type="text" class="input__valor"  min="0" max="100"  placeholder="%" id="hc_GC" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                            
+                            </div> <!--div de los valores del diametro-->
+
+                            <div class="tabla__antro--class">
+                                <h2 class="tabla__antro--contenido" title="Grasa visceral(%)">G.V: </h2>
+                            <input type="text" class="input__valor" min="0" max="100"  placeholder="%" id="hc_GV" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                            
+                            </div>
+
+                            <div class="tabla__antro--class">
+                                <h2 class="tabla__antro--contenido" title="Masa muscular(%)"> M.M: </h2>
+                            <input class="input__valor" type="text" min="0" max="100"  placeholder="%" id="hc_MM" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                            
+                            </div>
+
+                            <div class="tabla__antro--class">
+                                <h2 class="tabla__antro--contenido" title="Peso con bioimpedancia(Kg)">P.B.I: </h2>
+                            <input class="input__valor" type="text"min="1" max="300" placeholder="Kg" id="hc_PBI" step="0.01" maxlength="4" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+                            
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex__antro--wmargin">
+                        <div class="tabla__antro--class">
+                            <h2 class="tabla__antro--contenido-2">Ajuste por actividad:</h2>
+                            <select class="input__valor-3" id="hc_ajuste" onchange="calcularbmi()">
+                            <option value=1.2>1.2</option>
+                            <option value=1.3>1.3</option>
+                            <option value=1.5>1.5</option>
+                            </select>
+                        <br>
+                            <input readonly type="number" class="input__valor-4" id="hc_medajuste" step="0.01"> 
+                        </div>
+                        <div class="tabla__antro--class formula__basal">
+                            <h2 class="tabla__antro--contenido-2">Formula met.Basal:</h2>
+                            <input readonly type="number" class="input__valor-2" title="peso/talla/edad/sexo" id="hc_formula" step="0.01">
+                            <!-- <label>Kcal/día</label> -->
+                        </div>
+                    </div>
+                    
+            </div>
+            <div>
+                <input class="btn btn-white btn-primary boton" type="button" name="Guardar" value="Siguiente" onclick="registrarficha()">
+            </div>
+        </div>
+
+</body>
+</html>

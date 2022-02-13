@@ -258,6 +258,7 @@ function generarTurno(hcPaciente, momentoStart, momentoEnd, calendar){
 }
 
 function mostrarHC(title){
+    console.log(title)
     var hc = title.split(" - ");
     if (hc[0].match(/^\d/)) {
         return hc[0];
@@ -505,9 +506,38 @@ function buscarNombrePaciente(titulo){
 
 }
 
+function buscarNombrePaciente2(titulo){
+    var nombre;
+    var hc = titulo;
+
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_nombre);
+                nombre = element.pac_nombre;
+            }
+          });
+    
+    return nombre;
+
+}
+
 function buscarApellidoPaciente(titulo){
     var apellido;
     var hc = mostrarHC(titulo);
+        const filtered = pacientes.filter(function(element){
+            if(element.pac_nrohc == hc){
+                console.log(element.pac_apellido);
+                apellido = element.pac_apellido;
+            }
+          });
+    
+    return apellido;
+
+}
+
+function buscarApellidoPaciente2(titulo){
+    var apellido;
+    var hc = titulo;
         const filtered = pacientes.filter(function(element){
             if(element.pac_nrohc == hc){
                 console.log(element.pac_apellido);

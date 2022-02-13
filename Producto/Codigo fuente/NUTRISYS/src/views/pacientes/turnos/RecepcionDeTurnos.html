@@ -1021,7 +1021,7 @@
 								confirmarTurno(calEvent, calEvent.title, calendar);
 								//generarTurno(calEvent.title, calEvent._start._d, calEvent._end._d);
 								//**
-								var turno = calEvent.title + " - " + buscarNombrePaciente(calEvent.title) + " - " + buscarDocPaciente(calEvent.title);
+								var turno = calEvent.title + " - " + buscarNombrePaciente2(calEvent.title) + " - " + buscarApellidoPaciente2(calEvent.title) + " - " + buscarDocPaciente(calEvent.title);
 								calEvent.title = turno;
 								// // calEvent.title = calEvent.title + " - " + buscarNombrePaciente(calEvent.title);
 								// //**
@@ -1035,7 +1035,7 @@
 								swal("Paciente No Encontrado", "El paciente ingresado no es válido", "error");
 							}
 
-							// calendar.fullCalendar('updateEvent', calEvent);
+							 calendar.fullCalendar('updateEvent', calEvent);
 
 						}
 

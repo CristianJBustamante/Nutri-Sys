@@ -168,7 +168,108 @@ const mostrarData = (data) => {
 
     }
     
+    function validarDatos(){
+      var incompleto = false;
+      var correccion = "Datos incompletos o inválidos: " + "\n";
+    
+      //Valores Limite
+      if(document.getElementById("cons_peso").value != '')
+      {
+        if(document.getElementById("cons_peso").value < 0 || document.getElementById("cons_peso").value > 250)
+        {
+          correccion = correccion + "*Peso" + "\n"
+          document.getElementById("cons_peso").focus()
+          incompleto = true;
+        }
+      }
+    
+      if(document.getElementById("cons_talla").value != '')
+      {
+        if(document.getElementById("cons_talla").value <= 0 || document.getElementById("cons_talla").value >= 3)
+        {
+          correccion = correccion + "*Talla " + "\n"
+          document.getElementById("cons_talla").focus()
+          incompleto = true;
+        }
+      }
+      if(document.getElementById("cons_M").value != '')
+      {
+        if(document.getElementById("cons_M").value <= 0 || document.getElementById("cons_M").value > 100)
+        {
+          correccion = correccion + "*Masa Muscular " + "\n"
+          document.getElementById("cons_M").focus()
+          incompleto = true;
+        }
+      }
+      if(document.getElementById("cons_PBI").value != '')
+      {
+        if(document.getElementById("cons_PBI").value < 0 || document.getElementById("cons_PBI").value > 250)
+        {
+          correccion = correccion + "*Peso con Bioimpedancia " + "\n"
+          document.getElementById("cons_PBI").focus()
+          incompleto = true;
+        }
+      }
+      if(document.getElementById("cons_CCM").value != '')
+      {
+        if(document.getElementById("cons_CCM").value <= 0 || document.getElementById("cons_CCM").value >= 250)
+        {
+          correccion = correccion + "*Cm Marcada " + "\n"
+          document.getElementById("cons_CCM").focus()
+          incompleto = true;
+        }
+      }
+      if(document.getElementById("cons_CCU").value != '')
+      {
+        if(document.getElementById("cons_CCU").value <= 0 || document.getElementById("cons_CCU").value >= 250)
+        {
+          correccion = correccion + "*Cm Umbilical " + "\n"
+          document.getElementById("cons_CCU").focus()
+          incompleto = true;
+        }
+      }
+      if(document.getElementById("cons_CCP").value != '')
+      {
+        if(document.getElementById("cons_CCP").value <= 0 || document.getElementById("cons_CCP").value >= 250)
+        {
+          correccion = correccion + "*Cm Prominente " + "\n"
+          document.getElementById("cons_CCP").focus()
+          incompleto = true;
+        }
+      }
+      if(document.getElementById("cons_GC").value != '')
+      {
+        if(document.getElementById("cons_GC").value <= 0 || document.getElementById("cons_GC").value > 100)
+        {
+          correccion = correccion + "*Grasa Corporal " + "\n"
+          document.getElementById("cons_GC").focus()
+          incompleto = true;
+        }
+      }
+      if(document.getElementById("cons_GV").value != '')
+      {
+        if(document.getElementById("cons_GV").value <= 0 || document.getElementById("cons_GV").value > 100)
+        {
+          correccion = correccion + "*Grasa Viceral " + "\n"
+          document.getElementById("cons_GV").focus()
+          incompleto = true;
+        }
+      }
+      
+      
+      if(incompleto == true){
+          swal("Atención",correccion,"warning" );
+          return false;
+      }
+      else{
+      }
+    }
+
     function registrarPaciente(){
+      if (validarDatos() == false) {
+        return false;
+      } 
+      else {
         var cons_edad = parseFloat(document.getElementById("edad__paciente").value);
         var cons_peso = parseFloat(document.getElementById("cons_peso").value);
         var cons_talla =  parseFloat(document.getElementById("cons_talla").value);
@@ -228,18 +329,12 @@ const mostrarData = (data) => {
                 swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
                     .then((value) => {
                             location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno})
-          
-    
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
             console.log(error)
         }
-
-        
-        
-         
-          
-        }
+      }          
+      }
         
         function calcularbmi(){
             var peso = document.getElementById("cons_peso").value;

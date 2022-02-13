@@ -159,7 +159,16 @@ console.log(habpac_id)
 //------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------
 //FUNCIONES
-
+function validarFecha(){
+  var userinput = document.getElementById("fechapacto").value;
+  var dob = new Date(userinput);
+  if(userinput==null || userinput=='' || dob.getTime() < Date.now()) {
+    alert("Coloque una fecha correcta");  
+    document.getElementById("fechapacto").value='';
+    document.getElementById("fechapacto").focus();
+    return false; 
+  }
+}
 //------------------------------------------------------------------------------------------------------------------------------
 //REGISTRAR/ACTUALIZAR
 function registrarhabitos() {

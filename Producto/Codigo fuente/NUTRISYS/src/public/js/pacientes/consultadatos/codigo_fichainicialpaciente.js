@@ -215,7 +215,7 @@ let querya = 'http://localhost:3000/anamnesis/'+pac_nrohc
         document.getElementById("anms_prepconleche").value=data.anms_prepconleche;
         if (data.anms_lecheentera | data.anms_lechedescremada | data.anms_yogurtentero | 
             data.anms_yogurtdescremada | data.anms_quesoduro | data.anms_quesosemiblando | data.anms_quesountable |
-            data.anms_otrosquesos!='                                                  ' | data.anms_flan | data.anms_licuados | data.anms_salsablanca | 
+            data.anms_otrosquesos!='' | data.anms_flan | data.anms_licuados | data.anms_salsablanca | 
             data.anms_prepconleche!='') {
                 document.getElementById("lacteos").checked = true;
                 hideSeccion('lacteos__cuestionario')

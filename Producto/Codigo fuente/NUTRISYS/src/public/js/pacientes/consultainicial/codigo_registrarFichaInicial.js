@@ -190,9 +190,24 @@ const mostrarData = (data) => {
 function validarFecha(){
   var userinput = document.getElementById("hc_fechalaboratorios").value;
   var dob = new Date(userinput);
+  var userinput2 = document.getElementById("hc_Pmincuando").value;
+  var dob2 = new Date(userinput2);
+  var userinput3 = document.getElementById("hc_Pmaxcuando").value;
+  var dob3 = new Date(userinput3);
+
   if(userinput==null || userinput=='' || dob.getTime() >= Date.now()) {
     alert("Coloque una fecha de laboratorio correcta");  
     document.getElementById("hc_fechalaboratorios").value='';
+    return false; 
+  } 
+  if(dob2.getTime() >= Date.now()) {
+    alert("Coloque una fecha de Peso Minimo correcta");  
+    document.getElementById("hc_Pmincuando").value='';
+    return false; 
+  } 
+  if(dob3.getTime() >= Date.now()) {
+    alert("Coloque una fecha de Peso Maximo correcta");  
+    document.getElementById("hc_Pmaxcuando").value='';
     return false; 
   } 
 }
@@ -204,21 +219,151 @@ function validarDatos(){
   if(document.getElementById("hc_actividadfisica").value == "")
   {
       correccion = correccion + "*Actividad Fisica" + "\n"
+      document.getElementById("hc_actividadfisica").focus()
       incompleto = true;
   }
 
   if(document.getElementById("hc_ocupacion").value == "")
   {
       correccion = correccion + "*Ocupación" + "\n"
+      document.getElementById("hc_ocupacion").focus()
       incompleto = true;
   }
 
   if(document.getElementById("fechaactual").value == "")
   {
       correccion = correccion + "*Fecha" + "\n"
+      document.getElementById("fechaactual").focus()
       incompleto = true;
   }
+  //Valores Limite
+  if(document.getElementById("hc_edaddieta").value != '')
+  {
+    if(document.getElementById("hc_edaddieta").value <= 0 || document.getElementById("hc_edaddieta").value >= 100)
+    {
+      correccion = correccion + "*Edad Dieta" + "\n"
+      document.getElementById("hc_edaddieta").focus()
+      incompleto = true;
+    }
+  }
 
+  if(document.getElementById("hc_pesoactual").value != '')
+  {
+    if(document.getElementById("hc_pesoactual").value < 0 || document.getElementById("hc_pesoactual").value > 250)
+    {
+      correccion = correccion + "*Peso Actual" + "\n"
+      document.getElementById("hc_pesoactual").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_talla").value != '')
+  {
+    if(document.getElementById("hc_talla").value <= 0 || document.getElementById("hc_talla").value >= 3)
+    {
+      correccion = correccion + "*Talla " + "\n"
+      document.getElementById("hc_talla").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_PH").value != '')
+  {
+    if(document.getElementById("hc_PH").value <= 0 || document.getElementById("hc_PH").value > 250)
+    {
+      correccion = correccion + "*Peso Habitual " + "\n"
+      document.getElementById("hc_PH").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_PD").value != '')
+  {
+    if(document.getElementById("hc_PD").value <= 0 || document.getElementById("hc_PD").value >= 250)
+    {
+      correccion = correccion + "*Peso Deseado " + "\n"
+      document.getElementById("hc_PD").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_Pmin").value != '')
+  {
+    if(document.getElementById("hc_Pmin").value <= 0 || document.getElementById("hc_Pmin").value >= 250)
+    {
+      correccion = correccion + "*Peso Minimo " + "\n"
+      document.getElementById("hc_Pmin").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_Pmax").value != '')
+  {
+    if(document.getElementById("hc_Pmax").value <= 0 || document.getElementById("hc_Pmax").value >= 250)
+    {
+      correccion = correccion + "*Peso Maximo " + "\n"
+      document.getElementById("hc_Pmax").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_CC1").value != '')
+  {
+    if(document.getElementById("hc_CC1").value <= 0 || document.getElementById("hc_CC1").value >= 250)
+    {
+      correccion = correccion + "*Cm Marcada " + "\n"
+      document.getElementById("hc_CC1").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_CC2").value != '')
+  {
+    if(document.getElementById("hc_CC2").value <= 0 || document.getElementById("hc_CC2").value >= 250)
+    {
+      correccion = correccion + "*Cm Umbilical " + "\n"
+      document.getElementById("hc_CC2").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_CC3").value != '')
+  {
+    if(document.getElementById("hc_CC3").value <= 0 || document.getElementById("hc_CC3").value >= 250)
+    {
+      correccion = correccion + "*Cm Prominente " + "\n"
+      document.getElementById("hc_CC3").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_GC").value != '')
+  {
+    if(document.getElementById("hc_GC").value <= 0 || document.getElementById("hc_GC").value > 100)
+    {
+      correccion = correccion + "*Grasa Corporal " + "\n"
+      document.getElementById("hc_GC").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_GV").value != '')
+  {
+    if(document.getElementById("hc_GV").value <= 0 || document.getElementById("hc_GV").value > 100)
+    {
+      correccion = correccion + "*Grasa Viceral " + "\n"
+      document.getElementById("hc_GV").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_MM").value != '')
+  {
+    if(document.getElementById("hc_MM").value <= 0 || document.getElementById("hc_MM").value > 100)
+    {
+      correccion = correccion + "*Masa Muscular " + "\n"
+      document.getElementById("hc_MM").focus()
+      incompleto = true;
+    }
+  }
+  if(document.getElementById("hc_PBI").value != '')
+  {
+    if(document.getElementById("hc_PBI").value < 0 || document.getElementById("hc_PBI").value > 250)
+    {
+      correccion = correccion + "*Peso con Bioimpedancia " + "\n"
+      document.getElementById("hc_PBI").focus()
+      incompleto = true;
+    }
+  }
   if(incompleto == true){
       swal("Atención",correccion,"warning" );
       return false;

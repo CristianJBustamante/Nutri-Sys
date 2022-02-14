@@ -1,6 +1,6 @@
  @api = http://localhost:3000
 
-GET {{api}}/ultimahc
+GET {{api}}/datosmiprogreso/1037
 
 ###
 

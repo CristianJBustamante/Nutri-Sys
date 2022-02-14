@@ -68,6 +68,9 @@ export const pacquerys = {
     " group by turno_fecha,consulta.cons_id,turno_fecha"+
     " order by turno_fecha",
    
+    getmiprogresopesos: "select *,(select top 1 cons_peso from consulta inner join turno on cons_idturno=turno_id where turno_nrohc=pac_nrohc order by cons_id desc) as ultimopeso, "+
+                        "case when hc_pesoactual is null then (select top 1 cons_peso from consulta inner join turno on cons_idturno=turno_id where turno_nrohc=pac_nrohc order by cons_id) else hc_pesoactual end as primerpeso "+
+                        "from paciente left join historia_clinica on pac_nrohc=hc_nrohc where pac_nrohc=@pac_nrohc",
 
 //-------------------------------------------------------ABMS------------------------------------------------------
     nuevoPaciente:  "INSERT INTO paciente (pac_tipodoc,pac_nrodoc,pac_apellido,pac_nombre,pac_sexo,pac_fechanacimiento,pac_fechaalta,"+

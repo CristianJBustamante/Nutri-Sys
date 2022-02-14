@@ -5,7 +5,7 @@ const router = express.Router();
 const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
-import {actualizarPaciente, eliminarPaciente, getconsultaspaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, getpesospaciente, getultimoimc, nuevoPaciente, getconsultaspacienteHabitos, getultimahc} from "../controllers/paciente.controller";
+import {getdadosmiprogreso, actualizarPaciente, eliminarPaciente, getconsultaspaciente, getPacienteAPDoc, getPacienteHCAP, getPacienteHCDoc, getPacienteLikeDoc, getPacienteLikeHC, getPacienteMixto, getPacientes, getPacienteXap, getPacienteXHC, getpesospaciente, getultimoimc, nuevoPaciente, getconsultaspacienteHabitos, getultimahc} from "../controllers/paciente.controller";
 
 
 //router.get('/nuevopaciente',(req,res) => {
@@ -131,6 +131,6 @@ router.get('/pacientes/hc=:pac_nrohc/ap=:pac_apellido/doc=:pac_nrodoc', getPacie
 router.get('/pacientes/hc=:pac_nrohc/ap=:pac_apellido', getPacienteHCAP)
 router.get('/pacientes/hc=:pac_nrohc/doc=:pac_nrodoc', getPacienteHCDoc)
 router.get('/pacientes/ap=:pac_apellido/doc=:pac_nrodoc', getPacienteAPDoc)
-
+router.get('/datosmiprogreso/:pac_nrohc', getdadosmiprogreso)
 
 module.exports = router;

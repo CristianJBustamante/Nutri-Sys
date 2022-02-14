@@ -203,6 +203,20 @@ export const getconsultaspaciente = async(req,res) => {
     }
 }
 
+//MI PROGRESO
+export const getdadosmiprogreso = async(req,res) => {
+    try {
+        const {pac_nrohc} = req.params
+        const pool = await getConnection()
+        const result = await pool.request()
+            .input('pac_nrohc', pac_nrohc).query(pacquerys.getmiprogresopesos)
+        res.send(result.recordset[0])
+    } catch (error) {
+        res.status(500);
+        res.send(error.message);
+    }
+}
+
 //CONSULTAS Habitos
 export const getconsultaspacienteHabitos = async(req,res) => {
     try {

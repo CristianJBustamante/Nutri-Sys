@@ -157,6 +157,12 @@ h2{
     background-color: var(--grisClaro);
 }
 
+.info__datosPersonales2{
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+}
+
 .accesoRapido{
     display: flex;
     background-color: white;
@@ -271,6 +277,20 @@ h2{
 .input__padding{
     margin: 1rem;
     width: 50%;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    height: 5rem;
+}
+.input__padding2{
+    margin: 1rem;
+    width: 10%;
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+    height: 5rem;
+}
+.input__padding3{
+    margin: 1rem;
+    width: 30%;
     font-size: 2rem;
     font-family: var(--fuentePrincipal);
     height: 5rem;

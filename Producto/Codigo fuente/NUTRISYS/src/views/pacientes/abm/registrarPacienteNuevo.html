@@ -522,11 +522,11 @@
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Nombre/s:(*)</h2>
-												<input type="text" maxlength="40" id="nombre__paciente" placeholder=" Ingrese su Nombre" class="input__padding">
+												<input type="text" maxlength="40" id="nombre__paciente" placeholder=" Ingrese su Nombre" class="input__padding" required pattern="[A-Z]">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Apellido/s:(*)</h2>
-												<input type="text" maxlength="40" id="apellido__paciente" placeholder=" Ingrese su Apellido" class="input__padding">
+												<input type="text" maxlength="40" id="apellido__paciente" placeholder=" Ingrese su Apellido" class="input__padding" pattern="[a-z]">
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Fecha Nacimiento:(*)</h2>
@@ -555,18 +555,18 @@
 												<input type="text" maxlength="40" class="input__padding" placeholder=" Ingrese su Barrio" id="barrio__paciente">
 											</section>
 											<section class="info__datosPersonales">
-												<h2 class="input__text">Codigo Area(*):</h2>
-												<select name="select" id="codigoArea" class="input__padding" required>
-													<option disabled selected value="">--Seleccione Cod Area--</option>
-													<option value="+54">+54 Argentina</option>
-													<option value="+51">+51 Peru</option>
-													<option value="+56">+56 Chile</option>
-													<option value="+57">+57 Colombia</option>
-												</select>
-											</section>
-											<section class="info__datosPersonales">
-												<h2 class="input__text">Celular:(*)</h2>
-												<input type="text" maxlength="10" id="celular__paciente" placeholder=" Ej: +543514747474" class="input__padding" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
+												<div class="info__datosPersonales">
+													<h2 class="input__text">Celular:(*)</h2>
+													<select name="select" id="codigoArea" class="input__padding" required style="width: 6rem; margin-left: 8.2rem; margin-right: 0.7rem;">
+														<option disabled selected value="">--Codigo Area--</option>
+														<option value="+54">+54 Argentina</option>
+														<option value="+51">+51 Peru</option>
+														<option value="+56">+56 Chile</option>
+														<option value="+57">+57 Colombia</option>
+														<option value="+57">+55 Brasil</option>
+													</select>
+													<input type="text" maxlength="10" id="celular__paciente" placeholder=" Ej: 3514747474" class="input__padding" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
+												</div>
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Teléfono:</h2>

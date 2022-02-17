@@ -137,7 +137,14 @@ if (nuevo==1) {
         document.getElementById("sexo__paciente").value = data.pac_sexo
         document.getElementById("mutual__paciente").value = data.pac_mutual
         document.getElementById("mutual__paciente2").value = data.pac_mutual2
-        document.getElementById("celular__paciente").value = data.pac_telefono1
+        var telefono1 = data.pac_telefono1;
+        var codArea = data.pac_telefono1;
+        telefono1 = telefono1.substr(telefono1.indexOf("+")+3,telefono1.length);
+        codArea = codArea.substr(codArea.indexOf("+"),3);
+        console.log("Telefono: "+telefono1);
+        console.log("Codigo Area:"+ codArea);
+        document.getElementById("celular__paciente").value = telefono1
+        document.getElementById("codigoArea").value = codArea
         document.getElementById("telefono__paciente").value = data.pac_telefono2
         document.getElementById("fechaNac__paciente").value = data.pac_fnac
         document.getElementById("correo__paciente").value = data.pac_correo
@@ -191,12 +198,16 @@ function registrarPaciente(){
     var sexo = document.getElementById("sexo__paciente").value;
     var mutual = document.getElementById("mutual__paciente").value;
     var mutual2 = document.getElementById("mutual__paciente2").value;
+    var codigoArea = document.getElementById("codigoArea").value;
     var telefono1 = document.getElementById("celular__paciente").value;
+    var telefonoCompleto = codigoArea + telefono1;
     var telefono2 = document.getElementById("telefono__paciente").value;
     var fechanacimiento = document.getElementById("fechaNac__paciente").value;
     var correo = document.getElementById("correo__paciente").value;
     var direccion = document.getElementById("direccion__paciente").value;
     var barrio = document.getElementById("barrio__paciente").value;
+
+    console.log(telefonoCompleto);
 
     const post = {
         pac_tipodoc: tipodoc,
@@ -206,7 +217,7 @@ function registrarPaciente(){
         pac_sexo: sexo,
         pac_mutual: mutual,
         pac_mutual2: mutual2,
-        pac_telefono1: telefono1,
+        pac_telefono1: telefonoCompleto,
         pac_telefono2: telefono2,
         pac_fechanacimiento: fechanacimiento,
         pac_correo: correo,
@@ -216,7 +227,7 @@ function registrarPaciente(){
     if (nuevo == 1) {
         swal({
             title: "Atención",
-            text: "Al registrar el paciente, se enviará un Mensaje de Texto al Número: " + document.getElementById("celular__paciente").value + ". Confirme que es correcto.",
+            text: "Al registrar el paciente, se enviará un Mensaje de Texto al Número: " + telefonoCompleto + ". Confirme que es correcto.",
             icon: "warning",
             buttons: true,
             dangerMode: true,
@@ -280,57 +291,91 @@ function validarDatos(){
     var celular= document.getElementById("celular__paciente").value;
     var documento= document.getElementById("documento__paciente").value;
 
-    if(document.getElementById("documento__paciente").value == "" || documento.length!=8)
+    if(document.getElementById("tipodocumento__paciente").value == "")
+    {
+        correccion = correccion + "*Tipo Documento" + "\n"
+        document.getElementById("tipodocumento__paciente").focus()
+        incompleto = true;
+    }
+    if(document.getElementById("documento__paciente").value == "")
     {
         correccion = correccion + "*Documento" + "\n"
+        document.getElementById("documento__paciente").focus()
         incompleto = true;
     }
     
     if(document.getElementById("nombre__paciente").value == "")
     {
         correccion = correccion + "*Nombre" + "\n"
+        document.getElementById("nombre__paciente").focus()
         incompleto = true;
     }
 
     if(document.getElementById("apellido__paciente").value == "")
     {
         correccion = correccion + "*Apellido" + "\n"
+        document.getElementById("apellido__paciente").focus()
         incompleto = true;
     }
 
     if(document.getElementById("fechaNac__paciente").value == "")
     {
         correccion = correccion + "*Fecha Nacimiento" + "\n"
-        incompleto = true;
+        document.getElementById("fechaNac__paciente").focus()
+        incompleto = true;        
+    }
+    var userinput = document.getElementById("fechaNac__paciente").value;
+    var dob = new Date(userinput);
+    if(dob.getTime()<31/12/1922)
+    {
+        correccion = correccion + "*Fecha Nacimiento" + "\n"
+        document.getElementById("fechaNac__paciente").focus()
+        incompleto = true; 
     }
 
     if(document.getElementById("direccion__paciente").value == "")
     {
         correccion = correccion + "*Dirección" + "\n"
+        document.getElementById("direccion__paciente").focus()
         incompleto = true;
     }
 
     if(document.getElementById("barrio__paciente").value == "")
     {
         correccion = correccion + "*Barrio" + "\n"
+        document.getElementById("barrio__paciente").focus()
         incompleto = true;
     }
-
-    if(document.getElementById("celular__paciente").value == "" || !(celular.startsWith('+54')) || celular.length!=13)
+    if(document.getElementById("sexo__paciente").value == "")
+    {
+        correccion = correccion + "*Sexo" + "\n"
+        document.getElementById("sexo__paciente").focus()
+        incompleto = true;
+    }
+    if(document.getElementById("codigoArea").value == "")
+    {
+        correccion = correccion + "*Codigo Area" + "\n"
+        document.getElementById("codigoArea").focus()
+        incompleto = true;
+    }
+    if(document.getElementById("celular__paciente").value == "")
     {
         correccion = correccion + "*Celular" + "\n"
+        document.getElementById("celular__paciente").focus()
         incompleto = true;
     }
 
     if(document.getElementById("correo__paciente").value == "" || !(correo.includes("@")))
     {
         correccion = correccion + "*Correo" + "\n"
+        document.getElementById("correo__paciente").focus()
         incompleto = true;
     }
 
     if(document.getElementById("mutual__paciente").value == "")
     {
         correccion = correccion + "*Mutual" + "\n"
+        document.getElementById("mutual__paciente").focus()
         incompleto = true;
     }
     

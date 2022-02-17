@@ -509,7 +509,7 @@
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Tipo Documento(*):</h2>
 												<select name="select" id="tipodocumento__paciente" placeholder=" Ingrese tipo documento" class="input__padding">
-													<option disabled selected>--Seleccione tipo documento--</option>
+													<option disabled selected value="">--Seleccione tipo documento--</option>
 													<option value="DNI">DNI</option>
 													<option value="PASAPORTE">Pasaporte</option>
 													<option value="CARNET EXT.">Carnet ext.</option>
@@ -538,14 +538,13 @@
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Sexo(*):</h2>
-												<select name="select" id="sexo__paciente" class="input__padding">
-													<option disabled selected>--Seleccione sexo--</option>
+												<select name="select" id="sexo__paciente" class="input__padding" required>
+													<option disabled selected value="">--Seleccione sexo--</option>
 													<option class="input__padding" value="Masculino">Masculino</option>
 													<option class="input__padding" value="Femenino">Femenino</option>
 												</select>
 											</section>
 											<section class="info__datosPersonales">
-												<!-- vacio -->
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Dirección(*):</h2>
@@ -556,8 +555,18 @@
 												<input type="text" maxlength="40" class="input__padding" placeholder=" Ingrese su Barrio" id="barrio__paciente">
 											</section>
 											<section class="info__datosPersonales">
+												<h2 class="input__text">Codigo Area(*):</h2>
+												<select name="select" id="codigoArea" class="input__padding" required>
+													<option disabled selected value="">--Seleccione Cod Area--</option>
+													<option value="+54">+54 Argentina</option>
+													<option value="+51">+51 Peru</option>
+													<option value="+56">+56 Chile</option>
+													<option value="+57">+57 Colombia</option>
+												</select>
+											</section>
+											<section class="info__datosPersonales">
 												<h2 class="input__text">Celular:(*)</h2>
-												<input type="text" maxlength="13" id="celular__paciente" placeholder=" Ej: +543514747474" class="input__padding" value="+54" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
+												<input type="text" maxlength="10" id="celular__paciente" placeholder=" Ej: +543514747474" class="input__padding" onkeypress="return event.charCode > 47 && event.charCode < 58;" pattern="[0-9]{5}" required>
 											</section>
 											<section class="info__datosPersonales">
 												<h2 class="input__text">Teléfono:</h2>

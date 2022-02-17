@@ -552,7 +552,7 @@
 		
 											<div class="seccion__class">
 												<h2 class="label__ficha">Tarea o ocupación:</h2>
-												<input required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion" maxlength="100">
+												<textarea required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion" maxlength="100"></textarea>
 											</div>
 		
 											<div class="seccion__class">
@@ -592,7 +592,7 @@
 																		
 																		<!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
 																		<div class="tabla__antro--class">
-																			<h2 class="tabla__antro--contenido" title="Peso /Indice de masa corporal(Kg)">P/B.M.I: </h2>
+																			<h2 class="tabla__antro--contenido" title="Peso /Indice de masa corporal(Kg)">P/I.M.C: </h2>
 																			<input readonly class="input__valor" type="text" min="1" max="150"  placeholder="Kg" id="hc_PBMI" step="0.01" maxlength="6" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
 																		<!-- <h2 class="tabla__antro--contenidoMedida"> kg</h2> -->
 																		</div>
@@ -614,7 +614,7 @@
 																			</div> 
 																	</div>
 																	<div class="">
-																		<div class="input__valoresDiametro" id="hc_CC1" step="0.01">
+																		<div class="input__valoresDiametro" step="0.01">
 																			<h2 class="tabla__antro--contenido" title="Circinferencia de cintura(%)">C.C:</h2>
 																			<input class="input__valor--diametro" type="text" min="0" max="200" placeholder="Cm(Marcada)" id="hc_CC1" step="0.01" maxlength="6" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
 																			<br>
@@ -627,7 +627,7 @@
 																		<input type="text" class="input__valor"  min="0" max="100"  placeholder="%" id="hc_GC" step="0.01" maxlength="5" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
 								
 																		<h2 class="tabla__antro--contenido" title="Grasa visceral(%)">G.V: </h2>
-																		<input type="text" class="input__valor" min="0" max="100"  placeholder="%" id="hc_GV" step="0.01" maxlength="5" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
+																		<input type="text" class="input__valor" min="0" max="100"  id="hc_GV" step="0.01" maxlength="5" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
 																		
 																		<h2 class="tabla__antro--contenido" title="Masa muscular(%)"> M.M: </h2>
 																		<input class="input__valor" type="text" min="0" max="100"  placeholder="%" id="hc_MM" step="0.01" maxlength="5" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))">
@@ -640,17 +640,18 @@
 
 																<div class="flex__antro--wmargin">
 																	<div class="tabla__antro--class">
-																		<h2 class="tabla__antro--contenido-2">Ajuste por actividad:</h2>
+																		<h2 class="tabla__antro--contenido-2" style="margin-left: -2rem;">Ajuste por actividad:</h2>
 																		<select class="input__valor-3" id="hc_ajuste" onchange="calcularbmi()">
-																		<option value=1.2>1.2</option>
-																		<option value=1.3>1.3</option>
-																		<option value=1.5>1.5</option>
+																		<option disabled selected value=""></option>
+																		<option value="1.2">1.2</option>
+																		<option value="1.3">1.3</option>
+																		<option value="1.5">1.5</option>
 																		</select>
 																		<br>
 																		<input readonly type="number" class="input__valor-4" id="hc_medajuste" step="0.01" maxlength="6"> 
 																	</div>
 																	<div class="tabla__antro--class formula__basal">
-																		<h2 class="tabla__antro--contenido-2">Formula met.Basal:</h2>
+																		<h2 class="tabla__antro--contenido-2" style="margin-left: -2rem;">Metabolismo Basal:</h2>
 																		<input readonly type="number" class="input__valor-2" title="peso/talla/edad/sexo" id="hc_formula" step="0.01" maxlength="6">
                             											<!-- <label>Kcal/día</label> -->
 																	</div>																	

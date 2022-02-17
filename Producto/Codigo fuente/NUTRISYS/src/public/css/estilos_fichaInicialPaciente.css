@@ -512,6 +512,7 @@ font-family: var(--fuentePrincipal);
     width: 15rem;
     margin-top: -4rem;
     margin-left: 10rem; 
+    text-align: center;
 }
 
 .tabla__antro--contenido{
@@ -544,6 +545,7 @@ font-family: var(--fuentePrincipal);
     width: 15rem;
     margin-top: -4rem;
     margin-left: 10rem;
+    text-align: center;
  }
 
 .input__valor--peso2{
@@ -786,8 +788,6 @@ label{
 
     .input__valor--diametro{
         display: grid;
-        text-align: center;
-        align-items: center;
         margin-left: 25rem;
     }
 

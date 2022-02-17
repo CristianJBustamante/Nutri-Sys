@@ -162,12 +162,11 @@ console.log(habpac_id)
 function validarFecha(){
   var userinput = document.getElementById("fechapacto").value;
   var dob = new Date(userinput);
-  if(userinput==null || userinput=='' || dob.getTime() < Date.now()) {
-    alert("Coloque una fecha correcta");  
-    document.getElementById("fechapacto").value='';
-    document.getElementById("fechapacto").focus();
-    return false; 
-  }
+    if(userinput==null || userinput=='' || dob.getTime() < Date.now()) {
+      alert("Coloque una correcta");  
+      document.getElementById("fechapacto").value='';
+      return false; 
+    } 
 }
 //------------------------------------------------------------------------------------------------------------------------------
 //REGISTRAR/ACTUALIZAR

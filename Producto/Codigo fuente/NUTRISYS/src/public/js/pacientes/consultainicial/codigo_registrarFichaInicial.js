@@ -146,9 +146,10 @@ if(mes<10){
         .catch(error => console.log(error))
 const mostrarData = (data) => {
     console.log(data.length)
+    console.log("fecha registrada: "+data.fechalab)
     if (data.length>0) {
         data=data[0]
-    
+        document.getElementById("hc_fechalaboratorios").value=data.fechalab;
         document.getElementById("hc_diagnostico").value=data.hc_diagnostico;
         document.getElementById("hc_antecedentes").value=data.hc_antecedentes;
         document.getElementById("hc_medicacion").value=data.hc_medicacion;
@@ -190,24 +191,10 @@ const mostrarData = (data) => {
 function validarFecha(){
   var userinput = document.getElementById("hc_fechalaboratorios").value;
   var dob = new Date(userinput);
-  var userinput2 = document.getElementById("hc_Pmincuando").value;
-  var dob2 = new Date(userinput2);
-  var userinput3 = document.getElementById("hc_Pmaxcuando").value;
-  var dob3 = new Date(userinput3);
 
   if(userinput==null || userinput=='' || dob.getTime() >= Date.now()) {
     alert("Coloque una fecha de laboratorio correcta");  
     document.getElementById("hc_fechalaboratorios").value='';
-    return false; 
-  } 
-  if(dob2.getTime() >= Date.now()) {
-    alert("Coloque una fecha de Peso Minimo correcta");  
-    document.getElementById("hc_Pmincuando").value='';
-    return false; 
-  } 
-  if(dob3.getTime() >= Date.now()) {
-    alert("Coloque una fecha de Peso Maximo correcta");  
-    document.getElementById("hc_Pmaxcuando").value='';
     return false; 
   } 
 }
@@ -216,6 +203,14 @@ function validarDatos(){
   var incompleto = false;
   var correccion = "Datos incompletos o inválidos: " + "\n";
 
+    var userinput = document.getElementById("hc_fechalaboratorios").value;
+    var dob = new Date(userinput);
+    if(dob.getTime()<31/12/1922)
+    {
+        correccion = correccion + "*Fecha Laboratorio" + "\n"
+        document.getElementById("hc_fechalaboratorios").focus()
+        incompleto = true; 
+    }
   if(document.getElementById("hc_actividadfisica").value == "")
   {
       correccion = correccion + "*Actividad Fisica" + "\n"
@@ -246,7 +241,6 @@ function validarDatos(){
       incompleto = true;
     }
   }
-
   if(document.getElementById("hc_pesoactual").value != '')
   {
     if(document.getElementById("hc_pesoactual").value < 0 || document.getElementById("hc_pesoactual").value > 250)
@@ -258,7 +252,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_talla").value != '')
   {
-    if(document.getElementById("hc_talla").value <= 0 || document.getElementById("hc_talla").value >= 3)
+    if(document.getElementById("hc_talla").value < 0 || document.getElementById("hc_talla").value > 2.5)
     {
       correccion = correccion + "*Talla " + "\n"
       document.getElementById("hc_talla").focus()
@@ -267,7 +261,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_PH").value != '')
   {
-    if(document.getElementById("hc_PH").value <= 0 || document.getElementById("hc_PH").value > 250)
+    if(document.getElementById("hc_PH").value < 0 || document.getElementById("hc_PH").value > 250)
     {
       correccion = correccion + "*Peso Habitual " + "\n"
       document.getElementById("hc_PH").focus()
@@ -276,7 +270,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_PD").value != '')
   {
-    if(document.getElementById("hc_PD").value <= 0 || document.getElementById("hc_PD").value >= 250)
+    if(document.getElementById("hc_PD").value < 0 || document.getElementById("hc_PD").value > 250)
     {
       correccion = correccion + "*Peso Deseado " + "\n"
       document.getElementById("hc_PD").focus()
@@ -285,7 +279,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_Pmin").value != '')
   {
-    if(document.getElementById("hc_Pmin").value <= 0 || document.getElementById("hc_Pmin").value >= 250)
+    if(document.getElementById("hc_Pmin").value < 0 || document.getElementById("hc_Pmin").value > 250)
     {
       correccion = correccion + "*Peso Minimo " + "\n"
       document.getElementById("hc_Pmin").focus()
@@ -294,7 +288,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_Pmax").value != '')
   {
-    if(document.getElementById("hc_Pmax").value <= 0 || document.getElementById("hc_Pmax").value >= 250)
+    if(document.getElementById("hc_Pmax").value < 0 || document.getElementById("hc_Pmax").value > 250)
     {
       correccion = correccion + "*Peso Maximo " + "\n"
       document.getElementById("hc_Pmax").focus()
@@ -303,7 +297,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_CC1").value != '')
   {
-    if(document.getElementById("hc_CC1").value <= 0 || document.getElementById("hc_CC1").value >= 250)
+    if(document.getElementById("hc_CC1").value < 0 || document.getElementById("hc_CC1").value > 300)
     {
       correccion = correccion + "*Cm Marcada " + "\n"
       document.getElementById("hc_CC1").focus()
@@ -312,7 +306,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_CC2").value != '')
   {
-    if(document.getElementById("hc_CC2").value <= 0 || document.getElementById("hc_CC2").value >= 250)
+    if(document.getElementById("hc_CC2").value < 0 || document.getElementById("hc_CC2").value > 300)
     {
       correccion = correccion + "*Cm Umbilical " + "\n"
       document.getElementById("hc_CC2").focus()
@@ -321,7 +315,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_CC3").value != '')
   {
-    if(document.getElementById("hc_CC3").value <= 0 || document.getElementById("hc_CC3").value >= 250)
+    if(document.getElementById("hc_CC3").value < 0 || document.getElementById("hc_CC3").value > 300)
     {
       correccion = correccion + "*Cm Prominente " + "\n"
       document.getElementById("hc_CC3").focus()
@@ -330,7 +324,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_GC").value != '')
   {
-    if(document.getElementById("hc_GC").value <= 0 || document.getElementById("hc_GC").value > 100)
+    if(document.getElementById("hc_GC").value < 0 || document.getElementById("hc_GC").value > 100)
     {
       correccion = correccion + "*Grasa Corporal " + "\n"
       document.getElementById("hc_GC").focus()
@@ -339,7 +333,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_GV").value != '')
   {
-    if(document.getElementById("hc_GV").value <= 0 || document.getElementById("hc_GV").value > 100)
+    if(document.getElementById("hc_GV").value < 0 || document.getElementById("hc_GV").value > 100)
     {
       correccion = correccion + "*Grasa Viceral " + "\n"
       document.getElementById("hc_GV").focus()
@@ -348,7 +342,7 @@ function validarDatos(){
   }
   if(document.getElementById("hc_MM").value != '')
   {
-    if(document.getElementById("hc_MM").value <= 0 || document.getElementById("hc_MM").value > 100)
+    if(document.getElementById("hc_MM").value < 0 || document.getElementById("hc_MM").value > 100)
     {
       correccion = correccion + "*Masa Muscular " + "\n"
       document.getElementById("hc_MM").focus()
@@ -363,6 +357,12 @@ function validarDatos(){
       document.getElementById("hc_PBI").focus()
       incompleto = true;
     }
+  }
+  if(document.getElementById("hc_ajuste").value == '')
+  {
+      correccion = correccion + "*Ajuste por Actividad " + "\n"
+      document.getElementById("hc_ajuste").focus()
+      incompleto = true;
   }
   if(incompleto == true){
       swal("Atención",correccion,"warning" );

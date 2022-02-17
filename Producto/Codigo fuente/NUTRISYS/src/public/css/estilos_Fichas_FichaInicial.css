@@ -691,8 +691,6 @@ label{
 
     .tabla__antro--contenido{
         display: grid;
-        text-align: center;
-        align-items: center;
         margin-right: 15rem;
     }
 
@@ -717,15 +715,11 @@ label{
 
     .input__valor--diametro{
         display: grid;
-        text-align: center;
-        align-items: center;
         margin-left: 25rem;
     }
 
     .tabla__antro--contenido-2{
         display: grid;
-        text-align: center;
-        align-items: center;
         margin-left: 13rem;
     }
     .tabla__antro--class{

@@ -16,12 +16,14 @@
 .panel__title {
   font-weight: bold;
   padding-left: 1rem;
+  cursor: pointer;
 }
 
 .contenedor__panel {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  cursor: pointer;
 }
 
 .panel__objetivos {
@@ -33,6 +35,7 @@
   /* background-color:var(--gris); */
   padding: 1rem;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 @media (max-width: 1200) {

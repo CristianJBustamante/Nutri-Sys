@@ -1,3 +1,18 @@
+:root{
+  --primario: #00d500;
+  --secundario: #00aa00;
+  --blanco: #fff;
+  --negro: #000;
+  --grisClaro: #f0f3f4;
+  --grisMedio: #e5e5e5;
+  --grisOscuro: #acadac;
+
+  --fuentePrincipal: 'Open Sans', cursive;
+  --fuenteLogo: 'Amatic SC', cursive;
+
+}
+
+
 .panel__title {
   font-weight: bold;
   padding-left: 1rem;
@@ -13,7 +28,9 @@
   display: flex;
   float: row;
   gap: 2rem;
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
+  background-color: var(--grisClaro); /*add Nahuel*/
+  /* background-color:var(--gris); */
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -77,8 +94,10 @@
   display: flex;
   float: row;
   gap: 2rem;
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
+  background-color: var(--grisClaro); /*add Nahuel*/
   padding: 1rem;
+  width: 71%; /* add Nahuel*/
 }
 
 .habitos__aTrabajar,
@@ -99,7 +118,8 @@
 }
 
 .contenido__principal{
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
+  background-color: var(--primario);  /*add nahuel*/
 }
 
 /* Grafico de Progreso */

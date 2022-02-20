@@ -220,9 +220,7 @@ function registrarhabitos() {
                     console.log(error)
                 } 
             }
-            swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
-                 .then((value) => {
-                    location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/"+"trn="+cons_idturno}) 
+            location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/"+"trn="+cons_idturno
         }else{
         //ACTUALIZAR HABITOS
         try {
@@ -256,9 +254,7 @@ function registrarhabitos() {
                     console.log(error)
                 } 
             }
-            swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
-                 .then((value) => {
-                    location.href ="/consulta/registrarconsultahabitospactados/hc="+anms_nrohc+"/"+"trn="+cons_idturno}) 
+            location.href ="/consulta/registrarconsultahabitospactados/hc="+anms_nrohc+"/"+"trn="+cons_idturno
         }  
     }else{
         swal("Atención","Debe seleccionar al menos un hábito de la grilla.","warning" )

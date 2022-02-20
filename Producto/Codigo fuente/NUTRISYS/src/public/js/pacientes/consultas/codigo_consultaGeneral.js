@@ -325,10 +325,7 @@ const mostrarData = (data) => {
             }
             }).then(res=>res.json())
             .then(data=>console.log(data))
-            
-                swal("Consulta Registrada","Consulta del Paciente "+pac_nrohc+" Registrada con Éxito!","success")
-                    .then((value) => {
-                            location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno})
+            location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
             console.log(error)

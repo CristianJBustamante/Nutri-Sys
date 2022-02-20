@@ -170,9 +170,30 @@ function validarFecha(){
     return false; 
   } 
 }
+
+function validarDatos(){
+  var incompleto = false;
+  var correccion = "Datos incompletos o inválidos: " + "\n";
+
+  if(document.getElementById("fechapacto").value == "")
+  {
+      correccion = correccion + "*Revision de Habitos " + "\n"
+      document.getElementById("fechapacto").focus()
+      incompleto = true;
+  }
+  if(incompleto == true){
+    swal("Atención",correccion,"warning" );
+    return false;
+  }
+  else{
+  }
+}
 //------------------------------------------------------------------------------------------------------------------------------
 //REGISTRAR/ACTUALIZAR
 function registrarhabitos() {
+  if (validarDatos() == false) {
+    return false;
+  } else {  
     var sel = document.getElementById("bootstrap-duallistbox-selected-list_duallistbox_demo1[]"); 
     if (sel.length>0){
         //REGISTRAR NUEVOS HABITOS
@@ -217,6 +238,7 @@ function registrarhabitos() {
                      location.href ="/turnos/leg="+legajo}) 
         }
     }
+  }
 }
 
 //------------------------------------------------------------------------------------------------------------------------------

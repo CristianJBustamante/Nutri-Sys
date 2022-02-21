@@ -73,7 +73,7 @@ function redirigirporpermiso(ruta,rol1,rol2) {
   if (rol1.length>0 || rol2.length>0){
     return
   }else{
-    location.href=ruta
+    location.href='/home'
   }
 }
 //-------------------------------------------FIN PERMISOS----------------------------------------------------------

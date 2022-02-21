@@ -1,3 +1,4 @@
+
 swal({
   text:"Ingresando...",
   icon: "https://thumbs.gfycat.com/NecessaryEvilGuillemot-max-1mb.gif",
@@ -6,15 +7,19 @@ swal({
   timer: 1000,
   //icon: "success"
 }).then((value) => {})
-
-//VALIDAR HC PACIENTE
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
 var s = (document.getElementById("user").href)
 let mihc = s.substr(s.indexOf("hc=")+3,s.length)
-if (pac_nrohc!=mihc) {  
+console.log(mihc)
+if (pac_nrohc!=mihc && mihc !='') {  
     location.href = '/miprogreso/hc='+mihc
 }
+if (mihc=='') {
+  location.href = '/home'
+}
+
+
 
 //BUSCAR PROGRESO
 let primerpeso

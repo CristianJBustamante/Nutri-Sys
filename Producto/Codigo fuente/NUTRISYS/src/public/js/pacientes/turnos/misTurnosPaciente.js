@@ -1,3 +1,4 @@
+
 swal({
     text:"Ingresando...",
     icon: "https://thumbs.gfycat.com/NecessaryEvilGuillemot-max-1mb.gif",
@@ -6,7 +7,17 @@ swal({
     timer: 1000,
     //icon: "success"
   }).then((value) => {})
-
+  const url = new String(window.location)
+  let turno_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
+  var s = (document.getElementById("user").href)
+  let mihc = s.substr(s.indexOf("hc=")+3,s.length)
+  console.log(mihc)
+  if (turno_nrohc!=mihc && mihc !='') {  
+      location.href = '/misturnos/hc='+mihc
+  }
+  if (mihc=='') {
+    location.href = '/home'
+  }
 
 
   
@@ -21,16 +32,7 @@ var hcs=[
     {hc:"1002", nombre:"Dario", apellido:"Vito", doc:"29384732", celular:"3513212341"}
     ];
 
-//Get nrohc
-//FALTA LA VALIDACIÓN DE QUE EL NRHC ES EL DEL USUARIO LOGUEADO
-const url = new String(window.location)
-let turno_nrohc = url.substr(url.indexOf("hc=")+3,url.length)
-var s = (document.getElementById("user").href)
-let mihc = s.substr(s.indexOf("hc=")+3,s.length)
-if (turno_nrohc!=mihc) {  
-    location.href = '/misturnos/hc='+mihc
 
-}
 // if (emp_legajo!=milegajo) {
 //     location.href="/turnos/leg="+milegajo
 // }

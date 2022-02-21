@@ -203,14 +203,6 @@ function validarDatos(){
   var incompleto = false;
   var correccion = "Datos incompletos o inválidos: " + "\n";
 
-    var userinput = document.getElementById("hc_fechalaboratorios").value;
-    var dob = new Date(userinput);
-    if(dob.getTime()<31/12/1922)
-    {
-        correccion = correccion + "*Fecha Laboratorio" + "\n"
-        document.getElementById("hc_fechalaboratorios").focus()
-        incompleto = true; 
-    }
   if(document.getElementById("hc_actividadfisica").value == "")
   {
       correccion = correccion + "*Actividad Fisica" + "\n"

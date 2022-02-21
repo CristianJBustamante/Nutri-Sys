@@ -318,21 +318,13 @@ function validarDatos(){
         incompleto = true;
     }
 
-    if(document.getElementById("fechaNac__paciente").value == "")
+    if(document.getElementById("edad__paciente").value > 100 || document.getElementById("edad__paciente").value == "")
     {
         correccion = correccion + "*Fecha Nacimiento" + "\n"
         document.getElementById("fechaNac__paciente").focus()
         incompleto = true;        
     }
-    var userinput = document.getElementById("fechaNac__paciente").value;
-    var dob = new Date(userinput);
-    if(dob.getTime()<31/12/1922)
-    {
-        correccion = correccion + "*Fecha Nacimiento" + "\n"
-        document.getElementById("fechaNac__paciente").focus()
-        incompleto = true; 
-    }
-
+    
     if(document.getElementById("direccion__paciente").value == "")
     {
         correccion = correccion + "*Dirección" + "\n"

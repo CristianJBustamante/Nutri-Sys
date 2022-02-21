@@ -294,22 +294,7 @@ fetch("/consultaarreglo/"+cons_idturno)
         var cons_PBI = parseFloat(document.getElementById("cons_PBI").value);
         var cons_observaciones = (document.getElementById("cons_observaciones").value);
 
-        const post2 = {
-            turno_idestado: 5}
-         try {
-            console.log(JSON.stringify(post2));
-            fetch("http://localhost:3000/actualizarturno/"+cons_idturno,{
-            method:"PUT",
-            body: JSON.stringify(post2),
-            headers: {
-            "Content-type": "application/json"
-            }
-            })  .then(res=>res.json())
-                .then(data=>console.log(data))
-        } catch (error) {
-            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-            console.log(error)
-            } 
+        
 
         const post = {
             cons_idturno: cons_idturno,
@@ -372,7 +357,7 @@ function habitos() {
     })
     .then((willDelete) => {
       if (willDelete) {
-          location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+          location.href ="/consulta/modificarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
       } 
     }); 
 }

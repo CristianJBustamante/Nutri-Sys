@@ -143,9 +143,9 @@ const buscarconsulta = (data) => {
      if (nuevo==0 && habpac_id == null) {
         location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
      }
-      if (nuevo==1 && habpac_id != null) {
-        location.href ="/consulta/modificarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
-    } 
+    //   if (nuevo==1 && habpac_id != null) {
+    //     location.href ="/consulta/modificarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+    // } 
 }
 //------------------------------------------------------------------------------------------------------------------------------
 //BUSCAR ID HABITO PARA REGISTRAR
@@ -343,7 +343,7 @@ function consultaGeneral() {
       })
       .then((willDelete) => {
         if (willDelete) {
-            location.href ="/consulta/registrarconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
+            location.href ="/consulta/modificaconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
         } 
       }); 
   }

@@ -198,6 +198,22 @@ function registrarhabitos() {
     if (sel.length>0){
         //REGISTRAR NUEVOS HABITOS
         if (nuevo==1) { 
+          const post2 = {
+            turno_idestado: 5}
+         try {
+            console.log(JSON.stringify(post2));
+            fetch("http://localhost:3000/actualizarturno/"+cons_idturno,{
+            method:"PUT",
+            body: JSON.stringify(post2),
+            headers: {
+            "Content-type": "application/json"
+            }
+            })  .then(res=>res.json())
+                .then(data=>console.log(data))
+        } catch (error) {
+            swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+            console.log(error)
+            } 
             //Cabecera
             const pacto = {
                 habpac_fechatope: document.getElementById('fechapacto').value,
@@ -267,7 +283,7 @@ function habitos() {
     })
     .then((willDelete) => {
       if (willDelete) {
-          location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+          location.href ="/consulta/modificarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
       } 
     }); 
 }
@@ -282,7 +298,7 @@ function consultaGeneral() {
     })
     .then((willDelete) => {
       if (willDelete) {
-          location.href ="/consulta/registrarconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
+          location.href ="/consulta/modificaconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
       } 
     }); 
 }

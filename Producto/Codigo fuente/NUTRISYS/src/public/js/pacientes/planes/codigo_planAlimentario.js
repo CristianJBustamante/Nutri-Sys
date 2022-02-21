@@ -185,12 +185,17 @@ function traerDatosComida(){
 
 function registrarPlan(){
   let vigente = 0
-  swal({
+  
+
+    swal({
     title: "Atención",
     text: "Se registrará el Plan Alimentario para el Paciente "+ pac_nrohc + ", ¿Desea que sea el Plan Vigente?",
     icon: "warning",
-    buttons: true,
-    dangerMode: true,
+    buttons: {
+      cancel: "No",
+      defeat: "Si",
+    },
+    dangerMode: false,
   }).then((willDelete) => {
     if (willDelete) {
       vigente=1

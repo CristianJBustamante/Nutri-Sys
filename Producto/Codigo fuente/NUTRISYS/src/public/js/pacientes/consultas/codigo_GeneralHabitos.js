@@ -141,11 +141,11 @@ const buscarconsulta = (data) => {
      }
      console.log(hab_idconsulta,habpac_id)
      if (nuevo==0 && habpac_id == null) {
-         //location.href ="/consulta/registrarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+        location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
      }
-     /* if (nuevo==1 && habpac_id != null) {
-        location.href ="/consulta/actualizarhabitos/hc="+pac_nrohc+"/trn="+cons_idturno
-    } */ 
+      if (nuevo==1 && habpac_id != null) {
+        location.href ="/consulta/modificarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+    } 
 }
 //------------------------------------------------------------------------------------------------------------------------------
 //BUSCAR ID HABITO PARA REGISTRAR
@@ -254,7 +254,7 @@ function registrarhabitos() {
                     console.log(error)
                 } 
             }
-            location.href ="/consulta/registrarconsultahabitospactados/hc="+anms_nrohc+"/"+"trn="+cons_idturno
+            location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/"+"trn="+cons_idturno
         }  
     }else{
         swal("Atención","Debe seleccionar al menos un hábito de la grilla.","warning" )

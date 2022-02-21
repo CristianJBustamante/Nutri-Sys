@@ -6,8 +6,8 @@ const app = express();
 var passport = require('passport')
 var AuthMiddleware = require("../middleware/auth")
 
-import {getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid, registrarhabitostrabajados,
-   registrarcabecerahpac,gethabitopactado,getultimoshabitosconsulta, getultimoshabitospaciente,gethabitopactadoconsulta, gethabitopactadopaciente} from "../controllers/consultas.controller";
+import {modificaconsultageneral,getultimoidhabpac,registrarconsulta2, getprimeroshabitos, getultimoshabitos, getconsultaxturno, registrarconsulta, getAnamnesisXHC, registrarAnamnesis, registrarfichainicial, actualizarAnamnesis, actualizarFichaInicial, nuevohabito, actualizarHabitos, registrarHabitoPaciente, registrarDetalleHabito, actualizarHabitoPaciente, actualizarDetalleHabito, getHabitoXHC, getFichaInicialXHC, getHabitos, getultimoidhabito, getnoultimoshabitos, getconsultaxnrohc, getconsultaxid, registrarhabitostrabajados,
+   registrarcabecerahpac,gethabitopactado,getultimoshabitosconsulta, getultimoshabitospaciente,gethabitopactadoconsulta, gethabitopactadopaciente, getconsultaxturnoarreglo} from "../controllers/consultas.controller";
 
 //----------------------------------ACCESO A PÁGINAS--------------------------------------------
 
@@ -85,6 +85,7 @@ router.get('/consulta/actualizarHabitos/hc=:habpac_nrohc/trn=:cons_idturno',Auth
   
 
 //------------------------CONSULTA GENERAL
+//alta
 router.get('/consulta/registrarconsulta/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
   res.render('pacientes/consultas/ConsultaGeneral.html',{
     isAuthenticated : req.isAuthenticated(),
@@ -105,6 +106,23 @@ router.get('/consulta/registrarconsultahabitospactados/hc=:habpac_nrohc/trn=:con
       user : req.user
       });
 });
+
+//midifica
+router.get('/consulta/modificaconsulta/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultas/ConsultaGeneral.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
+
+router.get('/consulta/modificarconsultahabitos/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
+  res.render('pacientes/consultas/ConsultaGeneralHabitos.html',{
+    isAuthenticated : req.isAuthenticated(),
+      user : req.user
+      });
+});
+
+
 
 //CONSULTA HABITOS
 router.get('/consulta/consultaHabitos/hc=:habpac_nrohc/trn=:cons_idturno',AuthMiddleware.isLogged, (req,res) => {
@@ -175,7 +193,10 @@ router.get('/consulta/miprogreso',AuthMiddleware.isLogged, (req,res) => {
     //--------------CONSULTA
   router.post('/consulta', registrarconsulta)
   router.post('/nuevaconsulta', registrarconsulta2)
+  router.put('/modificarconsultageneral/:cons_idturno', modificaconsultageneral)
   router.get('/consulta/:cons_idturno', getconsultaxturno)
+  router.get('/consultaarreglo/:cons_idturno', getconsultaxturnoarreglo)
+
   router.get('/consultapaciente/:cons_id', getconsultaxid)
   router.get('/consultanrohc/:turno_nrohc', getconsultaxnrohc)
 

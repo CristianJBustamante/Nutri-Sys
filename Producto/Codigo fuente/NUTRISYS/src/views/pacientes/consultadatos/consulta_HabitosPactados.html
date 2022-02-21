@@ -663,33 +663,37 @@
 				});
 				//CARGAR HABITOS DESDE BD
 				if (nuevo==1) {
-				let queryh = 'http://localhost:3000/ultimoshabitosconsulta/hc='+pac_nrohc+'/trn='+cons_idturno
+				let queryh = '/ultimoshabitosconsulta/hc='+pac_nrohc+'/trn='+cons_idturno
         		fetch(queryh)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
             	.catch(error => console.log(error))
         		const cargarhabitos = (hab) => {
+				console.log(hab)
+
 				let op=''
 				let ob=''
             	for (let i = 0; i<hab.length; i++){
                 	op+=`<option disabled value=${hab[i].hab_id}>${hab[i].hab_descripcion}</option>`
             		}
-					console.log(hab)
-				let queryh2 = 'http://localhost:3000/habitopactado/hc='+ pac_nrohc +'/trn='+ cons_idturno
+				let queryh2 = '/habitopactado/hc='+ pac_nrohc +'/trn='+ cons_idturno
         		fetch(queryh2)
             	.then(response => response.json())
             	.then(hab => cargarhabitos(hab))
             	.catch(error => console.log(error))
         		const cargarhabitos = (hab) => {
+					console.log(hab)
+					
             	for (let i = 0; i<hab.length; i++){
                 	op+=`<option disabled selected="selected" value=${hab[i].hab_id}>${hab[i].dhabpac_observaciones}</option>`
 					ob = hab[i].habpac_observaciones;
-            		}
-					console.log(hab)
+				}
 				
             	document.getElementById("duallist").innerHTML=op
             	document.getElementById("cons_observaciones").innerHTML=ob
-            	document.getElementById("fechapacto").value=hab[0].fechapacto
+				if (hab.length>0) {
+					document.getElementById("fechapacto").value=hab[0].fechapacto
+				}
 				demo1.bootstrapDualListbox('refresh')}}
 			}
 			});

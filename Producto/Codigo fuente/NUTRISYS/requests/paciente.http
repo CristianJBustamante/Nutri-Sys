@@ -4,20 +4,23 @@ GET {{api}}/datosmiprogreso/1037
 
 ###
 
-POST {{api}}/pacientes
+put {{api}}/modificarconsultageneral/160
 Content-Type: application/json
 
 {
-    "pac_nrodoc": 40244654,
-    "pac_apellido": "Jones",
-    "pac_nombre": "Jessica",
-    "pac_fechanacimiento": "01/01/1993",
-    "pac_telefono1": "9876543212",
-    "pac_telefono2": "432432243",
-    "pac_correo": "jj.jj@gmail.com",
-    "pac_mutual": "medife",
-    "pac_direccion": "Alto Verde 321",
-    "pac_mutual2": "Apross"
+    "cons_idturno":"160",
+    "cons_observaciones":" 3ra consulta",
+    "cons_edad":26,
+    "cons_peso":75,
+    "cons_talla":1.59,
+    "cons_CCM":null,
+    "cons_CCU":null,
+    "cons_CCP":null,
+    "cons_IMC":30.062101973814325,
+    "cons_GC":null,
+    "cons_GV":null,
+    "cons_M":null,
+    "cons_PBI":null
 }
 
 ###

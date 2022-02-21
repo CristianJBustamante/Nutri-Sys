@@ -307,7 +307,7 @@ function atenderPaciente(turno){
          const consulta = (consultas) => {
              console.log(consultas)
              if (consultas.length>0) {
-                 location.href = 'http://localhost:3000/consulta/registrarconsulta/hc='+turno.nrohc+'/trn='+turno.idturno
+                 location.href = 'http://localhost:3000/consulta/modificaconsulta/hc='+turno.nrohc+'/trn='+turno.idturno
              }else{
                  location.href = '/consulta/registrarFichaInicial/hc='+turno.nrohc+'/trn='+turno.idturno
              }

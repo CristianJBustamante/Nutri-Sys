@@ -858,6 +858,37 @@
 			 </div>\
 			</div>';
 					}
+					else if (calEvent.estado == 'En Atención') {
+						var modal =
+							'<div class="modal fade">\
+			  <div class="modal-dialog">\
+			   <div class="modal-content">\
+				 <div class="modal-body">\
+				   <button type="button" class="close" data-dismiss="modal" style="margin-top:-10px;">&times;</button>\
+				   <form class="no-margin">\
+					  <label>HC Paciente: &nbsp;</label>\
+						<input id="hcPaciente" class="middle" autocomplete="off" type="text" value="' + mostrarHC(calEvent.title) + '" readonly/>\
+					  <label>Doc Paciente: &nbsp;</label>\
+						<input id="docPaciente" class="middle" autocomplete="off" type="number" style="-webkit-appearance: textfield !important; -moz-appearance:textfield !important;" value="' + mostrarDoc(calEvent.title) + '" readonly/>\
+					 	<button id="btnAtender" type="submit" class="btn btn-sm btn-success" style="margin-top: 1rem; margin-left: 45rem;"><i class="ace-icon fa fa-list"></i> Atender</button>\
+						<br>\
+						<label style="font-weight: bold;">Nombre: &nbsp;</label>\
+						<label> ' + buscarNombrePaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Apellido: &nbsp;</label>\
+						<label> ' + buscarApellidoPaciente(calEvent.title) + ' &nbsp;</label>\
+						<br>\
+						<label style="font-weight: bold;">Celular: &nbsp;</label>\
+						<label>' + buscarCelularPaciente(calEvent.title) + ' &nbsp;</label>\
+				   </form>\
+				 </div>\
+				 <div class="modal-footer">\
+					<button type="button" class="btn btn-sm" data-dismiss="modal"><i class="ace-icon fa fa-times"></i> Cerrar</button>\
+				 </div>\
+			  </div>\
+			 </div>\
+			</div>';
+					}
 					else if (calEvent.estado == 'Cancelado') {
 						var modal =
 							'<div class="modal fade">\
@@ -933,6 +964,15 @@
 							modal.modal("hide");
 						}
 						else if (calEvent.estado == 'Receptado') {
+							calEvent.estado = 'En Atención';
+							calEvent.className = 'label-info';
+							calEvent.editable = false;
+							calendar.fullCalendar('updateEvent', calEvent);
+							modal.modal("hide");
+							atenderPaciente(calEvent);
+							//$(location).attr('href', 'http://localhost:3000/consulta/registrarconsulta/hc='+calEvent.nrohc+'/trn='+calEvent.idturno);
+						}
+						else if (calEvent.estado == 'En Atención') {
 							calEvent.estado = 'En Atención';
 							calEvent.className = 'label-info';
 							calEvent.editable = false;

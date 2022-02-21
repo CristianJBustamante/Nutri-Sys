@@ -81,43 +81,24 @@ function redirigirporpermiso(ruta,rol1,rol2) {
 //-----------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------
 
-//--------------------------------------------Navegabilidad--------------------------------------------------------
-function habitos() {
-  swal({
-      title: "Atención",
-      text: "Si avanza a Habitos, no se guardarán los datos seleccionados",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-          location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
-      } 
-    }); 
-}
-
-function habitosPactados() {
-  swal({
-      title: "Atención",
-      text: "Si avanza a Habitos Pactados, no se guardarán los datos seleccionados",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-          location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/trn="+cons_idturno
-      } 
-    }); 
-}
-
-//--------------------------------------------Fin Navegabilidad--------------------------------------------------------
+var nuevo
 var metodo=''
+var ruta
 //Get nrohc
 const url = new String(window.location)
 let pac_nrohc = url.substr(url.indexOf("hc=")+3,(url.indexOf("/trn="),url.indexOf("hc=")+3,(url.indexOf("/trn="))-(url.indexOf("hc=")+3)))
 let cons_idturno = url.substr(url.indexOf("trn=")+4,url.length)
+let modo = url.substr(url.indexOf("consulta/"),url.length)
+
+if (modo.toLowerCase()==='consulta/registrarconsulta/hc='+pac_nrohc+'/trn='+cons_idturno){
+  nuevo=1;
+  metodo='POST'
+  ruta="/nuevaconsulta"
+}else{
+  nuevo=0;
+  metodo='PUT'
+  ruta="/modificarconsultageneral/"+cons_idturno
+}
 
 
 //Buscar legajo
@@ -146,6 +127,36 @@ const mostrarData = (data) => {
     document.getElementById('pac_datos').innerHTML = cabecera
     calcularEdad(data.pac_fechanacimiento)
     }
+
+//Buscar consulta si es modifica
+fetch("/consultaarreglo/"+cons_idturno)
+    .then(response => response.json())
+    .then(data => mostrarconsulta(data))
+    .catch(error => console.log(error))
+    const mostrarconsulta = (data) => {
+    if (data.length>0 && nuevo==1) {
+      location.href ="/consulta/modificaconsulta/hc="+pac_nrohc+"/trn="+cons_idturno}
+    if (data.length>0 && nuevo==0){
+    data=data[0]
+    console.log(data)
+    document.getElementById('edad__paciente').value=data.cons_edad
+    document.getElementById('cons_CCM').value=data.cons_CCM
+    document.getElementById('cons_CCU').value=data.cons_CCU
+    document.getElementById('cons_CCP').value=data.cons_CCP
+    document.getElementById('cons_peso').value=data.cons_peso
+    document.getElementById('cons_IMC').value=data.cons_IMC
+    document.getElementById('cons_talla').value=data.cons_talla
+    document.getElementById('cons_GC').value=data.cons_GC
+    document.getElementById('cons_M').value=data.cons_M
+    document.getElementById('cons_GV').value=data.cons_GV
+    document.getElementById('cons_PBI').value=data.cons_PBI
+    document.getElementById('cons_observaciones').value=data.cons_observaciones
+    }
+    if(data.length==0 && nuevo==0){
+      location.href ="/consulta/registrarconsulta/hc="+pac_nrohc+"/trn="+cons_idturno
+    }
+}
+
 
 
     function calcularEdad(fnac){
@@ -317,8 +328,8 @@ const mostrarData = (data) => {
         }
         try {
             console.log(JSON.stringify(post));
-            fetch("http://localhost:3000/nuevaconsulta",{
-            method:"POST",
+            fetch(ruta,{
+            method:metodo,
             body: JSON.stringify(post),
             headers: {
                 "Content-type": "application/json"
@@ -348,3 +359,37 @@ const mostrarData = (data) => {
             
         }
     
+
+
+//--------------------------------------------Navegabilidad--------------------------------------------------------
+function habitos() {
+  swal({
+      title: "Atención",
+      text: "Si avanza a Habitos, no se guardarán los datos seleccionados",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+          location.href ="/consulta/registrarconsultahabitos/hc="+pac_nrohc+"/trn="+cons_idturno
+      } 
+    }); 
+}
+
+function habitosPactados() {
+  swal({
+      title: "Atención",
+      text: "Si avanza a Habitos Pactados, no se guardarán los datos seleccionados",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+          location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/trn="+cons_idturno
+      } 
+    }); 
+}
+
+//--------------------------------------------Fin Navegabilidad--------------------------------------------------------

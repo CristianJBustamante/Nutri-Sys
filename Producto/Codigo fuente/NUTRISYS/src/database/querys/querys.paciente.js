@@ -65,7 +65,6 @@ export const pacquerys = {
     " from consulta inner join turno on consulta.cons_idturno=turno.turno_id"+
     " join habitos_paciente on habitos_paciente.habpac_idconsulta = consulta.cons_id"+
     " where turno_nrohc = @pac_nrohc"+
-    " group by turno_fecha,consulta.cons_id,turno_fecha"+
     " order by turno_fecha",
    
     getmiprogresopesos: "select *,(select top 1 cons_peso from consulta inner join turno on cons_idturno=turno_id where turno_nrohc=pac_nrohc order by cons_id desc) as ultimopeso, "+

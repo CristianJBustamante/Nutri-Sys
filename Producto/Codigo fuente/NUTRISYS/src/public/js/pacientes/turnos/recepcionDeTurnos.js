@@ -184,7 +184,11 @@ function confirmarTurno(momento,nrohc, calendar){
         if(value == "confirm"){
             generarTurno(nrohc, momento._start._d, momento._end._d, calendar) 
             calendar.fullCalendar('updateEvent', momento);
-        }  
+        }  else{
+            calendar.fullCalendar('removeEvents', function (ev) {
+                return (ev._id == momento._id);
+            })
+        }
       });
 
     // swal({

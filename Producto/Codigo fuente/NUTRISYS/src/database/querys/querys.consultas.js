@@ -37,7 +37,11 @@ export const consultasquerys = {
     //Bajas----------------------------------------------------------------------------------------------------
     
     //Modificaciones-------------------------------------------------------------------------------------------
-
+    modificarconsultageneral: "UPDATE consulta SET cons_idturno=@cons_idturno, cons_observaciones=@cons_observaciones,"+
+                                "cons_edad=@cons_edad, cons_peso=@cons_peso, cons_talla=@cons_talla,cons_IMC=cons_IMC,"+
+                                "cons_CCM=@cons_CCM,cons_CCU=@cons_CCU,cons_CCP=@cons_CCP,cons_GC=@cons_GC,"+
+                                "cons_GV=@cons_GV,cons_M=@cons_M,cons_PBI=@cons_PBI "+
+                                "WHERE cons_idturno=@cons_idturno",
 
 //-------------------------------------------------FICHA INICIAL------------------------------------------------
 //--------------------------------------------------------------------------------------------------------------
@@ -197,9 +201,7 @@ export const consultasquerys = {
     getultimoshabitosconsulta: "select hab_id,hab_descripcion "+
     "from habitos_paciente hp inner join detalle_habitos dh on hp.habpac_id=dh.dhabpac_id "+
     "inner join habito h on h.hab_id=dhabpac_idhabito "+
-    "where hp.habpac_nrohc=@pac_nrohc and hp.habpac_idconsulta= @cons_idturno and dh.dhabpac_id=(select max(hab.habpac_id) "+
-    "from habitos_paciente hab "+
-                                                "where hab.habpac_nrohc=@pac_nrohc) "+
+    "where hp.habpac_nrohc=@pac_nrohc and hp.habpac_idconsulta= @cons_idturno and dhabpac_trabajando is null  "+
                                                 "order by hab_descripcion",                                                            
     //MiProgreso
     gethabitopactadopaciente: "select hab_id,hab_descripcion "+

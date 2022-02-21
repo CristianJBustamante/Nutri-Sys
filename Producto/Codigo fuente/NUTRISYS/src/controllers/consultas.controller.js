@@ -17,6 +17,19 @@ import {getConnection,sql,consultasquerys} from "../database";
         }
     } 
 
+    export const getconsultaxturnoarreglo = async(req,res) => {
+        try {
+            const {cons_idturno} = req.params
+            const pool = await getConnection()
+            const result = await pool.request()
+                .input('cons_idturno', cons_idturno).query(consultasquerys.getconsultaxturno)
+            res.send(result.recordset)
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }
+    } 
+
     export const getconsultaxid = async(req,res) => {
         try {
             const {cons_id} = req.params
@@ -93,7 +106,35 @@ import {getConnection,sql,consultasquerys} from "../database";
 
     //Bajas----------------------------------------------------------------------------------------------------
     //Modificaciones-------------------------------------------------------------------------------------------
-
+    export const modificaconsultageneral = async (req,res) => {
+        let { cons_idturno,cons_observaciones,cons_edad,cons_peso,cons_talla,
+                cons_IMC,cons_CCM,cons_CCU,cons_CCP,cons_GC,cons_GV,cons_M,cons_PBI } = req.body;
+        if (cons_idturno==null) {
+                return res.status(400).json({msg: 'Error, Faltan Datos de Completar'})}  
+        try {
+            const pool = await getConnection();
+            await pool.request()
+                .input('cons_idturno',sql.Int,cons_idturno)
+                .input('cons_observaciones',sql.NVarChar,cons_observaciones)
+                .input('cons_edad',sql.Int,cons_edad)
+                .input('cons_peso',sql.Float,cons_peso)
+                .input('cons_talla',sql.Float,cons_talla)
+                .input('cons_IMC',sql.Float,cons_IMC)
+                .input('cons_CCM',sql.Float,cons_CCM)
+                .input('cons_CCU',sql.Float,cons_CCU)
+                .input('cons_CCP',sql.Float,cons_CCP)
+                .input('cons_GC',sql.Float,cons_GC)
+                .input('cons_GV',sql.Float,cons_GV)
+                .input('cons_M',sql.Float,cons_M)
+                .input('cons_PBI',sql.Float,cons_PBI)
+                .query(consultasquerys.modificarconsultageneral)
+            res.json({cons_idturno,cons_observaciones,cons_edad,cons_peso,cons_talla,
+                        cons_IMC,cons_CCM,cons_CCU,cons_CCP,cons_GC,cons_GV,cons_M,cons_PBI})
+        } catch (error) {
+            res.status(500);
+            res.send(error.message);
+        }         
+    }
 
 
 //-------------------------------------------------CONSULTA INICIAL--------------------------------------------

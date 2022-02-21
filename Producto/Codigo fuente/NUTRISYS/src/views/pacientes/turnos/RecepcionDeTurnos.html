@@ -749,7 +749,7 @@
 				businessHours: {
 					start: '7:00', // hora inicial
 					end: '21:00', // hora final
-					dow: [1, 2, 3, 4, 5] // dias de semana, 0=Domingo
+					dow: [0, 1, 2, 3, 4, 5, 6, 7] // dias de semana, 0=Domingo
 				},
 
 				selectConstraint: "businessHours",
@@ -831,8 +831,24 @@
 				// ,
 
 				eventClick: function (calEvent, jsEvent, view) {
+					let fechaturno = new Date(calEvent._start._d)
+					let hoy = Date.now();
+					let fecha = new Date(hoy);
+					fecha = String(fecha)
+					fechaturno = String(fechaturno)
+					fecha = fecha.substr(4,12)
+					fechaturno = fechaturno.substr(4,12)
+										
 					if (document.getElementById("select-profesional").value == "") {
 						swal("Atención", "Debe seleccionar un profesional", "error")
+						calendar.fullCalendar('removeEvents', function (ev) {
+							return (ev._id == calEvent._id);
+						})
+						console.log(calEvent.className.toString())
+						return false
+					}
+					if (fechaturno<fecha) {
+						swal("Atención", "No puede registrar un turno anterior a la fecha actual", "error")
 						calendar.fullCalendar('removeEvents', function (ev) {
 							return (ev._id == calEvent._id);
 						})

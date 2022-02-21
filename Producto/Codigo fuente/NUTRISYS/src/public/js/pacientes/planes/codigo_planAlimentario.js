@@ -102,8 +102,16 @@ fetch("/ultimoplan")
           .then(data => ultimoplan(data))
           .catch(error => console.log(error))
   const ultimoplan = (data) => {
-        idultimoplan=data.plan_id
-        console.log(idultimoplan)}
+    if (data.length>0) {
+      idultimoplan=data[0].plan_id
+      console.log(idultimoplan)
+    }else{
+      idultimoplan=1
+      console.log(idultimoplan)
+
+    }
+        }
+
 
 
 var comida;

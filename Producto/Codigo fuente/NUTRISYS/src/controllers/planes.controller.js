@@ -52,7 +52,7 @@ export const getultimoplan = async(req,res) => {
         const pool = await getConnection()
         const result = await pool.request()
             .query(planesquerys.buscarultimoplan)
-        res.send(result.recordset[0])
+        res.send(result.recordset)
     } catch (error) {
         res.status(500);
         res.send(error.message);

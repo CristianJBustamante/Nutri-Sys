@@ -227,32 +227,35 @@ function registrarhabitos() {
             fetch("http://localhost:3000/borrardetallehabito/"+habpac_id,{
             method:"DELETE"
             })  .then(res=>res.json())
+            insertarhabitospaciente()
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
             console.log(error)
             } 
-            for (var i = 0; i < sel.length; i++) {
-                const post = {
-                    dhabpac_id: habpac_id,
-                    dhabpac_idhabito: sel[i].value,
-                    dhabpac_observaciones: sel[i].text 
+            function insertarhabitospaciente() {
+                for (var i = 0; i < sel.length; i++) {
+                    const post = {
+                        dhabpac_id: habpac_id,
+                        dhabpac_idhabito: sel[i].value,
+                        dhabpac_observaciones: sel[i].text 
+                    }
+                    console.log(post)
+    
+                     try {
+                        console.log(JSON.stringify(post));
+                        fetch("http://localhost:3000/detallehabitos",{
+                            method:"POST",
+                            body: JSON.stringify(post),
+                            headers: {
+                                "Content-type": "application/json"
+                            }
+                        })  .then(res=>res.json())
+                            .then(data=>console.log(data))
+                    } catch (error) {
+                        swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
+                        console.log(error)
+                    } 
                 }
-                console.log(post)
-
-                 try {
-                    console.log(JSON.stringify(post));
-                    fetch("http://localhost:3000/detallehabitos",{
-                        method:"POST",
-                        body: JSON.stringify(post),
-                        headers: {
-                            "Content-type": "application/json"
-                        }
-                    })  .then(res=>res.json())
-                        .then(data=>console.log(data))
-                } catch (error) {
-                    swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )
-                    console.log(error)
-                } 
             }
             location.href ="/consulta/registrarconsultahabitospactados/hc="+pac_nrohc+"/"+"trn="+cons_idturno
         }  

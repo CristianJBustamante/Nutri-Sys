@@ -392,51 +392,58 @@ function validarDatos(){
     var correccion = "Datos incompletos o inválidos: " + "\n";
     var correo= document.getElementById("usu_correo").value;
 
+    if(document.getElementById("emp_nombre").value == "")
+    {
+        correccion = correccion + "*Nombre" + "\n"
+        document.getElementById("emp_nombre").focus()
+        incompleto = true;
+    }
+    if(document.getElementById("emp_apellido").value == "")
+    {
+        correccion = correccion + "*Apellido" + "\n"
+        document.getElementById("emp_apellido").focus()
+        incompleto = true;
+    }
     if(document.getElementById("emp_nrodoc").value == "")
     {
         correccion = correccion + "*Documento" + "\n"
+        document.getElementById("emp_nrodoc").focus()
         incompleto = true;
     }
 
     if(document.getElementById("emp_direccion").value == "")
     {
         correccion = correccion + "*Dirección" + "\n"
+        document.getElementById("emp_direccion").focus()
         incompleto = true;
     }
-
-    if(document.getElementById("emp_apellido").value == "")
-    {
-        correccion = correccion + "*Apellido" + "\n"
-        incompleto = true;
-    }
-    if(document.getElementById("emp_nombre").value == "")
-    {
-        correccion = correccion + "*Nombre" + "\n"
-        incompleto = true;
-    }
+    
     if(document.getElementById("emp_telefono1").value == "")
     {
         correccion = correccion + "*Telefono" + "\n"
+        document.getElementById("emp_telefono1").focus()
         incompleto = true;
     }
     if(document.getElementById("usu_correo").value == "" || !(correo.includes("@")))
     {
         correccion = correccion + "*Correo" + "\n"
+        document.getElementById("usu_correo").focus()
         incompleto = true;
     }
 
     if(document.getElementById("usu_clave").value == "")
     {
         correccion = correccion + "*Clave" + "\n"
+        document.getElementById("usu_clave").focus()
         incompleto = true;
     }
 
     if(document.getElementById("usu_claveC").value != document.getElementById("usu_clave").value)
     {
         correccion = "Las contraseñas no coinciden" + "\n"
+        document.getElementById("usu_clave").focus()
         incompleto = true;
     }
-    
 
     if(incompleto == true){
         swal("Atención",correccion,"warning" );

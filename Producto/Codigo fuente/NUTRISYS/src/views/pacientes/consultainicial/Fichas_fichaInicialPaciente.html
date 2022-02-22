@@ -522,6 +522,9 @@
 									<div class="seccion__carne"> <!-- contiene el cuestionario-->
 										<div class="carne__titulo">
 										</div>
+											<section class="info__datosPersonales">
+												<h2 style="font-weight: normal; align-items: center; text-align: right;">* Campos Obligatorios *</h2>
+											</section>
 											<div class="seccion__class">
 											<h2 class="label__ficha"> Fecha actual: </h2>
 												<input required class="contenido__input contenido__fecha" type="date" id="fechaactual" disabled>
@@ -550,18 +553,19 @@
 												</div>
 		
 											</div>
+											<br>
 											<div class="seccion__class">
 												<h2 class="label__ficha">Medicación:</h2>
 												<textarea required class="contenido__input" id="hc_medicacion" maxlength="200"></textarea>
 											</div>
 		
 											<div class="seccion__class">
-												<h2 class="label__ficha">Actividad física:</h2>
+												<h2 class="label__ficha">Actividad física: (*)</h2>
 												<textarea required class="contenido__input" id="hc_actividadfisica" maxlength="100"></textarea>
 											</div>
 		
 											<div class="seccion__class">
-												<h2 class="label__ficha">Tarea o ocupación:</h2>
+												<h2 class="label__ficha">Tarea/Ocupación:(*)</h2>
 												<textarea required class="contenido__input" type="text" title="A que se dedica" id="hc_ocupacion" maxlength="100"></textarea>
 											</div>
 		

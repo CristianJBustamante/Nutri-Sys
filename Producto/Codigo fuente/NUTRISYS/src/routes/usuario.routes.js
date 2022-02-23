@@ -17,6 +17,7 @@ import { getallusers, getUsuario, nuevousuario, getDatosUsuario, crearToken, log
   
   //pantalla inicial
   router.get('/Home',AuthMiddleware.isLogged ,(req,res) => {
+    console.log(req.user)
     if (req.user.emp_legajo == null) {
       res.render('HomePacientes.html',{
         isAuthenticated : req.isAuthenticated(),

@@ -350,11 +350,13 @@ function validarDatos(){
       incompleto = true;
     }
   }
-  if(document.getElementById("hc_ajuste").value == '')
+  if(document.getElementById("hc_pesoactual").value != '' && document.getElementById("hc_talla").value != '')
   {
+    if(document.getElementById("hc_ajuste").value == ''){
       correccion = correccion + "*Ajuste por Actividad " + "\n"
       document.getElementById("hc_ajuste").focus()
       incompleto = true;
+    }
   }
   if(incompleto == true){
       swal("Atención",correccion,"warning" );

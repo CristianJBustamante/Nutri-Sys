@@ -1,6 +1,7 @@
 /** Header **/
 .header_bienvenida {
-    background-image: url(../images/que-es-nutricion-y-su-importancia-para-una-vida-saludable.jpg);
+    /* background-image: url(../images/que-es-nutricion-y-su-importancia-para-una-vida-saludable.jpg); */
+    background-image: url(../images/foto\ pantalla\ home.jpg);
 }
 .header_bienvenida {
     height: 20rem;
@@ -24,6 +25,7 @@
     padding-top: 1rem;
     padding-left: 2rem;
     font-weight: bold;
+    color: white;
 }
 
 .contenedor_home{
@@ -33,7 +35,7 @@
     height: 100%;
     align-items: center;
     justify-content: center; */
-    background-color: lightgray;
+    background-color: var(--grisClaro);
     margin-top: 1rem;
     padding-bottom: 2rem;
     padding: 3rem;

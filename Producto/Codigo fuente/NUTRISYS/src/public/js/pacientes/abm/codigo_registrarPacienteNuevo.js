@@ -276,7 +276,13 @@ function registrarPaciente(){
             }).then(res=>res.json())
             .then(data=>console.log(data))
             swal("Paciente Actualizado","Paciente "+pac_nrohc+" Actualizado con Éxito!","success")
-            .then((value) => {location.href ="/pacientes/buscarpaciente"})
+            .then((value) => {
+                if (nuevo==1) {
+                    location.href ="/pacientes/buscarpaciente"
+                }else{
+                    location.href ="/pacientes/consultapaciente/hc="+pac_nrohc
+                }
+                })
 
         } catch (error) {
             swal("Error","Hubo un Error al Registrar. Intente nuevamente.","error" )

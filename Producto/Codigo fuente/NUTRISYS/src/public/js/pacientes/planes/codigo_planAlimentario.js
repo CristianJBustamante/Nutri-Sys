@@ -203,7 +203,7 @@ function registrarPlan(){
       cancel: "No",
       defeat: "Si",
     },
-    dangerMode: false,
+    dangerMode: true,
   }).then((willDelete) => {
     if (willDelete) {
       vigente=1

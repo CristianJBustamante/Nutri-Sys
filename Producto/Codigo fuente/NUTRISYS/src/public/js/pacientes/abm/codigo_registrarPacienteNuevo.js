@@ -230,7 +230,7 @@ function registrarPaciente(){
             text: "Al registrar el paciente, se enviará un Mensaje de Texto al Número: " + telefonoCompleto + ". Confirme que es correcto.",
             icon: "warning",
             buttons: true,
-            dangerMode: true,
+            dangerMode: false,
           }).then((willDelete) => {
             if (willDelete) {
                 try {

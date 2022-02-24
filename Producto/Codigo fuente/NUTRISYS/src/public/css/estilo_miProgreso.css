@@ -17,6 +17,9 @@
   font-weight: bold;
   padding-left: 1rem;
   cursor: pointer;
+  background-color: var(--grisMedio);
+  height: 4rem;
+
 }
 
 .contenedor__panel {
@@ -122,7 +125,9 @@
 
 .contenido__principal{
   /* background-color: lightgrey; */
-  background-color: var(--grisMedio);  /*add nahuel*/
+  /* background-color: var(--grisMedio);   */
+ 
+  
 }
 
 /* Grafico de Progreso */

@@ -1050,7 +1050,28 @@
 								modal.modal("hide");
 							}
 							else {
-								swal("Paciente No Encontrado", "El paciente ingresado no es válido", "error");
+								swal("Paciente No Encontrado", "El paciente ingresado no es válido", "error").then(()=>{
+
+									swal({
+											title: "Atención",
+											text: "Desea registrar al paciente ahora?",
+											icon: "warning",
+											buttons: {
+											cancel: "No",
+											defeat: "Si",
+											},
+											dangerMode: true,
+										}).then((result) => {
+											if (result) {
+												location.href ='http://localhost:3000/pacientes/nuevopaciente/';
+											}
+										
+										})
+
+								});
+								
+
+								
 							}
 
 							 calendar.fullCalendar('updateEvent', calEvent);

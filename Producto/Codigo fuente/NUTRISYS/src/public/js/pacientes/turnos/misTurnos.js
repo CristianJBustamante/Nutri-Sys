@@ -306,11 +306,14 @@ function atenderPaciente(turno){
          .catch(error => console.log(error))
          const consulta = (consultas) => {
              console.log(consultas)
+             if (consultas.length==1 && consultas[0].turno_idestado==3) {
+                location.href = '/consulta/actualizarfichainicial/hc='+turno.nrohc+'/trn='+turno.idturno
+             }else{
              if (consultas.length>0) {
                  location.href = 'http://localhost:3000/consulta/modificaconsulta/hc='+turno.nrohc+'/trn='+turno.idturno
              }else{
                  location.href = '/consulta/registrarFichaInicial/hc='+turno.nrohc+'/trn='+turno.idturno
-             }
+             }}
          }
     
 }

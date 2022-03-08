@@ -210,7 +210,7 @@ function registrarPlan(){
     text: "Se registrará el Plan Alimentario para el Paciente "+ pac_nrohc + ", ¿Desea que sea el Plan Vigente?",
     icon: "warning",
     buttons: true,
-    dangerMode: true,
+    dangerMode: false,
   }).then((willDelete) => {
     if (willDelete) {
       vigente=1

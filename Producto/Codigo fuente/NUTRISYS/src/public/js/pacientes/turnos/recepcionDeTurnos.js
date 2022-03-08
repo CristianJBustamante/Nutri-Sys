@@ -167,7 +167,7 @@ function confirmarTurno(momento,nrohc, calendar){
 
     swal({
         title: "Atención",
-        text: "¿Desea Confirmar el Registro del Turno: " +momento._start._d,
+        text: "¿Desea Confirmar el Registro del Turno: ", //+ momento._start._d,//
         icon: "warning",
         buttons: { 
             cancel: "Cancelar",
